@@ -1,3 +1,7 @@
 .idea
 target
-!src/it/eo-to-bytecode/target
+*.time
+before/
+after/
+*.jar
+results.md

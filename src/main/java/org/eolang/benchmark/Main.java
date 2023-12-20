@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2023 Objectionary.com
+ * Copyright (c) 2023 Objectionary.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +23,14 @@
  */
 package org.eolang.benchmark;
 
-import org.junit.jupiter.api.Test;
-
-class AppTest {
-
-    @Test
-    void compares() {
-        new App().run();
+public class Main {
+    public static void main(String... args) {
+        App app = new App();
+        long total = Long.parseLong(args[0]);
+        long sum = 0L;
+        for (long i = 0; i < total; ++i) {
+            sum += app.run();
+        }
+        System.out.println(sum);
     }
 }

@@ -32,53 +32,24 @@ SOFTWARE.
   <url>https://github.com/objectionary/benchmark</url>
   <description>Benchmark of EO-based Optimizations</description>
   <inceptionYear>2023</inceptionYear>
-  <organization>
-    <name>EO</name>
-    <url>https://github.com/objectionary/eo</url>
-  </organization>
-  <licenses>
-    <license>
-      <name>MIT</name>
-      <url>https://www.eolang.org/LICENSE.txt</url>
-      <distribution>site</distribution>
-    </license>
-  </licenses>
-  <developers>
-    <developer>
-      <id>1</id>
-      <name>Yegor Bugayenko</name>
-      <email>yegor256@gmail.com</email>
-      <organization>open-source</organization>
-      <roles>
-        <role>Architect</role>
-        <role>Developer</role>
-      </roles>
-      <timezone>+3</timezone>
-    </developer>
-  </developers>
-  <issueManagement>
-    <system>GitHub</system>
-    <url>https://github.com/objectionary/benchmark/issues</url>
-  </issueManagement>
-  <scm>
-    <connection>scm:git:git@github.com:objectionary/benchmark.git</connection>
-    <developerConnection>scm:git:git@github.com:objectionary/benchmark.git</developerConnection>
-    <url>https://github.com/objectionary/benchmark</url>
-  </scm>
-  <ciManagement>
-    <system>GitHub</system>
-    <url>https://github.com/objectionary/benchmark</url>
-  </ciManagement>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <finalName>benchmark</finalName>
+    <directory>target</directory>
   </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.10.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <build>
+    <directory>${directory}</directory>
+    <finalName>${finalName}</finalName>
+  </build>
+  <profiles>
+    <profile>
+      <id>optimize</id>
+      <build>
+        <plugins>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

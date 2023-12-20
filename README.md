@@ -10,6 +10,11 @@ It's a benchmark that puts together:
 The goal is to test the performance of Java code before optimization and after,
 then comparing the results.
 
+<!-- benchmark -->
+...
+<!-- benchmark -->
+
+
 ## How to Contribute
 
 Fork repository, make changes, then send us
