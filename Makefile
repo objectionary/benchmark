@@ -1,6 +1,6 @@
 .ONESHELL:
 .SHELLFLAGS: -e -o pipefail -c
-.PHONY: all
+.PHONY: all clean
 
 SHELL = bash
 
