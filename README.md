@@ -11,7 +11,10 @@ The goal is to test the performance of Java code before optimization and after,
 then comparing the results.
 
 <!-- benchmark -->
-...
+Before optimization: 1.59
+After optimization: 1.57
+
+
 <!-- benchmark -->
 
 
