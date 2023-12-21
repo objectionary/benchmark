@@ -9,7 +9,6 @@
 
 It's a benchmark that puts together:
 
-  * [eo-maven-plugin](https://github.com/objectionary/eo)
   * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
   * [opeo-maven-plugin](https://github.com/objectionary/opeo-maven-plugin)
   * [ineo-maven-plugin](https://github.com/objectionary/ineo-maven-plugin)

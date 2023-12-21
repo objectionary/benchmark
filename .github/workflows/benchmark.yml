@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+    paths-ignore: [ 'README.md', 'LICENSE.txt' ]
 jobs:
   benchmark:
     runs-on: ubuntu-22.04
