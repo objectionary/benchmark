@@ -21,3 +21,10 @@ results.md: before.time after.time
 	mvn clean package -DfinalName=$${base} -Ddirectory=$${base}
 	cp $${base}/$${base}.jar $${base}.jar
 
+clean:
+	rm -f *.time
+	rm -f *.jar
+	rm -f results.md
+	rm -rf before
+	rm -rf after
+	rm -rf target

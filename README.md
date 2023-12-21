@@ -20,8 +20,8 @@ then comparing the results.
 This is the results obtained most recently:
 
 <!-- benchmark -->
-Before optimization: 1.59
-After optimization: 1.57
+Before optimization: 0.36
+After optimization: 0.34
 
 
 <!-- benchmark -->
