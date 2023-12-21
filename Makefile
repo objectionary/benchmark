@@ -1,10 +1,11 @@
 .ONESHELL:
 .SHELLFLAGS: -e -o pipefail -c
 .PHONY: all clean
+.PRECIOUS: %.jar after before
 
 SHELL = bash
 
-TOTAL=1000000000
+TOTAL=10000000000
 
 all: results.md
 	./inject-into-readme.pl
@@ -18,7 +19,7 @@ results.md: before.time after.time
 
 %.jar:
 	base=$(basename $@)
-	mvn clean package -DfinalName=$${base} -Ddirectory=$${base}
+	mvn --quiet clean package -DfinalName=$${base} -Ddirectory=$${base}
 	cp $${base}/$${base}.jar $${base}.jar
 
 clean:
