@@ -11,7 +11,7 @@ all: results.md
 	./inject-into-readme.pl
 
 results.md: before.time after.time
-	echo -e "| | Seconds |\n| --- | --- |\n| Before optimization | $$(cat before.time) |\n| After optimization | $$(cat after.time) |" > results.md
+	echo -e "| | Seconds |\n| --- | --: |\n| Before optimization | $$(cat before.time) |\n| After optimization | $$(cat after.time) |" > results.md
 
 %.time: %.jar
 	time=$$({ time -p java -cp $< org.eolang.benchmark.Main ${TOTAL} > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
