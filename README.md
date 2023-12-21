@@ -17,6 +17,8 @@ It's a benchmark that puts together:
 The goal is to test the performance of Java code before optimization and after,
 then comparing the results.
 
+This is the results obtained most recently:
+
 <!-- benchmark -->
 Before optimization: 1.59
 After optimization: 1.57
