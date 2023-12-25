@@ -21,8 +21,8 @@ This is the results obtained most recently:
 <!-- benchmark -->
 | | Seconds |
 | --- | --: |
-| Before optimization | 13.65 |
-| After optimization | 13.64 |
+| Before optimization | 2.96 |
+| After optimization | 2.96 |
 
 <!-- benchmark -->
 
@@ -33,10 +33,10 @@ Fork repository, make changes, then send us
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 We will review your changes and apply them to the `master` branch shortly,
 provided they don't violate our quality standards. To avoid frustration,
-before sending us your pull request please run full Maven build:
+before sending us your pull request please run full build:
 
 ```bash
-$ mvn clean install -Pqulice
+$ make
 ```
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.

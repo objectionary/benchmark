@@ -2,25 +2,24 @@
 .SHELLFLAGS: -e -o pipefail -c
 .PHONY: all clean
 .PRECIOUS: %.jar after before
-
-SHELL = bash
+SHELL=bash
 
 TOTAL=10000000000
 
-all: results.md
+all: results.md inject-into-readme.pl
 	./inject-into-readme.pl
 
-results.md: before.time after.time
+results.md: before.time after.time Makefile
 	echo -e "| | Seconds |\n| --- | --: |\n| Before optimization | $$(cat before.time) |\n| After optimization | $$(cat after.time) |" > results.md
 
-%.time: %.jar
-	time=$$({ time -p java -cp $< org.eolang.benchmark.Main ${TOTAL} > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
-	echo $${time} > $@
+%.time: %.jar Makefile
+	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	echo "$${time}" > $@
 
-%.jar:
+%.jar: pom.xml Makefile
 	base=$(basename $@)
-	mvn --quiet clean package -DfinalName=$${base} -Ddirectory=$${base}
-	cp $${base}/$${base}.jar $${base}.jar
+	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}"
+	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:
 	rm -f *.time
