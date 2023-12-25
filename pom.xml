@@ -57,7 +57,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>ineo-maven-plugin</artifactId>
-          <version>0.1.1</version>
+          <version>0.1.2</version>
         </plugin>
       </plugins>
     </pluginManagement>
