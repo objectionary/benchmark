@@ -48,6 +48,11 @@ SOFTWARE.
           <artifactId>jeo-maven-plugin</artifactId>
           <version>0.2.11</version>
         </plugin>
+        <plugin>
+          <groupId>org.eolang</groupId>
+          <artifactId>ineo-maven-plugin</artifactId>
+          <version>0.1.1</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -75,6 +80,19 @@ SOFTWARE.
                   <executable>mvn</executable>
                   <arguments>
                     <argument>jeo:bytecode-to-eo</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>fuse</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>mvn</executable>
+                  <arguments>
+                    <argument>ineo:fuse</argument>
                   </arguments>
                 </configuration>
               </execution>
