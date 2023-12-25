@@ -51,6 +51,11 @@ SOFTWARE.
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
+          <artifactId>opeo-maven-plugin</artifactId>
+          <version>0.0.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eolang</groupId>
           <artifactId>ineo-maven-plugin</artifactId>
           <version>0.1.1</version>
         </plugin>
@@ -72,7 +77,11 @@ SOFTWARE.
             <version>3.1.1</version>
             <configuration>
               <executable>mvn</executable>
-              <workingDirectory>.</workingDirectory>
+              <arguments>
+                <argument>--activate-profiles=after</argument>
+                <argument>-DfinalName=after</argument>
+                <argument>-Ddirectory=after</argument>
+              </arguments>
             </configuration>
             <executions>
               <execution>
@@ -82,11 +91,24 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <arguments>
+                  <arguments combine.children="append">
                     <argument>jeo:bytecode-to-eo</argument>
                   </arguments>
                 </configuration>
               </execution>
+              <execution>
+                <id>decompile</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>opeo:decompile</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <!--
               <execution>
                 <id>fuse</id>
                 <phase>process-classes</phase>
@@ -94,8 +116,21 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <arguments>
+                  <arguments combine.children="append">
                     <argument>ineo:fuse</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              -->
+              <execution>
+                <id>compile</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>opeo:compile</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -106,7 +141,7 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <arguments>
+                  <arguments combine.children="append">
                     <argument>jeo:eo-to-bytecode</argument>
                   </arguments>
                 </configuration>
