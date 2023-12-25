@@ -72,6 +72,7 @@ SOFTWARE.
             <version>3.1.1</version>
             <configuration>
               <executable>mvn</executable>
+              <workingDirectory>.</workingDirectory>
             </configuration>
             <executions>
               <execution>
