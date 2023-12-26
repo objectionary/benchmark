@@ -80,8 +80,8 @@ SOFTWARE.
               <arguments>
                 <argument>--update-snapshots</argument>
                 <argument>--activate-profiles=after</argument>
-                <argument>-DfinalName=after</argument>
-                <argument>-Ddirectory=after</argument>
+                <argument>-DfinalName=${finalName}</argument>
+                <argument>-Ddirectory=${directory}</argument>
               </arguments>
             </configuration>
             <executions>
