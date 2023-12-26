@@ -47,7 +47,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>jeo-maven-plugin</artifactId>
-          <version>0.2.11</version>
+          <version>0.2.12</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
