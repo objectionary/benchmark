@@ -52,12 +52,12 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>jeo-maven-plugin</artifactId>
-          <version>0.2.12</version>
+          <version>0.2.14</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>opeo-maven-plugin</artifactId>
-          <version>0.0.2</version>
+          <version>0.0.4</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
@@ -84,6 +84,8 @@ SOFTWARE.
               <executable>mvn</executable>
               <arguments>
                 <argument>--update-snapshots</argument>
+                <argument>--fail-fast</argument>
+                <argument>--errors</argument>
                 <argument>--activate-profiles=after</argument>
                 <argument>-DfinalName=${finalName}</argument>
                 <argument>-Ddirectory=${directory}</argument>
@@ -98,7 +100,7 @@ SOFTWARE.
                 </goals>
                 <configuration>
                   <arguments combine.children="append">
-                    <argument>jeo:bytecode-to-eo</argument>
+                    <argument>jeo:disassemble</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -174,7 +176,7 @@ SOFTWARE.
                 </goals>
                 <configuration>
                   <arguments combine.children="append">
-                    <argument>jeo:eo-to-bytecode</argument>
+                    <argument>jeo:assemble</argument>
                   </arguments>
                 </configuration>
               </execution>
