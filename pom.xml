@@ -57,7 +57,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>opeo-maven-plugin</artifactId>
-          <version>0.0.4</version>
+          <version>0.0.5</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
