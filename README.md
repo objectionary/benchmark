@@ -14,7 +14,8 @@ It's a benchmark that puts together:
   * [ineo-maven-plugin](https://github.com/objectionary/ineo-maven-plugin)
 
 The goal is to test the performance of Java code before optimization and after,
-then comparing the results.
+then comparing the results. Intermediate artifacts are in this 
+[`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 This is the results obtained most recently:
 
