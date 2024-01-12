@@ -8,37 +8,39 @@
   <style>
     section { width: 100%; }
     .snippet { width: 10%; float: left; margin-right: 1em; }
+    .snippet span { display: block; border-bottom: 1px solid gray; margin-bottom: 1em; }
+    .snippet span:after { content: "➜"; }
     .snippet pre { font-size: 12px; line-height: 1.2em; padding-left: 0; font-family: font-family: 'Ubuntu Mono', monospace; }
   </style>
 </head>
 <body>
   <section>
     <div class="snippet">
-      Java:<br/>
+      <span>Java:</span>
       <pre>{java}</pre></div>
     <div class="snippet">
-      Bytecode:<br/>
+      <span>Bytecode:</span>
       <pre>{after-javac}</pre></div>
     <div class="snippet">
-      Opcodes in EO:<br/>
+      <span>Opcodes in EO:</span>
       <pre>{after-jeo-disassemble}</pre></div>
     <div class="snippet">
-      Objects in EO:<br/>
+      <span>Objects in EO:</span>
       <pre>{after-opeo-decompile}</pre></div>
     <div class="snippet">
-      𝜑-experssions:<br/>
+      <span>𝜑-expressions:</span>
       <pre>{after-phi}</pre></div>
     <div class="snippet">
-      Optimized 𝜑-expressions:
+      <span>Optimized 𝜑:</span>
       <pre>{after-ineo-optimize}</pre></div>
     <div class="snippet">
-      EO Objects:<br/>
+      <span>EO Objects:</span>
       <pre>{after-unphi}</pre></div>
     <div class="snippet">
-      Opcodes:<br/>
+      <span>Opcodes:</span>
       <pre>{after-opeo-compile}</pre></div>
     <div class="snippet">
-      Bytecode:<br/>
+      <span>Bytecode:</span>
       <pre>{after-jeo-assemble}</pre></div>
   </section>
 </body>
