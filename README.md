@@ -21,7 +21,7 @@ This is the results obtained most recently:
 <!-- benchmark -->
 | | Seconds |
 | --- | --: |
-| Before optimization | 2.96 |
+| Before optimization | 2.98 |
 | After optimization | 2.98 |
 
 <!-- benchmark -->
