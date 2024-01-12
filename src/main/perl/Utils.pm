@@ -41,7 +41,7 @@ sub fread {
 # Save content to file.
 sub fwrite {
   my ($path, $content) = @_;
-  open(my $f, '>', $path) or error('Cannot open file for writing: ' . $path);
+  open(my $f, '>', $path) or die('Cannot open file for writing: ' . $path);
   print $f $content;
   close($f);
 }
