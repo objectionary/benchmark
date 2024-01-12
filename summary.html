@@ -1,0 +1,89 @@
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css", rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/drops.min.css", rel="stylesheet"/>
+  <link rel="shortcut icon" href="https://www.objectionary.com/cactus.svg"/>
+  <style>
+    section { width: 100%; }
+    .snippet { width: 10%; float: left; margin-right: 1em; }
+    .snippet pre { font-size: 12px; line-height: 1.2em; padding-left: 0; }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="snippet">
+      Java:<br/>
+      <pre>
+package org.eolang.benchmark;
+class A implements F {
+    private int d;
+    A(int d) {
+        this.d = d;
+    }
+    @Override public int foo() {
+        return d + 1;
+    }
+}
+
+package org.eolang.benchmark;
+class App {
+    int run() {
+        return new B(new A(42)).bar();
+    }
+}
+
+package org.eolang.benchmark;
+class B {
+    private final F f;
+    B(F f) {
+        this.f = f;
+    }
+    int bar() {
+        return f.foo() + 2;
+    }
+}
+
+package org.eolang.benchmark;
+interface F {
+    int foo();
+}
+
+package org.eolang.benchmark;
+public class Main {
+    public static void main(String... args) {
+        App app = new App();
+        long total = Long.parseLong(args[0]);
+        long sum = 0L;
+        for (long i = 0; i < total; ++i) {
+            sum += app.run();
+        }
+        System.out.println(sum);
+    }
+}</pre></div>
+    <div class="snippet">
+      Bytecode:<br/>
+      <pre>{after-javac}</pre></div>
+    <div class="snippet">
+      Opcodes in EO:<br/>
+      <pre>{after-jeo-disassemble}</pre></div>
+    <div class="snippet">
+      Objects in EO:<br/>
+      <pre>{after-opeo-decompile}</pre></div>
+    <div class="snippet">
+      𝜑-experssions:<br/>
+      <pre>{after-phi}</pre></div>
+    <div class="snippet">
+      Optimized 𝜑-expressions:
+      <pre>{after-ineo-optimize}</pre></div>
+    <div class="snippet">
+      EO Objects:<br/>
+      <pre>{after-unphi}</pre></div>
+    <div class="snippet">
+      Opcodes:<br/>
+      <pre>{after-opeo-compile}</pre></div>
+    <div class="snippet">
+      Bytecode:<br/>
+      <pre>{after-jeo-assemble}</pre></div>
+  </section>
+</body>
+</html>
