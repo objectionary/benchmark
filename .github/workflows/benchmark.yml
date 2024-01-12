@@ -21,6 +21,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
       - run: make
+      - run: |
+          mkdir gh-pages
+          cp target/summary.html gh-pages
+      - uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages
+          folder: gh-pages
+          clean: false
+        if: github.ref == 'refs/heads/master'
       - uses: peter-evans/create-pull-request@v5
         with:
           branch: benchmark
@@ -29,3 +38,4 @@ jobs:
           title: 'New results of benchmarking'
           assignees: yegor256
           base: master
+        if: github.ref == 'refs/heads/master'
