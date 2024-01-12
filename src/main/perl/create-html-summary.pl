@@ -46,4 +46,14 @@ foreach my $f (glob('src/main/java/org/eolang/benchmark/*.java')) {
 $javas =~ s/^\s|\s$//g;
 $html = inject($html, 'java', $javas);
 
+my $eos = '';
+foreach my $f (glob('after/generated-sources/eo/org/eolang/benchmark/*.eo')) {
+  my $eo = fread($f);
+  $eo =~ s/^\s|\s$//g; # leading and tailing spaces
+  $eo =~ s/\n\n/\n/g; # empty lines
+  $eos = $eos . "\n" . $eo;
+}
+$eos =~ s/^\s|\s$//g;
+$html = inject($html, 'after-jeo-disassemble', $eos);
+
 fwrite('target/summary.html', $html);
