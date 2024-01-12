@@ -1,0 +1,42 @@
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css", rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/drops.min.css", rel="stylesheet"/>
+  <style>
+    section { width: 100%; }
+    .snippet { width: 10%; float: left; margin-right: 1em; }
+    .snippet pre { font-size: 12px; line-height: 1.2em; padding-left: 0; }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="snippet">
+      Java:<br/>
+      <pre>{java}</pre></div>
+    <div class="snippet">
+      Bytecode:<br/>
+      <pre>{after-javac}</pre></div>
+    <div class="snippet">
+      Opcodes in EO:<br/>
+      <pre>{after-jeo-disassemble}</pre></div>
+    <div class="snippet">
+      Objects in EO:<br/>
+      <pre>{after-opeo-decompile}</pre></div>
+    <div class="snippet">
+      𝜑-experssions:<br/>
+      <pre>{after-phi}</pre></div>
+    <div class="snippet">
+      Optimized 𝜑-expressions:
+      <pre>{after-ineo-optimize}</pre></div>
+    <div class="snippet">
+      EO Objects:<br/>
+      <pre>{after-unphi}</pre></div>
+    <div class="snippet">
+      Opcodes:<br/>
+      <pre>{after-opeo-compile}</pre></div>
+    <div class="snippet">
+      Bytecode:<br/>
+      <pre>{after-jeo-assemble}</pre></div>
+  </section>
+</body>
+</html>
