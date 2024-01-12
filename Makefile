@@ -28,8 +28,9 @@ SHELL=bash
 
 TOTAL=10000000000
 
-all: results.md src/main/perl/inject-into-readme.pl
+all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	./src/main/perl/inject-into-readme.pl
+	./src/main/perl/create-html-summary.pl
 
 results.md: before.time after.time Makefile
 	echo -e "| | Seconds |\n| --- | --: |\n| Before optimization | $$(cat before.time) |\n| After optimization | $$(cat after.time) |" > results.md
