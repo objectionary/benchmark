@@ -24,9 +24,12 @@
 .SHELLFLAGS: -e -o pipefail -c
 .PHONY: all clean
 .PRECIOUS: %.jar after before
-SHELL=bash
+.EXPORT_ALL_VARIABLES:
 
+SHELL=bash
 TOTAL=10000000000
+
+JEO_VERSION=0.2.16
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	./src/main/perl/inject-into-readme.pl
@@ -41,7 +44,7 @@ results.md: before.time after.time Makefile
 
 %.jar: pom.xml Makefile
 	base=$(basename $@)
-	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}"
+	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}" -Djeo.version=${JEO_VERSION}
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:

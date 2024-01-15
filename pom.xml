@@ -38,6 +38,7 @@ SOFTWARE.
     <maven.compiler.target>11</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
+    <jeo.version>0.2.16</jeo.version>
   </properties>
   <build>
     <directory>${directory}</directory>
@@ -52,7 +53,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>jeo-maven-plugin</artifactId>
-          <version>0.2.16</version>
+          <version>${jeo.version}</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>

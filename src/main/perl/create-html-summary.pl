@@ -23,13 +23,18 @@
 
 use strict;
 use warnings;
+use Env;
 use File::Basename;
 use lib('src/main/perl');
 use Utils qw( fread fwrite );
 
 sub inject {
   my ($html, $snippet, $pre) = @_;
-  $html =~ s/\{${snippet}\}/${pre}/g;
+  my $safe = $pre;
+  $safe =~ s/</&lt;/g;
+  $safe =~ s/>/&gt;/g;
+  $safe =~ s/\$/\\\$/g;
+  $html =~ s/\{${snippet}\}/${safe}/g;
   return $html;
 }
 
@@ -65,6 +70,24 @@ sub join_eo {
   return $eos;
 }
 
+sub join_java {
+  my ($dir) = @_;
+  my $javas = '';
+  my $total = 0;
+  foreach my $f (glob($dir . '/*.java')) {
+    my $java = fread($f);
+    $java =~ s/^\s|\s$//g; # leading and tailing spaces
+    $java =~ s/\/\/.*\n//g; # one-line comments
+    $java =~ s/\n\n/\n/g; # empty lines
+    $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
+    $javas = $javas . "\n" . $java;
+    $total += 1;
+  }
+  $javas =~ s/^\s|\s$//g;
+  print("$total .java files joined from $dir\n");
+  return $javas;
+}
+
 sub join_phi {
   my ($dir) = @_;
   my $phis = '';
@@ -82,20 +105,13 @@ sub join_phi {
 
 my $html = fread('src/main/html/summary.html');
 
-my $javas = '';
-foreach my $f (glob('src/main/java/org/eolang/benchmark/*.java')) {
-  my $java = fread($f);
-  $java =~ s/^\s|\s$//g; # leading and tailing spaces
-  $java =~ s/\/\/.*\n//g; # one-line comments
-  $java =~ s/\n\n/\n/g; # empty lines
-  $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
-  $javas = $javas . "\n" . $java;
-}
-$javas =~ s/^\s|\s$//g;
-$html = inject($html, 'java', $javas);
+$html = inject($html, 'java', join_java('src/main/java/org/eolang/benchmark'));
 $html = inject($html, 'after-javac', join_classes('after/classes'));
 $html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/eo/org/eolang/benchmark'));
 $html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-eo/org/eolang/benchmark'));
 $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
+
+$html = inject($html, 'version-javac', `javac --version`);
+$html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
 
 fwrite('target/summary.html', $html);
