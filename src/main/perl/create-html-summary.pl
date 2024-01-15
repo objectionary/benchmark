@@ -23,6 +23,7 @@
 
 use strict;
 use warnings;
+use File::Basename;
 use lib('src/main/perl');
 use Utils qw( fread fwrite );
 
@@ -32,28 +33,50 @@ sub inject {
   return $html;
 }
 
+sub join_classes {
+  my ($dir) = @_;
+  my $codes = '';
+  my $total = 0;
+  foreach my $f (glob($dir . '/org/eolang/benchmark/*.class')) {
+    my $base = substr($f, length($dir) + 1);
+    my $code = `cd $dir ; javap -c '$base'`;
+    $code =~ s/^\s|\s$//g; # leading and tailing spaces
+    $codes = $codes . "\n\n" . $code;
+    $total += 1;
+  }
+  $codes =~ s/^\s|\s$//g;
+  print("$total .class files joined from $dir\n");
+  return $codes;
+}
+
 sub join_eo {
   my ($dir) = @_;
   my $eos = '';
+  my $total = 0;
   foreach my $f (glob($dir . '/*.eo')) {
     my $eo = fread($f);
     $eo =~ s/^\s|\s$//g; # leading and tailing spaces
     $eo =~ s/\n\n/\n/g; # empty lines
     $eos = $eos . "\n\n" . $eo;
+    $total += 1;
   }
   $eos =~ s/^\s|\s$//g;
+  print("$total .eo files joined from $dir\n");
   return $eos;
 }
 
 sub join_phi {
   my ($dir) = @_;
   my $phis = '';
+  my $total = 0;
   foreach my $f (glob($dir . '/*.phi')) {
     my $phi = fread($f);
     $phi =~ s/^\s|\s$//g; # leading and tailing spaces
     $phis = $phis . "\n\n" . $phi;
+    $total += 1;
   }
   $phis =~ s/^\s|\s$//g;
+  print("$total .phi files joined from $dir\n");
   return $phis;
 }
 
@@ -70,7 +93,7 @@ foreach my $f (glob('src/main/java/org/eolang/benchmark/*.java')) {
 }
 $javas =~ s/^\s|\s$//g;
 $html = inject($html, 'java', $javas);
-
+$html = inject($html, 'after-javac', join_classes('after/classes'));
 $html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/eo/org/eolang/benchmark'));
 $html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-eo/org/eolang/benchmark'));
 $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));

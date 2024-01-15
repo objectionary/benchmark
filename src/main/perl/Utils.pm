@@ -47,4 +47,5 @@ sub fwrite {
   open(my $f, '>', $path) or die("Cannot open file for writing: '$path'");
   print $f $content;
   close($f);
+  print("File saved to $path\n");
 }
