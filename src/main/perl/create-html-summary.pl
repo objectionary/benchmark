@@ -32,6 +32,19 @@ sub inject {
   return $html;
 }
 
+sub join_eo {
+  my ($dir) = @_;
+  my $eos = '';
+  foreach my $f (glob($dir . '/*.eo')) {
+    my $eo = fread($f);
+    $eo =~ s/^\s|\s$//g; # leading and tailing spaces
+    $eo =~ s/\n\n/\n/g; # empty lines
+    $eos = $eos . "\n\n" . $eo;
+  }
+  $eos =~ s/^\s|\s$//g;
+  return $eos;
+}
+
 my $html = fread('src/main/html/summary.html');
 
 my $javas = '';
@@ -46,14 +59,7 @@ foreach my $f (glob('src/main/java/org/eolang/benchmark/*.java')) {
 $javas =~ s/^\s|\s$//g;
 $html = inject($html, 'java', $javas);
 
-my $eos = '';
-foreach my $f (glob('after/generated-sources/eo/org/eolang/benchmark/*.eo')) {
-  my $eo = fread($f);
-  $eo =~ s/^\s|\s$//g; # leading and tailing spaces
-  $eo =~ s/\n\n/\n/g; # empty lines
-  $eos = $eos . "\n" . $eo;
-}
-$eos =~ s/^\s|\s$//g;
-$html = inject($html, 'after-jeo-disassemble', $eos);
+$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/eo/org/eolang/benchmark'));
+$html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-eo/org/eolang/benchmark'));
 
 fwrite('target/summary.html', $html);

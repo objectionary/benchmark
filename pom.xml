@@ -117,6 +117,20 @@ SOFTWARE.
                 </configuration>
               </execution>
               <execution>
+                <id>print-eo-after-opeo</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>eo:print</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-xmir</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-eo</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
                 <id>phi</id>
                 <phase>process-classes</phase>
                 <goals>
