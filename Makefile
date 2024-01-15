@@ -30,6 +30,7 @@ SHELL=bash
 TOTAL=10000000000
 
 JEO_VERSION=0.2.16
+OPEO_VERSION=0.0.5
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	./src/main/perl/inject-into-readme.pl

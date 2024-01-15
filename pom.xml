@@ -39,6 +39,7 @@ SOFTWARE.
     <finalName>benchmark</finalName>
     <directory>target</directory>
     <jeo.version>0.2.16</jeo.version>
+    <opeo.version>0.0.5</opeo.version>
   </properties>
   <build>
     <directory>${directory}</directory>
@@ -58,7 +59,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>opeo-maven-plugin</artifactId>
-          <version>0.0.5</version>
+          <version>${opeo.version}</version>
         </plugin>
         <plugin>
           <groupId>org.eolang</groupId>
