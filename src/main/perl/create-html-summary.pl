@@ -112,6 +112,7 @@ $html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/o
 $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
 
 $html = inject($html, 'version-javac', `javac --version`);
+$html = inject($html, 'eo-version', $ENV{EO_VERSION});
 $html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
 $html = inject($html, 'opeo-version', $ENV{OPEO_VERSION});
 
