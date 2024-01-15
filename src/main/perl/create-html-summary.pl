@@ -45,6 +45,18 @@ sub join_eo {
   return $eos;
 }
 
+sub join_phi {
+  my ($dir) = @_;
+  my $phis = '';
+  foreach my $f (glob($dir . '/*.phi')) {
+    my $phi = fread($f);
+    $phi =~ s/^\s|\s$//g; # leading and tailing spaces
+    $phis = $phis . "\n\n" . $phi;
+  }
+  $phis =~ s/^\s|\s$//g;
+  return $phis;
+}
+
 my $html = fread('src/main/html/summary.html');
 
 my $javas = '';
@@ -61,5 +73,6 @@ $html = inject($html, 'java', $javas);
 
 $html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/eo/org/eolang/benchmark'));
 $html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-eo/org/eolang/benchmark'));
+$html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
 
 fwrite('target/summary.html', $html);
