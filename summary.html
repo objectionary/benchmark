@@ -7,12 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
   <style>
     body { counter-reset: step; }
-    section { width: 100%; }
-    .snippet { width: 9.5%; float: left; margin-right: 1em; }
-    .snippet span { display: block; border-bottom: 1px solid gray; margin-bottom: 1em; }
-    .snippet span:before { content: counter(step) ") "; counter-increment: step; }
-    .snippet span:after { content: ""; }
-    .snippet:last-child span:after { content: ""; }
+    section { width: 100%; height: 100%; }
+    .snippet { width: 9.5%; float: left; margin-right: 1em; height: 100%; overflow-y: scroll; }
+    .snippet span:first-child { display: block; border-bottom: 1px solid gray; margin-bottom: .5em; }
+    .snippet span:first-child:before { content: counter(step) ") "; counter-increment: step; }
+    .snippet span:first-child:after { content: ""; }
+    .snippet:last-child span:first-child:after { content: ""; }
     .snippet pre { font-size: 12px; line-height: 1.2em; padding-left: 0; font-family: font-family: 'Ubuntu Mono', monospace; }
   </style>
 </head>
@@ -61,21 +61,24 @@ public class Main {
         App app = new App();
         long total = Long.parseLong(args[0]);
         long sum = 0L;
-        for (long i = 0; i < total; ++i) {
+        for (long i = 0; i &lt; total; ++i) {
             sum += app.run();
         }
         System.out.println(sum);
     }
-}</pre></div>
+}</pre>
+      <span></span></div>
     <div class="snippet">
-      <span>Bytecode:</span>
+      <span>Bytecode after
+      javac 20.0.2
+</span>
       <pre>
 Compiled from "A.java"
 class org.eolang.benchmark.A implements org.eolang.benchmark.F {
   org.eolang.benchmark.A(int);
     Code:
        0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
        4: aload_0
        5: iload_1
        6: putfield      #7                  // Field d:I
@@ -95,7 +98,7 @@ class org.eolang.benchmark.App {
   org.eolang.benchmark.App();
     Code:
        0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
        4: return
 
   int run();
@@ -105,8 +108,8 @@ class org.eolang.benchmark.App {
        4: new           #9                  // class org/eolang/benchmark/A
        7: dup
        8: bipush        42
-      10: invokespecial #11                 // Method org/eolang/benchmark/A."<init>":(I)V
-      13: invokespecial #14                 // Method org/eolang/benchmark/B."<init>":(Lorg/eolang/benchmark/F;)V
+      10: invokespecial #11                 // Method org/eolang/benchmark/A."&lt;init&gt;":(I)V
+      13: invokespecial #14                 // Method org/eolang/benchmark/B."&lt;init&gt;":(Lorg/eolang/benchmark/F;)V
       16: invokevirtual #17                 // Method org/eolang/benchmark/B.bar:()I
       19: ireturn
 }
@@ -116,7 +119,7 @@ class org.eolang.benchmark.B {
   org.eolang.benchmark.B(org.eolang.benchmark.F);
     Code:
        0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
        4: aload_0
        5: aload_1
        6: putfield      #7                  // Field f:Lorg/eolang/benchmark/F;
@@ -142,14 +145,14 @@ public class org.eolang.benchmark.Main {
   public org.eolang.benchmark.Main();
     Code:
        0: aload_0
-       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
        4: return
 
   public static void main(java.lang.String...);
     Code:
        0: new           #7                  // class org/eolang/benchmark/App
        3: dup
-       4: invokespecial #9                  // Method org/eolang/benchmark/App."<init>":()V
+       4: invokespecial #9                  // Method org/eolang/benchmark/App."&lt;init&gt;":()V
        7: astore_1
        8: aload_0
        9: iconst_0
@@ -181,25 +184,25 @@ public class org.eolang.benchmark.Main {
       55: return
 }</pre></div>
     <div class="snippet">
-      <span>Opcodes in EO:</span>
+      <span>Opcodes after jeo:disassemble 0.2.16</span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$A
-  32 > access
+[] &gt; j\$A
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
+""" &gt; supername
   
             """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
 """
-          > interfaces
+          &gt; interfaces
     """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
 """
-  field > j$d
+  field &gt; j\$d
     2
     """
 49
@@ -208,24 +211,24 @@ public class org.eolang.benchmark.Main {
 """
     """
 """
-  [arg__I__0] > new
-    0 > access
+  [arg__I__0] &gt; new
+    0 &gt; access
     """
 28 49 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-61 37 39 34 34 36 36 32 2D 64 63 63 32 2D 34 62 31 36 2D 61 35 37 37 2D 35 38 64 35 66 32 62 35 66 63 66 39
+38 39 65 63 65 63 32 35 2D 65 30 35 33 2D 34 30 62 30 2D 61 38 38 65 2D 63 65 30 31 64 38 61 63 32 35 66 37
 """
-        opcode > ALOAD-19
+        opcode &gt; ALOAD-19
           25
           0
-        opcode > INVOKESPECIAL-1A
+        opcode &gt; INVOKESPECIAL-1A
           183
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
@@ -238,15 +241,15 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-33 31 30 62 33 64 35 37 2D 37 32 66 31 2D 34 61 64 62 2D 61 62 61 64 2D 32 65 36 66 64 38 63 35 65 37 64 34
+32 39 34 33 61 65 37 30 2D 64 32 37 35 2D 34 31 30 65 2D 39 38 39 66 2D 65 33 36 34 61 34 38 38 37 31 37 39
 """
-        opcode > ALOAD-1B
+        opcode &gt; ALOAD-1B
           25
           0
-        opcode > ILOAD-1C
+        opcode &gt; ILOAD-1C
           21
           1
-        opcode > PUTFIELD-1D
+        opcode &gt; PUTFIELD-1D
           181
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41
@@ -259,32 +262,32 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-63 38 31 62 32 32 61 64 2D 30 32 32 36 2D 34 37 37 36 2D 39 66 63 61 2D 36 31 61 33 30 35 65 62 32 36 34 66
+31 39 37 61 31 37 38 62 2D 32 61 33 31 2D 34 66 37 65 2D 39 30 36 63 2D 30 30 39 37 65 66 66 62 36 33 39 62
 """
-        opcode > RETURN-1E
+        opcode &gt; RETURN-1E
           177
         label
           """
-66 64 64 62 30 62 64 63 2D 32 37 65 64 2D 34 35 32 61 2D 38 35 34 61 2D 64 62 34 32 65 37 39 32 39 32 33 65
+66 37 61 62 30 38 34 31 2D 63 66 66 64 2D 34 37 38 37 2D 38 33 30 32 2D 30 37 65 63 32 38 35 39 34 63 35 38
 """
-  [] > j$foo
-    1 > access
+  [] &gt; j\$foo
+    1 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-64 64 31 33 34 63 64 35 2D 30 33 34 65 2D 34 34 37 34 2D 61 63 37 31 2D 38 61 37 30 33 66 39 37 36 33 32 37
+62 30 32 62 30 64 36 32 2D 35 30 38 33 2D 34 63 34 64 2D 39 61 66 30 2D 36 38 65 65 61 30 32 37 32 63 62 30
 """
-        opcode > ALOAD-1F
+        opcode &gt; ALOAD-1F
           25
           0
-        opcode > GETFIELD-20
+        opcode &gt; GETFIELD-20
           180
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41
@@ -295,44 +298,44 @@ public class org.eolang.benchmark.Main {
           """
 49
 """
-        opcode > ICONST_1-21
+        opcode &gt; ICONST_1-21
           4
-        opcode > IADD-22
+        opcode &gt; IADD-22
           96
-        opcode > IRETURN-23
+        opcode &gt; IRETURN-23
           172
         label
           """
-36 38 31 66 65 39 65 63 2D 32 64 32 38 2D 34 31 33 31 2D 61 33 39 31 2D 65 38 31 61 34 33 65 65 61 36 66 30
+64 33 33 37 32 35 66 30 2D 33 32 36 31 2D 34 37 35 37 2D 61 62 66 31 2D 33 63 36 35 33 62 64 37 30 37 38 38
 """
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$App
-  32 > access
+[] &gt; j\$App
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > new
-    0 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; new
+    0 &gt; access
     """
 28 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-35 35 62 65 30 63 33 37 2D 34 32 64 31 2D 34 63 32 35 2D 38 65 61 62 2D 32 33 31 34 64 63 34 38 61 39 37 38
+30 38 33 34 65 66 63 62 2D 32 34 65 31 2D 34 36 33 32 2D 38 64 66 61 2D 36 61 35 32 63 63 64 36 39 35 31 35
 """
-        opcode > ALOAD-D
+        opcode &gt; ALOAD-D
           25
           0
-        opcode > INVOKESPECIAL-E
+        opcode &gt; INVOKESPECIAL-E
           183
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
@@ -343,44 +346,44 @@ public class org.eolang.benchmark.Main {
           """
 28 29 56
 """
-        opcode > RETURN-F
+        opcode &gt; RETURN-F
           177
         label
           """
-62 34 64 37 64 66 32 63 2D 36 65 31 30 2D 34 61 36 39 2D 39 35 37 66 2D 66 38 63 64 33 66 39 31 64 33 37 62
+63 64 37 34 64 30 32 62 2D 35 30 37 61 2D 34 63 65 33 2D 39 63 33 32 2D 66 38 38 61 64 39 39 35 34 31 66 34
 """
-  [] > j$run
-    0 > access
+  [] &gt; j\$run
+    0 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-61 66 63 64 38 61 37 39 2D 39 66 37 30 2D 34 32 34 34 2D 61 65 37 34 2D 66 34 36 37 31 36 36 30 62 39 31 38
+37 65 32 34 62 61 34 63 2D 33 61 63 39 2D 34 37 37 38 2D 61 64 39 65 2D 66 36 63 63 64 61 65 65 62 63 39 36
 """
-        opcode > NEW-10
+        opcode &gt; NEW-10
           187
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 42
 """
-        opcode > DUP-11
+        opcode &gt; DUP-11
           89
-        opcode > NEW-12
+        opcode &gt; NEW-12
           187
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41
 """
-        opcode > DUP-13
+        opcode &gt; DUP-13
           89
-        opcode > BIPUSH-14
+        opcode &gt; BIPUSH-14
           16
           42
-        opcode > INVOKESPECIAL-15
+        opcode &gt; INVOKESPECIAL-15
           183
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41
@@ -391,7 +394,7 @@ public class org.eolang.benchmark.Main {
           """
 28 49 29 56
 """
-        opcode > INVOKESPECIAL-16
+        opcode &gt; INVOKESPECIAL-16
           183
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 42
@@ -402,7 +405,7 @@ public class org.eolang.benchmark.Main {
           """
 28 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B 29 56
 """
-        opcode > INVOKEVIRTUAL-17
+        opcode &gt; INVOKEVIRTUAL-17
           182
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 42
@@ -413,23 +416,23 @@ public class org.eolang.benchmark.Main {
           """
 28 29 49
 """
-        opcode > IRETURN-18
+        opcode &gt; IRETURN-18
           172
         label
           """
-33 39 37 39 63 61 36 61 2D 32 30 65 34 2D 34 30 39 65 2D 38 64 30 65 2D 37 39 33 39 35 32 63 32 38 66 30 32
+33 31 31 33 62 32 33 39 2D 66 39 30 37 2D 34 66 66 38 2D 62 62 63 61 2D 62 30 39 65 35 64 37 37 37 32 63 39
 """
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$B
-  32 > access
+[] &gt; j\$B
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  field > j$f
+""" &gt; supername
+   &gt; interfaces
+  field &gt; j\$f
     18
     """
 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B
@@ -438,24 +441,24 @@ public class org.eolang.benchmark.Main {
 """
     """
 """
-  [arg__Lorg/eolang/benchmark/F;__0] > new
-    0 > access
+  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
+    0 &gt; access
     """
 28 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-64 33 37 36 66 33 32 66 2D 38 33 35 33 2D 34 30 65 38 2D 61 64 39 65 2D 30 37 38 30 39 31 34 65 36 65 64 65
+61 32 64 31 30 61 65 36 2D 39 38 39 32 2D 34 30 32 35 2D 38 38 66 31 2D 63 65 34 39 32 36 39 62 39 36 36 34
 """
-        opcode > ALOAD-1
+        opcode &gt; ALOAD-1
           25
           0
-        opcode > INVOKESPECIAL-2
+        opcode &gt; INVOKESPECIAL-2
           183
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
@@ -468,15 +471,15 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-62 34 34 63 65 66 38 65 2D 36 33 30 62 2D 34 33 63 64 2D 61 31 66 64 2D 39 65 34 34 64 36 35 38 31 63 62 38
+30 63 31 39 65 30 38 66 2D 30 35 34 65 2D 34 37 39 37 2D 61 30 30 38 2D 65 65 64 34 38 64 65 35 65 36 63 33
 """
-        opcode > ALOAD-3
+        opcode &gt; ALOAD-3
           25
           0
-        opcode > ALOAD-4
+        opcode &gt; ALOAD-4
           25
           1
-        opcode > PUTFIELD-5
+        opcode &gt; PUTFIELD-5
           181
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 42
@@ -489,32 +492,32 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-35 34 30 35 64 65 31 34 2D 64 31 61 62 2D 34 38 61 65 2D 38 66 32 33 2D 64 33 63 66 63 33 61 66 37 35 34 62
+66 34 62 30 32 31 65 39 2D 39 34 34 32 2D 34 32 35 39 2D 38 64 62 64 2D 35 35 31 38 36 63 66 30 65 31 64 62
 """
-        opcode > RETURN-6
+        opcode &gt; RETURN-6
           177
         label
           """
-61 32 34 66 61 36 66 61 2D 35 32 32 34 2D 34 66 33 62 2D 38 34 64 36 2D 39 35 66 34 62 63 66 65 39 32 61 34
+39 39 35 35 61 36 62 36 2D 32 37 33 30 2D 34 64 63 66 2D 38 63 66 32 2D 34 62 34 35 63 39 62 30 37 64 61 38
 """
-  [] > j$bar
-    0 > access
+  [] &gt; j\$bar
+    0 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-38 61 35 39 63 39 33 38 2D 31 62 31 38 2D 34 66 31 37 2D 61 35 65 66 2D 65 61 66 38 30 38 30 37 36 32 35 35
+61 33 62 35 37 34 66 38 2D 65 63 36 34 2D 34 65 62 36 2D 62 64 63 38 2D 62 38 61 34 65 37 34 39 31 36 62 31
 """
-        opcode > ALOAD-7
+        opcode &gt; ALOAD-7
           25
           0
-        opcode > GETFIELD-8
+        opcode &gt; GETFIELD-8
           180
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 42
@@ -525,7 +528,7 @@ public class org.eolang.benchmark.Main {
           """
 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B
 """
-        opcode > INVOKEINTERFACE-9
+        opcode &gt; INVOKEINTERFACE-9
           185
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
@@ -536,64 +539,64 @@ public class org.eolang.benchmark.Main {
           """
 28 29 49
 """
-        opcode > ICONST_2-A
+        opcode &gt; ICONST_2-A
           5
-        opcode > IADD-B
+        opcode &gt; IADD-B
           96
-        opcode > IRETURN-C
+        opcode &gt; IRETURN-C
           172
         label
           """
-34 65 61 30 31 65 33 37 2D 31 30 66 30 2D 34 34 37 32 2D 39 65 32 65 2D 66 33 39 62 33 31 38 63 31 35 33 30
+62 66 32 34 35 65 62 35 2D 61 38 35 34 2D 34 31 62 62 2D 38 35 33 36 2D 32 65 66 61 62 37 61 61 30 37 65 37
 """
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$F
-  1536 > access
+[] &gt; j\$F
+  1536 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > j$foo
-    1025 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; j\$foo
+    1025 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$Main
-  33 > access
+[] &gt; j\$Main
+  33 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > new
-    1 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; new
+    1 &gt; access
     """
 28 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-64 64 37 35 38 39 30 65 2D 66 32 65 65 2D 34 64 34 37 2D 61 62 61 61 2D 32 65 37 37 30 37 35 37 63 63 61 63
+37 66 64 31 66 33 62 39 2D 32 65 30 33 2D 34 33 65 66 2D 61 61 39 31 2D 32 36 36 65 34 37 64 38 66 32 64 65
 """
-        opcode > ALOAD-24
+        opcode &gt; ALOAD-24
           25
           0
-        opcode > INVOKESPECIAL-25
+        opcode &gt; INVOKESPECIAL-25
           183
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
@@ -604,34 +607,34 @@ public class org.eolang.benchmark.Main {
           """
 28 29 56
 """
-        opcode > RETURN-26
+        opcode &gt; RETURN-26
           177
         label
           """
-64 62 36 64 31 31 64 39 2D 36 63 32 65 2D 34 35 62 32 2D 61 66 65 64 2D 62 35 61 39 32 31 63 30 65 36 30 33
+30 65 65 34 33 61 62 66 2D 63 39 65 34 2D 34 37 39 36 2D 62 30 65 63 2D 37 36 65 34 35 35 63 35 65 63 65 31
 """
-  [arg__[Ljava/lang/String;__0] > j$main
-    137 > access
+  [arg__[Ljava/lang/String;__0] &gt; j\$main
+    137 &gt; access
     """
 28 5B 4C 6A 61 76 61 2F 6C 61 6E 67 2F 53 74 72 69 6E 67 3B 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         label
           """
-39 65 64 65 32 37 64 31 2D 62 31 34 35 2D 34 66 66 63 2D 61 65 33 33 2D 62 36 64 63 62 36 31 65 34 34 33 36
+31 33 31 64 31 63 64 36 2D 36 37 35 66 2D 34 34 65 65 2D 61 36 62 38 2D 64 63 61 35 36 62 64 38 63 36 37 61
 """
-        opcode > NEW-27
+        opcode &gt; NEW-27
           187
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41 70 70
 """
-        opcode > DUP-28
+        opcode &gt; DUP-28
           89
-        opcode > INVOKESPECIAL-29
+        opcode &gt; INVOKESPECIAL-29
           183
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41 70 70
@@ -642,21 +645,21 @@ public class org.eolang.benchmark.Main {
           """
 28 29 56
 """
-        opcode > ASTORE-2A
+        opcode &gt; ASTORE-2A
           58
           1
         label
           """
-66 35 37 34 61 31 64 35 2D 34 32 34 30 2D 34 35 38 66 2D 39 36 34 36 2D 38 66 62 63 31 39 32 36 39 61 31 61
+39 34 64 63 62 30 38 33 2D 61 31 62 62 2D 34 34 63 32 2D 38 34 35 63 2D 38 36 38 66 34 36 66 37 36 62 63 62
 """
-        opcode > ALOAD-2B
+        opcode &gt; ALOAD-2B
           25
           0
-        opcode > ICONST_0-2C
+        opcode &gt; ICONST_0-2C
           3
-        opcode > AALOAD-2D
+        opcode &gt; AALOAD-2D
           50
-        opcode > INVOKESTATIC-2E
+        opcode &gt; INVOKESTATIC-2E
           184
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 4C 6F 6E 67
@@ -667,56 +670,56 @@ public class org.eolang.benchmark.Main {
           """
 28 4C 6A 61 76 61 2F 6C 61 6E 67 2F 53 74 72 69 6E 67 3B 29 4A
 """
-        opcode > LSTORE-2F
+        opcode &gt; LSTORE-2F
           55
           2
         label
           """
-37 39 34 38 38 36 35 33 2D 33 62 33 36 2D 34 61 63 39 2D 39 36 31 64 2D 36 32 32 63 37 39 66 33 34 65 32 36
+66 37 31 35 66 33 32 61 2D 34 37 36 30 2D 34 61 31 62 2D 38 33 32 62 2D 64 64 38 31 64 34 38 66 39 61 39 36
 """
-        opcode > LCONST_0-30
+        opcode &gt; LCONST_0-30
           9
-        opcode > LSTORE-31
+        opcode &gt; LSTORE-31
           55
           4
         label
           """
-63 35 32 66 31 36 65 61 2D 39 34 38 61 2D 34 65 66 30 2D 61 34 64 37 2D 65 61 65 63 61 66 36 37 33 30 65 34
+31 63 31 37 33 35 30 65 2D 64 36 34 64 2D 34 64 39 39 2D 62 32 64 37 2D 30 38 33 35 36 63 39 66 39 38 35 62
 """
-        opcode > LCONST_0-32
+        opcode &gt; LCONST_0-32
           9
-        opcode > LSTORE-33
+        opcode &gt; LSTORE-33
           55
           6
         label
           """
-37 32 35 37 30 64 64 38 2D 65 64 66 33 2D 34 36 64 38 2D 39 35 36 30 2D 64 32 62 66 61 39 39 61 32 62 39 62
+36 35 66 33 32 61 39 65 2D 30 30 65 62 2D 34 65 36 37 2D 62 64 31 61 2D 66 62 61 38 63 33 33 35 36 35 34 33
 """
-        opcode > LLOAD-34
+        opcode &gt; LLOAD-34
           22
           6
-        opcode > LLOAD-35
+        opcode &gt; LLOAD-35
           22
           2
-        opcode > LCMP-36
+        opcode &gt; LCMP-36
           148
-        opcode > IFGE-37
+        opcode &gt; IFGE-37
           156
           label
             """
-32 36 34 32 36 30 62 63 2D 62 38 65 62 2D 34 33 33 61 2D 61 66 32 34 2D 37 36 66 34 37 38 32 39 61 62 66 37
+30 36 66 35 65 65 38 39 2D 64 62 63 37 2D 34 63 36 36 2D 61 66 32 66 2D 62 39 30 35 39 38 32 61 37 35 36 66
 """
         label
           """
-31 39 31 38 36 33 62 66 2D 33 33 63 64 2D 34 62 66 37 2D 39 37 66 30 2D 62 39 33 66 37 36 62 33 38 32 39 66
+62 34 65 65 33 32 34 39 2D 30 62 39 62 2D 34 37 63 38 2D 38 34 30 38 2D 63 63 34 64 62 37 64 33 30 34 36 34
 """
-        opcode > LLOAD-38
+        opcode &gt; LLOAD-38
           22
           4
-        opcode > ALOAD-39
+        opcode &gt; ALOAD-39
           25
           1
-        opcode > INVOKEVIRTUAL-3A
+        opcode &gt; INVOKEVIRTUAL-3A
           182
           """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 41 70 70
@@ -727,38 +730,38 @@ public class org.eolang.benchmark.Main {
           """
 28 29 49
 """
-        opcode > I2L-3B
+        opcode &gt; I2L-3B
           133
-        opcode > LADD-3C
+        opcode &gt; LADD-3C
           97
-        opcode > LSTORE-3D
+        opcode &gt; LSTORE-3D
           55
           4
         label
           """
-61 39 63 35 34 31 35 30 2D 61 63 33 38 2D 34 62 61 61 2D 61 64 65 36 2D 33 37 64 35 64 63 35 65 32 31 31 32
+65 61 39 30 61 37 64 37 2D 30 39 35 31 2D 34 30 62 31 2D 38 35 35 65 2D 36 65 36 34 62 34 37 37 65 31 66 63
 """
-        opcode > LLOAD-3E
+        opcode &gt; LLOAD-3E
           22
           6
-        opcode > LCONST_1-3F
+        opcode &gt; LCONST_1-3F
           10
-        opcode > LADD-40
+        opcode &gt; LADD-40
           97
-        opcode > LSTORE-41
+        opcode &gt; LSTORE-41
           55
           6
-        opcode > GOTO-42
+        opcode &gt; GOTO-42
           167
           label
             """
-37 32 35 37 30 64 64 38 2D 65 64 66 33 2D 34 36 64 38 2D 39 35 36 30 2D 64 32 62 66 61 39 39 61 32 62 39 62
+36 35 66 33 32 61 39 65 2D 30 30 65 62 2D 34 65 36 37 2D 62 64 31 61 2D 66 62 61 38 63 33 33 35 36 35 34 33
 """
         label
           """
-32 36 34 32 36 30 62 63 2D 62 38 65 62 2D 34 33 33 61 2D 61 66 32 34 2D 37 36 66 34 37 38 32 39 61 62 66 37
+30 36 66 35 65 65 38 39 2D 64 62 63 37 2D 34 63 36 36 2D 61 66 32 66 2D 62 39 30 35 39 38 32 61 37 35 36 66
 """
-        opcode > GETSTATIC-43
+        opcode &gt; GETSTATIC-43
           178
           """
 6A 61 76 61 2F 6C 61 6E 67 2F 53 79 73 74 65 6D
@@ -769,10 +772,10 @@ public class org.eolang.benchmark.Main {
           """
 4C 6A 61 76 61 2F 69 6F 2F 50 72 69 6E 74 53 74 72 65 61 6D 3B
 """
-        opcode > LLOAD-44
+        opcode &gt; LLOAD-44
           22
           4
-        opcode > INVOKEVIRTUAL-45
+        opcode &gt; INVOKEVIRTUAL-45
           182
           """
 6A 61 76 61 2F 69 6F 2F 50 72 69 6E 74 53 74 72 65 61 6D
@@ -785,13 +788,13 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-65 32 37 33 39 62 62 61 2D 64 31 39 30 2D 34 39 64 63 2D 39 35 61 37 2D 34 65 65 33 61 64 39 30 35 33 64 61
+66 36 36 61 31 38 31 62 2D 37 35 32 63 2D 34 35 35 65 2D 39 39 62 35 2D 36 37 36 37 34 64 31 66 30 33 34 31
 """
-        opcode > RETURN-46
+        opcode &gt; RETURN-46
           177
         label
           """
-31 61 65 66 35 33 64 36 2D 35 66 36 31 2D 34 65 39 32 2D 39 63 38 38 2D 64 65 39 35 34 34 39 36 36 62 36 37
+36 39 31 64 33 63 32 39 2D 37 61 31 39 2D 34 30 31 61 2D 62 37 34 61 2D 63 31 38 64 38 38 37 35 61 33 37 32
 """</pre></div>
     <div class="snippet">
       <span>Objects in EO:</span>
@@ -799,20 +802,20 @@ public class org.eolang.benchmark.Main {
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$A
-  32 > access
+[] &gt; j\$A
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
+""" &gt; supername
   
             """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
 """
-          > interfaces
+          &gt; interfaces
     """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
 """
-  field > j$d
+  field &gt; j\$d
     2
     """
 49
@@ -821,73 +824,73 @@ public class org.eolang.benchmark.Main {
 """
     """
 """
-  [arg__I__0] > new
-    0 > access
+  [arg__I__0] &gt; new
+    0 &gt; access
     """
 28 49 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         super.
-          $
+          \$
         write.
           d.
-            $
+            \$
           local0
-        opcode > RETURN
+        opcode &gt; RETURN
           177
-  [] > j$foo
-    1 > access
+  [] &gt; j\$foo
+    1 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         plus.
           d.
-            $
+            \$
           1
-        opcode > IRETURN
+        opcode &gt; IRETURN
           172
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$App
-  32 > access
+[] &gt; j\$App
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > new
-    0 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; new
+    0 &gt; access
     """
 28 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         super.
-          $
-        opcode > RETURN
+          \$
+        opcode &gt; RETURN
           177
-  [] > j$run
-    0 > access
+  [] &gt; j\$run
+    0 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         bar.
           new.
@@ -895,19 +898,19 @@ public class org.eolang.benchmark.Main {
             new.
               org/eolang/benchmark/A
               42
-        opcode > IRETURN
+        opcode &gt; IRETURN
           172
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$B
-  32 > access
+[] &gt; j\$B
+  32 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  field > j$f
+""" &gt; supername
+   &gt; interfaces
+  field &gt; j\$f
     18
     """
 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B
@@ -916,38 +919,38 @@ public class org.eolang.benchmark.Main {
 """
     """
 """
-  [arg__Lorg/eolang/benchmark/F;__0] > new
-    0 > access
+  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
+    0 &gt; access
     """
 28 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         super.
-          $
+          \$
         write.
           f.
-            $
+            \$
           local0
-        opcode > RETURN
+        opcode &gt; RETURN
           177
-  [] > j$bar
-    0 > access
+  [] &gt; j\$bar
+    0 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         f.
-          $
+          \$
         plus.
-          opcode > INVOKEINTERFACE
+          opcode &gt; INVOKEINTERFACE
             185
             """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
@@ -959,74 +962,74 @@ public class org.eolang.benchmark.Main {
 28 29 49
 """
           2
-        opcode > IRETURN
+        opcode &gt; IRETURN
           172
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$F
-  1536 > access
+[] &gt; j\$F
+  1536 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > j$foo
-    1025 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; j\$foo
+    1025 &gt; access
     """
 28 29 49
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
 +alias org.eolang.jeo.label
-[] > j$Main
-  33 > access
+[] &gt; j\$Main
+  33 &gt; access
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" > supername
-   > interfaces
-  [] > new
-    1 > access
+""" &gt; supername
+   &gt; interfaces
+  [] &gt; new
+    1 &gt; access
     """
 28 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         super.
-          $
-        opcode > RETURN
+          \$
+        opcode &gt; RETURN
           177
-  [arg__[Ljava/lang/String;__0] > j$main
-    137 > access
+  [arg__[Ljava/lang/String;__0] &gt; j\$main
+    137 &gt; access
     """
 28 5B 4C 6A 61 76 61 2F 6C 61 6E 67 2F 53 74 72 69 6E 67 3B 29 56
-""" > descriptor
+""" &gt; descriptor
     """
-""" > signature
-     > exceptions
-    seq > @
+""" &gt; signature
+     &gt; exceptions
+    seq &gt; @
       tuple
         write.
           local1
           new.
             org/eolang/benchmark/App
         local0
-        opcode > ICONST_0
+        opcode &gt; ICONST_0
           3
-        opcode > AALOAD
+        opcode &gt; AALOAD
           50
         write.
           local2
-          opcode > INVOKESTATIC
+          opcode &gt; INVOKESTATIC
             184
             """
 6A 61 76 61 2F 6C 61 6E 67 2F 4C 6F 6E 67
@@ -1039,46 +1042,46 @@ public class org.eolang.benchmark.Main {
 """
         write.
           local4
-          opcode > LCONST_0
+          opcode &gt; LCONST_0
             9
         write.
           local6
-          opcode > LCONST_0
+          opcode &gt; LCONST_0
             9
         local6
         local2
-        opcode > LCMP
+        opcode &gt; LCMP
           148
-        opcode > IFGE
+        opcode &gt; IFGE
           156
           label
             """
-33 32 20 33 36 20 33 34 20 33 32 20 33 36 20 33 30 20 36 32 20 36 33 20 32 44 20 36 32 20 33 38 20 36 35 20 36 32 20 32 44 20 33 34 20 33 33 20 33 33 20 36 31 20 32 44 20 36 31 20 36 36 20 33 32 20 33 34 20 32 44 20 33 37 20 33 36 20 36 36 20 33 34 20 33 37 20 33 38 20 33 32 20 33 39 20 36 31 20 36 32 20 36 36 20 33 37
+33 30 20 33 36 20 36 36 20 33 35 20 36 35 20 36 35 20 33 38 20 33 39 20 32 44 20 36 34 20 36 32 20 36 33 20 33 37 20 32 44 20 33 34 20 36 33 20 33 36 20 33 36 20 32 44 20 36 31 20 36 36 20 33 32 20 36 36 20 32 44 20 36 32 20 33 39 20 33 30 20 33 35 20 33 39 20 33 38 20 33 32 20 36 31 20 33 37 20 33 35 20 33 36 20 36 36
 """
         local4
         run.
           local1
-        opcode > I2L
+        opcode &gt; I2L
           133
         write.
           local4
-          opcode > LADD
+          opcode &gt; LADD
             97
         local6
-        opcode > LCONST_1
+        opcode &gt; LCONST_1
           10
         write.
           local6
-          opcode > LADD
+          opcode &gt; LADD
             97
-        opcode > GOTO
+        opcode &gt; GOTO
           167
           label
             """
-33 37 20 33 32 20 33 35 20 33 37 20 33 30 20 36 34 20 36 34 20 33 38 20 32 44 20 36 35 20 36 34 20 36 36 20 33 33 20 32 44 20 33 34 20 33 36 20 36 34 20 33 38 20 32 44 20 33 39 20 33 35 20 33 36 20 33 30 20 32 44 20 36 34 20 33 32 20 36 32 20 36 36 20 36 31 20 33 39 20 33 39 20 36 31 20 33 32 20 36 32 20 33 39 20 36 32
+33 36 20 33 35 20 36 36 20 33 33 20 33 32 20 36 31 20 33 39 20 36 35 20 32 44 20 33 30 20 33 30 20 36 35 20 36 32 20 32 44 20 33 34 20 36 35 20 33 36 20 33 37 20 32 44 20 36 32 20 36 34 20 33 31 20 36 31 20 32 44 20 36 36 20 36 32 20 36 31 20 33 38 20 36 33 20 33 33 20 33 33 20 33 35 20 33 36 20 33 35 20 33 34 20 33 33
 """
         println.
-          opcode > GETSTATIC
+          opcode &gt; GETSTATIC
             178
             """
 6A 61 76 61 2F 6C 61 6E 67 2F 53 79 73 74 65 6D
@@ -1090,22 +1093,22 @@ public class org.eolang.benchmark.Main {
 4C 6A 61 76 61 2F 69 6F 2F 50 72 69 6E 74 53 74 72 65 61 6D 3B
 """
           local4
-        opcode > RETURN
+        opcode &gt; RETURN
           177</pre></div>
     <div class="snippet">
       <span>𝜑-expressions:</span>
       <pre>
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j$A ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(α0 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46))(Δ ⤍ 
+{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$A ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(α0 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46))(Δ ⤍ 
 ------------6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46
----------), j$d ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02), α1 ↦ ξ.string(Δ ⤍ 49-), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-49-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__I__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-37-39-34-34-36-36-32-2D-64-63-63-32-2D-34-62-31-36-2D-61-35-37-37-2D-35-38-64-35-66-32-62-35-66-63-66-39)), α1 ↦ ALOAD-19 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-1A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-31-30-62-33-64-35-37-2D-37-32-66-31-2D-34-61-64-62-2D-61-62-61-64-2D-32-65-36-66-64-38-63-35-65-37-64-34)), α4 ↦ ALOAD-1B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ILOAD-1C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-15), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-1D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-38-31-62-32-32-61-64-2D-30-32-32-36-2D-34-37-37-36-2D-39-66-63-61-2D-36-31-61-33-30-35-65-62-32-36-34-66)), α8 ↦ RETURN-1E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-64-64-62-30-62-64-63-2D-32-37-65-64-2D-34-35-32-61-2D-38-35-34-61-2D-64-62-34-32-65-37-39-32-39-32-33-65))))⟧, j$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-64-31-33-34-63-64-35-2D-30-33-34-65-2D-34-34-37-34-2D-61-63-37-31-2D-38-61-37-30-33-66-39-37-36-33-32-37)), α1 ↦ ALOAD-1F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-20 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α3 ↦ ICONST_1-21 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α4 ↦ IADD-22 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α5 ↦ IRETURN-23 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α6 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 36-38-31-66-65-39-65-63-2D-32-64-32-38-2D-34-31-33-31-2D-61-33-39-31-2D-65-38-31-61-34-33-65-65-61-36-66-30))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+---------), j\$d ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02), α1 ↦ ξ.string(Δ ⤍ 49-), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-49-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__I__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 38-39-65-63-65-63-32-35-2D-65-30-35-33-2D-34-30-62-30-2D-61-38-38-65-2D-63-65-30-31-64-38-61-63-32-35-66-37)), α1 ↦ ALOAD-19 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-1A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 32-39-34-33-61-65-37-30-2D-64-32-37-35-2D-34-31-30-65-2D-39-38-39-66-2D-65-33-36-34-61-34-38-38-37-31-37-39)), α4 ↦ ALOAD-1B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ILOAD-1C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-15), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-1D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-39-37-61-31-37-38-62-2D-32-61-33-31-2D-34-66-37-65-2D-39-30-36-63-2D-30-30-39-37-65-66-66-62-36-33-39-62)), α8 ↦ RETURN-1E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-37-61-62-30-38-34-31-2D-63-66-66-64-2D-34-37-38-37-2D-38-33-30-32-2D-30-37-65-63-32-38-35-39-34-63-35-38))))⟧, j\$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-30-32-62-30-64-36-32-2D-35-30-38-33-2D-34-63-34-64-2D-39-61-66-30-2D-36-38-65-65-61-30-32-37-32-63-62-30)), α1 ↦ ALOAD-1F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-20 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α3 ↦ ICONST_1-21 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α4 ↦ IADD-22 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α5 ↦ IRETURN-23 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α6 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-33-33-37-32-35-66-30-2D-33-32-36-31-2D-34-37-35-37-2D-61-62-66-31-2D-33-63-36-35-33-62-64-37-30-37-38-38))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j$App ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 35-35-62-65-30-63-33-37-2D-34-32-64-31-2D-34-63-32-35-2D-38-65-61-62-2D-32-33-31-34-64-63-34-38-61-39-37-38)), α1 ↦ ALOAD-D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-34-64-37-64-66-32-63-2D-36-65-31-30-2D-34-61-36-39-2D-39-35-37-66-2D-66-38-63-64-33-66-39-31-64-33-37-62))))⟧, j$run ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-66-63-64-38-61-37-39-2D-39-66-37-30-2D-34-32-34-34-2D-61-65-37-34-2D-66-34-36-37-31-36-36-30-62-39-31-38)), α1 ↦ NEW-10 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42)), α2 ↦ DUP-11 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ NEW-12 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41)), α4 ↦ DUP-13 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α5 ↦ BIPUSH-14 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-10), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-2A)), α6 ↦ INVOKESPECIAL-15 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-49-29-56)), α7 ↦ INVOKESPECIAL-16 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56)), α8 ↦ INVOKEVIRTUAL-17 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 62-61-72), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α9 ↦ IRETURN-18 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α10 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-39-37-39-63-61-36-61-2D-32-30-65-34-2D-34-30-39-65-2D-38-64-30-65-2D-37-39-33-39-35-32-63-32-38-66-30-32))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$App ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-38-33-34-65-66-63-62-2D-32-34-65-31-2D-34-36-33-32-2D-38-64-66-61-2D-36-61-35-32-63-63-64-36-39-35-31-35)), α1 ↦ ALOAD-D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-64-37-34-64-30-32-62-2D-35-30-37-61-2D-34-63-65-33-2D-39-63-33-32-2D-66-38-38-61-64-39-39-35-34-31-66-34))))⟧, j\$run ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-65-32-34-62-61-34-63-2D-33-61-63-39-2D-34-37-37-38-2D-61-64-39-65-2D-66-36-63-63-64-61-65-65-62-63-39-36)), α1 ↦ NEW-10 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42)), α2 ↦ DUP-11 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ NEW-12 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41)), α4 ↦ DUP-13 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α5 ↦ BIPUSH-14 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-10), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-2A)), α6 ↦ INVOKESPECIAL-15 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-49-29-56)), α7 ↦ INVOKESPECIAL-16 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56)), α8 ↦ INVOKEVIRTUAL-17 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 62-61-72), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α9 ↦ IRETURN-18 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α10 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-31-31-33-62-32-33-39-2D-66-39-30-37-2D-34-66-66-38-2D-62-62-63-61-2D-62-30-39-65-35-64-37-37-37-32-63-39))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j$B ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j$f ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-12), α1 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__Lorg/eolang/benchmark/F;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-33-37-36-66-33-32-66-2D-38-33-35-33-2D-34-30-65-38-2D-61-64-39-65-2D-30-37-38-30-39-31-34-65-36-65-64-65)), α1 ↦ ALOAD-1 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-2 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-34-34-63-65-66-38-65-2D-36-33-30-62-2D-34-33-63-64-2D-61-31-66-64-2D-39-65-34-34-64-36-35-38-31-63-62-38)), α4 ↦ ALOAD-3 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ALOAD-4 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-5 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 35-34-30-35-64-65-31-34-2D-64-31-61-62-2D-34-38-61-65-2D-38-66-32-33-2D-64-33-63-66-63-33-61-66-37-35-34-62)), α8 ↦ RETURN-6 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-32-34-66-61-36-66-61-2D-35-32-32-34-2D-34-66-33-62-2D-38-34-64-36-2D-39-35-66-34-62-63-66-65-39-32-61-34))))⟧, j$bar ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 38-61-35-39-63-39-33-38-2D-31-62-31-38-2D-34-66-31-37-2D-61-35-65-66-2D-65-61-66-38-30-38-30-37-36-32-35-35)), α1 ↦ ALOAD-7 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-8 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α3 ↦ INVOKEINTERFACE-9 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B9), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46), α2 ↦ ξ.string(Δ ⤍ 66-6F-6F), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α4 ↦ ICONST_2-A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-05)), α5 ↦ IADD-B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α6 ↦ IRETURN-C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 34-65-61-30-31-65-33-37-2D-31-30-66-30-2D-34-34-37-32-2D-39-65-32-65-2D-66-33-39-62-33-31-38-63-31-35-33-30))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$B ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j\$f ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-12), α1 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__Lorg/eolang/benchmark/F;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-32-64-31-30-61-65-36-2D-39-38-39-32-2D-34-30-32-35-2D-38-38-66-31-2D-63-65-34-39-32-36-39-62-39-36-36-34)), α1 ↦ ALOAD-1 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-2 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-63-31-39-65-30-38-66-2D-30-35-34-65-2D-34-37-39-37-2D-61-30-30-38-2D-65-65-64-34-38-64-65-35-65-36-63-33)), α4 ↦ ALOAD-3 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ALOAD-4 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-5 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-34-62-30-32-31-65-39-2D-39-34-34-32-2D-34-32-35-39-2D-38-64-62-64-2D-35-35-31-38-36-63-66-30-65-31-64-62)), α8 ↦ RETURN-6 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 39-39-35-35-61-36-62-36-2D-32-37-33-30-2D-34-64-63-66-2D-38-63-66-32-2D-34-62-34-35-63-39-62-30-37-64-61-38))))⟧, j\$bar ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-33-62-35-37-34-66-38-2D-65-63-36-34-2D-34-65-62-36-2D-62-64-63-38-2D-62-38-61-34-65-37-34-39-31-36-62-31)), α1 ↦ ALOAD-7 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-8 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α3 ↦ INVOKEINTERFACE-9 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B9), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46), α2 ↦ ξ.string(Δ ⤍ 66-6F-6F), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α4 ↦ ICONST_2-A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-05)), α5 ↦ IADD-B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α6 ↦ IRETURN-C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-66-32-34-35-65-62-35-2D-61-38-35-34-2D-34-31-62-62-2D-38-35-33-36-2D-32-65-66-61-62-37-61-61-30-37-65-37))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j$F ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-06-00), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-04-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple)⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$F ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-06-00), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j\$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-04-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple)⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j$Main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-21), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-64-37-35-38-39-30-65-2D-66-32-65-65-2D-34-64-34-37-2D-61-62-61-61-2D-32-65-37-37-30-37-35-37-63-63-61-63)), α1 ↦ ALOAD-24 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-25 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-26 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-62-36-64-31-31-64-39-2D-36-63-32-65-2D-34-35-62-32-2D-61-66-65-64-2D-62-35-61-39-32-31-63-30-65-36-30-33))))⟧, j$main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-89), descriptor ↦ ξ.string(Δ ⤍ 28-5B-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__[Ljava/lang/String;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 39-65-64-65-32-37-64-31-2D-62-31-34-35-2D-34-66-66-63-2D-61-65-33-33-2D-62-36-64-63-62-36-31-65-34-34-33-36)), α1 ↦ NEW-27 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70)), α2 ↦ DUP-28 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ INVOKESPECIAL-29 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α4 ↦ ASTORE-2A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-3A), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α5 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-35-37-34-61-31-64-35-2D-34-32-34-30-2D-34-35-38-66-2D-39-36-34-36-2D-38-66-62-63-31-39-32-36-39-61-31-61)), α6 ↦ ALOAD-2B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α7 ↦ ICONST_0-2C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-03)), α8 ↦ AALOAD-2D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-32)), α9 ↦ INVOKESTATIC-2E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B8), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4C-6F-6E-67), α2 ↦ ξ.string(Δ ⤍ 70-61-72-73-65-4C-6F-6E-67), α3 ↦ ξ.string(Δ ⤍ 28-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-4A)), α10 ↦ LSTORE-2F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α11 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-39-34-38-38-36-35-33-2D-33-62-33-36-2D-34-61-63-39-2D-39-36-31-64-2D-36-32-32-63-37-39-66-33-34-65-32-36)), α12 ↦ LCONST_0-30 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α13 ↦ LSTORE-31 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α14 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-35-32-66-31-36-65-61-2D-39-34-38-61-2D-34-65-66-30-2D-61-34-64-37-2D-65-61-65-63-61-66-36-37-33-30-65-34)), α15 ↦ LCONST_0-32 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α16 ↦ LSTORE-33 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α17 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-32-35-37-30-64-64-38-2D-65-64-66-33-2D-34-36-64-38-2D-39-35-36-30-2D-64-32-62-66-61-39-39-61-32-62-39-62)), α18 ↦ LLOAD-34 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α19 ↦ LLOAD-35 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α20 ↦ LCMP-36 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-94)), α21 ↦ IFGE-37 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-9C), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 32-36-34-32-36-30-62-63-2D-62-38-65-62-2D-34-33-33-61-2D-61-66-32-34-2D-37-36-66-34-37-38-32-39-61-62-66-37))), α22 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-39-31-38-36-33-62-66-2D-33-33-63-64-2D-34-62-66-37-2D-39-37-66-30-2D-62-39-33-66-37-36-62-33-38-32-39-66)), α23 ↦ LLOAD-38 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α24 ↦ ALOAD-39 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α25 ↦ INVOKEVIRTUAL-3A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 72-75-6E), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α26 ↦ I2L-3B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-85)), α27 ↦ LADD-3C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α28 ↦ LSTORE-3D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α29 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-39-63-35-34-31-35-30-2D-61-63-33-38-2D-34-62-61-61-2D-61-64-65-36-2D-33-37-64-35-64-63-35-65-32-31-31-32)), α30 ↦ LLOAD-3E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α31 ↦ LCONST_1-3F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-0A)), α32 ↦ LADD-40 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α33 ↦ LSTORE-41 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α34 ↦ GOTO-42 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-A7), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-32-35-37-30-64-64-38-2D-65-64-66-33-2D-34-36-64-38-2D-39-35-36-30-2D-64-32-62-66-61-39-39-61-32-62-39-62))), α35 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 32-36-34-32-36-30-62-63-2D-62-38-65-62-2D-34-33-33-61-2D-61-66-32-34-2D-37-36-66-34-37-38-32-39-61-62-66-37)), α36 ↦ GETSTATIC-43 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B2), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-53-79-73-74-65-6D), α2 ↦ ξ.string(Δ ⤍ 6F-75-74), α3 ↦ ξ.string(Δ ⤍ 4C-6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D-3B)), α37 ↦ LLOAD-44 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α38 ↦ INVOKEVIRTUAL-45 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D), α2 ↦ ξ.string(Δ ⤍ 70-72-69-6E-74-6C-6E), α3 ↦ ξ.string(Δ ⤍ 28-4A-29-56)), α39 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 65-32-37-33-39-62-62-61-2D-64-31-39-30-2D-34-39-64-63-2D-39-35-61-37-2D-34-65-65-33-61-64-39-30-35-33-64-61)), α40 ↦ RETURN-46 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α41 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-61-65-66-35-33-64-36-2D-35-66-36-31-2D-34-65-39-32-2D-39-63-38-38-2D-64-65-39-35-34-34-39-36-36-62-36-37))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}</pre></div>
+{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$Main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-21), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-66-64-31-66-33-62-39-2D-32-65-30-33-2D-34-33-65-66-2D-61-61-39-31-2D-32-36-36-65-34-37-64-38-66-32-64-65)), α1 ↦ ALOAD-24 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-25 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-26 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-65-65-34-33-61-62-66-2D-63-39-65-34-2D-34-37-39-36-2D-62-30-65-63-2D-37-36-65-34-35-35-63-35-65-63-65-31))))⟧, j\$main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-89), descriptor ↦ ξ.string(Δ ⤍ 28-5B-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__[Ljava/lang/String;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-33-31-64-31-63-64-36-2D-36-37-35-66-2D-34-34-65-65-2D-61-36-62-38-2D-64-63-61-35-36-62-64-38-63-36-37-61)), α1 ↦ NEW-27 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70)), α2 ↦ DUP-28 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ INVOKESPECIAL-29 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α4 ↦ ASTORE-2A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-3A), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α5 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 39-34-64-63-62-30-38-33-2D-61-31-62-62-2D-34-34-63-32-2D-38-34-35-63-2D-38-36-38-66-34-36-66-37-36-62-63-62)), α6 ↦ ALOAD-2B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α7 ↦ ICONST_0-2C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-03)), α8 ↦ AALOAD-2D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-32)), α9 ↦ INVOKESTATIC-2E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B8), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4C-6F-6E-67), α2 ↦ ξ.string(Δ ⤍ 70-61-72-73-65-4C-6F-6E-67), α3 ↦ ξ.string(Δ ⤍ 28-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-4A)), α10 ↦ LSTORE-2F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α11 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-37-31-35-66-33-32-61-2D-34-37-36-30-2D-34-61-31-62-2D-38-33-32-62-2D-64-64-38-31-64-34-38-66-39-61-39-36)), α12 ↦ LCONST_0-30 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α13 ↦ LSTORE-31 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α14 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-63-31-37-33-35-30-65-2D-64-36-34-64-2D-34-64-39-39-2D-62-32-64-37-2D-30-38-33-35-36-63-39-66-39-38-35-62)), α15 ↦ LCONST_0-32 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α16 ↦ LSTORE-33 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α17 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 36-35-66-33-32-61-39-65-2D-30-30-65-62-2D-34-65-36-37-2D-62-64-31-61-2D-66-62-61-38-63-33-33-35-36-35-34-33)), α18 ↦ LLOAD-34 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α19 ↦ LLOAD-35 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α20 ↦ LCMP-36 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-94)), α21 ↦ IFGE-37 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-9C), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-36-66-35-65-65-38-39-2D-64-62-63-37-2D-34-63-36-36-2D-61-66-32-66-2D-62-39-30-35-39-38-32-61-37-35-36-66))), α22 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-34-65-65-33-32-34-39-2D-30-62-39-62-2D-34-37-63-38-2D-38-34-30-38-2D-63-63-34-64-62-37-64-33-30-34-36-34)), α23 ↦ LLOAD-38 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α24 ↦ ALOAD-39 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α25 ↦ INVOKEVIRTUAL-3A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 72-75-6E), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α26 ↦ I2L-3B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-85)), α27 ↦ LADD-3C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α28 ↦ LSTORE-3D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α29 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 65-61-39-30-61-37-64-37-2D-30-39-35-31-2D-34-30-62-31-2D-38-35-35-65-2D-36-65-36-34-62-34-37-37-65-31-66-63)), α30 ↦ LLOAD-3E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α31 ↦ LCONST_1-3F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-0A)), α32 ↦ LADD-40 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α33 ↦ LSTORE-41 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α34 ↦ GOTO-42 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-A7), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 36-35-66-33-32-61-39-65-2D-30-30-65-62-2D-34-65-36-37-2D-62-64-31-61-2D-66-62-61-38-63-33-33-35-36-35-34-33))), α35 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-36-66-35-65-65-38-39-2D-64-62-63-37-2D-34-63-36-36-2D-61-66-32-66-2D-62-39-30-35-39-38-32-61-37-35-36-66)), α36 ↦ GETSTATIC-43 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B2), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-53-79-73-74-65-6D), α2 ↦ ξ.string(Δ ⤍ 6F-75-74), α3 ↦ ξ.string(Δ ⤍ 4C-6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D-3B)), α37 ↦ LLOAD-44 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α38 ↦ INVOKEVIRTUAL-45 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D), α2 ↦ ξ.string(Δ ⤍ 70-72-69-6E-74-6C-6E), α3 ↦ ξ.string(Δ ⤍ 28-4A-29-56)), α39 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-36-36-61-31-38-31-62-2D-37-35-32-63-2D-34-35-35-65-2D-39-39-62-35-2D-36-37-36-37-34-64-31-66-30-33-34-31)), α40 ↦ RETURN-46 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α41 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 36-39-31-64-33-63-32-39-2D-37-61-31-39-2D-34-30-31-61-2D-62-37-34-61-2D-63-31-38-64-38-38-37-35-61-33-37-32))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}</pre></div>
     <div class="snippet">
       <span>Optimized 𝜑:</span>
       <pre>{after-ineo-optimize}</pre></div>
