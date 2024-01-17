@@ -29,7 +29,7 @@
 SHELL=bash
 TOTAL=10000000000
 
-EO_VERSION=0.34.3
+EO_VERSION=0.34.4
 JEO_VERSION=0.2.16
 OPEO_VERSION=0.0.5
 
@@ -46,7 +46,7 @@ results.md: before.time after.time Makefile
 
 %.jar: pom.xml Makefile
 	base=$(basename $@)
-	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}" -Djeo.version=${JEO_VERSION}
+	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}" -Djeo.version=${JEO_VERSION} -Deo.version=${EO_VERSION}  -Dopeo.version=${OPEO_VERSION}
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:

@@ -41,6 +41,7 @@ SOFTWARE.
     <eo.version>0.34.3</eo.version>
     <jeo.version>0.2.16</jeo.version>
     <opeo.version>0.0.5</opeo.version>
+    <ineo.version>0.1.2</ineo.version>
   </properties>
   <build>
     <directory>${directory}</directory>
@@ -65,7 +66,7 @@ SOFTWARE.
         <plugin>
           <groupId>org.eolang</groupId>
           <artifactId>ineo-maven-plugin</artifactId>
-          <version>0.1.2</version>
+          <version>${ineo.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -92,6 +93,10 @@ SOFTWARE.
                 <argument>--activate-profiles=after</argument>
                 <argument>-DfinalName=${finalName}</argument>
                 <argument>-Ddirectory=${directory}</argument>
+                <argument>-Deo.version=${eo.version}</argument>
+                <argument>-Djeo.version=${jeo.version}</argument>
+                <argument>-Dopeo.version=${opeo.version}</argument>
+                <argument>-Dineo.version=${ineo.version}</argument>
               </arguments>
             </configuration>
             <executions>
