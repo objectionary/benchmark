@@ -38,10 +38,10 @@ SOFTWARE.
     <maven.compiler.target>11</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
-    <eo.version>0.34.3</eo.version>
-    <jeo.version>0.2.16</jeo.version>
-    <opeo.version>0.0.5</opeo.version>
-    <ineo.version>0.1.2</ineo.version>
+    <eo.version>0.0.0</eo.version>
+    <jeo.version>0.0.0</jeo.version>
+    <opeo.version>0.0.0</opeo.version>
+    <ineo.version>0.0.0</ineo.version>
   </properties>
   <build>
     <directory>${directory}</directory>
