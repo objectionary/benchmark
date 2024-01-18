@@ -187,7 +187,7 @@ public class org.eolang.benchmark.Main {
       55: return
 }</pre></div>
     <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.16</span>
+      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.17</span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -197,11 +197,7 @@ public class org.eolang.benchmark.Main {
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
 """ &gt; supername
-  
-            """
-6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
-"""
-          &gt; interfaces
+  tuple &gt; interfaces
     """
 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
 """
@@ -221,12 +217,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-64 33 36 39 66 38 64 31 2D 31 63 37 63 2D 34 63 39 39 2D 62 35 36 65 2D 64 34 30 62 39 37 61 30 63 66 37 63
+39 39 64 65 65 32 33 64 2D 32 39 36 33 2D 34 61 33 31 2D 61 30 65 32 2D 38 37 61 64 31 63 34 34 33 36 64 35
 """
         opcode &gt; ALOAD-19
           25
@@ -244,7 +240,7 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-63 31 64 63 63 38 61 31 2D 36 62 34 32 2D 34 34 65 35 2D 39 63 31 38 2D 61 62 64 61 66 65 35 32 37 62 63 33
+39 34 32 66 39 34 39 30 2D 35 37 33 39 2D 34 64 34 30 2D 39 30 30 38 2D 38 38 62 32 61 31 34 62 62 62 66 62
 """
         opcode &gt; ALOAD-1B
           25
@@ -265,13 +261,13 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-35 30 37 36 31 61 36 65 2D 62 63 66 36 2D 34 62 33 38 2D 61 31 37 35 2D 34 30 39 64 64 31 65 35 35 34 39 61
+33 37 38 36 38 38 35 34 2D 34 32 65 31 2D 34 61 38 62 2D 62 63 32 30 2D 30 63 39 66 30 33 66 37 65 31 33 33
 """
         opcode &gt; RETURN-1E
           177
         label
           """
-65 61 66 31 64 39 37 38 2D 36 30 64 39 2D 34 38 32 63 2D 39 66 63 33 2D 62 35 62 32 65 64 39 38 38 34 36 35
+31 65 66 61 32 30 32 34 2D 65 64 30 65 2D 34 35 30 36 2D 61 33 63 61 2D 33 63 30 31 31 39 66 31 33 34 61 32
 """
   [] &gt; j\$foo
     1 &gt; access
@@ -280,12 +276,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-63 30 62 35 34 66 37 35 2D 31 37 32 31 2D 34 63 35 61 2D 38 64 39 35 2D 37 64 39 38 31 34 66 30 37 35 39 30
+35 32 64 39 37 39 37 38 2D 32 66 63 36 2D 34 38 62 63 2D 38 66 30 39 2D 62 38 61 38 35 63 65 38 31 63 30 65
 """
         opcode &gt; ALOAD-1F
           25
@@ -309,7 +305,7 @@ public class org.eolang.benchmark.Main {
           172
         label
           """
-61 62 65 64 66 61 36 62 2D 64 38 35 32 2D 34 64 35 64 2D 38 38 36 39 2D 64 39 31 39 39 34 31 33 35 31 37 64
+35 31 33 61 64 66 64 36 2D 39 39 63 37 2D 34 31 64 38 2D 61 37 31 66 2D 61 33 33 61 32 30 61 30 37 64 36 37
 """
 
 +package org.eolang.benchmark
@@ -320,7 +316,7 @@ public class org.eolang.benchmark.Main {
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
 """ &gt; supername
-   &gt; interfaces
+  tuple &gt; interfaces
   [] &gt; new
     0 &gt; access
     """
@@ -328,12 +324,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-34 36 39 66 34 38 63 30 2D 32 35 32 33 2D 34 32 34 66 2D 39 64 66 39 2D 36 30 65 65 65 65 34 65 39 34 63 37
+61 33 61 35 34 62 66 31 2D 32 36 36 35 2D 34 30 62 62 2D 61 30 31 38 2D 63 64 35 33 32 37 63 63 38 62 62 66
 """
         opcode &gt; ALOAD-D
           25
@@ -353,7 +349,7 @@ public class org.eolang.benchmark.Main {
           177
         label
           """
-31 35 35 33 38 33 63 61 2D 36 61 34 30 2D 34 61 63 62 2D 39 62 66 30 2D 39 38 61 64 61 35 32 65 65 36 65 61
+31 62 61 62 62 37 37 37 2D 33 30 35 37 2D 34 36 64 61 2D 39 38 65 37 2D 66 63 63 64 31 64 38 37 39 39 39 34
 """
   [] &gt; j\$run
     0 &gt; access
@@ -362,12 +358,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-31 62 38 61 32 63 65 65 2D 61 34 64 32 2D 34 64 38 63 2D 38 39 34 36 2D 65 39 32 33 37 30 61 30 39 34 33 33
+32 32 35 37 62 31 30 31 2D 31 31 34 66 2D 34 38 38 37 2D 38 64 33 34 2D 63 65 35 33 33 35 34 31 32 36 66 66
 """
         opcode &gt; NEW-10
           187
@@ -423,7 +419,7 @@ public class org.eolang.benchmark.Main {
           172
         label
           """
-64 61 39 30 37 66 36 63 2D 37 36 34 36 2D 34 62 30 35 2D 62 65 38 65 2D 35 39 64 32 63 66 65 63 39 66 33 30
+39 37 66 66 33 35 38 37 2D 35 64 62 33 2D 34 62 35 38 2D 61 33 37 62 2D 32 62 30 35 37 66 37 62 36 37 37 30
 """
 
 +package org.eolang.benchmark
@@ -434,7 +430,7 @@ public class org.eolang.benchmark.Main {
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
 """ &gt; supername
-   &gt; interfaces
+  tuple &gt; interfaces
   field &gt; j\$f
     18
     """
@@ -451,12 +447,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-36 39 64 32 65 32 62 64 2D 33 39 66 63 2D 34 64 66 32 2D 39 37 64 38 2D 31 61 37 62 32 32 33 30 34 31 33 62
+33 65 36 65 62 37 36 35 2D 39 31 31 37 2D 34 33 39 30 2D 61 37 62 36 2D 61 64 66 36 62 63 32 34 31 62 33 34
 """
         opcode &gt; ALOAD-1
           25
@@ -474,7 +470,7 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-34 35 32 34 39 66 34 61 2D 66 39 36 33 2D 34 36 35 35 2D 61 63 62 64 2D 36 38 61 66 37 64 30 39 37 63 37 38
+39 32 31 32 30 36 35 66 2D 31 38 31 32 2D 34 64 37 34 2D 61 30 38 36 2D 34 66 65 63 63 62 33 37 32 36 62 36
 """
         opcode &gt; ALOAD-3
           25
@@ -495,13 +491,13 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-30 63 33 33 39 39 37 36 2D 64 36 65 31 2D 34 62 65 32 2D 62 65 64 63 2D 32 32 32 64 31 30 32 39 32 36 35 37
+36 31 34 39 38 61 30 64 2D 30 62 35 63 2D 34 32 34 66 2D 62 30 37 37 2D 35 39 61 35 33 31 30 36 61 61 30 65
 """
         opcode &gt; RETURN-6
           177
         label
           """
-66 64 35 62 63 65 37 39 2D 38 30 31 36 2D 34 66 63 64 2D 62 61 64 39 2D 62 62 64 35 39 62 36 33 30 30 61 32
+33 64 35 30 38 61 62 35 2D 38 33 32 37 2D 34 39 65 34 2D 61 66 33 66 2D 36 66 39 32 62 65 38 38 35 36 36 62
 """
   [] &gt; j\$bar
     0 &gt; access
@@ -510,12 +506,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-34 35 33 32 39 37 37 30 2D 65 65 35 39 2D 34 31 65 35 2D 61 66 65 36 2D 63 35 62 62 63 35 61 34 64 35 34 35
+30 38 38 63 32 64 34 37 2D 31 31 32 63 2D 34 33 38 36 2D 39 64 65 35 2D 37 63 62 39 30 61 32 65 64 64 33 64
 """
         opcode &gt; ALOAD-7
           25
@@ -550,7 +546,7 @@ public class org.eolang.benchmark.Main {
           172
         label
           """
-61 39 63 32 36 32 31 39 2D 61 34 32 30 2D 34 35 66 35 2D 61 65 61 36 2D 63 34 61 65 36 38 63 38 62 64 33 65
+39 38 61 65 61 33 38 35 2D 66 36 30 66 2D 34 34 33 64 2D 39 30 61 66 2D 34 39 38 37 31 32 66 33 39 35 66 63
 """
 
 +package org.eolang.benchmark
@@ -561,7 +557,7 @@ public class org.eolang.benchmark.Main {
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
 """ &gt; supername
-   &gt; interfaces
+  tuple &gt; interfaces
   [] &gt; j\$foo
     1025 &gt; access
     """
@@ -569,7 +565,7 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
 
@@ -581,7 +577,7 @@ public class org.eolang.benchmark.Main {
   """
 6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
 """ &gt; supername
-   &gt; interfaces
+  tuple &gt; interfaces
   [] &gt; new
     1 &gt; access
     """
@@ -589,12 +585,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-63 62 34 31 33 64 36 31 2D 33 32 31 62 2D 34 33 31 61 2D 39 34 34 36 2D 32 62 61 62 62 38 34 61 61 36 61 37
+61 66 36 36 34 39 38 66 2D 35 39 66 31 2D 34 64 62 66 2D 39 66 32 64 2D 30 39 64 33 30 39 61 66 66 32 65 31
 """
         opcode &gt; ALOAD-24
           25
@@ -614,7 +610,7 @@ public class org.eolang.benchmark.Main {
           177
         label
           """
-37 35 37 32 65 34 30 34 2D 37 30 31 32 2D 34 63 65 37 2D 61 36 39 62 2D 63 31 30 65 64 62 34 30 65 39 66 33
+30 66 63 64 35 30 63 36 2D 36 65 32 39 2D 34 34 63 36 2D 38 63 33 35 2D 33 32 62 34 63 32 35 33 37 35 36 32
 """
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
@@ -623,12 +619,12 @@ public class org.eolang.benchmark.Main {
 """ &gt; descriptor
     """
 """ &gt; signature
-     &gt; exceptions
+    tuple &gt; exceptions
     seq &gt; @
       tuple
         label
           """
-37 66 37 35 63 38 65 34 2D 36 64 65 38 2D 34 64 62 62 2D 39 37 65 65 2D 34 30 39 32 35 31 35 36 32 32 37 31
+34 62 39 37 64 35 39 35 2D 35 64 34 63 2D 34 36 30 62 2D 61 35 30 64 2D 37 63 30 66 36 34 31 61 39 63 63 36
 """
         opcode &gt; NEW-27
           187
@@ -653,7 +649,7 @@ public class org.eolang.benchmark.Main {
           1
         label
           """
-33 33 66 34 66 34 63 33 2D 65 34 30 63 2D 34 65 36 36 2D 38 62 35 30 2D 33 32 38 31 65 36 31 34 36 35 61 34
+34 39 66 61 30 33 32 36 2D 64 31 35 30 2D 34 33 31 36 2D 39 65 66 37 2D 32 34 31 30 37 32 64 65 61 39 64 63
 """
         opcode &gt; ALOAD-2B
           25
@@ -678,7 +674,7 @@ public class org.eolang.benchmark.Main {
           2
         label
           """
-37 33 32 30 39 36 61 62 2D 39 38 35 34 2D 34 61 37 35 2D 38 31 61 31 2D 62 66 62 62 62 38 35 31 34 32 64 66
+34 30 36 61 30 65 65 34 2D 35 63 63 34 2D 34 63 63 36 2D 61 33 66 63 2D 36 31 35 66 61 38 63 36 33 30 63 64
 """
         opcode &gt; LCONST_0-30
           9
@@ -687,7 +683,7 @@ public class org.eolang.benchmark.Main {
           4
         label
           """
-63 61 34 65 36 36 33 32 2D 39 62 38 38 2D 34 66 36 30 2D 39 35 37 39 2D 30 66 36 30 37 30 37 61 37 66 64 39
+34 63 37 34 35 62 63 32 2D 36 65 36 66 2D 34 39 66 64 2D 62 31 66 30 2D 65 34 39 30 32 35 30 35 31 32 62 34
 """
         opcode &gt; LCONST_0-32
           9
@@ -696,7 +692,7 @@ public class org.eolang.benchmark.Main {
           6
         label
           """
-30 32 37 35 36 65 30 66 2D 39 65 61 36 2D 34 35 64 36 2D 38 32 65 36 2D 31 37 39 61 35 63 39 62 61 30 39 37
+35 62 34 30 38 33 36 39 2D 65 36 31 39 2D 34 38 34 34 2D 39 38 66 65 2D 36 63 38 39 32 32 63 31 65 65 33 39
 """
         opcode &gt; LLOAD-34
           22
@@ -710,11 +706,11 @@ public class org.eolang.benchmark.Main {
           156
           label
             """
-33 63 34 39 37 63 61 31 2D 65 33 34 30 2D 34 64 62 63 2D 62 66 35 35 2D 61 33 32 65 33 36 64 35 63 33 64 37
+31 63 66 63 30 31 39 38 2D 38 31 31 34 2D 34 34 66 35 2D 61 37 38 63 2D 35 62 38 32 35 35 33 34 65 39 63 34
 """
         label
           """
-37 61 34 65 66 37 64 31 2D 39 63 32 64 2D 34 65 33 38 2D 39 65 31 63 2D 64 30 35 33 61 31 37 35 31 65 37 33
+34 64 66 32 62 37 62 64 2D 66 61 33 33 2D 34 39 35 32 2D 62 62 63 65 2D 32 34 31 34 34 66 64 30 64 35 34 62
 """
         opcode &gt; LLOAD-38
           22
@@ -742,7 +738,7 @@ public class org.eolang.benchmark.Main {
           4
         label
           """
-63 39 32 39 39 31 38 36 2D 66 35 37 63 2D 34 30 63 30 2D 62 66 66 32 2D 31 33 64 64 33 36 39 61 64 39 65 33
+36 32 61 65 65 38 36 36 2D 31 63 63 31 2D 34 64 30 62 2D 61 36 35 65 2D 62 64 33 63 63 65 62 34 36 38 66 36
 """
         opcode &gt; LLOAD-3E
           22
@@ -758,11 +754,11 @@ public class org.eolang.benchmark.Main {
           167
           label
             """
-30 32 37 35 36 65 30 66 2D 39 65 61 36 2D 34 35 64 36 2D 38 32 65 36 2D 31 37 39 61 35 63 39 62 61 30 39 37
+35 62 34 30 38 33 36 39 2D 65 36 31 39 2D 34 38 34 34 2D 39 38 66 65 2D 36 63 38 39 32 32 63 31 65 65 33 39
 """
         label
           """
-33 63 34 39 37 63 61 31 2D 65 33 34 30 2D 34 64 62 63 2D 62 66 35 35 2D 61 33 32 65 33 36 64 35 63 33 64 37
+31 63 66 63 30 31 39 38 2D 38 31 31 34 2D 34 34 66 35 2D 61 37 38 63 2D 35 62 38 32 35 35 33 34 65 39 63 34
 """
         opcode &gt; GETSTATIC-43
           178
@@ -791,13 +787,13 @@ public class org.eolang.benchmark.Main {
 """
         label
           """
-62 61 33 63 33 66 31 38 2D 62 63 36 31 2D 34 39 64 65 2D 61 38 63 63 2D 34 39 62 31 36 37 36 32 37 34 63 61
+32 30 33 31 64 32 32 39 2D 66 37 65 38 2D 34 31 65 37 2D 62 64 65 62 2D 64 38 65 62 65 37 38 37 31 33 63 39
 """
         opcode &gt; RETURN-46
           177
         label
           """
-38 37 64 66 38 33 62 61 2D 32 64 33 37 2D 34 31 64 62 2D 62 30 36 37 2D 62 31 37 35 38 38 31 65 61 39 35 37
+62 65 31 30 65 62 64 62 2D 38 34 34 30 2D 34 33 30 30 2D 61 37 66 62 2D 32 32 38 65 30 33 38 61 39 35 64 30
 """</pre></div>
     <div class="snippet">
       <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.0.5</span>
@@ -808,35 +804,31 @@ public class org.eolang.benchmark.Main {
 [] &gt; j\$A
   32 &gt; access
   """
-6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" &gt; supername
-  
-            """
-6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
-"""
-          &gt; interfaces
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
     """
-6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
-"""
+    org/eolang/benchmark/F
+    """
   field &gt; j\$d
     2
     """
-49
-"""
+    I
     """
-"""
     """
-"""
+    """
+    """
+    """
   [arg__I__0] &gt; new
     0 &gt; access
     """
-28 49 29 56
-""" &gt; descriptor
+    (I)V
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         super.
           \$
         write.
@@ -848,13 +840,13 @@ public class org.eolang.benchmark.Main {
   [] &gt; j\$foo
     1 &gt; access
     """
-28 29 49
-""" &gt; descriptor
+    ()I
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         plus.
           d.
             \$
@@ -868,19 +860,19 @@ public class org.eolang.benchmark.Main {
 [] &gt; j\$App
   32 &gt; access
   """
-6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" &gt; supername
-   &gt; interfaces
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
   [] &gt; new
     0 &gt; access
     """
-28 29 56
-""" &gt; descriptor
+    ()V
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         super.
           \$
         opcode &gt; RETURN
@@ -888,13 +880,13 @@ public class org.eolang.benchmark.Main {
   [] &gt; j\$run
     0 &gt; access
     """
-28 29 49
-""" &gt; descriptor
+    ()I
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         bar.
           new.
             org/eolang/benchmark/B
@@ -910,28 +902,28 @@ public class org.eolang.benchmark.Main {
 [] &gt; j\$B
   32 &gt; access
   """
-6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" &gt; supername
-   &gt; interfaces
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
   field &gt; j\$f
     18
     """
-4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B
-"""
+    Lorg/eolang/benchmark/F;
     """
-"""
     """
-"""
+    """
+    """
+    """
   [arg__Lorg/eolang/benchmark/F;__0] &gt; new
     0 &gt; access
     """
-28 4C 6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46 3B 29 56
-""" &gt; descriptor
+    (Lorg/eolang/benchmark/F;)V
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         super.
           \$
         write.
@@ -943,27 +935,27 @@ public class org.eolang.benchmark.Main {
   [] &gt; j\$bar
     0 &gt; access
     """
-28 29 49
-""" &gt; descriptor
+    ()I
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         f.
           \$
         plus.
           opcode &gt; INVOKEINTERFACE
             185
             """
-6F 72 67 2F 65 6F 6C 61 6E 67 2F 62 65 6E 63 68 6D 61 72 6B 2F 46
-"""
+            org/eolang/benchmark/F
             """
-66 6F 6F
-"""
             """
-28 29 49
-"""
+            foo
+            """
+            """
+            ()I
+            """
           2
         opcode &gt; IRETURN
           172
@@ -974,19 +966,19 @@ public class org.eolang.benchmark.Main {
 [] &gt; j\$F
   1536 &gt; access
   """
-6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" &gt; supername
-   &gt; interfaces
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
   [] &gt; j\$foo
     1025 &gt; access
     """
-28 29 49
-""" &gt; descriptor
+    ()I
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -994,19 +986,19 @@ public class org.eolang.benchmark.Main {
 [] &gt; j\$Main
   33 &gt; access
   """
-6A 61 76 61 2F 6C 61 6E 67 2F 4F 62 6A 65 63 74
-""" &gt; supername
-   &gt; interfaces
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
   [] &gt; new
     1 &gt; access
     """
-28 29 56
-""" &gt; descriptor
+    ()V
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         super.
           \$
         opcode &gt; RETURN
@@ -1014,13 +1006,13 @@ public class org.eolang.benchmark.Main {
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
     """
-28 5B 4C 6A 61 76 61 2F 6C 61 6E 67 2F 53 74 72 69 6E 67 3B 29 56
-""" &gt; descriptor
+    ([Ljava/lang/String;)V
+    """ &gt; descriptor
     """
-""" &gt; signature
-     &gt; exceptions
+    """ &gt; signature
+    * &gt; exceptions
     seq &gt; @
-      tuple
+      *
         write.
           local1
           new.
@@ -1035,14 +1027,14 @@ public class org.eolang.benchmark.Main {
           opcode &gt; INVOKESTATIC
             184
             """
-6A 61 76 61 2F 6C 61 6E 67 2F 4C 6F 6E 67
-"""
+            java/lang/Long
             """
-70 61 72 73 65 4C 6F 6E 67
-"""
             """
-28 4C 6A 61 76 61 2F 6C 61 6E 67 2F 53 74 72 69 6E 67 3B 29 4A
-"""
+            parseLong
+            """
+            """
+            (Ljava/lang/String;)J
+            """
         write.
           local4
           opcode &gt; LCONST_0
@@ -1059,8 +1051,8 @@ public class org.eolang.benchmark.Main {
           156
           label
             """
-33 33 20 36 33 20 33 34 20 33 39 20 33 37 20 36 33 20 36 31 20 33 31 20 32 44 20 36 35 20 33 33 20 33 34 20 33 30 20 32 44 20 33 34 20 36 34 20 36 32 20 36 33 20 32 44 20 36 32 20 36 36 20 33 35 20 33 35 20 32 44 20 36 31 20 33 33 20 33 32 20 36 35 20 33 33 20 33 36 20 36 34 20 33 35 20 36 33 20 33 33 20 36 34 20 33 37
-"""
+            31 63 66 63 30 31 39 38 2D 38 31 31 34 2D 34 34 66 35 2D 61 37 38 63 2D 35 62 38 32 35 35 33 34 65 39 63 34
+            """
         local4
         run.
           local1
@@ -1081,48 +1073,1766 @@ public class org.eolang.benchmark.Main {
           167
           label
             """
-33 30 20 33 32 20 33 37 20 33 35 20 33 36 20 36 35 20 33 30 20 36 36 20 32 44 20 33 39 20 36 35 20 36 31 20 33 36 20 32 44 20 33 34 20 33 35 20 36 34 20 33 36 20 32 44 20 33 38 20 33 32 20 36 35 20 33 36 20 32 44 20 33 31 20 33 37 20 33 39 20 36 31 20 33 35 20 36 33 20 33 39 20 36 32 20 36 31 20 33 30 20 33 39 20 33 37
-"""
+            35 62 34 30 38 33 36 39 2D 65 36 31 39 2D 34 38 34 34 2D 39 38 66 65 2D 36 63 38 39 32 32 63 31 65 65 33 39
+            """
         println.
           opcode &gt; GETSTATIC
             178
             """
-6A 61 76 61 2F 6C 61 6E 67 2F 53 79 73 74 65 6D
-"""
+            java/lang/System
             """
-6F 75 74
-"""
             """
-4C 6A 61 76 61 2F 69 6F 2F 50 72 69 6E 74 53 74 72 65 61 6D 3B
-"""
+            out
+            """
+            """
+            Ljava/io/PrintStream;
+            """
           local4
         opcode &gt; RETURN
           177</pre></div>
     <div class="snippet">
-      <span>𝜑-expressions after eo:phi 0.34.3</span>
+      <span>𝜑-expressions after eo:phi 0.34.4</span>
       <pre>
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$A ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(α0 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46))(Δ ⤍ 
-------------6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46
----------), j\$d ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02), α1 ↦ ξ.string(Δ ⤍ 49-), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-49-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__I__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-33-36-39-66-38-64-31-2D-31-63-37-63-2D-34-63-39-39-2D-62-35-36-65-2D-64-34-30-62-39-37-61-30-63-66-37-63)), α1 ↦ ALOAD-19 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-1A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-31-64-63-63-38-61-31-2D-36-62-34-32-2D-34-34-65-35-2D-39-63-31-38-2D-61-62-64-61-66-65-35-32-37-62-63-33)), α4 ↦ ALOAD-1B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ILOAD-1C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-15), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-1D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 35-30-37-36-31-61-36-65-2D-62-63-66-36-2D-34-62-33-38-2D-61-31-37-35-2D-34-30-39-64-64-31-65-35-35-34-39-61)), α8 ↦ RETURN-1E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 65-61-66-31-64-39-37-38-2D-36-30-64-39-2D-34-38-32-63-2D-39-66-63-33-2D-62-35-62-32-65-64-39-38-38-34-36-35))))⟧, j\$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-30-62-35-34-66-37-35-2D-31-37-32-31-2D-34-63-35-61-2D-38-64-39-35-2D-37-64-39-38-31-34-66-30-37-35-39-30)), α1 ↦ ALOAD-1F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-20 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 64-), α3 ↦ ξ.string(Δ ⤍ 49-)), α3 ↦ ICONST_1-21 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α4 ↦ IADD-22 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α5 ↦ IRETURN-23 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α6 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-62-65-64-66-61-36-62-2D-64-38-35-32-2D-34-64-35-64-2D-38-38-36-39-2D-64-39-31-39-39-34-31-33-35-31-37-64))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{
+  org ↦ ⟦
+    eolang ↦ ⟦
+      benchmark ↦ ⟦
+        j\$A ↦ ⟦
+          access ↦ Φ.org.eolang.int(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 00-00-00-00-00-00-00-20
+            )
+          ),
+          supername ↦ Φ.org.eolang.string(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+            )
+          ),
+          interfaces ↦ Φ.org.eolang.tuple(
+            α0 ↦ Φ.org.eolang.tuple.empty,
+            α1 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46
+              )
+            )
+          ),
+          j\$d ↦ Φ.org.eolang.field(
+            α0 ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-02
+              )
+            ),
+            α1 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 49-
+              )
+            ),
+            α2 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            α3 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            )
+          ),
+          new ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-00
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-49-29-56
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple,
+            arg__I__0 ↦ ⟦
+              
+            ⟧,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple(
+                              α0 ↦ Φ.org.eolang.tuple(
+                                α0 ↦ Φ.org.eolang.tuple(
+                                  α0 ↦ Φ.org.eolang.tuple.empty,
+                                  α1 ↦ Φ.org.eolang.jeo.label(
+                                    α0 ↦ Φ.org.eolang.string(
+                                      α0 ↦ Φ.org.eolang.bytes(
+                                        Δ ⤍ 39-39-64-65-65-32-33-64-2D-32-39-36-33-2D-34-61-33-31-2D-61-30-65-32-2D-38-37-61-64-31-63-34-34-33-36-64-35
+                                      )
+                                    )
+                                  )
+                                ),
+                                α1 ↦ ξ.ALOAD-19
+                              ),
+                              α1 ↦ ξ.INVOKESPECIAL-1A
+                            ),
+                            α1 ↦ Φ.org.eolang.jeo.label(
+                              α0 ↦ Φ.org.eolang.string(
+                                α0 ↦ Φ.org.eolang.bytes(
+                                  Δ ⤍ 39-34-32-66-39-34-39-30-2D-35-37-33-39-2D-34-64-34-30-2D-39-30-30-38-2D-38-38-62-32-61-31-34-62-62-62-66-62
+                                )
+                              )
+                            )
+                          ),
+                          α1 ↦ ξ.ALOAD-1B
+                        ),
+                        α1 ↦ ξ.ILOAD-1C
+                      ),
+                      α1 ↦ ξ.PUTFIELD-1D
+                    ),
+                    α1 ↦ Φ.org.eolang.jeo.label(
+                      α0 ↦ Φ.org.eolang.string(
+                        α0 ↦ Φ.org.eolang.bytes(
+                          Δ ⤍ 33-37-38-36-38-38-35-34-2D-34-32-65-31-2D-34-61-38-62-2D-62-63-32-30-2D-30-63-39-66-30-33-66-37-65-31-33-33
+                        )
+                      )
+                    )
+                  ),
+                  α1 ↦ ξ.RETURN-1E
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 31-65-66-61-32-30-32-34-2D-65-64-30-65-2D-34-35-30-36-2D-61-33-63-61-2D-33-63-30-31-31-39-66-31-33-34-61-32
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-19 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            INVOKESPECIAL-1A ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-56
+                )
+              )
+            ),
+            ALOAD-1B ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            ILOAD-1C ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-15
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-01
+                )
+              )
+            ),
+            PUTFIELD-1D ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B5
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 64-
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 49-
+                )
+              )
+            ),
+            RETURN-1E ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B1
+                )
+              )
+            )
+          ⟧,
+          j\$foo ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-01
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-49
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple.empty,
+                            α1 ↦ Φ.org.eolang.jeo.label(
+                              α0 ↦ Φ.org.eolang.string(
+                                α0 ↦ Φ.org.eolang.bytes(
+                                  Δ ⤍ 35-32-64-39-37-39-37-38-2D-32-66-63-36-2D-34-38-62-63-2D-38-66-30-39-2D-62-38-61-38-35-63-65-38-31-63-30-65
+                                )
+                              )
+                            )
+                          ),
+                          α1 ↦ ξ.ALOAD-1F
+                        ),
+                        α1 ↦ ξ.GETFIELD-20
+                      ),
+                      α1 ↦ ξ.ICONST_1-21
+                    ),
+                    α1 ↦ ξ.IADD-22
+                  ),
+                  α1 ↦ ξ.IRETURN-23
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 35-31-33-61-64-66-64-36-2D-39-39-63-37-2D-34-31-64-38-2D-61-37-31-66-2D-61-33-33-61-32-30-61-30-37-64-36-37
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-1F ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            GETFIELD-20 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B4
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 64-
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 49-
+                )
+              )
+            ),
+            ICONST_1-21 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-04
+                )
+              )
+            ),
+            IADD-22 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-60
+                )
+              )
+            ),
+            IRETURN-23 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-AC
+                )
+              )
+            )
+          ⟧
+        ⟧,
+        λ ⤍ Package
+      ⟧,
+      λ ⤍ Package
+    ⟧,
+    λ ⤍ Package
+  ⟧
+}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$App ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 34-36-39-66-34-38-63-30-2D-32-35-32-33-2D-34-32-34-66-2D-39-64-66-39-2D-36-30-65-65-65-65-34-65-39-34-63-37)), α1 ↦ ALOAD-D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-35-35-33-38-33-63-61-2D-36-61-34-30-2D-34-61-63-62-2D-39-62-66-30-2D-39-38-61-64-61-35-32-65-65-36-65-61))))⟧, j\$run ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 31-62-38-61-32-63-65-65-2D-61-34-64-32-2D-34-64-38-63-2D-38-39-34-36-2D-65-39-32-33-37-30-61-30-39-34-33-33)), α1 ↦ NEW-10 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42)), α2 ↦ DUP-11 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ NEW-12 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41)), α4 ↦ DUP-13 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α5 ↦ BIPUSH-14 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-10), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-2A)), α6 ↦ INVOKESPECIAL-15 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-49-29-56)), α7 ↦ INVOKESPECIAL-16 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56)), α8 ↦ INVOKEVIRTUAL-17 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 62-61-72), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α9 ↦ IRETURN-18 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α10 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 64-61-39-30-37-66-36-63-2D-37-36-34-36-2D-34-62-30-35-2D-62-65-38-65-2D-35-39-64-32-63-66-65-63-39-66-33-30))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{
+  org ↦ ⟦
+    eolang ↦ ⟦
+      benchmark ↦ ⟦
+        j\$App ↦ ⟦
+          access ↦ Φ.org.eolang.int(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 00-00-00-00-00-00-00-20
+            )
+          ),
+          supername ↦ Φ.org.eolang.string(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+            )
+          ),
+          interfaces ↦ Φ.org.eolang.tuple,
+          new ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-00
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-56
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple.empty,
+                        α1 ↦ Φ.org.eolang.jeo.label(
+                          α0 ↦ Φ.org.eolang.string(
+                            α0 ↦ Φ.org.eolang.bytes(
+                              Δ ⤍ 61-33-61-35-34-62-66-31-2D-32-36-36-35-2D-34-30-62-62-2D-61-30-31-38-2D-63-64-35-33-32-37-63-63-38-62-62-66
+                            )
+                          )
+                        )
+                      ),
+                      α1 ↦ ξ.ALOAD-D
+                    ),
+                    α1 ↦ ξ.INVOKESPECIAL-E
+                  ),
+                  α1 ↦ ξ.RETURN-F
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 31-62-61-62-62-37-37-37-2D-33-30-35-37-2D-34-36-64-61-2D-39-38-65-37-2D-66-63-63-64-31-64-38-37-39-39-39-34
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-D ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            INVOKESPECIAL-E ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-56
+                )
+              )
+            ),
+            RETURN-F ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B1
+                )
+              )
+            )
+          ⟧,
+          j\$run ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-00
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-49
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple(
+                              α0 ↦ Φ.org.eolang.tuple(
+                                α0 ↦ Φ.org.eolang.tuple(
+                                  α0 ↦ Φ.org.eolang.tuple(
+                                    α0 ↦ Φ.org.eolang.tuple.empty,
+                                    α1 ↦ Φ.org.eolang.jeo.label(
+                                      α0 ↦ Φ.org.eolang.string(
+                                        α0 ↦ Φ.org.eolang.bytes(
+                                          Δ ⤍ 32-32-35-37-62-31-30-31-2D-31-31-34-66-2D-34-38-38-37-2D-38-64-33-34-2D-63-65-35-33-33-35-34-31-32-36-66-66
+                                        )
+                                      )
+                                    )
+                                  ),
+                                  α1 ↦ ξ.NEW-10
+                                ),
+                                α1 ↦ ξ.DUP-11
+                              ),
+                              α1 ↦ ξ.NEW-12
+                            ),
+                            α1 ↦ ξ.DUP-13
+                          ),
+                          α1 ↦ ξ.BIPUSH-14
+                        ),
+                        α1 ↦ ξ.INVOKESPECIAL-15
+                      ),
+                      α1 ↦ ξ.INVOKESPECIAL-16
+                    ),
+                    α1 ↦ ξ.INVOKEVIRTUAL-17
+                  ),
+                  α1 ↦ ξ.IRETURN-18
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 39-37-66-66-33-35-38-37-2D-35-64-62-33-2D-34-62-35-38-2D-61-33-37-62-2D-32-62-30-35-37-66-37-62-36-37-37-30
+                    )
+                  )
+                )
+              )
+            ),
+            NEW-10 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-BB
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42
+                )
+              )
+            ),
+            DUP-11 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-59
+                )
+              )
+            ),
+            NEW-12 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-BB
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41
+                )
+              )
+            ),
+            DUP-13 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-59
+                )
+              )
+            ),
+            BIPUSH-14 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-10
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-2A
+                )
+              )
+            ),
+            INVOKESPECIAL-15 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-49-29-56
+                )
+              )
+            ),
+            INVOKESPECIAL-16 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56
+                )
+              )
+            ),
+            INVOKEVIRTUAL-17 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B6
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 62-61-72
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-49
+                )
+              )
+            ),
+            IRETURN-18 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-AC
+                )
+              )
+            )
+          ⟧
+        ⟧,
+        λ ⤍ Package
+      ⟧,
+      λ ⤍ Package
+    ⟧,
+    λ ⤍ Package
+  ⟧
+}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$B ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-20), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j\$f ↦ ξ.field(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-12), α1 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B), α2 ↦ ξ.string(Δ ⤍ --), α3 ↦ ξ.string(Δ ⤍ --)), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__Lorg/eolang/benchmark/F;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 36-39-64-32-65-32-62-64-2D-33-39-66-63-2D-34-64-66-32-2D-39-37-64-38-2D-31-61-37-62-32-32-33-30-34-31-33-62)), α1 ↦ ALOAD-1 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-2 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 34-35-32-34-39-66-34-61-2D-66-39-36-33-2D-34-36-35-35-2D-61-63-62-64-2D-36-38-61-66-37-64-30-39-37-63-37-38)), α4 ↦ ALOAD-3 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α5 ↦ ALOAD-4 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α6 ↦ PUTFIELD-5 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B5), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-63-33-33-39-39-37-36-2D-64-36-65-31-2D-34-62-65-32-2D-62-65-64-63-2D-32-32-32-64-31-30-32-39-32-36-35-37)), α8 ↦ RETURN-6 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α9 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 66-64-35-62-63-65-37-39-2D-38-30-31-36-2D-34-66-63-64-2D-62-61-64-39-2D-62-62-64-35-39-62-36-33-30-30-61-32))))⟧, j\$bar ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 34-35-33-32-39-37-37-30-2D-65-65-35-39-2D-34-31-65-35-2D-61-66-65-36-2D-63-35-62-62-63-35-61-34-64-35-34-35)), α1 ↦ ALOAD-7 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ GETFIELD-8 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B4), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42), α2 ↦ ξ.string(Δ ⤍ 66-), α3 ↦ ξ.string(Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B)), α3 ↦ INVOKEINTERFACE-9 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B9), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46), α2 ↦ ξ.string(Δ ⤍ 66-6F-6F), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α4 ↦ ICONST_2-A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-05)), α5 ↦ IADD-B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-60)), α6 ↦ IRETURN-C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-AC)), α7 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 61-39-63-32-36-32-31-39-2D-61-34-32-30-2D-34-35-66-35-2D-61-65-61-36-2D-63-34-61-65-36-38-63-38-62-64-33-65))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{
+  org ↦ ⟦
+    eolang ↦ ⟦
+      benchmark ↦ ⟦
+        j\$B ↦ ⟦
+          access ↦ Φ.org.eolang.int(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 00-00-00-00-00-00-00-20
+            )
+          ),
+          supername ↦ Φ.org.eolang.string(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+            )
+          ),
+          interfaces ↦ Φ.org.eolang.tuple.empty,
+          j\$f ↦ Φ.org.eolang.field(
+            α0 ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-12
+              )
+            ),
+            α1 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B
+              )
+            ),
+            α2 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            α3 ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            )
+          ),
+          new ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-00
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B-29-56
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple,
+            arg__Lorg/eolang/benchmark/F;__0 ↦ ⟦
+              
+            ⟧,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple(
+                              α0 ↦ Φ.org.eolang.tuple(
+                                α0 ↦ Φ.org.eolang.tuple(
+                                  α0 ↦ Φ.org.eolang.tuple.empty,
+                                  α1 ↦ Φ.org.eolang.jeo.label(
+                                    α0 ↦ Φ.org.eolang.string(
+                                      α0 ↦ Φ.org.eolang.bytes(
+                                        Δ ⤍ 33-65-36-65-62-37-36-35-2D-39-31-31-37-2D-34-33-39-30-2D-61-37-62-36-2D-61-64-66-36-62-63-32-34-31-62-33-34
+                                      )
+                                    )
+                                  )
+                                ),
+                                α1 ↦ ξ.ALOAD-1
+                              ),
+                              α1 ↦ ξ.INVOKESPECIAL-2
+                            ),
+                            α1 ↦ Φ.org.eolang.jeo.label(
+                              α0 ↦ Φ.org.eolang.string(
+                                α0 ↦ Φ.org.eolang.bytes(
+                                  Δ ⤍ 39-32-31-32-30-36-35-66-2D-31-38-31-32-2D-34-64-37-34-2D-61-30-38-36-2D-34-66-65-63-63-62-33-37-32-36-62-36
+                                )
+                              )
+                            )
+                          ),
+                          α1 ↦ ξ.ALOAD-3
+                        ),
+                        α1 ↦ ξ.ALOAD-4
+                      ),
+                      α1 ↦ ξ.PUTFIELD-5
+                    ),
+                    α1 ↦ Φ.org.eolang.jeo.label(
+                      α0 ↦ Φ.org.eolang.string(
+                        α0 ↦ Φ.org.eolang.bytes(
+                          Δ ⤍ 36-31-34-39-38-61-30-64-2D-30-62-35-63-2D-34-32-34-66-2D-62-30-37-37-2D-35-39-61-35-33-31-30-36-61-61-30-65
+                        )
+                      )
+                    )
+                  ),
+                  α1 ↦ ξ.RETURN-6
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 33-64-35-30-38-61-62-35-2D-38-33-32-37-2D-34-39-65-34-2D-61-66-33-66-2D-36-66-39-32-62-65-38-38-35-36-36-62
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-1 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            INVOKESPECIAL-2 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-56
+                )
+              )
+            ),
+            ALOAD-3 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            ALOAD-4 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-01
+                )
+              )
+            ),
+            PUTFIELD-5 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B5
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 66-
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B
+                )
+              )
+            ),
+            RETURN-6 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B1
+                )
+              )
+            )
+          ⟧,
+          j\$bar ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-00
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-49
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple(
+                              α0 ↦ Φ.org.eolang.tuple.empty,
+                              α1 ↦ Φ.org.eolang.jeo.label(
+                                α0 ↦ Φ.org.eolang.string(
+                                  α0 ↦ Φ.org.eolang.bytes(
+                                    Δ ⤍ 30-38-38-63-32-64-34-37-2D-31-31-32-63-2D-34-33-38-36-2D-39-64-65-35-2D-37-63-62-39-30-61-32-65-64-64-33-64
+                                  )
+                                )
+                              )
+                            ),
+                            α1 ↦ ξ.ALOAD-7
+                          ),
+                          α1 ↦ ξ.GETFIELD-8
+                        ),
+                        α1 ↦ ξ.INVOKEINTERFACE-9
+                      ),
+                      α1 ↦ ξ.ICONST_2-A
+                    ),
+                    α1 ↦ ξ.IADD-B
+                  ),
+                  α1 ↦ ξ.IRETURN-C
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 39-38-61-65-61-33-38-35-2D-66-36-30-66-2D-34-34-33-64-2D-39-30-61-66-2D-34-39-38-37-31-32-66-33-39-35-66-63
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-7 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            GETFIELD-8 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B4
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-42
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 66-
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 4C-6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46-3B
+                )
+              )
+            ),
+            INVOKEINTERFACE-9 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B9
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-46
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 66-6F-6F
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-49
+                )
+              )
+            ),
+            ICONST_2-A ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-05
+                )
+              )
+            ),
+            IADD-B ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-60
+                )
+              )
+            ),
+            IRETURN-C ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-AC
+                )
+              )
+            )
+          ⟧
+        ⟧,
+        λ ⤍ Package
+      ⟧,
+      λ ⤍ Package
+    ⟧,
+    λ ⤍ Package
+  ⟧
+}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$F ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-06-00), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), j\$foo ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-04-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-49), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple)⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}
+{
+  org ↦ ⟦
+    eolang ↦ ⟦
+      benchmark ↦ ⟦
+        j\$F ↦ ⟦
+          access ↦ Φ.org.eolang.int(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 00-00-00-00-00-00-06-00
+            )
+          ),
+          supername ↦ Φ.org.eolang.string(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+            )
+          ),
+          interfaces ↦ Φ.org.eolang.tuple,
+          j\$foo ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-04-01
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-49
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple.empty
+            )
+          ⟧
+        ⟧,
+        λ ⤍ Package
+      ⟧,
+      λ ⤍ Package
+    ⟧,
+    λ ⤍ Package
+  ⟧
+}
 
-{org ↦ ⟦eolang ↦ ⟦benchmark ↦ ⟦j\$Main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-21), supername ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), interfaces ↦ ξ.tuple(Δ ⤍ --), new ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01), descriptor ↦ ξ.string(Δ ⤍ 28-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-62-34-31-33-64-36-31-2D-33-32-31-62-2D-34-33-31-61-2D-39-34-34-36-2D-32-62-61-62-62-38-34-61-61-36-61-37)), α1 ↦ ALOAD-24 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α2 ↦ INVOKESPECIAL-25 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α3 ↦ RETURN-26 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α4 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-35-37-32-65-34-30-34-2D-37-30-31-32-2D-34-63-65-37-2D-61-36-39-62-2D-63-31-30-65-64-62-34-30-65-39-66-33))))⟧, j\$main ↦ ⟦access ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-89), descriptor ↦ ξ.string(Δ ⤍ 28-5B-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-56), signature ↦ ξ.string(Δ ⤍ --), exceptions ↦ ξ.tuple(Δ ⤍ --), arg__[Ljava/lang/String;__0 ↦ ⟦⟧, φ ↦ ξ.seq(α0 ↦ ξ.tuple(α0 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-66-37-35-63-38-65-34-2D-36-64-65-38-2D-34-64-62-62-2D-39-37-65-65-2D-34-30-39-32-35-31-35-36-32-32-37-31)), α1 ↦ NEW-27 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-BB), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70)), α2 ↦ DUP-28 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-59)), α3 ↦ INVOKESPECIAL-29 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B7), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 3C-69-6E-69-74-3E), α3 ↦ ξ.string(Δ ⤍ 28-29-56)), α4 ↦ ASTORE-2A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-3A), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α5 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-33-66-34-66-34-63-33-2D-65-34-30-63-2D-34-65-36-36-2D-38-62-35-30-2D-33-32-38-31-65-36-31-34-36-35-61-34)), α6 ↦ ALOAD-2B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-00)), α7 ↦ ICONST_0-2C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-03)), α8 ↦ AALOAD-2D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-32)), α9 ↦ INVOKESTATIC-2E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B8), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4C-6F-6E-67), α2 ↦ ξ.string(Δ ⤍ 70-61-72-73-65-4C-6F-6E-67), α3 ↦ ξ.string(Δ ⤍ 28-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-4A)), α10 ↦ LSTORE-2F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α11 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-33-32-30-39-36-61-62-2D-39-38-35-34-2D-34-61-37-35-2D-38-31-61-31-2D-62-66-62-62-62-38-35-31-34-32-64-66)), α12 ↦ LCONST_0-30 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α13 ↦ LSTORE-31 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α14 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-61-34-65-36-36-33-32-2D-39-62-38-38-2D-34-66-36-30-2D-39-35-37-39-2D-30-66-36-30-37-30-37-61-37-66-64-39)), α15 ↦ LCONST_0-32 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-09)), α16 ↦ LSTORE-33 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α17 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-32-37-35-36-65-30-66-2D-39-65-61-36-2D-34-35-64-36-2D-38-32-65-36-2D-31-37-39-61-35-63-39-62-61-30-39-37)), α18 ↦ LLOAD-34 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α19 ↦ LLOAD-35 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-02)), α20 ↦ LCMP-36 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-94)), α21 ↦ IFGE-37 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-9C), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-63-34-39-37-63-61-31-2D-65-33-34-30-2D-34-64-62-63-2D-62-66-35-35-2D-61-33-32-65-33-36-64-35-63-33-64-37))), α22 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 37-61-34-65-66-37-64-31-2D-39-63-32-64-2D-34-65-33-38-2D-39-65-31-63-2D-64-30-35-33-61-31-37-35-31-65-37-33)), α23 ↦ LLOAD-38 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α24 ↦ ALOAD-39 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-19), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-01)), α25 ↦ INVOKEVIRTUAL-3A ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70), α2 ↦ ξ.string(Δ ⤍ 72-75-6E), α3 ↦ ξ.string(Δ ⤍ 28-29-49)), α26 ↦ I2L-3B ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-85)), α27 ↦ LADD-3C ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α28 ↦ LSTORE-3D ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α29 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 63-39-32-39-39-31-38-36-2D-66-35-37-63-2D-34-30-63-30-2D-62-66-66-32-2D-31-33-64-64-33-36-39-61-64-39-65-33)), α30 ↦ LLOAD-3E ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α31 ↦ LCONST_1-3F ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-0A)), α32 ↦ LADD-40 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-61)), α33 ↦ LSTORE-41 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-37), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-06)), α34 ↦ GOTO-42 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-A7), α1 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 30-32-37-35-36-65-30-66-2D-39-65-61-36-2D-34-35-64-36-2D-38-32-65-36-2D-31-37-39-61-35-63-39-62-61-30-39-37))), α35 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 33-63-34-39-37-63-61-31-2D-65-33-34-30-2D-34-64-62-63-2D-62-66-35-35-2D-61-33-32-65-33-36-64-35-63-33-64-37)), α36 ↦ GETSTATIC-43 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B2), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-53-79-73-74-65-6D), α2 ↦ ξ.string(Δ ⤍ 6F-75-74), α3 ↦ ξ.string(Δ ⤍ 4C-6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D-3B)), α37 ↦ LLOAD-44 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-16), α1 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-04)), α38 ↦ INVOKEVIRTUAL-45 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B6), α1 ↦ ξ.string(Δ ⤍ 6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D), α2 ↦ ξ.string(Δ ⤍ 70-72-69-6E-74-6C-6E), α3 ↦ ξ.string(Δ ⤍ 28-4A-29-56)), α39 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 62-61-33-63-33-66-31-38-2D-62-63-36-31-2D-34-39-64-65-2D-61-38-63-63-2D-34-39-62-31-36-37-36-32-37-34-63-61)), α40 ↦ RETURN-46 ↦ ξ.opcode(α0 ↦ ξ.int(Δ ⤍ 00-00-00-00-00-00-00-B1)), α41 ↦ ξ.label(α0 ↦ ξ.string(Δ ⤍ 38-37-64-66-38-33-62-61-2D-32-64-33-37-2D-34-31-64-62-2D-62-30-36-37-2D-62-31-37-35-38-38-31-65-61-39-35-37))))⟧⟧, λ ⤍ Package⟧, λ ⤍ Package⟧, λ ⤍ Package⟧}</pre></div>
+{
+  org ↦ ⟦
+    eolang ↦ ⟦
+      benchmark ↦ ⟦
+        j\$Main ↦ ⟦
+          access ↦ Φ.org.eolang.int(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 00-00-00-00-00-00-00-21
+            )
+          ),
+          supername ↦ Φ.org.eolang.string(
+            α0 ↦ Φ.org.eolang.bytes(
+              Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+            )
+          ),
+          interfaces ↦ Φ.org.eolang.tuple,
+          new ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-01
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-29-56
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple.empty,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple.empty,
+                        α1 ↦ Φ.org.eolang.jeo.label(
+                          α0 ↦ Φ.org.eolang.string(
+                            α0 ↦ Φ.org.eolang.bytes(
+                              Δ ⤍ 61-66-36-36-34-39-38-66-2D-35-39-66-31-2D-34-64-62-66-2D-39-66-32-64-2D-30-39-64-33-30-39-61-66-66-32-65-31
+                            )
+                          )
+                        )
+                      ),
+                      α1 ↦ ξ.ALOAD-24
+                    ),
+                    α1 ↦ ξ.INVOKESPECIAL-25
+                  ),
+                  α1 ↦ ξ.RETURN-26
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 30-66-63-64-35-30-63-36-2D-36-65-32-39-2D-34-34-63-36-2D-38-63-33-35-2D-33-32-62-34-63-32-35-33-37-35-36-32
+                    )
+                  )
+                )
+              )
+            ),
+            ALOAD-24 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            INVOKESPECIAL-25 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4F-62-6A-65-63-74
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-56
+                )
+              )
+            ),
+            RETURN-26 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B1
+                )
+              )
+            )
+          ⟧,
+          j\$main ↦ ⟦
+            access ↦ Φ.org.eolang.int(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 00-00-00-00-00-00-00-89
+              )
+            ),
+            descriptor ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ 28-5B-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-56
+              )
+            ),
+            signature ↦ Φ.org.eolang.string(
+              α0 ↦ Φ.org.eolang.bytes(
+                Δ ⤍ --
+              )
+            ),
+            exceptions ↦ Φ.org.eolang.tuple,
+            arg__[Ljava/lang/String;__0 ↦ ⟦
+              
+            ⟧,
+            φ ↦ Φ.org.eolang.seq(
+              α0 ↦ Φ.org.eolang.tuple(
+                α0 ↦ Φ.org.eolang.tuple(
+                  α0 ↦ Φ.org.eolang.tuple(
+                    α0 ↦ Φ.org.eolang.tuple(
+                      α0 ↦ Φ.org.eolang.tuple(
+                        α0 ↦ Φ.org.eolang.tuple(
+                          α0 ↦ Φ.org.eolang.tuple(
+                            α0 ↦ Φ.org.eolang.tuple(
+                              α0 ↦ Φ.org.eolang.tuple(
+                                α0 ↦ Φ.org.eolang.tuple(
+                                  α0 ↦ Φ.org.eolang.tuple(
+                                    α0 ↦ Φ.org.eolang.tuple(
+                                      α0 ↦ Φ.org.eolang.tuple(
+                                        α0 ↦ Φ.org.eolang.tuple(
+                                          α0 ↦ Φ.org.eolang.tuple(
+                                            α0 ↦ Φ.org.eolang.tuple(
+                                              α0 ↦ Φ.org.eolang.tuple(
+                                                α0 ↦ Φ.org.eolang.tuple(
+                                                  α0 ↦ Φ.org.eolang.tuple(
+                                                    α0 ↦ Φ.org.eolang.tuple(
+                                                      α0 ↦ Φ.org.eolang.tuple(
+                                                        α0 ↦ Φ.org.eolang.tuple(
+                                                          α0 ↦ Φ.org.eolang.tuple(
+                                                            α0 ↦ Φ.org.eolang.tuple(
+                                                              α0 ↦ Φ.org.eolang.tuple(
+                                                                α0 ↦ Φ.org.eolang.tuple(
+                                                                  α0 ↦ Φ.org.eolang.tuple(
+                                                                    α0 ↦ Φ.org.eolang.tuple(
+                                                                      α0 ↦ Φ.org.eolang.tuple(
+                                                                        α0 ↦ Φ.org.eolang.tuple(
+                                                                          α0 ↦ Φ.org.eolang.tuple(
+                                                                            α0 ↦ Φ.org.eolang.tuple(
+                                                                              α0 ↦ Φ.org.eolang.tuple(
+                                                                                α0 ↦ Φ.org.eolang.tuple(
+                                                                                  α0 ↦ Φ.org.eolang.tuple(
+                                                                                    α0 ↦ Φ.org.eolang.tuple(
+                                                                                      α0 ↦ Φ.org.eolang.tuple(
+                                                                                        α0 ↦ Φ.org.eolang.tuple(
+                                                                                          α0 ↦ Φ.org.eolang.tuple(
+                                                                                            α0 ↦ Φ.org.eolang.tuple(
+                                                                                              α0 ↦ Φ.org.eolang.tuple(
+                                                                                                α0 ↦ Φ.org.eolang.tuple(
+                                                                                                  α0 ↦ Φ.org.eolang.tuple.empty,
+                                                                                                  α1 ↦ Φ.org.eolang.jeo.label(
+                                                                                                    α0 ↦ Φ.org.eolang.string(
+                                                                                                      α0 ↦ Φ.org.eolang.bytes(
+                                                                                                        Δ ⤍ 34-62-39-37-64-35-39-35-2D-35-64-34-63-2D-34-36-30-62-2D-61-35-30-64-2D-37-63-30-66-36-34-31-61-39-63-63-36
+                                                                                                      )
+                                                                                                    )
+                                                                                                  )
+                                                                                                ),
+                                                                                                α1 ↦ ξ.NEW-27
+                                                                                              ),
+                                                                                              α1 ↦ ξ.DUP-28
+                                                                                            ),
+                                                                                            α1 ↦ ξ.INVOKESPECIAL-29
+                                                                                          ),
+                                                                                          α1 ↦ ξ.ASTORE-2A
+                                                                                        ),
+                                                                                        α1 ↦ Φ.org.eolang.jeo.label(
+                                                                                          α0 ↦ Φ.org.eolang.string(
+                                                                                            α0 ↦ Φ.org.eolang.bytes(
+                                                                                              Δ ⤍ 34-39-66-61-30-33-32-36-2D-64-31-35-30-2D-34-33-31-36-2D-39-65-66-37-2D-32-34-31-30-37-32-64-65-61-39-64-63
+                                                                                            )
+                                                                                          )
+                                                                                        )
+                                                                                      ),
+                                                                                      α1 ↦ ξ.ALOAD-2B
+                                                                                    ),
+                                                                                    α1 ↦ ξ.ICONST_0-2C
+                                                                                  ),
+                                                                                  α1 ↦ ξ.AALOAD-2D
+                                                                                ),
+                                                                                α1 ↦ ξ.INVOKESTATIC-2E
+                                                                              ),
+                                                                              α1 ↦ ξ.LSTORE-2F
+                                                                            ),
+                                                                            α1 ↦ Φ.org.eolang.jeo.label(
+                                                                              α0 ↦ Φ.org.eolang.string(
+                                                                                α0 ↦ Φ.org.eolang.bytes(
+                                                                                  Δ ⤍ 34-30-36-61-30-65-65-34-2D-35-63-63-34-2D-34-63-63-36-2D-61-33-66-63-2D-36-31-35-66-61-38-63-36-33-30-63-64
+                                                                                )
+                                                                              )
+                                                                            )
+                                                                          ),
+                                                                          α1 ↦ ξ.LCONST_0-30
+                                                                        ),
+                                                                        α1 ↦ ξ.LSTORE-31
+                                                                      ),
+                                                                      α1 ↦ Φ.org.eolang.jeo.label(
+                                                                        α0 ↦ Φ.org.eolang.string(
+                                                                          α0 ↦ Φ.org.eolang.bytes(
+                                                                            Δ ⤍ 34-63-37-34-35-62-63-32-2D-36-65-36-66-2D-34-39-66-64-2D-62-31-66-30-2D-65-34-39-30-32-35-30-35-31-32-62-34
+                                                                          )
+                                                                        )
+                                                                      )
+                                                                    ),
+                                                                    α1 ↦ ξ.LCONST_0-32
+                                                                  ),
+                                                                  α1 ↦ ξ.LSTORE-33
+                                                                ),
+                                                                α1 ↦ Φ.org.eolang.jeo.label(
+                                                                  α0 ↦ Φ.org.eolang.string(
+                                                                    α0 ↦ Φ.org.eolang.bytes(
+                                                                      Δ ⤍ 35-62-34-30-38-33-36-39-2D-65-36-31-39-2D-34-38-34-34-2D-39-38-66-65-2D-36-63-38-39-32-32-63-31-65-65-33-39
+                                                                    )
+                                                                  )
+                                                                )
+                                                              ),
+                                                              α1 ↦ ξ.LLOAD-34
+                                                            ),
+                                                            α1 ↦ ξ.LLOAD-35
+                                                          ),
+                                                          α1 ↦ ξ.LCMP-36
+                                                        ),
+                                                        α1 ↦ ξ.IFGE-37
+                                                      ),
+                                                      α1 ↦ Φ.org.eolang.jeo.label(
+                                                        α0 ↦ Φ.org.eolang.string(
+                                                          α0 ↦ Φ.org.eolang.bytes(
+                                                            Δ ⤍ 34-64-66-32-62-37-62-64-2D-66-61-33-33-2D-34-39-35-32-2D-62-62-63-65-2D-32-34-31-34-34-66-64-30-64-35-34-62
+                                                          )
+                                                        )
+                                                      )
+                                                    ),
+                                                    α1 ↦ ξ.LLOAD-38
+                                                  ),
+                                                  α1 ↦ ξ.ALOAD-39
+                                                ),
+                                                α1 ↦ ξ.INVOKEVIRTUAL-3A
+                                              ),
+                                              α1 ↦ ξ.I2L-3B
+                                            ),
+                                            α1 ↦ ξ.LADD-3C
+                                          ),
+                                          α1 ↦ ξ.LSTORE-3D
+                                        ),
+                                        α1 ↦ Φ.org.eolang.jeo.label(
+                                          α0 ↦ Φ.org.eolang.string(
+                                            α0 ↦ Φ.org.eolang.bytes(
+                                              Δ ⤍ 36-32-61-65-65-38-36-36-2D-31-63-63-31-2D-34-64-30-62-2D-61-36-35-65-2D-62-64-33-63-63-65-62-34-36-38-66-36
+                                            )
+                                          )
+                                        )
+                                      ),
+                                      α1 ↦ ξ.LLOAD-3E
+                                    ),
+                                    α1 ↦ ξ.LCONST_1-3F
+                                  ),
+                                  α1 ↦ ξ.LADD-40
+                                ),
+                                α1 ↦ ξ.LSTORE-41
+                              ),
+                              α1 ↦ ξ.GOTO-42
+                            ),
+                            α1 ↦ Φ.org.eolang.jeo.label(
+                              α0 ↦ Φ.org.eolang.string(
+                                α0 ↦ Φ.org.eolang.bytes(
+                                  Δ ⤍ 31-63-66-63-30-31-39-38-2D-38-31-31-34-2D-34-34-66-35-2D-61-37-38-63-2D-35-62-38-32-35-35-33-34-65-39-63-34
+                                )
+                              )
+                            )
+                          ),
+                          α1 ↦ ξ.GETSTATIC-43
+                        ),
+                        α1 ↦ ξ.LLOAD-44
+                      ),
+                      α1 ↦ ξ.INVOKEVIRTUAL-45
+                    ),
+                    α1 ↦ Φ.org.eolang.jeo.label(
+                      α0 ↦ Φ.org.eolang.string(
+                        α0 ↦ Φ.org.eolang.bytes(
+                          Δ ⤍ 32-30-33-31-64-32-32-39-2D-66-37-65-38-2D-34-31-65-37-2D-62-64-65-62-2D-64-38-65-62-65-37-38-37-31-33-63-39
+                        )
+                      )
+                    )
+                  ),
+                  α1 ↦ ξ.RETURN-46
+                ),
+                α1 ↦ Φ.org.eolang.jeo.label(
+                  α0 ↦ Φ.org.eolang.string(
+                    α0 ↦ Φ.org.eolang.bytes(
+                      Δ ⤍ 62-65-31-30-65-62-64-62-2D-38-34-34-30-2D-34-33-30-30-2D-61-37-66-62-2D-32-32-38-65-30-33-38-61-39-35-64-30
+                    )
+                  )
+                )
+              )
+            ),
+            NEW-27 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-BB
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70
+                )
+              )
+            ),
+            DUP-28 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-59
+                )
+              )
+            ),
+            INVOKESPECIAL-29 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 3C-69-6E-69-74-3E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-56
+                )
+              )
+            ),
+            ASTORE-2A ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-3A
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-01
+                )
+              )
+            ),
+            ALOAD-2B ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-00
+                )
+              )
+            ),
+            ICONST_0-2C ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-03
+                )
+              )
+            ),
+            AALOAD-2D ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-32
+                )
+              )
+            ),
+            INVOKESTATIC-2E ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B8
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-4C-6F-6E-67
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 70-61-72-73-65-4C-6F-6E-67
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-4C-6A-61-76-61-2F-6C-61-6E-67-2F-53-74-72-69-6E-67-3B-29-4A
+                )
+              )
+            ),
+            LSTORE-2F ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-37
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-02
+                )
+              )
+            ),
+            LCONST_0-30 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-09
+                )
+              )
+            ),
+            LSTORE-31 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-37
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-04
+                )
+              )
+            ),
+            LCONST_0-32 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-09
+                )
+              )
+            ),
+            LSTORE-33 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-37
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-06
+                )
+              )
+            ),
+            LLOAD-34 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-16
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-06
+                )
+              )
+            ),
+            LLOAD-35 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-16
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-02
+                )
+              )
+            ),
+            LCMP-36 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-94
+                )
+              )
+            ),
+            IFGE-37 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-9C
+                )
+              ),
+              α1 ↦ Φ.org.eolang.jeo.label(
+                α0 ↦ Φ.org.eolang.string(
+                  α0 ↦ Φ.org.eolang.bytes(
+                    Δ ⤍ 31-63-66-63-30-31-39-38-2D-38-31-31-34-2D-34-34-66-35-2D-61-37-38-63-2D-35-62-38-32-35-35-33-34-65-39-63-34
+                  )
+                )
+              )
+            ),
+            LLOAD-38 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-16
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-04
+                )
+              )
+            ),
+            ALOAD-39 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-19
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-01
+                )
+              )
+            ),
+            INVOKEVIRTUAL-3A ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B6
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-72-67-2F-65-6F-6C-61-6E-67-2F-62-65-6E-63-68-6D-61-72-6B-2F-41-70-70
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 72-75-6E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-29-49
+                )
+              )
+            ),
+            I2L-3B ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-85
+                )
+              )
+            ),
+            LADD-3C ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-61
+                )
+              )
+            ),
+            LSTORE-3D ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-37
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-04
+                )
+              )
+            ),
+            LLOAD-3E ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-16
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-06
+                )
+              )
+            ),
+            LCONST_1-3F ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-0A
+                )
+              )
+            ),
+            LADD-40 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-61
+                )
+              )
+            ),
+            LSTORE-41 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-37
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-06
+                )
+              )
+            ),
+            GOTO-42 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-A7
+                )
+              ),
+              α1 ↦ Φ.org.eolang.jeo.label(
+                α0 ↦ Φ.org.eolang.string(
+                  α0 ↦ Φ.org.eolang.bytes(
+                    Δ ⤍ 35-62-34-30-38-33-36-39-2D-65-36-31-39-2D-34-38-34-34-2D-39-38-66-65-2D-36-63-38-39-32-32-63-31-65-65-33-39
+                  )
+                )
+              )
+            ),
+            GETSTATIC-43 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B2
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-6C-61-6E-67-2F-53-79-73-74-65-6D
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6F-75-74
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 4C-6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D-3B
+                )
+              )
+            ),
+            LLOAD-44 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-16
+                )
+              ),
+              α1 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-04
+                )
+              )
+            ),
+            INVOKEVIRTUAL-45 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B6
+                )
+              ),
+              α1 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 6A-61-76-61-2F-69-6F-2F-50-72-69-6E-74-53-74-72-65-61-6D
+                )
+              ),
+              α2 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 70-72-69-6E-74-6C-6E
+                )
+              ),
+              α3 ↦ Φ.org.eolang.string(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 28-4A-29-56
+                )
+              )
+            ),
+            RETURN-46 ↦ Φ.org.eolang.jeo.opcode(
+              α0 ↦ Φ.org.eolang.int(
+                α0 ↦ Φ.org.eolang.bytes(
+                  Δ ⤍ 00-00-00-00-00-00-00-B1
+                )
+              )
+            )
+          ⟧
+        ⟧,
+        λ ⤍ Package
+      ⟧,
+      λ ⤍ Package
+    ⟧,
+    λ ⤍ Package
+  ⟧
+}</pre></div>
     <div class="snippet">
       <span>Optimized 𝜑:</span>
       <pre>{after-ineo-optimize}</pre></div>
     <div class="snippet">
-      <span>EO Objects after eo:unphi 0.34.3</span>
+      <span>EO Objects after eo:unphi 0.34.4</span>
       <pre>{after-unphi}</pre></div>
     <div class="snippet">
       <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.0.5</span>
       <pre>{after-opeo-compile}</pre></div>
     <div class="snippet">
-      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.16</span>
+      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.17</span>
       <pre>{after-jeo-assemble}</pre></div>
   </section>
 </body>
