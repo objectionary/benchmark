@@ -138,6 +138,7 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
+              <!--
               <execution>
                 <id>phi</id>
                 <phase>process-classes</phase>
@@ -152,6 +153,7 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
+              -->
               <execution>
                 <id>fuse</id>
                 <phase>process-classes</phase>
@@ -165,6 +167,7 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
+              <!--
               <execution>
                 <id>unphi</id>
                 <phase>process-classes</phase>
@@ -180,6 +183,7 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
+              -->
               <execution>
                 <id>compile</id>
                 <phase>process-classes</phase>
