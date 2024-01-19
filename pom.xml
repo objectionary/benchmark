@@ -39,7 +39,7 @@ SOFTWARE.
     <finalName>benchmark</finalName>
     <directory>target</directory>
     <eo.version>0.0.0</eo.version>
-    <jeo.version>0.0.0</jeo.version>
+    <jeo.version>0.2.18</jeo.version>
     <opeo.version>0.0.0</opeo.version>
     <ineo.version>0.0.0</ineo.version>
   </properties>
