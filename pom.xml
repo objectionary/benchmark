@@ -81,6 +81,24 @@ SOFTWARE.
       <build>
         <plugins>
           <plugin>
+            <groupId>com.coderplus.maven.plugins</groupId>
+            <artifactId>copy-rename-maven-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+              <execution>
+                <id>move-original-classes-</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>rename</goal>
+                </goals>
+                <configuration>
+                  <sourceFile>${directory}/classes</sourceFile>
+                  <destinationFile>${directory}/bytecode</destinationFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
             <version>3.1.1</version>
@@ -109,6 +127,22 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>jeo:disassemble</argument>
+                    <argument>-Djeo.sourcesDir=${directory}/bytecode</argument>
+                    <argument>-Djeo.outputDir=${directory}/generated-sources/jeo-disassemble</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>print-eo-after-jeo</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>eo:print</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/jeo-disassemble.eo</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -121,6 +155,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>opeo:decompile</argument>
+                    <argument>-Dopeo.sourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
+                    <argument>-Dopeo.outputDir=${directory}/generated-sources/opeo-decompile</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -133,8 +169,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-xmir</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-eo</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-decompile.eo</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -161,9 +197,10 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <skip>true</skip>
                   <arguments combine.children="append">
                     <argument>ineo:fuse</argument>
+                    <argument>-Dineo.sourcesDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Dineo.outputDir=${directory}/generated-sources/ineo-fuse</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -191,9 +228,10 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <skip>true</skip>
                   <arguments combine.children="append">
                     <argument>opeo:compile</argument>
+                    <argument>-Dopeo.sourcesDir=${directory}/generated-sources/ineo-fuse</argument>
+                    <argument>-Dopeo.outputDir=${directory}/generated-sources/opeo-compile</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -204,9 +242,23 @@ SOFTWARE.
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <skip>true</skip>
                   <arguments combine.children="append">
                     <argument>jeo:assemble</argument>
+                    <argument>-Djeo.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
+                    <argument>-Djeo.outputDir=${directory}/classes-optimized</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>replace-classes</id>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments>
+                    <argument>rm -rf</argument>
+                    <argument>-Djeo.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
+                    <argument>-Djeo.outputDir=${directory}/classes</argument>
                   </arguments>
                 </configuration>
               </execution>

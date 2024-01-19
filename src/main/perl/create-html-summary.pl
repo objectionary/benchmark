@@ -107,9 +107,9 @@ my $html = fread('src/main/html/summary.html');
 
 $html = inject($html, 'java', join_java('src/main/java/org/eolang/benchmark'));
 $html = inject($html, 'after-javac', join_classes('after/classes'));
-$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/eo/org/eolang/benchmark'));
-$html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-eo/org/eolang/benchmark'));
-$html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
+$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/jeo-disassemble.eo/org/eolang/benchmark'));
+$html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-decompile.eo/org/eolang/benchmark'));
+# $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
 
 $html = inject($html, 'version-javac', `javac --version`);
 $html = inject($html, 'eo-version', $ENV{EO_VERSION});
