@@ -127,8 +127,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>jeo:disassemble</argument>
-                    <argument>-Djeo.sourcesDir=${directory}/bytecode</argument>
-                    <argument>-Djeo.outputDir=${directory}/generated-sources/jeo-disassemble</argument>
+                    <argument>-Djeo.disassemble.sourcesDir=${directory}/bytecode</argument>
+                    <argument>-Djeo.disassemble.outputDir=${directory}/generated-sources/jeo-disassemble</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -155,8 +155,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>opeo:decompile</argument>
-                    <argument>-Dopeo.sourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
-                    <argument>-Dopeo.outputDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Dopeo.decompile.sourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
+                    <argument>-Dopeo.decompile.outputDir=${directory}/generated-sources/opeo-decompile</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -230,8 +230,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>opeo:compile</argument>
-                    <argument>-Dopeo.sourcesDir=${directory}/generated-sources/ineo-fuse</argument>
-                    <argument>-Dopeo.outputDir=${directory}/generated-sources/opeo-compile</argument>
+                    <argument>-Dopeo.compile.sourcesDir=${directory}/generated-sources/ineo-fuse</argument>
+                    <argument>-Dopeo.compile.outputDir=${directory}/generated-sources/opeo-compile</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -244,8 +244,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>jeo:assemble</argument>
-                    <argument>-Djeo.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
-                    <argument>-Djeo.outputDir=${directory}/classes-optimized</argument>
+                    <argument>-Djeo.assemble.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
+                    <argument>-Djeo.assemble.outputDir=${directory}/classes-optimized</argument>
                   </arguments>
                 </configuration>
               </execution>
