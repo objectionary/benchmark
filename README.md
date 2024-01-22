@@ -20,10 +20,11 @@ then comparing the results. Intermediate artifacts are in this
 This is the results obtained most recently:
 
 <!-- benchmark -->
-| | Seconds |
-| --- | --: |
-| Before optimization | 2.95 |
-| After optimization | Could |
+| | Before | After |
+| --- | --: | --: |
+| Time | 2.97 | Could |
+| Files | 1 | 0 |
+| Bytes | 2404 |  |
 
 <!-- benchmark -->
 

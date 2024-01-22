@@ -119,7 +119,7 @@ SOFTWARE.
             </configuration>
             <executions>
               <execution>
-                <id>bytecode-to-eo</id>
+                <id>jeo:disassemble</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -147,7 +147,7 @@ SOFTWARE.
                 </configuration>
               </execution>
               <execution>
-                <id>decompile</id>
+                <id>opeo:decompile</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -191,7 +191,7 @@ SOFTWARE.
               </execution>
               -->
               <execution>
-                <id>fuse</id>
+                <id>ineo:fuse</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -222,7 +222,7 @@ SOFTWARE.
               </execution>
               -->
               <execution>
-                <id>compile</id>
+                <id>opeo:compile</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -236,7 +236,7 @@ SOFTWARE.
                 </configuration>
               </execution>
               <execution>
-                <id>eo-to-bytecode</id>
+                <id>jeo:assemble</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>

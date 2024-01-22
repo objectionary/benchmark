@@ -32,14 +32,20 @@ TOTAL=10000000000
 EO_VERSION=0.34.4
 JEO_VERSION=0.2.18
 OPEO_VERSION=0.1.2
-INEO_VERSION=0.1.3
+INEO_VERSION=0.1.4
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	./src/main/perl/inject-into-readme.pl
 	./src/main/perl/create-html-summary.pl
 
 results.md: before.time after.time Makefile
-	echo -e "| | Seconds |\n| --- | --: |\n| Before optimization | $$(cat before.time) |\n| After optimization | $$(cat after.time) |" > results.md
+	(
+		echo "| | Before | After |"
+		echo "| --- | --: | --: |"
+		echo "| Time | $$(cat before.time) | $$(cat after.time) |"
+		echo "| Files | $$(ls before/classes | wc -l | xargs) | $$(ls after/classes | wc -l | xargs) |"
+		echo "| Bytes | $$(du -bs before/classes | cut -f1) | $$(du -bs after/classes | cut -f1) |"
+	) > results.md
 
 %.time: %.jar Makefile
 	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
