@@ -41,7 +41,7 @@ SOFTWARE.
     <eo.version>0.0.0</eo.version>
     <jeo.version>0.0.0</jeo.version>
     <opeo.version>0.0.0</opeo.version>
-    <ineo.version>0.0.0</ineo.version>
+    <ineo.version>0.1.6</ineo.version>
   </properties>
   <build>
     <directory>${directory}</directory>
