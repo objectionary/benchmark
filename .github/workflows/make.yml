@@ -1,12 +1,12 @@
 ---
-name: benchmark
+name: make
 on:
   push:
     branches:
       - master
     paths-ignore: [ 'README.md', 'LICENSE.txt' ]
 jobs:
-  benchmark:
+  make:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
       - run: make
       - uses: peter-evans/create-pull-request@v5
         with:
-          branch: benchmark
+          branch: make
           commit-message: 'new benchmark results'
           delete-branch: true
           title: 'New results of benchmarking'

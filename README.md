@@ -17,8 +17,6 @@ The goal is to test the performance of Java code before optimization and after,
 then comparing the results. Intermediate artifacts are in this 
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
-This is the results obtained most recently:
-
 <!-- benchmark -->
 | | Before | After |
 | --- | --: | --: |

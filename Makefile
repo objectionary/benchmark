@@ -32,7 +32,7 @@ TOTAL=10000000000
 EO_VERSION=0.34.4
 JEO_VERSION=0.2.18
 OPEO_VERSION=0.1.2
-INEO_VERSION=0.1.4
+INEO_VERSION=0.1.5
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	set -e
@@ -42,11 +42,15 @@ all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-su
 results.md: before.time after.time Makefile
 	set -e
 	(
+		echo "This is the summary of the tests performed at $$(date +'%Y-%m-%d %H:%M'), on $$(uname), with $$(nproc) CPUs:"
+		echo ""
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
 		echo "| Time | $$(cat before.time) | $$(cat after.time) |"
 		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
 		echo "| Bytes | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
+		echo ""
+		echo "This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions."
 	) > results.md
 
 %.time: %.jar Makefile

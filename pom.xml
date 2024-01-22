@@ -204,6 +204,20 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
+              <execution>
+                <id>print-eo-after-fuse</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>eo:print</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/ineo-fuse</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/ineo-fuse.eo</argument>
+                  </arguments>
+                </configuration>
+              </execution>
               <!--
               <execution>
                 <id>unphi</id>
