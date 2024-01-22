@@ -32,7 +32,7 @@ TOTAL=10000000000
 EO_VERSION=0.34.4
 JEO_VERSION=0.2.18
 OPEO_VERSION=0.1.2
-INEO_VERSION=0.1.5
+INEO_VERSION=0.1.6
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	set -e
