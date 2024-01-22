@@ -43,7 +43,7 @@ results.md: before.time after.time Makefile
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
 		echo "| Time | $$(cat before.time) | $$(cat after.time) |"
-		echo "| Files | $$(ls before/classes | wc -l | xargs) | $$(ls after/classes | wc -l | xargs) |"
+		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
 		echo "| Bytes | $$(du -bs before/classes | cut -f1) | $$(du -bs after/classes | cut -f1) |"
 	) > results.md
 
