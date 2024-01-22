@@ -22,9 +22,9 @@ This is the results obtained most recently:
 <!-- benchmark -->
 | | Before | After |
 | --- | --: | --: |
-| Time | 2.97 | Could |
-| Files | 1 | 0 |
-| Bytes | 2404 |  |
+| Time | 2.97 | in |
+| Files | 5 | 6 |
+| Bytes | 2404 | 1771 |
 
 <!-- benchmark -->
 

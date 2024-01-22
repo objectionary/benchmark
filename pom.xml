@@ -245,20 +245,7 @@ SOFTWARE.
                   <arguments combine.children="append">
                     <argument>jeo:assemble</argument>
                     <argument>-Djeo.assemble.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
-                    <argument>-Djeo.assemble.outputDir=${directory}/classes-optimized</argument>
-                  </arguments>
-                </configuration>
-              </execution>
-              <execution>
-                <id>replace-classes</id>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <arguments>
-                    <argument>rm -rf</argument>
-                    <argument>-Djeo.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
-                    <argument>-Djeo.outputDir=${directory}/classes</argument>
+                    <argument>-Djeo.assemble.outputDir=${directory}/classes</argument>
                   </arguments>
                 </configuration>
               </execution>

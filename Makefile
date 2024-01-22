@@ -35,23 +35,28 @@ OPEO_VERSION=0.1.2
 INEO_VERSION=0.1.4
 
 all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
+	set -e
 	./src/main/perl/inject-into-readme.pl
 	./src/main/perl/create-html-summary.pl
 
 results.md: before.time after.time Makefile
+	set -e
 	(
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
 		echo "| Time | $$(cat before.time) | $$(cat after.time) |"
 		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
-		echo "| Bytes | $$(du -bs before/classes | cut -f1) | $$(du -bs after/classes | cut -f1) |"
+		echo "| Bytes | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
 	) > results.md
 
 %.time: %.jar Makefile
+	set -e
+	java -cp $< org.eolang.benchmark.Main 1
 	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
 %.jar: pom.xml Makefile
+	set -e
 	base=$(basename $@)
 	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}" \
 		-Djeo.version=${JEO_VERSION} \
@@ -61,6 +66,7 @@ results.md: before.time after.time Makefile
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:
+	set -e
 	rm -f *.time
 	rm -f *.jar
 	rm -f results.md
