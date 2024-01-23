@@ -133,7 +133,7 @@ SOFTWARE.
                 </configuration>
               </execution>
               <execution>
-                <id>print-eo-after-jeo</id>
+                <id>print-eo-after-disassemble</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -161,7 +161,7 @@ SOFTWARE.
                 </configuration>
               </execution>
               <execution>
-                <id>print-eo-after-opeo</id>
+                <id>print-eo-after-decompile</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -246,6 +246,20 @@ SOFTWARE.
                     <argument>opeo:compile</argument>
                     <argument>-Dopeo.compile.sourcesDir=${directory}/generated-sources/ineo-fuse</argument>
                     <argument>-Dopeo.compile.outputDir=${directory}/generated-sources/opeo-compile</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>print-eo-after-compile</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <arguments combine.children="append">
+                    <argument>eo:print</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-compile</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-compile.eo</argument>
                   </arguments>
                 </configuration>
               </execution>
