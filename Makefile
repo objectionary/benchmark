@@ -34,10 +34,16 @@ JEO_VERSION=0.2.18
 OPEO_VERSION=0.1.2
 INEO_VERSION=0.1.6
 
-all: results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
+all: env results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	set -e
 	./src/main/perl/inject-into-readme.pl
 	./src/main/perl/create-html-summary.pl
+
+env:
+	if [[ "$(MAKE_VERSION)" =~ ^[1-3] ]]; then
+	    echo "Make must be 4+: $(MAKE_VERSION)"
+	    exit 1
+	fi
 
 results.md: before.time after.time Makefile
 	set -e
