@@ -1,4 +1,4 @@
 docker:
   image: yegor256/rultor-image:1.22.0
 merge:
-  script: make
+  script: mvn package
