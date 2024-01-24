@@ -18,11 +18,11 @@ then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed at 2024-01-24 09:39, on Darwin, with 12 CPUs:
+This is the summary of the tests performed at 2024-01-24 10:14, on Darwin, with 12 CPUs:
 
 | | Before | After |
 | --- | --: | --: |
-| Time | 2.95 | 3.01 |
+| Time | 2.96 | 2.95 |
 | Files | 5 | 6 |
 | Bytes | 2404 | 1738 |
 

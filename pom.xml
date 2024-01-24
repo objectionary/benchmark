@@ -42,6 +42,7 @@ SOFTWARE.
     <jeo.version>0.0.0</jeo.version>
     <opeo.version>0.0.0</opeo.version>
     <ineo.version>0.0.0</ineo.version>
+    <jd.version>1.2.1</jd.version>
   </properties>
   <build>
     <directory>${directory}</directory>
@@ -94,6 +95,32 @@ SOFTWARE.
                 <configuration>
                   <sourceFile>${directory}/classes</sourceFile>
                   <destinationFile>${directory}/bytecode</destinationFile>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.6.1</version>
+            <executions>
+              <execution>
+                <id>copy-jd-cli</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>com.github.kwart.jd</groupId>
+                      <artifactId>jd-cli</artifactId>
+                      <version>${jd.version}</version>
+                      <type>jar</type>
+                      <overWrite>false</overWrite>
+                      <outputDirectory>${directory}</outputDirectory>
+                    </artifactItem>
+                  </artifactItems>
+                  <!-- other configurations here -->
                 </configuration>
               </execution>
             </executions>
@@ -274,6 +301,23 @@ SOFTWARE.
                     <argument>jeo:assemble</argument>
                     <argument>-Djeo.assemble.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
                     <argument>-Djeo.assemble.outputDir=${directory}/classes</argument>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>jd-cli</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <configuration>
+                  <executable>java</executable>
+                  <arguments>
+                    <argument>-jar</argument>
+                    <argument>${directory}/jd-cli-${jd.version}.jar</argument>
+                    <argument>${directory}/classes</argument>
+                    <argument>--outputDir</argument>
+                    <argument>${directory}/generated-sources/after-jd</argument>
                   </arguments>
                 </configuration>
               </execution>

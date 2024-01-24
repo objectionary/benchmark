@@ -84,7 +84,7 @@ sub join_java {
     $java =~ s/\/\/.*\n//g; # one-line comments
     $java =~ s/\n\n/\n/g; # empty lines
     $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
-    $javas = $javas . "\n" . $java;
+    $javas = $javas . "\n\n" . $java;
     $total += 1;
   }
   $javas =~ s/^\s|\s$//g;
@@ -117,12 +117,14 @@ $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eol
 $html = inject($html, 'after-ineo-fuse', join_eo('after/generated-sources/ineo-fuse.eo/org/eolang/benchmark'));
 $html = inject($html, 'after-opeo-compile', join_eo('after/generated-sources/opeo-compile.eo/org/eolang/benchmark'));
 $html = inject($html, 'after-jeo-assemble', join_classes('after/classes'));
+$html = inject($html, 'after-jd', join_java('after/generated-sources/after-jd/org/eolang/benchmark'));
 
 $html = inject($html, 'version-javac', `javac --version`);
 $html = inject($html, 'eo-version', $ENV{EO_VERSION});
 $html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
 $html = inject($html, 'opeo-version', $ENV{OPEO_VERSION});
 $html = inject($html, 'ineo-version', $ENV{INEO_VERSION});
+$html = inject($html, 'jd-version', $ENV{JD_VERSION});
 
 mkdir('target/html');
 fwrite('target/html/summary.html', $html);

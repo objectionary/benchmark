@@ -33,6 +33,7 @@ EO_VERSION=0.35.1
 JEO_VERSION=0.2.21
 OPEO_VERSION=0.1.6
 INEO_VERSION=0.1.6
+JD_VERSION=1.2.1
 
 all: env results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
 	set -e
@@ -72,7 +73,8 @@ results.md: before.time after.time Makefile
 		-Djeo.version=${JEO_VERSION} \
 		-Deo.version=${EO_VERSION} \
 		-Dopeo.version=${OPEO_VERSION} \
-		-Dineo.version=${INEO_VERSION}
+		-Dineo.version=${INEO_VERSION} \
+		-Djd.version=${JD_VERSION}
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:

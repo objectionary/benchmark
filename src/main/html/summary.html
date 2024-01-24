@@ -14,7 +14,7 @@
     .snippet span:first-child:after { content: ""; }
     .snippet:last-child span:first-child:after { content: ""; }
     .snippet pre { font-size: 12px; line-height: 1.2em; padding-left: 0; font-family: font-family: 'Ubuntu Mono', monospace; }
-    aside { position: fixed; writing-mode: vertical-rl; right: 0; }
+    aside { position: fixed; writing-mode: vertical-rl; right: 0; bottom: 0; }
   </style>
 </head>
 <body>
@@ -62,6 +62,10 @@
     <div class="snippet">
       <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> {jeo-version} <a href="after-jeo-assemble.html">Show</a></span>
       <pre>{after-jeo-assemble}</pre>
+      </div>
+    <div class="snippet">
+      <span>Java after <a href="https://github.com/intoolswetrust/jd-cli">jd-cli</a> {jd-version} <a href="after-jd.html">Show</a></span>
+      <pre>{after-jd}</pre>
       </div>
   </section>
 </body>
