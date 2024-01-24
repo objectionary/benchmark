@@ -28,6 +28,7 @@
 
 SHELL=bash
 TOTAL=100000000
+MULTIPLIER=100
 
 EO_VERSION=0.35.1
 JEO_VERSION=0.2.21
@@ -54,7 +55,7 @@ results.md: before.time before.jit-time after.time after.jit-time Makefile
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
 		echo "| Time (with JIT) | $$(cat before.jit-time) | $$(cat after.jit-time) |"
-		echo "| Time (no JIT) | $$(cat before.time) | $$(cat after.time) |"
+		echo "| Time (no JIT, ×${MULTIPLIER}) | $$(cat before.time) | $$(cat after.time) |"
 		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
 		echo "| Bytes | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
 		echo ""
@@ -70,7 +71,7 @@ results.md: before.time before.jit-time after.time after.jit-time Makefile
 %.jit-time: %.jar Makefile
 	set -e
 	java -cp $< org.eolang.benchmark.Main 1
-	t=$$(echo ${TOTAL} \* 100 | bc | xargs)
+	t=$$(echo ${TOTAL} \* ${MULTIPLIER} | bc | xargs)
 	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
