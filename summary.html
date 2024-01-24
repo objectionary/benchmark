@@ -75,9 +75,138 @@ public class Main {
       <span>Bytecode after
       javac 20.0.2
 </span>
-      <pre></pre></div>
+      <pre>
+class org.eolang.benchmark.A implements org.eolang.benchmark.F {
+  org.eolang.benchmark.A(int);
+    Code:
+       0: aload_0
+       1: invokespecial #13                 // Method java/lang/Object."&lt;init&gt;":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #15                 // Field d:I
+       9: return
+
+  public int foo();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field d:I
+       4: iconst_1
+       5: iadd
+       6: ireturn
+}
+
+class org.eolang.benchmark.App {
+  org.eolang.benchmark.App();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  int run();
+    Code:
+       0: new           #12                 // class org/eolang/benchmark/BA
+       3: dup
+       4: bipush        42
+       6: invokespecial #15                 // Method org/eolang/benchmark/BA."&lt;init&gt;":(I)V
+       9: invokevirtual #18                 // Method org/eolang/benchmark/BA.bar:()I
+      12: ireturn
+}
+
+class org.eolang.benchmark.B {
+  org.eolang.benchmark.B(org.eolang.benchmark.F);
+    Code:
+       0: aload_0
+       1: invokespecial #11                 // Method java/lang/Object."&lt;init&gt;":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #13                 // Field f:Lorg/eolang/benchmark/F;
+       9: return
+
+  int bar();
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field f:Lorg/eolang/benchmark/F;
+       4: invokeinterface #20,  1           // InterfaceMethod org/eolang/benchmark/F.foo:()I
+       9: iconst_2
+      10: iadd
+      11: ireturn
+}
+
+public final class org.eolang.benchmark.BA {
+  public org.eolang.benchmark.BA(int);
+    Code:
+       0: aload_0
+       1: invokespecial #11                 // Method java/lang/Object."&lt;init&gt;":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #13                 // Field d:I
+       9: return
+
+  public int foo();
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field d:I
+       4: iconst_1
+       5: iadd
+       6: ireturn
+
+  public int bar();
+    Code:
+       0: aload_0
+       1: invokevirtual #18                 // Method foo:()I
+       4: iconst_2
+       5: iadd
+       6: ireturn
+}
+
+interface org.eolang.benchmark.F {
+  public abstract int foo();
+}
+
+public class org.eolang.benchmark.Main {
+  public org.eolang.benchmark.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  public static void main(java.lang.String...);
+    Code:
+       0: new           #12                 // class org/eolang/benchmark/App
+       3: dup
+       4: invokespecial #13                 // Method org/eolang/benchmark/App."&lt;init&gt;":()V
+       7: astore_1
+       8: aload_0
+       9: iconst_0
+      10: aaload
+      11: invokestatic  #19                 // Method java/lang/Long.parseLong:(Ljava/lang/String;)J
+      14: lstore_2
+      15: lconst_0
+      16: lstore        4
+      18: lconst_0
+      19: lstore        6
+      21: lload         6
+      23: lload_2
+      24: lcmp
+      25: ifge          47
+      28: lload         4
+      30: aload_1
+      31: invokevirtual #23                 // Method org/eolang/benchmark/App.run:()I
+      34: i2l
+      35: ladd
+      36: lstore        4
+      38: lload         6
+      40: lconst_1
+      41: ladd
+      42: lstore        6
+      44: goto          21
+      47: getstatic     #29                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      50: lload         4
+      52: invokevirtual #35                 // Method java/io/PrintStream.println:(J)V
+      55: return
+}</pre></div>
     <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.18</span>
+      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.21</span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -112,7 +241,7 @@ public class Main {
       *
         label
           """
-          c9227df5-e875-4ea9-9173-470f013bdf50
+          75dac940-f5ae-4cd6-8638-8879ad62e122
           """
         opcode &gt; ALOAD-19
           25
@@ -130,7 +259,7 @@ public class Main {
           """
         label
           """
-          565474e7-4dda-49ee-a483-4948b48d619a
+          acaa2a3b-ffcb-45a2-b1ea-70dea88927c9
           """
         opcode &gt; ALOAD-1B
           25
@@ -151,13 +280,13 @@ public class Main {
           """
         label
           """
-          d2f7453d-5cb7-4119-a7d3-a22b9a59fdd7
+          a532503b-f153-4209-96c0-56d79ac43717
           """
         opcode &gt; RETURN-1E
           177
         label
           """
-          5aca07ed-c0b4-4b81-9c19-5fe9b00d17c8
+          ee18500d-65d2-4413-bfd8-e35e2bd59fc4
           """
   [] &gt; j\$foo
     1 &gt; access
@@ -171,7 +300,7 @@ public class Main {
       *
         label
           """
-          a668c83f-ffd3-487a-addf-14007a2867ca
+          3939a0d8-d2c1-48ff-8afe-85a5d42627c2
           """
         opcode &gt; ALOAD-1F
           25
@@ -195,7 +324,7 @@ public class Main {
           172
         label
           """
-          ad27bc68-a567-4f00-8f6e-511b6068f751
+          6fe07dab-9cab-45d3-9b2f-ee036f899854
           """
 
 +package org.eolang.benchmark
@@ -219,7 +348,7 @@ public class Main {
       *
         label
           """
-          a351390d-19cd-4fd1-85cd-721b708f8a39
+          39e7a8cd-6ace-41ef-be92-53acf1eec457
           """
         opcode &gt; ALOAD-D
           25
@@ -239,7 +368,7 @@ public class Main {
           177
         label
           """
-          e6a1b406-cf2c-4c63-815c-1d9e2e990f8f
+          0eebcd77-bc24-475d-9e6e-9662e868cd77
           """
   [] &gt; j\$run
     0 &gt; access
@@ -253,7 +382,7 @@ public class Main {
       *
         label
           """
-          58a8bdca-d440-499b-bd06-11d2dd6775bf
+          e45405d2-83f7-4dca-9bd5-cef00ebf5e45
           """
         opcode &gt; NEW-10
           187
@@ -309,7 +438,7 @@ public class Main {
           172
         label
           """
-          f44476f2-0e26-4927-be00-5fc0f32a2fc3
+          167d148c-b4af-41d4-aad1-b2a812c9fda4
           """
 
 +package org.eolang.benchmark
@@ -342,7 +471,7 @@ public class Main {
       *
         label
           """
-          f00fc4fb-1115-42c9-be30-ec8c1797c59f
+          6a51bc35-20eb-4493-b3cb-5fdcedf953aa
           """
         opcode &gt; ALOAD-1
           25
@@ -360,7 +489,7 @@ public class Main {
           """
         label
           """
-          868d32e1-43f5-4117-b8c8-c51e634e5c3e
+          08a179f2-e8a2-49d4-b81c-5f438e065df0
           """
         opcode &gt; ALOAD-3
           25
@@ -381,13 +510,13 @@ public class Main {
           """
         label
           """
-          e115e935-3379-426e-8106-051dbc413951
+          5126fec1-1b47-4ba5-a4e0-d208b94c65bb
           """
         opcode &gt; RETURN-6
           177
         label
           """
-          98df6bba-93fa-4a34-93ec-46cf3caadab1
+          98c78407-c420-404b-8ed4-86232340256c
           """
   [] &gt; j\$bar
     0 &gt; access
@@ -401,7 +530,7 @@ public class Main {
       *
         label
           """
-          724abadd-4313-4d0e-9a77-575bf38e74b9
+          38e75d84-7f66-4579-93df-9c9f57179f1f
           """
         opcode &gt; ALOAD-7
           25
@@ -436,7 +565,7 @@ public class Main {
           172
         label
           """
-          4abf49b2-ad33-458a-b563-0cb6b6fb0ac0
+          b7cc30df-6208-4323-9a24-183fc8802eeb
           """
 
 +package org.eolang.benchmark
@@ -480,7 +609,7 @@ public class Main {
       *
         label
           """
-          70eef2c3-ec8e-4b2b-807e-f9b1a8fad19c
+          fb83922b-72f3-41ae-876e-25f91c103f7e
           """
         opcode &gt; ALOAD-24
           25
@@ -500,7 +629,7 @@ public class Main {
           177
         label
           """
-          a1466015-ad9a-4063-a2e1-e9ea009d0d7e
+          42657fb4-fb61-4084-81db-9ed1dc157837
           """
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
@@ -514,7 +643,7 @@ public class Main {
       *
         label
           """
-          2315bef8-f296-4142-935a-0f6518b42225
+          86a432bf-6cae-4440-9319-8f09dcf05d71
           """
         opcode &gt; NEW-27
           187
@@ -539,7 +668,7 @@ public class Main {
           1
         label
           """
-          7e211072-c33e-4863-b72f-98fc2ce605bb
+          6850dea6-2b54-41e3-8c0b-f472fcdfd3e0
           """
         opcode &gt; ALOAD-2B
           25
@@ -564,7 +693,7 @@ public class Main {
           2
         label
           """
-          c2b5df90-b054-46e6-842c-aa76206a1e6c
+          a164d435-f923-4855-ba63-9f28fe77160b
           """
         opcode &gt; LCONST_0-30
           9
@@ -573,7 +702,7 @@ public class Main {
           4
         label
           """
-          841b2e86-af21-474c-b451-91ba63e68ba6
+          cf36323e-91e4-4f82-981f-0161e8d9987f
           """
         opcode &gt; LCONST_0-32
           9
@@ -582,7 +711,7 @@ public class Main {
           6
         label
           """
-          f815baf9-ef7c-4da5-9619-bb9adf36a26b
+          45767ec0-a517-4de2-bad7-5b9949291f17
           """
         opcode &gt; LLOAD-34
           22
@@ -596,11 +725,11 @@ public class Main {
           156
           label
             """
-            af60601c-753f-444a-8526-803f7403b70d
+            f6b11f55-d8f4-4b57-9602-682b032bd38e
             """
         label
           """
-          50f3f27c-6701-41f2-baa7-aa61e0e54ec5
+          7ffe738a-15ad-4223-aca6-a924b0f7a89b
           """
         opcode &gt; LLOAD-38
           22
@@ -628,7 +757,7 @@ public class Main {
           4
         label
           """
-          4d923592-2857-415d-a7ba-85cd73854cd1
+          c57bb390-253c-49ef-8b11-ee3105f60faf
           """
         opcode &gt; LLOAD-3E
           22
@@ -644,11 +773,11 @@ public class Main {
           167
           label
             """
-            f815baf9-ef7c-4da5-9619-bb9adf36a26b
+            45767ec0-a517-4de2-bad7-5b9949291f17
             """
         label
           """
-          af60601c-753f-444a-8526-803f7403b70d
+          f6b11f55-d8f4-4b57-9602-682b032bd38e
           """
         opcode &gt; GETSTATIC-43
           178
@@ -677,16 +806,16 @@ public class Main {
           """
         label
           """
-          adacd368-30ce-49dd-96e4-88262a416038
+          1a809134-0e05-43c5-9f09-6c3fb5f6a23d
           """
         opcode &gt; RETURN-46
           177
         label
           """
-          c9ac9127-85c5-402d-96e8-acecb37532ed
+          6b617fb8-5bfb-4463-a132-26f58be793c2
           """</pre></div>
     <div class="snippet">
-      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.2</span>
+      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.6</span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -721,27 +850,27 @@ public class Main {
       *
         label
           """
-          c9227df5-e875-4ea9-9173-470f013bdf50
+          75dac940-f5ae-4cd6-8638-8879ad62e122
           """
         super.
           \$
         label
           """
-          565474e7-4dda-49ee-a483-4948b48d619a
+          acaa2a3b-ffcb-45a2-b1ea-70dea88927c9
           """
         write.
           d.
             \$
-          llocal0
+          local1
         label
           """
-          d2f7453d-5cb7-4119-a7d3-a22b9a59fdd7
+          a532503b-f153-4209-96c0-56d79ac43717
           """
         opcode &gt; RETURN
           177
         label
           """
-          5aca07ed-c0b4-4b81-9c19-5fe9b00d17c8
+          ee18500d-65d2-4413-bfd8-e35e2bd59fc4
           """
   [] &gt; j\$foo
     1 &gt; access
@@ -755,7 +884,7 @@ public class Main {
       *
         label
           """
-          a668c83f-ffd3-487a-addf-14007a2867ca
+          3939a0d8-d2c1-48ff-8afe-85a5d42627c2
           """
         plus.
           d.
@@ -765,7 +894,7 @@ public class Main {
           172
         label
           """
-          ad27bc68-a567-4f00-8f6e-511b6068f751
+          6fe07dab-9cab-45d3-9b2f-ee036f899854
           """
 
 +package org.eolang.benchmark
@@ -789,7 +918,7 @@ public class Main {
       *
         label
           """
-          a351390d-19cd-4fd1-85cd-721b708f8a39
+          39e7a8cd-6ace-41ef-be92-53acf1eec457
           """
         super.
           \$
@@ -797,7 +926,7 @@ public class Main {
           177
         label
           """
-          e6a1b406-cf2c-4c63-815c-1d9e2e990f8f
+          0eebcd77-bc24-475d-9e6e-9662e868cd77
           """
   [] &gt; j\$run
     0 &gt; access
@@ -811,7 +940,7 @@ public class Main {
       *
         label
           """
-          58a8bdca-d440-499b-bd06-11d2dd6775bf
+          e45405d2-83f7-4dca-9bd5-cef00ebf5e45
           """
         bar.
           new.
@@ -823,7 +952,7 @@ public class Main {
           172
         label
           """
-          f44476f2-0e26-4927-be00-5fc0f32a2fc3
+          167d148c-b4af-41d4-aad1-b2a812c9fda4
           """
 
 +package org.eolang.benchmark
@@ -856,27 +985,27 @@ public class Main {
       *
         label
           """
-          f00fc4fb-1115-42c9-be30-ec8c1797c59f
+          6a51bc35-20eb-4493-b3cb-5fdcedf953aa
           """
         super.
           \$
         label
           """
-          868d32e1-43f5-4117-b8c8-c51e634e5c3e
+          08a179f2-e8a2-49d4-b81c-5f438e065df0
           """
         write.
           f.
             \$
-          llocal0
+          local1
         label
           """
-          e115e935-3379-426e-8106-051dbc413951
+          5126fec1-1b47-4ba5-a4e0-d208b94c65bb
           """
         opcode &gt; RETURN
           177
         label
           """
-          98df6bba-93fa-4a34-93ec-46cf3caadab1
+          98c78407-c420-404b-8ed4-86232340256c
           """
   [] &gt; j\$bar
     0 &gt; access
@@ -890,7 +1019,7 @@ public class Main {
       *
         label
           """
-          724abadd-4313-4d0e-9a77-575bf38e74b9
+          38e75d84-7f66-4579-93df-9c9f57179f1f
           """
         f.
           \$
@@ -911,7 +1040,7 @@ public class Main {
           172
         label
           """
-          4abf49b2-ad33-458a-b563-0cb6b6fb0ac0
+          b7cc30df-6208-4323-9a24-183fc8802eeb
           """
 
 +package org.eolang.benchmark
@@ -955,7 +1084,7 @@ public class Main {
       *
         label
           """
-          70eef2c3-ec8e-4b2b-807e-f9b1a8fad19c
+          fb83922b-72f3-41ae-876e-25f91c103f7e
           """
         super.
           \$
@@ -963,7 +1092,7 @@ public class Main {
           177
         label
           """
-          a1466015-ad9a-4063-a2e1-e9ea009d0d7e
+          42657fb4-fb61-4084-81db-9ed1dc157837
           """
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
@@ -977,23 +1106,23 @@ public class Main {
       *
         label
           """
-          2315bef8-f296-4142-935a-0f6518b42225
+          86a432bf-6cae-4440-9319-8f09dcf05d71
           """
         write.
-          slocal1
+          local1
           new.
             org/eolang/benchmark/App
         label
           """
-          7e211072-c33e-4863-b72f-98fc2ce605bb
+          6850dea6-2b54-41e3-8c0b-f472fcdfd3e0
           """
-        llocal0
+        local0
         opcode &gt; ICONST_0
           3
         opcode &gt; AALOAD
           50
         write.
-          slocal2
+          local2
           opcode &gt; INVOKESTATIC
             184
             """
@@ -1007,67 +1136,67 @@ public class Main {
             """
         label
           """
-          c2b5df90-b054-46e6-842c-aa76206a1e6c
+          a164d435-f923-4855-ba63-9f28fe77160b
           """
         write.
-          slocal4
+          local4
           opcode &gt; LCONST_0
             9
         label
           """
-          841b2e86-af21-474c-b451-91ba63e68ba6
+          cf36323e-91e4-4f82-981f-0161e8d9987f
           """
         write.
-          slocal6
+          local6
           opcode &gt; LCONST_0
             9
         label
           """
-          f815baf9-ef7c-4da5-9619-bb9adf36a26b
+          45767ec0-a517-4de2-bad7-5b9949291f17
           """
-        llocal6
-        llocal2
+        local6
+        local2
         opcode &gt; LCMP
           148
         opcode &gt; IFGE
           156
           label
             """
-            af60601c-753f-444a-8526-803f7403b70d
+            f6b11f55-d8f4-4b57-9602-682b032bd38e
             """
         label
           """
-          50f3f27c-6701-41f2-baa7-aa61e0e54ec5
+          7ffe738a-15ad-4223-aca6-a924b0f7a89b
           """
-        llocal4
+        local4
         run.
-          llocal1
+          local1
         opcode &gt; I2L
           133
         write.
-          slocal4
+          local4
           opcode &gt; LADD
             97
         label
           """
-          4d923592-2857-415d-a7ba-85cd73854cd1
+          c57bb390-253c-49ef-8b11-ee3105f60faf
           """
-        llocal6
+        local6
         opcode &gt; LCONST_1
           10
         write.
-          slocal6
+          local6
           opcode &gt; LADD
             97
         opcode &gt; GOTO
           167
           label
             """
-            f815baf9-ef7c-4da5-9619-bb9adf36a26b
+            45767ec0-a517-4de2-bad7-5b9949291f17
             """
         label
           """
-          af60601c-753f-444a-8526-803f7403b70d
+          f6b11f55-d8f4-4b57-9602-682b032bd38e
           """
         println.
           opcode &gt; GETSTATIC
@@ -1081,16 +1210,16 @@ public class Main {
             """
             Ljava/io/PrintStream;
             """
-          llocal4
+          local4
         label
           """
-          adacd368-30ce-49dd-96e4-88262a416038
+          1a809134-0e05-43c5-9f09-6c3fb5f6a23d
           """
         opcode &gt; RETURN
           177
         label
           """
-          c9ac9127-85c5-402d-96e8-acecb37532ed
+          6b617fb8-5bfb-4463-a132-26f58be793c2
           """</pre></div>
     <div class="snippet">
       <span>𝜑-expressions after eo:phi 0.34.4</span>
@@ -1102,10 +1231,10 @@ public class Main {
       <span>EO Objects after eo:unphi 0.34.4</span>
       <pre>{after-unphi}</pre></div>
     <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.2</span>
+      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.6</span>
       <pre>{after-opeo-compile}</pre></div>
     <div class="snippet">
-      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.18</span>
+      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.21</span>
       <pre>{after-jeo-assemble}</pre></div>
   </section>
 </body>
