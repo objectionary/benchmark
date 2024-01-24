@@ -24,6 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
       - run: make
+      - run: make README.md
       - uses: peter-evans/create-pull-request@v5
         with:
           branch: make
@@ -33,10 +34,7 @@ jobs:
           assignees: yegor256
           base: master
         if: github.ref == 'refs/heads/master'
-      - run: |
-          mkdir gh-pages
-          cp target/html/* gh-pages
-          echo "<html><body><a href="summary.html">summary</a></body></html>" > gh-pages/index.html
+      - run: mv html gh-pages
       - uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages

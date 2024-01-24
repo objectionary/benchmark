@@ -36,10 +36,16 @@ OPEO_VERSION=0.1.6
 INEO_VERSION=0.1.6
 JD_VERSION=1.2.1
 
-all: env results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
+all: env results.md html/summary.html
 	set -e
-	./src/main/perl/inject-into-readme.pl
+
+html/summary.html:
+	mkdir -p html
 	./src/main/perl/create-html-summary.pl
+	echo "<html><body><a href='summary.html'>summary</a></body></html>" > html/index.html
+
+README.md: results.md
+	src/main/perl/inject-into-readme.pl
 
 env:
 	if [[ "$(MAKE_VERSION)" =~ ^[1-3] ]]; then
