@@ -118,5 +118,6 @@ $html = inject($html, 'version-javac', `javac --version`);
 $html = inject($html, 'eo-version', $ENV{EO_VERSION});
 $html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
 $html = inject($html, 'opeo-version', $ENV{OPEO_VERSION});
+$html = inject($html, 'ineo-version', $ENV{INEO_VERSION});
 
 fwrite('target/summary.html', $html);
