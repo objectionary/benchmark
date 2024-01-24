@@ -18,11 +18,12 @@ then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed at 2024-01-24 07:17, on Linux, with 4 CPUs:
+This is the summary of the tests performed with the TOTAL set to 100000000, at 2024-01-24 07:40, on Linux, with 4 CPUs:
 
 | | Before | After |
 | --- | --: | --: |
-| Time | 3.23 | 3.23 |
+| Time (with JIT) | 3.24 | 3.22 |
+| Time (no JIT) | 11.76 | 7.89 |
 | Files | 5 | 6 |
 | Bytes | 6500 | 5834 |
 
