@@ -53,20 +53,8 @@ env:
 	    exit 1
 	fi
 
-results.md: before.time before.jit-time after.time after.jit-time Makefile
-	set -e
-	(
-		echo "This is the summary of the tests performed with the TOTAL set to ${TOTAL}, at $$(date +'%Y-%m-%d %H:%M'), on $$(uname), with $$(nproc) CPUs:"
-		echo ""
-		echo "| | Before | After |"
-		echo "| --- | --: | --: |"
-		echo "| Time, seconds (with JIT, ×${MULTIPLIER}) | $$(cat before.jit-time) | $$(cat after.jit-time) |"
-		echo "| Time, seconds (no JIT) | $$(cat before.time) | $$(cat after.time) |"
-		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
-		echo "| Bytes in all .class files | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
-		echo ""
-		echo "This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions."
-	) > results.md
+results.md: before.time before.jit-time after.time after.jit-time src/main/bash/assemble-results.sh
+	src/main/bash/assemble-results.sh > results.md
 
 %.time: %.jar Makefile
 	set -e
