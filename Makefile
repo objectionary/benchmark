@@ -27,8 +27,8 @@
 .EXPORT_ALL_VARIABLES:
 
 SHELL=bash
-TOTAL=100000000
-MULTIPLIER=1000
+TOTAL=10000000
+MULTIPLIER=10
 
 EO_VERSION=0.35.1
 JEO_VERSION=0.2.21
@@ -68,7 +68,7 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 	java -cp $< org.eolang.benchmark.Main 1
 	t=$$(echo ${TOTAL} \* ${MULTIPLIER} | bc | xargs)
 	echo "Running JAR, please wait..."
-	time=$$({ time -p java -XX:+UnlockDiagnosticVMOptions -XX:+PrintOptoAssembly -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	time=$$({ time -p java -XX:CompileCommand=exclude,org/eolang/benchmark/Main,main -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
 %.jar: pom.xml Makefile
