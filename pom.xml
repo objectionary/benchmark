@@ -184,7 +184,7 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>eo:xmir-to-phi</argument>
-                    <argument>-DphiInputDir=${directory}/generated-sources/xmir</argument>
+                    <argument>-DphiInputDir=${directory}/generated-sources/opeo-decompile</argument>
                     <argument>-DphiOutputDir=${directory}/generated-sources/phi</argument>
                   </arguments>
                 </configuration>
