@@ -54,10 +54,10 @@ results.md: before.time before.jit-time after.time after.jit-time Makefile
 		echo ""
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
-		echo "| Time (with JIT, ×${MULTIPLIER}) | $$(cat before.jit-time) | $$(cat after.jit-time) |"
-		echo "| Time (no JIT) | $$(cat before.time) | $$(cat after.time) |"
+		echo "| Time, seconds (with JIT, ×${MULTIPLIER}) | $$(cat before.jit-time) | $$(cat after.jit-time) |"
+		echo "| Time, seconds (no JIT) | $$(cat before.time) | $$(cat after.time) |"
 		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
-		echo "| Bytes | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
+		echo "| Bytes in all .class files | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
 		echo ""
 		echo "This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions."
 	) > results.md
