@@ -76,6 +76,1889 @@ public class Main {
       javac 20.0.2
 </span>
       <pre>
+Compiled from "A.java"
+class org.eolang.benchmark.A implements org.eolang.benchmark.F {
+  org.eolang.benchmark.A(int);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: aload_0
+       5: iload_1
+       6: putfield      #7                  // Field d:I
+       9: return
+
+  public int foo();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field d:I
+       4: iconst_1
+       5: iadd
+       6: ireturn
+}
+
+Compiled from "App.java"
+class org.eolang.benchmark.App {
+  org.eolang.benchmark.App();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  int run();
+    Code:
+       0: new           #7                  // class org/eolang/benchmark/B
+       3: dup
+       4: new           #9                  // class org/eolang/benchmark/A
+       7: dup
+       8: bipush        42
+      10: invokespecial #11                 // Method org/eolang/benchmark/A."&lt;init&gt;":(I)V
+      13: invokespecial #14                 // Method org/eolang/benchmark/B."&lt;init&gt;":(Lorg/eolang/benchmark/F;)V
+      16: invokevirtual #17                 // Method org/eolang/benchmark/B.bar:()I
+      19: ireturn
+}
+
+Compiled from "B.java"
+class org.eolang.benchmark.B {
+  org.eolang.benchmark.B(org.eolang.benchmark.F);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #7                  // Field f:Lorg/eolang/benchmark/F;
+       9: return
+
+  int bar();
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field f:Lorg/eolang/benchmark/F;
+       4: invokeinterface #13,  1           // InterfaceMethod org/eolang/benchmark/F.foo:()I
+       9: iconst_2
+      10: iadd
+      11: ireturn
+}
+
+Compiled from "F.java"
+interface org.eolang.benchmark.F {
+  public abstract int foo();
+}
+
+Compiled from "Main.java"
+public class org.eolang.benchmark.Main {
+  public org.eolang.benchmark.Main();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."&lt;init&gt;":()V
+       4: return
+
+  public static void main(java.lang.String...);
+    Code:
+       0: new           #7                  // class org/eolang/benchmark/App
+       3: dup
+       4: invokespecial #9                  // Method org/eolang/benchmark/App."&lt;init&gt;":()V
+       7: astore_1
+       8: aload_0
+       9: iconst_0
+      10: aaload
+      11: invokestatic  #10                 // Method java/lang/Long.parseLong:(Ljava/lang/String;)J
+      14: lstore_2
+      15: lconst_0
+      16: lstore        4
+      18: lconst_0
+      19: lstore        6
+      21: lload         6
+      23: lload_2
+      24: lcmp
+      25: ifge          47
+      28: lload         4
+      30: aload_1
+      31: invokevirtual #16                 // Method org/eolang/benchmark/App.run:()I
+      34: i2l
+      35: ladd
+      36: lstore        4
+      38: lload         6
+      40: lconst_1
+      41: ladd
+      42: lstore        6
+      44: goto          21
+      47: getstatic     #20                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      50: lload         4
+      52: invokevirtual #26                 // Method java/io/PrintStream.println:(J)V
+      55: return
+}</pre></div>
+    <div class="snippet">
+      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.21</span>
+      <pre>
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$A
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+    """
+    org/eolang/benchmark/F
+    """
+  field &gt; j\$d
+    2
+    """
+    I
+    """
+    """
+    """
+    """
+    """
+  [arg__I__0] &gt; new
+    0 &gt; access
+    """
+    (I)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          6b91afd4-1027-441f-9a5e-adf002cebb65
+          """
+        opcode &gt; ALOAD-19
+          25
+          0
+        opcode &gt; INVOKESPECIAL-1A
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        label
+          """
+          352d7739-4a12-4733-b045-3cf99765d2c8
+          """
+        opcode &gt; ALOAD-1B
+          25
+          0
+        opcode &gt; ILOAD-1C
+          21
+          1
+        opcode &gt; PUTFIELD-1D
+          181
+          """
+          org/eolang/benchmark/A
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        label
+          """
+          fa17136a-f001-4899-8b26-0afebe0b1319
+          """
+        opcode &gt; RETURN-1E
+          177
+        label
+          """
+          974da6f5-c811-4774-9703-d749defce9f9
+          """
+  [] &gt; j\$foo
+    1 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          5be6ad81-40d1-453a-858f-f4bd1d67a8c1
+          """
+        opcode &gt; ALOAD-1F
+          25
+          0
+        opcode &gt; GETFIELD-20
+          180
+          """
+          org/eolang/benchmark/A
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        opcode &gt; ICONST_1-21
+          4
+        opcode &gt; IADD-22
+          96
+        opcode &gt; IRETURN-23
+          172
+        label
+          """
+          50fdf1ea-6b4d-4be8-8ce3-3c1be3d5743b
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$App
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    0 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          3a5e69a0-2ae5-4072-b18c-c8074821a6c2
+          """
+        opcode &gt; ALOAD-D
+          25
+          0
+        opcode &gt; INVOKESPECIAL-E
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; RETURN-F
+          177
+        label
+          """
+          ed53c135-4015-40c0-9a14-eed07de7228f
+          """
+  [] &gt; j\$run
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          2246becf-7ddb-4b5c-93e5-2709731d9c73
+          """
+        opcode &gt; NEW-10
+          187
+          """
+          org/eolang/benchmark/B
+          """
+        opcode &gt; DUP-11
+          89
+        opcode &gt; NEW-12
+          187
+          """
+          org/eolang/benchmark/A
+          """
+        opcode &gt; DUP-13
+          89
+        opcode &gt; BIPUSH-14
+          16
+          42
+        opcode &gt; INVOKESPECIAL-15
+          183
+          """
+          org/eolang/benchmark/A
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          (I)V
+          """
+        opcode &gt; INVOKESPECIAL-16
+          183
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          (Lorg/eolang/benchmark/F;)V
+          """
+        opcode &gt; INVOKEVIRTUAL-17
+          182
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          bar
+          """
+          """
+          ()I
+          """
+        opcode &gt; IRETURN-18
+          172
+        label
+          """
+          08808232-bf85-4e5d-92c2-01dba2040185
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$B
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  field &gt; j\$f
+    18
+    """
+    Lorg/eolang/benchmark/F;
+    """
+    """
+    """
+    """
+    """
+  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
+    0 &gt; access
+    """
+    (Lorg/eolang/benchmark/F;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          104f0f7d-4494-42ce-a264-9747a0215f0d
+          """
+        opcode &gt; ALOAD-1
+          25
+          0
+        opcode &gt; INVOKESPECIAL-2
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        label
+          """
+          ad177a4e-9fa6-4475-be7e-435fac6fb456
+          """
+        opcode &gt; ALOAD-3
+          25
+          0
+        opcode &gt; ALOAD-4
+          25
+          1
+        opcode &gt; PUTFIELD-5
+          181
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          f
+          """
+          """
+          Lorg/eolang/benchmark/F;
+          """
+        label
+          """
+          7ae565e2-f592-4dec-b349-9f85d7407cf7
+          """
+        opcode &gt; RETURN-6
+          177
+        label
+          """
+          814946e2-b0f1-4c66-b0de-bebc3f09da68
+          """
+  [] &gt; j\$bar
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          74710ace-9814-4742-97bf-49359385e1a4
+          """
+        opcode &gt; ALOAD-7
+          25
+          0
+        opcode &gt; GETFIELD-8
+          180
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          f
+          """
+          """
+          Lorg/eolang/benchmark/F;
+          """
+        opcode &gt; INVOKEINTERFACE-9
+          185
+          """
+          org/eolang/benchmark/F
+          """
+          """
+          foo
+          """
+          """
+          ()I
+          """
+        opcode &gt; ICONST_2-A
+          5
+        opcode &gt; IADD-B
+          96
+        opcode &gt; IRETURN-C
+          172
+        label
+          """
+          b33c67ec-7f85-4c2c-beb4-43b5b42b8f59
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$F
+  1536 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; j\$foo
+    1025 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$Main
+  33 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    1 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          e921e195-776d-4bd7-bfc0-62d5079df258
+          """
+        opcode &gt; ALOAD-24
+          25
+          0
+        opcode &gt; INVOKESPECIAL-25
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; RETURN-26
+          177
+        label
+          """
+          037d8a22-eac8-43f7-9289-8135311dd833
+          """
+  [arg__[Ljava/lang/String;__0] &gt; j\$main
+    137 &gt; access
+    """
+    ([Ljava/lang/String;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          bddf03c4-daa2-487a-9658-946c28247f4e
+          """
+        opcode &gt; NEW-27
+          187
+          """
+          org/eolang/benchmark/App
+          """
+        opcode &gt; DUP-28
+          89
+        opcode &gt; INVOKESPECIAL-29
+          183
+          """
+          org/eolang/benchmark/App
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; ASTORE-2A
+          58
+          1
+        label
+          """
+          5bcdbb17-8d6c-46b2-a7da-6b29e043f910
+          """
+        opcode &gt; ALOAD-2B
+          25
+          0
+        opcode &gt; ICONST_0-2C
+          3
+        opcode &gt; AALOAD-2D
+          50
+        opcode &gt; INVOKESTATIC-2E
+          184
+          """
+          java/lang/Long
+          """
+          """
+          parseLong
+          """
+          """
+          (Ljava/lang/String;)J
+          """
+        opcode &gt; LSTORE-2F
+          55
+          2
+        label
+          """
+          36abaa5a-d02e-454d-9142-ea7e57de06c6
+          """
+        opcode &gt; LCONST_0-30
+          9
+        opcode &gt; LSTORE-31
+          55
+          4
+        label
+          """
+          0cadbbbc-85af-497e-a317-4e650e3ee99b
+          """
+        opcode &gt; LCONST_0-32
+          9
+        opcode &gt; LSTORE-33
+          55
+          6
+        label
+          """
+          5cde493d-fc16-4632-9fb1-201abdd9ddaa
+          """
+        opcode &gt; LLOAD-34
+          22
+          6
+        opcode &gt; LLOAD-35
+          22
+          2
+        opcode &gt; LCMP-36
+          148
+        opcode &gt; IFGE-37
+          156
+          label
+            """
+            93201a9d-704c-4237-a7e5-726a2a80fe29
+            """
+        label
+          """
+          19b63e7a-0fec-4a87-9bcf-28e38a718f23
+          """
+        opcode &gt; LLOAD-38
+          22
+          4
+        opcode &gt; ALOAD-39
+          25
+          1
+        opcode &gt; INVOKEVIRTUAL-3A
+          182
+          """
+          org/eolang/benchmark/App
+          """
+          """
+          run
+          """
+          """
+          ()I
+          """
+        opcode &gt; I2L-3B
+          133
+        opcode &gt; LADD-3C
+          97
+        opcode &gt; LSTORE-3D
+          55
+          4
+        label
+          """
+          0ad22d71-f372-4d88-959e-82c1add2fdda
+          """
+        opcode &gt; LLOAD-3E
+          22
+          6
+        opcode &gt; LCONST_1-3F
+          10
+        opcode &gt; LADD-40
+          97
+        opcode &gt; LSTORE-41
+          55
+          6
+        opcode &gt; GOTO-42
+          167
+          label
+            """
+            5cde493d-fc16-4632-9fb1-201abdd9ddaa
+            """
+        label
+          """
+          93201a9d-704c-4237-a7e5-726a2a80fe29
+          """
+        opcode &gt; GETSTATIC-43
+          178
+          """
+          java/lang/System
+          """
+          """
+          out
+          """
+          """
+          Ljava/io/PrintStream;
+          """
+        opcode &gt; LLOAD-44
+          22
+          4
+        opcode &gt; INVOKEVIRTUAL-45
+          182
+          """
+          java/io/PrintStream
+          """
+          """
+          println
+          """
+          """
+          (J)V
+          """
+        label
+          """
+          6eefb65d-1436-455c-b130-be71ce2d68e2
+          """
+        opcode &gt; RETURN-46
+          177
+        label
+          """
+          6a2c4d75-2386-47d0-9915-ca95f80fa948
+          """</pre></div>
+    <div class="snippet">
+      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.6</span>
+      <pre>
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$A
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+    """
+    org/eolang/benchmark/F
+    """
+  field &gt; j\$d
+    2
+    """
+    I
+    """
+    """
+    """
+    """
+    """
+  [arg__I__0] &gt; new
+    0 &gt; access
+    """
+    (I)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          6b91afd4-1027-441f-9a5e-adf002cebb65
+          """
+        super.
+          \$
+        label
+          """
+          352d7739-4a12-4733-b045-3cf99765d2c8
+          """
+        write.
+          d.
+            \$
+          local1
+        label
+          """
+          fa17136a-f001-4899-8b26-0afebe0b1319
+          """
+        opcode &gt; RETURN
+          177
+        label
+          """
+          974da6f5-c811-4774-9703-d749defce9f9
+          """
+  [] &gt; j\$foo
+    1 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          5be6ad81-40d1-453a-858f-f4bd1d67a8c1
+          """
+        plus.
+          d.
+            \$
+          1
+        opcode &gt; IRETURN
+          172
+        label
+          """
+          50fdf1ea-6b4d-4be8-8ce3-3c1be3d5743b
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$App
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    0 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          3a5e69a0-2ae5-4072-b18c-c8074821a6c2
+          """
+        super.
+          \$
+        opcode &gt; RETURN
+          177
+        label
+          """
+          ed53c135-4015-40c0-9a14-eed07de7228f
+          """
+  [] &gt; j\$run
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          2246becf-7ddb-4b5c-93e5-2709731d9c73
+          """
+        bar.
+          new.
+            org/eolang/benchmark/B
+            new.
+              org/eolang/benchmark/A
+              42
+        opcode &gt; IRETURN
+          172
+        label
+          """
+          08808232-bf85-4e5d-92c2-01dba2040185
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$B
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  field &gt; j\$f
+    18
+    """
+    Lorg/eolang/benchmark/F;
+    """
+    """
+    """
+    """
+    """
+  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
+    0 &gt; access
+    """
+    (Lorg/eolang/benchmark/F;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          104f0f7d-4494-42ce-a264-9747a0215f0d
+          """
+        super.
+          \$
+        label
+          """
+          ad177a4e-9fa6-4475-be7e-435fac6fb456
+          """
+        write.
+          f.
+            \$
+          local1
+        label
+          """
+          7ae565e2-f592-4dec-b349-9f85d7407cf7
+          """
+        opcode &gt; RETURN
+          177
+        label
+          """
+          814946e2-b0f1-4c66-b0de-bebc3f09da68
+          """
+  [] &gt; j\$bar
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          74710ace-9814-4742-97bf-49359385e1a4
+          """
+        f.
+          \$
+        plus.
+          opcode &gt; INVOKEINTERFACE
+            185
+            """
+            org/eolang/benchmark/F
+            """
+            """
+            foo
+            """
+            """
+            ()I
+            """
+          2
+        opcode &gt; IRETURN
+          172
+        label
+          """
+          b33c67ec-7f85-4c2c-beb4-43b5b42b8f59
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$F
+  1536 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; j\$foo
+    1025 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$Main
+  33 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    1 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          e921e195-776d-4bd7-bfc0-62d5079df258
+          """
+        super.
+          \$
+        opcode &gt; RETURN
+          177
+        label
+          """
+          037d8a22-eac8-43f7-9289-8135311dd833
+          """
+  [arg__[Ljava/lang/String;__0] &gt; j\$main
+    137 &gt; access
+    """
+    ([Ljava/lang/String;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          bddf03c4-daa2-487a-9658-946c28247f4e
+          """
+        write.
+          local1
+          new.
+            org/eolang/benchmark/App
+        label
+          """
+          5bcdbb17-8d6c-46b2-a7da-6b29e043f910
+          """
+        local0
+        opcode &gt; ICONST_0
+          3
+        opcode &gt; AALOAD
+          50
+        write.
+          local2
+          opcode &gt; INVOKESTATIC
+            184
+            """
+            java/lang/Long
+            """
+            """
+            parseLong
+            """
+            """
+            (Ljava/lang/String;)J
+            """
+        label
+          """
+          36abaa5a-d02e-454d-9142-ea7e57de06c6
+          """
+        write.
+          local4
+          opcode &gt; LCONST_0
+            9
+        label
+          """
+          0cadbbbc-85af-497e-a317-4e650e3ee99b
+          """
+        write.
+          local6
+          opcode &gt; LCONST_0
+            9
+        label
+          """
+          5cde493d-fc16-4632-9fb1-201abdd9ddaa
+          """
+        local6
+        local2
+        opcode &gt; LCMP
+          148
+        opcode &gt; IFGE
+          156
+          label
+            """
+            93201a9d-704c-4237-a7e5-726a2a80fe29
+            """
+        label
+          """
+          19b63e7a-0fec-4a87-9bcf-28e38a718f23
+          """
+        local4
+        run.
+          local1
+        opcode &gt; I2L
+          133
+        write.
+          local4
+          opcode &gt; LADD
+            97
+        label
+          """
+          0ad22d71-f372-4d88-959e-82c1add2fdda
+          """
+        local6
+        opcode &gt; LCONST_1
+          10
+        write.
+          local6
+          opcode &gt; LADD
+            97
+        opcode &gt; GOTO
+          167
+          label
+            """
+            5cde493d-fc16-4632-9fb1-201abdd9ddaa
+            """
+        label
+          """
+          93201a9d-704c-4237-a7e5-726a2a80fe29
+          """
+        println.
+          opcode &gt; GETSTATIC
+            178
+            """
+            java/lang/System
+            """
+            """
+            out
+            """
+            """
+            Ljava/io/PrintStream;
+            """
+          local4
+        label
+          """
+          6eefb65d-1436-455c-b130-be71ce2d68e2
+          """
+        opcode &gt; RETURN
+          177
+        label
+          """
+          6a2c4d75-2386-47d0-9915-ca95f80fa948
+          """</pre></div>
+    <div class="snippet">
+      <span>𝜑-expressions after eo:phi 0.34.4</span>
+      <pre>{after-phi}</pre></div>
+    <div class="snippet">
+      <span>Optimized 𝜑:</span>
+      <pre>{after-ineo-optimize}</pre></div>
+    <div class="snippet">
+      <span>EO Objects after eo:unphi 0.34.4</span>
+      <pre>{after-unphi}</pre></div>
+    <div class="snippet">
+      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.6</span>
+      <pre>
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$A
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+    """
+    org/eolang/benchmark/F
+    """
+  field &gt; j\$d
+    2
+    """
+    I
+    """
+    """
+    """
+    """
+    """
+  [arg__I__0] &gt; new
+    0 &gt; access
+    """
+    (I)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          6b91afd4-1027-441f-9a5e-adf002cebb65
+          """
+        opcode &gt; ALOAD-26
+          25
+          0
+        opcode &gt; INVOKESPECIAL-27
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        label
+          """
+          352d7739-4a12-4733-b045-3cf99765d2c8
+          """
+        opcode &gt; ALOAD-28
+          25
+          0
+        opcode &gt; ILOAD-29
+          21
+          1
+        opcode &gt; PUTFIELD-2A
+          181
+          """
+          org/eolang/benchmark/A
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        label
+          """
+          fa17136a-f001-4899-8b26-0afebe0b1319
+          """
+        opcode &gt; RETURN-2B
+          177
+        label
+          """
+          974da6f5-c811-4774-9703-d749defce9f9
+          """
+  [] &gt; j\$foo
+    1 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          5be6ad81-40d1-453a-858f-f4bd1d67a8c1
+          """
+        opcode &gt; ALOAD-2C
+          25
+          0
+        opcode &gt; GETFIELD-2D
+          180
+          """
+          org/eolang/benchmark/A
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        opcode &gt; ICONST_1-2E
+          4
+        opcode &gt; IADD-2F
+          96
+        opcode &gt; IRETURN-30
+          172
+        label
+          """
+          50fdf1ea-6b4d-4be8-8ce3-3c1be3d5743b
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$App
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    0 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          3a5e69a0-2ae5-4072-b18c-c8074821a6c2
+          """
+        opcode &gt; ALOAD-11
+          25
+          0
+        opcode &gt; INVOKESPECIAL-12
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; RETURN-13
+          177
+        label
+          """
+          ed53c135-4015-40c0-9a14-eed07de7228f
+          """
+  [] &gt; j\$run
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          2246becf-7ddb-4b5c-93e5-2709731d9c73
+          """
+        opcode &gt; NEW-14
+          187
+          """
+          org/eolang/benchmark/BA
+          """
+        opcode &gt; DUP-15
+          89
+        opcode &gt; BIPUSH-16
+          16
+          42
+        opcode &gt; INVOKESPECIAL-17
+          183
+          """
+          org/eolang/benchmark/BA
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          (I)V
+          """
+        opcode &gt; INVOKEVIRTUAL-18
+          182
+          """
+          org/eolang/benchmark/BA
+          """
+          """
+          bar
+          """
+          """
+          ()I
+          """
+        opcode &gt; IRETURN-19
+          172
+        label
+          """
+          08808232-bf85-4e5d-92c2-01dba2040185
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$B
+  32 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  field &gt; j\$f
+    18
+    """
+    Lorg/eolang/benchmark/F;
+    """
+    """
+    """
+    """
+    """
+  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
+    0 &gt; access
+    """
+    (Lorg/eolang/benchmark/F;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          104f0f7d-4494-42ce-a264-9747a0215f0d
+          """
+        opcode &gt; ALOAD-1A
+          25
+          0
+        opcode &gt; INVOKESPECIAL-1B
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        label
+          """
+          ad177a4e-9fa6-4475-be7e-435fac6fb456
+          """
+        opcode &gt; ALOAD-1C
+          25
+          0
+        opcode &gt; ALOAD-1D
+          25
+          1
+        opcode &gt; PUTFIELD-1E
+          181
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          f
+          """
+          """
+          Lorg/eolang/benchmark/F;
+          """
+        label
+          """
+          7ae565e2-f592-4dec-b349-9f85d7407cf7
+          """
+        opcode &gt; RETURN-1F
+          177
+        label
+          """
+          814946e2-b0f1-4c66-b0de-bebc3f09da68
+          """
+  [] &gt; j\$bar
+    0 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          74710ace-9814-4742-97bf-49359385e1a4
+          """
+        opcode &gt; ALOAD-20
+          25
+          0
+        opcode &gt; GETFIELD-21
+          180
+          """
+          org/eolang/benchmark/B
+          """
+          """
+          f
+          """
+          """
+          Lorg/eolang/benchmark/F;
+          """
+        opcode &gt; INVOKEINTERFACE-22
+          185
+          """
+          org/eolang/benchmark/F
+          """
+          """
+          foo
+          """
+          """
+          ()I
+          """
+        opcode &gt; ICONST_2-23
+          5
+        opcode &gt; IADD-24
+          96
+        opcode &gt; IRETURN-25
+          172
+        label
+          """
+          b33c67ec-7f85-4c2c-beb4-43b5b42b8f59
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$BA
+  49 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  field &gt; j\$d
+    18
+    """
+    I
+    """
+    """
+    """
+    """
+    """
+  [arg__I__0] &gt; new
+    1 &gt; access
+    """
+    (I)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          62b40658-93c7-47f8-a420-88cc9a7be4b0
+          """
+        opcode &gt; ALOAD-1
+          25
+          0
+        opcode &gt; INVOKESPECIAL-2
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        label
+          """
+          653cb658-c23e-4fe4-a885-1b4ea60ecf1c
+          """
+        opcode &gt; ALOAD-3
+          25
+          0
+        opcode &gt; ILOAD-4
+          21
+          1
+        opcode &gt; PUTFIELD-5
+          181
+          """
+          org/eolang/benchmark/BA
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        label
+          """
+          822cfc33-8768-4b6d-93df-90917a048c44
+          """
+        opcode &gt; RETURN-6
+          177
+        label
+          """
+          67c06a50-667a-4c1f-b6f3-706178f9aa35
+          """
+  [] &gt; j\$foo
+    1 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          1f1105ce-3b32-498c-b227-6bc191c16eb4
+          """
+        opcode &gt; ALOAD-7
+          25
+          0
+        opcode &gt; GETFIELD-8
+          180
+          """
+          org/eolang/benchmark/BA
+          """
+          """
+          d
+          """
+          """
+          I
+          """
+        opcode &gt; ICONST_1-9
+          4
+        opcode &gt; IADD-A
+          96
+        opcode &gt; IRETURN-B
+          172
+        label
+          """
+          da98cb2a-388e-4f37-b92f-249191d566b8
+          """
+  [] &gt; j\$bar
+    1 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          0e46a36b-536f-49b6-a96b-11817bc885e4
+          """
+        opcode &gt; ALOAD-C
+          25
+          0
+        opcode &gt; INVOKEVIRTUAL-D
+          182
+          """
+          org/eolang/benchmark/BA
+          """
+          """
+          foo
+          """
+          """
+          ()I
+          """
+        opcode &gt; ICONST_2-E
+          5
+        opcode &gt; IADD-F
+          96
+        opcode &gt; IRETURN-10
+          172
+        label
+          """
+          e2a3e5f3-fdcf-417f-82ed-5f2c11394d9a
+          """
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$F
+  1536 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; j\$foo
+    1025 &gt; access
+    """
+    ()I
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$Main
+  33 &gt; access
+  """
+  java/lang/Object
+  """ &gt; supername
+  * &gt; interfaces
+  [] &gt; new
+    1 &gt; access
+    """
+    ()V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          e921e195-776d-4bd7-bfc0-62d5079df258
+          """
+        opcode &gt; ALOAD-31
+          25
+          0
+        opcode &gt; INVOKESPECIAL-32
+          183
+          """
+          java/lang/Object
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; RETURN-33
+          177
+        label
+          """
+          037d8a22-eac8-43f7-9289-8135311dd833
+          """
+  [arg__[Ljava/lang/String;__0] &gt; j\$main
+    137 &gt; access
+    """
+    ([Ljava/lang/String;)V
+    """ &gt; descriptor
+    """
+    """ &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          """
+          bddf03c4-daa2-487a-9658-946c28247f4e
+          """
+        opcode &gt; NEW-34
+          187
+          """
+          org/eolang/benchmark/App
+          """
+        opcode &gt; DUP-35
+          89
+        opcode &gt; INVOKESPECIAL-36
+          183
+          """
+          org/eolang/benchmark/App
+          """
+          """
+          &lt;init&gt;
+          """
+          """
+          ()V
+          """
+        opcode &gt; ASTORE-37
+          58
+          1
+        label
+          """
+          5bcdbb17-8d6c-46b2-a7da-6b29e043f910
+          """
+        opcode &gt; ALOAD-38
+          25
+          0
+        opcode &gt; ICONST_0-39
+          3
+        opcode &gt; AALOAD-3A
+          50
+        opcode &gt; INVOKESTATIC-3B
+          184
+          """
+          java/lang/Long
+          """
+          """
+          parseLong
+          """
+          """
+          (Ljava/lang/String;)J
+          """
+        opcode &gt; LSTORE-3C
+          55
+          2
+        label
+          """
+          36abaa5a-d02e-454d-9142-ea7e57de06c6
+          """
+        opcode &gt; LCONST_0-3D
+          9
+        opcode &gt; LSTORE-3E
+          55
+          4
+        label
+          """
+          0cadbbbc-85af-497e-a317-4e650e3ee99b
+          """
+        opcode &gt; LCONST_0-3F
+          9
+        opcode &gt; LSTORE-40
+          55
+          6
+        label
+          """
+          5cde493d-fc16-4632-9fb1-201abdd9ddaa
+          """
+        opcode &gt; LLOAD-41
+          22
+          6
+        opcode &gt; LLOAD-42
+          22
+          2
+        opcode &gt; LCMP-43
+          148
+        opcode &gt; IFGE-44
+          156
+          label
+            """
+            93201a9d-704c-4237-a7e5-726a2a80fe29
+            """
+        label
+          """
+          19b63e7a-0fec-4a87-9bcf-28e38a718f23
+          """
+        opcode &gt; LLOAD-45
+          22
+          4
+        opcode &gt; ALOAD-46
+          25
+          1
+        opcode &gt; INVOKEVIRTUAL-47
+          182
+          """
+          org/eolang/benchmark/App
+          """
+          """
+          run
+          """
+          """
+          ()I
+          """
+        opcode &gt; I2L-48
+          133
+        opcode &gt; LADD-49
+          97
+        opcode &gt; LSTORE-4A
+          55
+          4
+        label
+          """
+          0ad22d71-f372-4d88-959e-82c1add2fdda
+          """
+        opcode &gt; LLOAD-4B
+          22
+          6
+        opcode &gt; LCONST_1-4C
+          10
+        opcode &gt; LADD-4D
+          97
+        opcode &gt; LSTORE-4E
+          55
+          6
+        opcode &gt; GOTO-4F
+          167
+          label
+            """
+            5cde493d-fc16-4632-9fb1-201abdd9ddaa
+            """
+        label
+          """
+          93201a9d-704c-4237-a7e5-726a2a80fe29
+          """
+        opcode &gt; GETSTATIC-50
+          178
+          """
+          java/lang/System
+          """
+          """
+          out
+          """
+          """
+          Ljava/io/PrintStream;
+          """
+        opcode &gt; LLOAD-51
+          22
+          4
+        opcode &gt; INVOKEVIRTUAL-52
+          182
+          """
+          java/io/PrintStream
+          """
+          """
+          println
+          """
+          """
+          (J)V
+          """
+        label
+          """
+          6eefb65d-1436-455c-b130-be71ce2d68e2
+          """
+        opcode &gt; RETURN-53
+          177
+        label
+          """
+          6a2c4d75-2386-47d0-9915-ca95f80fa948
+          """</pre></div>
+    <div class="snippet">
+      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.21</span>
+      <pre>
 class org.eolang.benchmark.A implements org.eolang.benchmark.F {
   org.eolang.benchmark.A(int);
     Code:
@@ -205,1037 +2088,6 @@ public class org.eolang.benchmark.Main {
       52: invokevirtual #35                 // Method java/io/PrintStream.println:(J)V
       55: return
 }</pre></div>
-    <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.21</span>
-      <pre>
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$A
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-    """
-    org/eolang/benchmark/F
-    """
-  field &gt; j\$d
-    2
-    """
-    I
-    """
-    """
-    """
-    """
-    """
-  [arg__I__0] &gt; new
-    0 &gt; access
-    """
-    (I)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          75dac940-f5ae-4cd6-8638-8879ad62e122
-          """
-        opcode &gt; ALOAD-19
-          25
-          0
-        opcode &gt; INVOKESPECIAL-1A
-          183
-          """
-          java/lang/Object
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          ()V
-          """
-        label
-          """
-          acaa2a3b-ffcb-45a2-b1ea-70dea88927c9
-          """
-        opcode &gt; ALOAD-1B
-          25
-          0
-        opcode &gt; ILOAD-1C
-          21
-          1
-        opcode &gt; PUTFIELD-1D
-          181
-          """
-          org/eolang/benchmark/A
-          """
-          """
-          d
-          """
-          """
-          I
-          """
-        label
-          """
-          a532503b-f153-4209-96c0-56d79ac43717
-          """
-        opcode &gt; RETURN-1E
-          177
-        label
-          """
-          ee18500d-65d2-4413-bfd8-e35e2bd59fc4
-          """
-  [] &gt; j\$foo
-    1 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          3939a0d8-d2c1-48ff-8afe-85a5d42627c2
-          """
-        opcode &gt; ALOAD-1F
-          25
-          0
-        opcode &gt; GETFIELD-20
-          180
-          """
-          org/eolang/benchmark/A
-          """
-          """
-          d
-          """
-          """
-          I
-          """
-        opcode &gt; ICONST_1-21
-          4
-        opcode &gt; IADD-22
-          96
-        opcode &gt; IRETURN-23
-          172
-        label
-          """
-          6fe07dab-9cab-45d3-9b2f-ee036f899854
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$App
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; new
-    0 &gt; access
-    """
-    ()V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          39e7a8cd-6ace-41ef-be92-53acf1eec457
-          """
-        opcode &gt; ALOAD-D
-          25
-          0
-        opcode &gt; INVOKESPECIAL-E
-          183
-          """
-          java/lang/Object
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          ()V
-          """
-        opcode &gt; RETURN-F
-          177
-        label
-          """
-          0eebcd77-bc24-475d-9e6e-9662e868cd77
-          """
-  [] &gt; j\$run
-    0 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          e45405d2-83f7-4dca-9bd5-cef00ebf5e45
-          """
-        opcode &gt; NEW-10
-          187
-          """
-          org/eolang/benchmark/B
-          """
-        opcode &gt; DUP-11
-          89
-        opcode &gt; NEW-12
-          187
-          """
-          org/eolang/benchmark/A
-          """
-        opcode &gt; DUP-13
-          89
-        opcode &gt; BIPUSH-14
-          16
-          42
-        opcode &gt; INVOKESPECIAL-15
-          183
-          """
-          org/eolang/benchmark/A
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          (I)V
-          """
-        opcode &gt; INVOKESPECIAL-16
-          183
-          """
-          org/eolang/benchmark/B
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          (Lorg/eolang/benchmark/F;)V
-          """
-        opcode &gt; INVOKEVIRTUAL-17
-          182
-          """
-          org/eolang/benchmark/B
-          """
-          """
-          bar
-          """
-          """
-          ()I
-          """
-        opcode &gt; IRETURN-18
-          172
-        label
-          """
-          167d148c-b4af-41d4-aad1-b2a812c9fda4
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$B
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  field &gt; j\$f
-    18
-    """
-    Lorg/eolang/benchmark/F;
-    """
-    """
-    """
-    """
-    """
-  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
-    0 &gt; access
-    """
-    (Lorg/eolang/benchmark/F;)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          6a51bc35-20eb-4493-b3cb-5fdcedf953aa
-          """
-        opcode &gt; ALOAD-1
-          25
-          0
-        opcode &gt; INVOKESPECIAL-2
-          183
-          """
-          java/lang/Object
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          ()V
-          """
-        label
-          """
-          08a179f2-e8a2-49d4-b81c-5f438e065df0
-          """
-        opcode &gt; ALOAD-3
-          25
-          0
-        opcode &gt; ALOAD-4
-          25
-          1
-        opcode &gt; PUTFIELD-5
-          181
-          """
-          org/eolang/benchmark/B
-          """
-          """
-          f
-          """
-          """
-          Lorg/eolang/benchmark/F;
-          """
-        label
-          """
-          5126fec1-1b47-4ba5-a4e0-d208b94c65bb
-          """
-        opcode &gt; RETURN-6
-          177
-        label
-          """
-          98c78407-c420-404b-8ed4-86232340256c
-          """
-  [] &gt; j\$bar
-    0 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          38e75d84-7f66-4579-93df-9c9f57179f1f
-          """
-        opcode &gt; ALOAD-7
-          25
-          0
-        opcode &gt; GETFIELD-8
-          180
-          """
-          org/eolang/benchmark/B
-          """
-          """
-          f
-          """
-          """
-          Lorg/eolang/benchmark/F;
-          """
-        opcode &gt; INVOKEINTERFACE-9
-          185
-          """
-          org/eolang/benchmark/F
-          """
-          """
-          foo
-          """
-          """
-          ()I
-          """
-        opcode &gt; ICONST_2-A
-          5
-        opcode &gt; IADD-B
-          96
-        opcode &gt; IRETURN-C
-          172
-        label
-          """
-          b7cc30df-6208-4323-9a24-183fc8802eeb
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$F
-  1536 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; j\$foo
-    1025 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$Main
-  33 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; new
-    1 &gt; access
-    """
-    ()V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          fb83922b-72f3-41ae-876e-25f91c103f7e
-          """
-        opcode &gt; ALOAD-24
-          25
-          0
-        opcode &gt; INVOKESPECIAL-25
-          183
-          """
-          java/lang/Object
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          ()V
-          """
-        opcode &gt; RETURN-26
-          177
-        label
-          """
-          42657fb4-fb61-4084-81db-9ed1dc157837
-          """
-  [arg__[Ljava/lang/String;__0] &gt; j\$main
-    137 &gt; access
-    """
-    ([Ljava/lang/String;)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          86a432bf-6cae-4440-9319-8f09dcf05d71
-          """
-        opcode &gt; NEW-27
-          187
-          """
-          org/eolang/benchmark/App
-          """
-        opcode &gt; DUP-28
-          89
-        opcode &gt; INVOKESPECIAL-29
-          183
-          """
-          org/eolang/benchmark/App
-          """
-          """
-          &lt;init&gt;
-          """
-          """
-          ()V
-          """
-        opcode &gt; ASTORE-2A
-          58
-          1
-        label
-          """
-          6850dea6-2b54-41e3-8c0b-f472fcdfd3e0
-          """
-        opcode &gt; ALOAD-2B
-          25
-          0
-        opcode &gt; ICONST_0-2C
-          3
-        opcode &gt; AALOAD-2D
-          50
-        opcode &gt; INVOKESTATIC-2E
-          184
-          """
-          java/lang/Long
-          """
-          """
-          parseLong
-          """
-          """
-          (Ljava/lang/String;)J
-          """
-        opcode &gt; LSTORE-2F
-          55
-          2
-        label
-          """
-          a164d435-f923-4855-ba63-9f28fe77160b
-          """
-        opcode &gt; LCONST_0-30
-          9
-        opcode &gt; LSTORE-31
-          55
-          4
-        label
-          """
-          cf36323e-91e4-4f82-981f-0161e8d9987f
-          """
-        opcode &gt; LCONST_0-32
-          9
-        opcode &gt; LSTORE-33
-          55
-          6
-        label
-          """
-          45767ec0-a517-4de2-bad7-5b9949291f17
-          """
-        opcode &gt; LLOAD-34
-          22
-          6
-        opcode &gt; LLOAD-35
-          22
-          2
-        opcode &gt; LCMP-36
-          148
-        opcode &gt; IFGE-37
-          156
-          label
-            """
-            f6b11f55-d8f4-4b57-9602-682b032bd38e
-            """
-        label
-          """
-          7ffe738a-15ad-4223-aca6-a924b0f7a89b
-          """
-        opcode &gt; LLOAD-38
-          22
-          4
-        opcode &gt; ALOAD-39
-          25
-          1
-        opcode &gt; INVOKEVIRTUAL-3A
-          182
-          """
-          org/eolang/benchmark/App
-          """
-          """
-          run
-          """
-          """
-          ()I
-          """
-        opcode &gt; I2L-3B
-          133
-        opcode &gt; LADD-3C
-          97
-        opcode &gt; LSTORE-3D
-          55
-          4
-        label
-          """
-          c57bb390-253c-49ef-8b11-ee3105f60faf
-          """
-        opcode &gt; LLOAD-3E
-          22
-          6
-        opcode &gt; LCONST_1-3F
-          10
-        opcode &gt; LADD-40
-          97
-        opcode &gt; LSTORE-41
-          55
-          6
-        opcode &gt; GOTO-42
-          167
-          label
-            """
-            45767ec0-a517-4de2-bad7-5b9949291f17
-            """
-        label
-          """
-          f6b11f55-d8f4-4b57-9602-682b032bd38e
-          """
-        opcode &gt; GETSTATIC-43
-          178
-          """
-          java/lang/System
-          """
-          """
-          out
-          """
-          """
-          Ljava/io/PrintStream;
-          """
-        opcode &gt; LLOAD-44
-          22
-          4
-        opcode &gt; INVOKEVIRTUAL-45
-          182
-          """
-          java/io/PrintStream
-          """
-          """
-          println
-          """
-          """
-          (J)V
-          """
-        label
-          """
-          1a809134-0e05-43c5-9f09-6c3fb5f6a23d
-          """
-        opcode &gt; RETURN-46
-          177
-        label
-          """
-          6b617fb8-5bfb-4463-a132-26f58be793c2
-          """</pre></div>
-    <div class="snippet">
-      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.6</span>
-      <pre>
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$A
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-    """
-    org/eolang/benchmark/F
-    """
-  field &gt; j\$d
-    2
-    """
-    I
-    """
-    """
-    """
-    """
-    """
-  [arg__I__0] &gt; new
-    0 &gt; access
-    """
-    (I)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          75dac940-f5ae-4cd6-8638-8879ad62e122
-          """
-        super.
-          \$
-        label
-          """
-          acaa2a3b-ffcb-45a2-b1ea-70dea88927c9
-          """
-        write.
-          d.
-            \$
-          local1
-        label
-          """
-          a532503b-f153-4209-96c0-56d79ac43717
-          """
-        opcode &gt; RETURN
-          177
-        label
-          """
-          ee18500d-65d2-4413-bfd8-e35e2bd59fc4
-          """
-  [] &gt; j\$foo
-    1 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          3939a0d8-d2c1-48ff-8afe-85a5d42627c2
-          """
-        plus.
-          d.
-            \$
-          1
-        opcode &gt; IRETURN
-          172
-        label
-          """
-          6fe07dab-9cab-45d3-9b2f-ee036f899854
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$App
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; new
-    0 &gt; access
-    """
-    ()V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          39e7a8cd-6ace-41ef-be92-53acf1eec457
-          """
-        super.
-          \$
-        opcode &gt; RETURN
-          177
-        label
-          """
-          0eebcd77-bc24-475d-9e6e-9662e868cd77
-          """
-  [] &gt; j\$run
-    0 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          e45405d2-83f7-4dca-9bd5-cef00ebf5e45
-          """
-        bar.
-          new.
-            org/eolang/benchmark/B
-            new.
-              org/eolang/benchmark/A
-              42
-        opcode &gt; IRETURN
-          172
-        label
-          """
-          167d148c-b4af-41d4-aad1-b2a812c9fda4
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$B
-  32 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  field &gt; j\$f
-    18
-    """
-    Lorg/eolang/benchmark/F;
-    """
-    """
-    """
-    """
-    """
-  [arg__Lorg/eolang/benchmark/F;__0] &gt; new
-    0 &gt; access
-    """
-    (Lorg/eolang/benchmark/F;)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          6a51bc35-20eb-4493-b3cb-5fdcedf953aa
-          """
-        super.
-          \$
-        label
-          """
-          08a179f2-e8a2-49d4-b81c-5f438e065df0
-          """
-        write.
-          f.
-            \$
-          local1
-        label
-          """
-          5126fec1-1b47-4ba5-a4e0-d208b94c65bb
-          """
-        opcode &gt; RETURN
-          177
-        label
-          """
-          98c78407-c420-404b-8ed4-86232340256c
-          """
-  [] &gt; j\$bar
-    0 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          38e75d84-7f66-4579-93df-9c9f57179f1f
-          """
-        f.
-          \$
-        plus.
-          opcode &gt; INVOKEINTERFACE
-            185
-            """
-            org/eolang/benchmark/F
-            """
-            """
-            foo
-            """
-            """
-            ()I
-            """
-          2
-        opcode &gt; IRETURN
-          172
-        label
-          """
-          b7cc30df-6208-4323-9a24-183fc8802eeb
-          """
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$F
-  1536 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; j\$foo
-    1025 &gt; access
-    """
-    ()I
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-
-+package org.eolang.benchmark
-+alias org.eolang.jeo.opcode
-+alias org.eolang.jeo.label
-[] &gt; j\$Main
-  33 &gt; access
-  """
-  java/lang/Object
-  """ &gt; supername
-  * &gt; interfaces
-  [] &gt; new
-    1 &gt; access
-    """
-    ()V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          fb83922b-72f3-41ae-876e-25f91c103f7e
-          """
-        super.
-          \$
-        opcode &gt; RETURN
-          177
-        label
-          """
-          42657fb4-fb61-4084-81db-9ed1dc157837
-          """
-  [arg__[Ljava/lang/String;__0] &gt; j\$main
-    137 &gt; access
-    """
-    ([Ljava/lang/String;)V
-    """ &gt; descriptor
-    """
-    """ &gt; signature
-    * &gt; exceptions
-    seq &gt; @
-      *
-        label
-          """
-          86a432bf-6cae-4440-9319-8f09dcf05d71
-          """
-        write.
-          local1
-          new.
-            org/eolang/benchmark/App
-        label
-          """
-          6850dea6-2b54-41e3-8c0b-f472fcdfd3e0
-          """
-        local0
-        opcode &gt; ICONST_0
-          3
-        opcode &gt; AALOAD
-          50
-        write.
-          local2
-          opcode &gt; INVOKESTATIC
-            184
-            """
-            java/lang/Long
-            """
-            """
-            parseLong
-            """
-            """
-            (Ljava/lang/String;)J
-            """
-        label
-          """
-          a164d435-f923-4855-ba63-9f28fe77160b
-          """
-        write.
-          local4
-          opcode &gt; LCONST_0
-            9
-        label
-          """
-          cf36323e-91e4-4f82-981f-0161e8d9987f
-          """
-        write.
-          local6
-          opcode &gt; LCONST_0
-            9
-        label
-          """
-          45767ec0-a517-4de2-bad7-5b9949291f17
-          """
-        local6
-        local2
-        opcode &gt; LCMP
-          148
-        opcode &gt; IFGE
-          156
-          label
-            """
-            f6b11f55-d8f4-4b57-9602-682b032bd38e
-            """
-        label
-          """
-          7ffe738a-15ad-4223-aca6-a924b0f7a89b
-          """
-        local4
-        run.
-          local1
-        opcode &gt; I2L
-          133
-        write.
-          local4
-          opcode &gt; LADD
-            97
-        label
-          """
-          c57bb390-253c-49ef-8b11-ee3105f60faf
-          """
-        local6
-        opcode &gt; LCONST_1
-          10
-        write.
-          local6
-          opcode &gt; LADD
-            97
-        opcode &gt; GOTO
-          167
-          label
-            """
-            45767ec0-a517-4de2-bad7-5b9949291f17
-            """
-        label
-          """
-          f6b11f55-d8f4-4b57-9602-682b032bd38e
-          """
-        println.
-          opcode &gt; GETSTATIC
-            178
-            """
-            java/lang/System
-            """
-            """
-            out
-            """
-            """
-            Ljava/io/PrintStream;
-            """
-          local4
-        label
-          """
-          1a809134-0e05-43c5-9f09-6c3fb5f6a23d
-          """
-        opcode &gt; RETURN
-          177
-        label
-          """
-          6b617fb8-5bfb-4463-a132-26f58be793c2
-          """</pre></div>
-    <div class="snippet">
-      <span>𝜑-expressions after eo:phi 0.34.4</span>
-      <pre>{after-phi}</pre></div>
-    <div class="snippet">
-      <span>Optimized 𝜑:</span>
-      <pre>{after-ineo-optimize}</pre></div>
-    <div class="snippet">
-      <span>EO Objects after eo:unphi 0.34.4</span>
-      <pre>{after-unphi}</pre></div>
-    <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.6</span>
-      <pre>{after-opeo-compile}</pre></div>
-    <div class="snippet">
-      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.21</span>
-      <pre>{after-jeo-assemble}</pre></div>
   </section>
 </body>
 </html>
