@@ -18,13 +18,13 @@ then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed at 2024-01-24 10:14, on Darwin, with 12 CPUs:
+This is the summary of the tests performed at 2024-01-24 07:17, on Linux, with 4 CPUs:
 
 | | Before | After |
 | --- | --: | --: |
-| Time | 2.96 | 2.95 |
+| Time | 3.23 | 3.23 |
 | Files | 5 | 6 |
-| Bytes | 2404 | 1738 |
+| Bytes | 6500 | 5834 |
 
 This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions.
 
