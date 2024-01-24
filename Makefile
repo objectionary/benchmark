@@ -27,7 +27,7 @@
 .EXPORT_ALL_VARIABLES:
 
 SHELL=bash
-TOTAL=10000000
+TOTAL=1000000
 MULTIPLIER=10
 
 EO_VERSION=0.35.1
@@ -95,12 +95,9 @@ quick:
 	make before.jar
 	rm -f target/benchmark-synthetic.jar
 	mvn package
-	T=40000000
-	JIT_OPTS=-XX:-EliminateAllocations
-	NOJIT_OPTS=-Xint
+	T=100000000
+	JIT_OPTS=-XX:+EliminateAllocations
 	set -x
-	java $${NOJIT_OPTS} -cp before.jar org.eolang.benchmark.Main "$${T}"
-	java $${NOJIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
 	java $${JIT_OPTS} -cp before.jar org.eolang.benchmark.Main "$${T}"
 	java $${JIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
 
