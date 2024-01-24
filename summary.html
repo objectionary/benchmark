@@ -22,7 +22,7 @@
     <a href="https://github.com/objectionary/benchmark">Makefile</a>.</aside>
   <section>
     <div class="snippet">
-      <span>Java</span>
+      <span>Java <a href="java.html">Show</a></span>
       <pre>
 package org.eolang.benchmark;
 class A implements F {
@@ -70,11 +70,10 @@ public class Main {
         System.out.println(sum);
     }
 }</pre>
-      <span></span></div>
+      </div>
     <div class="snippet">
-      <span>Bytecode after
-      javac 20.0.2
-</span>
+      <span>Bytecode after javac 20.0.2
+ <a href="after-javac.html">Show</a></span>
       <pre>
 Compiled from "A.java"
 class org.eolang.benchmark.A implements org.eolang.benchmark.F {
@@ -185,9 +184,10 @@ public class org.eolang.benchmark.Main {
       50: lload         4
       52: invokevirtual #26                 // Method java/io/PrintStream.println:(J)V
       55: return
-}</pre></div>
+}</pre>
+      </div>
     <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.21</span>
+      <span>Opcodes after <a href="https://www.objectionary.com/jeo-maven-plugin/disassemble-mojo.html">jeo:disassemble</a> 0.2.21 <a href="after-jeo-disassemble.html">Show</a></span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -210,7 +210,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "98309a96-75c0-4328-9356-b14d6c18c920"
+          "8a510d91-3086-4871-b968-538f7b51a995"
         opcode &gt; ALOAD-19
           25
           0
@@ -220,7 +220,7 @@ public class org.eolang.benchmark.Main {
           "&lt;init&gt;"
           "()V"
         label
-          "ab84d4e2-c57e-400b-942a-58f5ebe8939a"
+          "e83a4a86-34e5-4dec-ba4f-cb08fe69dfd8"
         opcode &gt; ALOAD-1B
           25
           0
@@ -233,11 +233,11 @@ public class org.eolang.benchmark.Main {
           "d"
           "I"
         label
-          "bfd121bb-fe13-4783-92aa-2d8cffab9d4d"
+          "7247aec6-babe-4898-b4c4-92e26f69fae3"
         opcode &gt; RETURN-1E
           177
         label
-          "f09a82a6-7750-4419-a408-9fb8f40f84b7"
+          "6e1b04eb-ee90-4b92-96fc-dbe797430c5b"
   [] &gt; j\$foo
     1 &gt; access
     "()I" &gt; descriptor
@@ -246,7 +246,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9b32ec2a-20ca-4a46-abc5-3b1a2bbaab32"
+          "e978ad35-3ba9-41c6-8a68-f6bf6648578d"
         opcode &gt; ALOAD-1F
           25
           0
@@ -262,7 +262,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-23
           172
         label
-          "88efe99c-c859-4ad6-92de-9106aaa08f01"
+          "560b8121-6ec7-4dda-8c35-1b768fbc3144"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -279,7 +279,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "7b80a600-63db-41f0-8055-db3dc4dd205c"
+          "08cd515d-3dd1-420c-adc0-9a3f4de49702"
         opcode &gt; ALOAD-D
           25
           0
@@ -291,7 +291,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; RETURN-F
           177
         label
-          "64ac4330-32e2-4fd7-b36f-aeb4e2e5b48e"
+          "60d8f670-1614-4777-ad66-7acd6cb07134"
   [] &gt; j\$run
     0 &gt; access
     "()I" &gt; descriptor
@@ -300,7 +300,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "1e83836a-3ade-4d5a-a2b8-251244bb1060"
+          "0a53f1e8-b311-47b6-b8c5-b3002f691757"
         opcode &gt; NEW-10
           187
           "org/eolang/benchmark/B"
@@ -332,7 +332,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-18
           172
         label
-          "6f39dcad-952c-48d8-823a-92e3839bc5d3"
+          "8eef4499-a1db-461e-86b7-e2a63dbbf288"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -354,7 +354,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "4260e62e-62db-4547-92b4-5057edc1e60e"
+          "be369887-a989-4551-b648-b2bff27ec72b"
         opcode &gt; ALOAD-1
           25
           0
@@ -364,7 +364,7 @@ public class org.eolang.benchmark.Main {
           "&lt;init&gt;"
           "()V"
         label
-          "4ebe2e91-e648-46c9-8229-4740b1469751"
+          "24324e5b-cb39-4526-820b-d3de4c86a3c0"
         opcode &gt; ALOAD-3
           25
           0
@@ -377,11 +377,11 @@ public class org.eolang.benchmark.Main {
           "f"
           "Lorg/eolang/benchmark/F;"
         label
-          "eca5355e-b246-4f06-9cee-6bed6883ea9c"
+          "f8d12a12-7e55-43d1-ab73-c179b6e0855c"
         opcode &gt; RETURN-6
           177
         label
-          "16e12474-4286-4cec-aad6-1d1549de9de0"
+          "d479b035-ee75-4f4e-8bca-59867151aa2a"
   [] &gt; j\$bar
     0 &gt; access
     "()I" &gt; descriptor
@@ -390,7 +390,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "291f8cd7-17ba-45be-8731-871c44cc6f43"
+          "0c959815-f2ea-491d-9ead-c7f31f292dd2"
         opcode &gt; ALOAD-7
           25
           0
@@ -411,7 +411,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-C
           172
         label
-          "e7927d3a-04d6-4dff-a69e-8e4464710c65"
+          "c8a174ec-865f-4f55-9257-9578d0de2414"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -443,7 +443,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "324f2b28-bbc1-4623-aea1-700b8390921c"
+          "02566663-c9a9-44b6-80b4-915dcc893c3d"
         opcode &gt; ALOAD-24
           25
           0
@@ -455,7 +455,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; RETURN-26
           177
         label
-          "916cb09b-cb4a-44ba-9107-456562ce2e7f"
+          "49558a3d-ac0b-4f62-b0ce-22adda710374"
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
     "([Ljava/lang/String;)V" &gt; descriptor
@@ -464,7 +464,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9a687390-3623-4403-a8fb-52acbce3b0f0"
+          "7428ae43-157a-4d81-8cb8-a2a101631a7a"
         opcode &gt; NEW-27
           187
           "org/eolang/benchmark/App"
@@ -479,7 +479,7 @@ public class org.eolang.benchmark.Main {
           58
           1
         label
-          "f99c3620-19d6-41ae-895c-2e2f24cdcc2e"
+          "cb33d0e6-c24b-4cef-aa4f-b536b76d9ca3"
         opcode &gt; ALOAD-2B
           25
           0
@@ -496,21 +496,21 @@ public class org.eolang.benchmark.Main {
           55
           2
         label
-          "56bfbe7b-d514-44aa-9367-1b7db23a0326"
+          "8ee5bfb0-0b74-44d3-ad8a-098171cb1d83"
         opcode &gt; LCONST_0-30
           9
         opcode &gt; LSTORE-31
           55
           4
         label
-          "7033e676-fd0c-4656-b2e0-b25eba8e6d9d"
+          "568286f2-3927-4bf7-9226-5501fafb54fd"
         opcode &gt; LCONST_0-32
           9
         opcode &gt; LSTORE-33
           55
           6
         label
-          "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+          "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         opcode &gt; LLOAD-34
           22
           6
@@ -522,9 +522,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IFGE-37
           156
           label
-            "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+            "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         label
-          "373686a7-868e-408c-a49d-7c7daa415dd3"
+          "36d5f25e-a960-4255-82f5-4a5236965a18"
         opcode &gt; LLOAD-38
           22
           4
@@ -544,7 +544,7 @@ public class org.eolang.benchmark.Main {
           55
           4
         label
-          "80597e49-5cce-46a4-adec-7f16782d595b"
+          "37fcd3bd-4651-4c30-a69d-95d2030247cb"
         opcode &gt; LLOAD-3E
           22
           6
@@ -558,9 +558,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; GOTO-42
           167
           label
-            "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+            "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         label
-          "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+          "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         opcode &gt; GETSTATIC-43
           178
           "java/lang/System"
@@ -575,13 +575,14 @@ public class org.eolang.benchmark.Main {
           "println"
           "(J)V"
         label
-          "0a5e63d1-8746-496f-8419-5e3da7b306dc"
+          "9088c8c1-ecc8-448f-bb3c-277af4671fab"
         opcode &gt; RETURN-46
           177
         label
-          "40e4985f-bf29-4969-abba-081105de420b"</pre></div>
+          "d5c5e988-e51f-4dd7-b33c-ef9d0baa2836"</pre>
+      </div>
     <div class="snippet">
-      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.6</span>
+      <span>Objects after <a href="https://www.objectionary.com/opeo-maven-plugin/decompile-mojo.html">opeo:decompile</a> 0.1.6 <a href="after-opeo-decompile.html">Show</a></span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -604,21 +605,21 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "98309a96-75c0-4328-9356-b14d6c18c920"
+          "8a510d91-3086-4871-b968-538f7b51a995"
         \$
         .super
         label
-          "ab84d4e2-c57e-400b-942a-58f5ebe8939a"
+          "e83a4a86-34e5-4dec-ba4f-cb08fe69dfd8"
         \$
         .d
         .write
           local1
         label
-          "bfd121bb-fe13-4783-92aa-2d8cffab9d4d"
+          "7247aec6-babe-4898-b4c4-92e26f69fae3"
         opcode &gt; RETURN
           177
         label
-          "f09a82a6-7750-4419-a408-9fb8f40f84b7"
+          "6e1b04eb-ee90-4b92-96fc-dbe797430c5b"
   [] &gt; j\$foo
     1 &gt; access
     "()I" &gt; descriptor
@@ -627,7 +628,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9b32ec2a-20ca-4a46-abc5-3b1a2bbaab32"
+          "e978ad35-3ba9-41c6-8a68-f6bf6648578d"
         \$
         .d
         .plus
@@ -635,7 +636,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "88efe99c-c859-4ad6-92de-9106aaa08f01"
+          "560b8121-6ec7-4dda-8c35-1b768fbc3144"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -652,13 +653,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "7b80a600-63db-41f0-8055-db3dc4dd205c"
+          "08cd515d-3dd1-420c-adc0-9a3f4de49702"
         \$
         .super
         opcode &gt; RETURN
           177
         label
-          "64ac4330-32e2-4fd7-b36f-aeb4e2e5b48e"
+          "60d8f670-1614-4777-ad66-7acd6cb07134"
   [] &gt; j\$run
     0 &gt; access
     "()I" &gt; descriptor
@@ -667,7 +668,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "1e83836a-3ade-4d5a-a2b8-251244bb1060"
+          "0a53f1e8-b311-47b6-b8c5-b3002f691757"
         org/eolang/benchmark/B
         .new
           org/eolang/benchmark/A
@@ -677,7 +678,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "6f39dcad-952c-48d8-823a-92e3839bc5d3"
+          "8eef4499-a1db-461e-86b7-e2a63dbbf288"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -699,21 +700,21 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "4260e62e-62db-4547-92b4-5057edc1e60e"
+          "be369887-a989-4551-b648-b2bff27ec72b"
         \$
         .super
         label
-          "4ebe2e91-e648-46c9-8229-4740b1469751"
+          "24324e5b-cb39-4526-820b-d3de4c86a3c0"
         \$
         .f
         .write
           local1
         label
-          "eca5355e-b246-4f06-9cee-6bed6883ea9c"
+          "f8d12a12-7e55-43d1-ab73-c179b6e0855c"
         opcode &gt; RETURN
           177
         label
-          "16e12474-4286-4cec-aad6-1d1549de9de0"
+          "d479b035-ee75-4f4e-8bca-59867151aa2a"
   [] &gt; j\$bar
     0 &gt; access
     "()I" &gt; descriptor
@@ -722,7 +723,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "291f8cd7-17ba-45be-8731-871c44cc6f43"
+          "0c959815-f2ea-491d-9ead-c7f31f292dd2"
         \$
         .f
         opcode &gt; INVOKEINTERFACE
@@ -735,7 +736,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "e7927d3a-04d6-4dff-a69e-8e4464710c65"
+          "c8a174ec-865f-4f55-9257-9578d0de2414"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -767,13 +768,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "324f2b28-bbc1-4623-aea1-700b8390921c"
+          "02566663-c9a9-44b6-80b4-915dcc893c3d"
         \$
         .super
         opcode &gt; RETURN
           177
         label
-          "916cb09b-cb4a-44ba-9107-456562ce2e7f"
+          "49558a3d-ac0b-4f62-b0ce-22adda710374"
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
     "([Ljava/lang/String;)V" &gt; descriptor
@@ -782,13 +783,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9a687390-3623-4403-a8fb-52acbce3b0f0"
+          "7428ae43-157a-4d81-8cb8-a2a101631a7a"
         local1
         .write
           org/eolang/benchmark/App
           .new
         label
-          "f99c3620-19d6-41ae-895c-2e2f24cdcc2e"
+          "cb33d0e6-c24b-4cef-aa4f-b536b76d9ca3"
         local0
         opcode &gt; ICONST_0
           3
@@ -802,19 +803,19 @@ public class org.eolang.benchmark.Main {
             "parseLong"
             "(Ljava/lang/String;)J"
         label
-          "56bfbe7b-d514-44aa-9367-1b7db23a0326"
+          "8ee5bfb0-0b74-44d3-ad8a-098171cb1d83"
         local4
         .write
           opcode &gt; LCONST_0
             9
         label
-          "7033e676-fd0c-4656-b2e0-b25eba8e6d9d"
+          "568286f2-3927-4bf7-9226-5501fafb54fd"
         local6
         .write
           opcode &gt; LCONST_0
             9
         label
-          "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+          "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         local6
         local2
         opcode &gt; LCMP
@@ -822,9 +823,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IFGE
           156
           label
-            "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+            "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         label
-          "373686a7-868e-408c-a49d-7c7daa415dd3"
+          "36d5f25e-a960-4255-82f5-4a5236965a18"
         local4
         local1
         .run
@@ -835,7 +836,7 @@ public class org.eolang.benchmark.Main {
           opcode &gt; LADD
             97
         label
-          "80597e49-5cce-46a4-adec-7f16782d595b"
+          "37fcd3bd-4651-4c30-a69d-95d2030247cb"
         local6
         opcode &gt; LCONST_1
           10
@@ -846,9 +847,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; GOTO
           167
           label
-            "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+            "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         label
-          "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+          "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         opcode &gt; GETSTATIC
           178
           "java/lang/System"
@@ -857,24 +858,28 @@ public class org.eolang.benchmark.Main {
         .println
           local4
         label
-          "0a5e63d1-8746-496f-8419-5e3da7b306dc"
+          "9088c8c1-ecc8-448f-bb3c-277af4671fab"
         opcode &gt; RETURN
           177
         label
-          "40e4985f-bf29-4969-abba-081105de420b"</pre></div>
+          "d5c5e988-e51f-4dd7-b33c-ef9d0baa2836"</pre>
+      </div>
     <div class="snippet">
-      <span>𝜑-expressions after eo:phi 0.35.1</span>
-      <pre></pre></div>
+      <span>𝜑-expressions after eo:phi 0.35.1 <a href="after-phi.html">Show</a></span>
+      <pre></pre>
+      </div>
     <!--
     <div class="snippet">
-      <span>Optimized 𝜑:</span>
-      <pre>{after-ineo-optimize}</pre></div>
+      <span>Optimized 𝜑 <a href="after-ineo-optimize.html">Show</a></span>
+      <pre>{after-ineo-optimize}</pre>
+      </div>
     <div class="snippet">
-      <span>EO Objects after eo:unphi 0.35.1</span>
-      <pre>{after-unphi}</pre></div>
+      <span>EO Objects after eo:unphi 0.35.1 <span><a href="after-unphi.html">Show</a></span>
+      <pre>{after-unphi}</pre>
+      </div>
     -->
     <div class="snippet">
-      <span>EO Objects after ineo:fuse 0.1.6</span>
+      <span>EO Objects after ineo:fuse 0.1.6 <a href="after-ineo-fuse.html">Show</a></span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -897,21 +902,21 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "98309a96-75c0-4328-9356-b14d6c18c920"
+          "8a510d91-3086-4871-b968-538f7b51a995"
         \$
         .super
         label
-          "ab84d4e2-c57e-400b-942a-58f5ebe8939a"
+          "e83a4a86-34e5-4dec-ba4f-cb08fe69dfd8"
         \$
         .d
         .write
           local1
         label
-          "bfd121bb-fe13-4783-92aa-2d8cffab9d4d"
+          "7247aec6-babe-4898-b4c4-92e26f69fae3"
         opcode &gt; RETURN
           177
         label
-          "f09a82a6-7750-4419-a408-9fb8f40f84b7"
+          "6e1b04eb-ee90-4b92-96fc-dbe797430c5b"
   [] &gt; j\$foo
     1 &gt; access
     "()I" &gt; descriptor
@@ -920,7 +925,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9b32ec2a-20ca-4a46-abc5-3b1a2bbaab32"
+          "e978ad35-3ba9-41c6-8a68-f6bf6648578d"
         \$
         .d
         .plus
@@ -928,7 +933,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "88efe99c-c859-4ad6-92de-9106aaa08f01"
+          "560b8121-6ec7-4dda-8c35-1b768fbc3144"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -945,13 +950,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "7b80a600-63db-41f0-8055-db3dc4dd205c"
+          "08cd515d-3dd1-420c-adc0-9a3f4de49702"
         \$
         .super
         opcode &gt; RETURN
           177
         label
-          "64ac4330-32e2-4fd7-b36f-aeb4e2e5b48e"
+          "60d8f670-1614-4777-ad66-7acd6cb07134"
   [] &gt; j\$run
     0 &gt; access
     "()I" &gt; descriptor
@@ -960,7 +965,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "1e83836a-3ade-4d5a-a2b8-251244bb1060"
+          "0a53f1e8-b311-47b6-b8c5-b3002f691757"
         org/eolang/benchmark/BA
         .new
           42
@@ -968,7 +973,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "6f39dcad-952c-48d8-823a-92e3839bc5d3"
+          "8eef4499-a1db-461e-86b7-e2a63dbbf288"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -990,21 +995,21 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "4260e62e-62db-4547-92b4-5057edc1e60e"
+          "be369887-a989-4551-b648-b2bff27ec72b"
         \$
         .super
         label
-          "4ebe2e91-e648-46c9-8229-4740b1469751"
+          "24324e5b-cb39-4526-820b-d3de4c86a3c0"
         \$
         .f
         .write
           local1
         label
-          "eca5355e-b246-4f06-9cee-6bed6883ea9c"
+          "f8d12a12-7e55-43d1-ab73-c179b6e0855c"
         opcode &gt; RETURN
           177
         label
-          "16e12474-4286-4cec-aad6-1d1549de9de0"
+          "d479b035-ee75-4f4e-8bca-59867151aa2a"
   [] &gt; j\$bar
     0 &gt; access
     "()I" &gt; descriptor
@@ -1013,7 +1018,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "291f8cd7-17ba-45be-8731-871c44cc6f43"
+          "0c959815-f2ea-491d-9ead-c7f31f292dd2"
         \$
         .f
         opcode &gt; INVOKEINTERFACE
@@ -1026,7 +1031,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN
           172
         label
-          "e7927d3a-04d6-4dff-a69e-8e4464710c65"
+          "c8a174ec-865f-4f55-9257-9578d0de2414"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -1157,13 +1162,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "324f2b28-bbc1-4623-aea1-700b8390921c"
+          "02566663-c9a9-44b6-80b4-915dcc893c3d"
         \$
         .super
         opcode &gt; RETURN
           177
         label
-          "916cb09b-cb4a-44ba-9107-456562ce2e7f"
+          "49558a3d-ac0b-4f62-b0ce-22adda710374"
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
     "([Ljava/lang/String;)V" &gt; descriptor
@@ -1172,13 +1177,13 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9a687390-3623-4403-a8fb-52acbce3b0f0"
+          "7428ae43-157a-4d81-8cb8-a2a101631a7a"
         local1
         .write
           org/eolang/benchmark/App
           .new
         label
-          "f99c3620-19d6-41ae-895c-2e2f24cdcc2e"
+          "cb33d0e6-c24b-4cef-aa4f-b536b76d9ca3"
         local0
         opcode &gt; ICONST_0
           3
@@ -1192,19 +1197,19 @@ public class org.eolang.benchmark.Main {
             "parseLong"
             "(Ljava/lang/String;)J"
         label
-          "56bfbe7b-d514-44aa-9367-1b7db23a0326"
+          "8ee5bfb0-0b74-44d3-ad8a-098171cb1d83"
         local4
         .write
           opcode &gt; LCONST_0
             9
         label
-          "7033e676-fd0c-4656-b2e0-b25eba8e6d9d"
+          "568286f2-3927-4bf7-9226-5501fafb54fd"
         local6
         .write
           opcode &gt; LCONST_0
             9
         label
-          "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+          "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         local6
         local2
         opcode &gt; LCMP
@@ -1212,9 +1217,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IFGE
           156
           label
-            "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+            "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         label
-          "373686a7-868e-408c-a49d-7c7daa415dd3"
+          "36d5f25e-a960-4255-82f5-4a5236965a18"
         local4
         local1
         .run
@@ -1225,7 +1230,7 @@ public class org.eolang.benchmark.Main {
           opcode &gt; LADD
             97
         label
-          "80597e49-5cce-46a4-adec-7f16782d595b"
+          "37fcd3bd-4651-4c30-a69d-95d2030247cb"
         local6
         opcode &gt; LCONST_1
           10
@@ -1236,9 +1241,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; GOTO
           167
           label
-            "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+            "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         label
-          "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+          "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         opcode &gt; GETSTATIC
           178
           "java/lang/System"
@@ -1247,13 +1252,14 @@ public class org.eolang.benchmark.Main {
         .println
           local4
         label
-          "0a5e63d1-8746-496f-8419-5e3da7b306dc"
+          "9088c8c1-ecc8-448f-bb3c-277af4671fab"
         opcode &gt; RETURN
           177
         label
-          "40e4985f-bf29-4969-abba-081105de420b"</pre></div>
+          "d5c5e988-e51f-4dd7-b33c-ef9d0baa2836"</pre>
+      </div>
     <div class="snippet">
-      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.6</span>
+      <span>Opcodes after <a href="https://www.objectionary.com/opeo-maven-plugin/compile-mojo.html">opeo:compile</a> 0.1.6 <a href="after-opeo-compile.html">Show</a></span>
       <pre>
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -1276,7 +1282,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "98309a96-75c0-4328-9356-b14d6c18c920"
+          "8a510d91-3086-4871-b968-538f7b51a995"
         opcode &gt; ALOAD-26
           25
           0
@@ -1286,7 +1292,7 @@ public class org.eolang.benchmark.Main {
           "&lt;init&gt;"
           "()V"
         label
-          "ab84d4e2-c57e-400b-942a-58f5ebe8939a"
+          "e83a4a86-34e5-4dec-ba4f-cb08fe69dfd8"
         opcode &gt; ALOAD-28
           25
           0
@@ -1299,11 +1305,11 @@ public class org.eolang.benchmark.Main {
           "d"
           "I"
         label
-          "bfd121bb-fe13-4783-92aa-2d8cffab9d4d"
+          "7247aec6-babe-4898-b4c4-92e26f69fae3"
         opcode &gt; RETURN-2B
           177
         label
-          "f09a82a6-7750-4419-a408-9fb8f40f84b7"
+          "6e1b04eb-ee90-4b92-96fc-dbe797430c5b"
   [] &gt; j\$foo
     1 &gt; access
     "()I" &gt; descriptor
@@ -1312,7 +1318,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9b32ec2a-20ca-4a46-abc5-3b1a2bbaab32"
+          "e978ad35-3ba9-41c6-8a68-f6bf6648578d"
         opcode &gt; ALOAD-2C
           25
           0
@@ -1328,7 +1334,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-30
           172
         label
-          "88efe99c-c859-4ad6-92de-9106aaa08f01"
+          "560b8121-6ec7-4dda-8c35-1b768fbc3144"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -1345,7 +1351,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "7b80a600-63db-41f0-8055-db3dc4dd205c"
+          "08cd515d-3dd1-420c-adc0-9a3f4de49702"
         opcode &gt; ALOAD-11
           25
           0
@@ -1357,7 +1363,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; RETURN-13
           177
         label
-          "64ac4330-32e2-4fd7-b36f-aeb4e2e5b48e"
+          "60d8f670-1614-4777-ad66-7acd6cb07134"
   [] &gt; j\$run
     0 &gt; access
     "()I" &gt; descriptor
@@ -1366,7 +1372,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "1e83836a-3ade-4d5a-a2b8-251244bb1060"
+          "0a53f1e8-b311-47b6-b8c5-b3002f691757"
         opcode &gt; NEW-14
           187
           "org/eolang/benchmark/BA"
@@ -1388,7 +1394,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-19
           172
         label
-          "6f39dcad-952c-48d8-823a-92e3839bc5d3"
+          "8eef4499-a1db-461e-86b7-e2a63dbbf288"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -1410,7 +1416,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "4260e62e-62db-4547-92b4-5057edc1e60e"
+          "be369887-a989-4551-b648-b2bff27ec72b"
         opcode &gt; ALOAD-1A
           25
           0
@@ -1420,7 +1426,7 @@ public class org.eolang.benchmark.Main {
           "&lt;init&gt;"
           "()V"
         label
-          "4ebe2e91-e648-46c9-8229-4740b1469751"
+          "24324e5b-cb39-4526-820b-d3de4c86a3c0"
         opcode &gt; ALOAD-1C
           25
           0
@@ -1433,11 +1439,11 @@ public class org.eolang.benchmark.Main {
           "f"
           "Lorg/eolang/benchmark/F;"
         label
-          "eca5355e-b246-4f06-9cee-6bed6883ea9c"
+          "f8d12a12-7e55-43d1-ab73-c179b6e0855c"
         opcode &gt; RETURN-1F
           177
         label
-          "16e12474-4286-4cec-aad6-1d1549de9de0"
+          "d479b035-ee75-4f4e-8bca-59867151aa2a"
   [] &gt; j\$bar
     0 &gt; access
     "()I" &gt; descriptor
@@ -1446,7 +1452,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "291f8cd7-17ba-45be-8731-871c44cc6f43"
+          "0c959815-f2ea-491d-9ead-c7f31f292dd2"
         opcode &gt; ALOAD-20
           25
           0
@@ -1467,7 +1473,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IRETURN-25
           172
         label
-          "e7927d3a-04d6-4dff-a69e-8e4464710c65"
+          "c8a174ec-865f-4f55-9257-9578d0de2414"
 
 +package org.eolang.benchmark
 +alias org.eolang.jeo.opcode
@@ -1598,7 +1604,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "324f2b28-bbc1-4623-aea1-700b8390921c"
+          "02566663-c9a9-44b6-80b4-915dcc893c3d"
         opcode &gt; ALOAD-31
           25
           0
@@ -1610,7 +1616,7 @@ public class org.eolang.benchmark.Main {
         opcode &gt; RETURN-33
           177
         label
-          "916cb09b-cb4a-44ba-9107-456562ce2e7f"
+          "49558a3d-ac0b-4f62-b0ce-22adda710374"
   [arg__[Ljava/lang/String;__0] &gt; j\$main
     137 &gt; access
     "([Ljava/lang/String;)V" &gt; descriptor
@@ -1619,7 +1625,7 @@ public class org.eolang.benchmark.Main {
     seq &gt; @
       *
         label
-          "9a687390-3623-4403-a8fb-52acbce3b0f0"
+          "7428ae43-157a-4d81-8cb8-a2a101631a7a"
         opcode &gt; NEW-34
           187
           "org/eolang/benchmark/App"
@@ -1634,7 +1640,7 @@ public class org.eolang.benchmark.Main {
           58
           1
         label
-          "f99c3620-19d6-41ae-895c-2e2f24cdcc2e"
+          "cb33d0e6-c24b-4cef-aa4f-b536b76d9ca3"
         opcode &gt; ALOAD-38
           25
           0
@@ -1651,21 +1657,21 @@ public class org.eolang.benchmark.Main {
           55
           2
         label
-          "56bfbe7b-d514-44aa-9367-1b7db23a0326"
+          "8ee5bfb0-0b74-44d3-ad8a-098171cb1d83"
         opcode &gt; LCONST_0-3D
           9
         opcode &gt; LSTORE-3E
           55
           4
         label
-          "7033e676-fd0c-4656-b2e0-b25eba8e6d9d"
+          "568286f2-3927-4bf7-9226-5501fafb54fd"
         opcode &gt; LCONST_0-3F
           9
         opcode &gt; LSTORE-40
           55
           6
         label
-          "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+          "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         opcode &gt; LLOAD-41
           22
           6
@@ -1677,9 +1683,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; IFGE-44
           156
           label
-            "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+            "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         label
-          "373686a7-868e-408c-a49d-7c7daa415dd3"
+          "36d5f25e-a960-4255-82f5-4a5236965a18"
         opcode &gt; LLOAD-45
           22
           4
@@ -1699,7 +1705,7 @@ public class org.eolang.benchmark.Main {
           55
           4
         label
-          "80597e49-5cce-46a4-adec-7f16782d595b"
+          "37fcd3bd-4651-4c30-a69d-95d2030247cb"
         opcode &gt; LLOAD-4B
           22
           6
@@ -1713,9 +1719,9 @@ public class org.eolang.benchmark.Main {
         opcode &gt; GOTO-4F
           167
           label
-            "6ae8e055-040b-46bd-b3ab-0028165d7e0d"
+            "4300221c-fa09-44b0-8ada-da5bcdd4e373"
         label
-          "c5520fb9-fd98-4653-82ce-8d4b135ad3a0"
+          "d2fe0ec6-f2aa-48ca-a281-20c4c5dad2ae"
         opcode &gt; GETSTATIC-50
           178
           "java/lang/System"
@@ -1730,13 +1736,14 @@ public class org.eolang.benchmark.Main {
           "println"
           "(J)V"
         label
-          "0a5e63d1-8746-496f-8419-5e3da7b306dc"
+          "9088c8c1-ecc8-448f-bb3c-277af4671fab"
         opcode &gt; RETURN-53
           177
         label
-          "40e4985f-bf29-4969-abba-081105de420b"</pre></div>
+          "d5c5e988-e51f-4dd7-b33c-ef9d0baa2836"</pre>
+      </div>
     <div class="snippet">
-      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.21</span>
+      <span>Bytecode after <a href="https://www.objectionary.com/jeo-maven-plugin/assemble-mojo.html">jeo:assemble</a> 0.2.21 <a href="after-jeo-assemble.html">Show</a></span>
       <pre>
 class org.eolang.benchmark.A implements org.eolang.benchmark.F {
   org.eolang.benchmark.A(int);
@@ -1866,7 +1873,8 @@ public class org.eolang.benchmark.Main {
       50: lload         4
       52: invokevirtual #35                 // Method java/io/PrintStream.println:(J)V
       55: return
-}</pre></div>
+}</pre>
+      </div>
   </section>
 </body>
 </html>
