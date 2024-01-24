@@ -28,7 +28,7 @@
 
 SHELL=bash
 TOTAL=100000000
-MULTIPLIER=100
+MULTIPLIER=1000
 
 EO_VERSION=0.35.1
 JEO_VERSION=0.2.21
@@ -59,6 +59,7 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 %.time: %.jar Makefile
 	set -e
 	java -cp $< org.eolang.benchmark.Main 1
+	echo "Running JAR, please wait..."
 	time=$$({ time -p java -Xint -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
@@ -66,7 +67,8 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 	set -e
 	java -cp $< org.eolang.benchmark.Main 1
 	t=$$(echo ${TOTAL} \* ${MULTIPLIER} | bc | xargs)
-	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	echo "Running JAR, please wait..."
+	time=$$({ time -p java -XX:+UnlockDiagnosticVMOptions -XX:+PrintOptoAssembly -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
 %.jar: pom.xml Makefile
