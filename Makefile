@@ -30,8 +30,8 @@ SHELL=bash
 TOTAL=10000000000
 
 EO_VERSION=0.34.4
-JEO_VERSION=0.2.20
-OPEO_VERSION=0.1.2
+JEO_VERSION=0.2.21
+OPEO_VERSION=0.1.6
 INEO_VERSION=0.1.6
 
 all: env results.md src/main/perl/inject-into-readme.pl src/main/perl/create-html-summary.pl
