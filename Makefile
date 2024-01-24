@@ -27,7 +27,7 @@
 .EXPORT_ALL_VARIABLES:
 
 SHELL=bash
-TOTAL=10000000000
+TOTAL=100000000
 
 EO_VERSION=0.35.1
 JEO_VERSION=0.2.21
@@ -46,14 +46,15 @@ env:
 	    exit 1
 	fi
 
-results.md: before.time after.time Makefile
+results.md: before.time before.jit-time after.time after.jit-time Makefile
 	set -e
 	(
-		echo "This is the summary of the tests performed at $$(date +'%Y-%m-%d %H:%M'), on $$(uname), with $$(nproc) CPUs:"
+		echo "This is the summary of the tests performed with the TOTAL set to ${TOTAL}, at $$(date +'%Y-%m-%d %H:%M'), on $$(uname), with $$(nproc) CPUs:"
 		echo ""
 		echo "| | Before | After |"
 		echo "| --- | --: | --: |"
-		echo "| Time | $$(cat before.time) | $$(cat after.time) |"
+		echo "| Time (with JIT) | $$(cat before.jit-time) | $$(cat after.jit-time) |"
+		echo "| Time (no JIT) | $$(cat before.time) | $$(cat after.time) |"
 		echo "| Files | $$(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $$(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
 		echo "| Bytes | $$(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $$(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
 		echo ""
@@ -63,7 +64,14 @@ results.md: before.time after.time Makefile
 %.time: %.jar Makefile
 	set -e
 	java -cp $< org.eolang.benchmark.Main 1
-	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	time=$$({ time -p java -Xint -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	echo "$${time}" > $@
+
+%.jit-time: %.jar Makefile
+	set -e
+	java -cp $< org.eolang.benchmark.Main 1
+	t=$$(echo ${TOTAL} \* 100 | bc | xargs)
+	time=$$({ time -p java -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
 
 %.jar: pom.xml Makefile
@@ -80,6 +88,7 @@ results.md: before.time after.time Makefile
 clean:
 	set -e
 	rm -f *.time
+	rm -f *.jit-time
 	rm -f *.jar
 	rm -f results.md
 	rm -rf before

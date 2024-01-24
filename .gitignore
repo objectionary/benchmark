@@ -1,6 +1,7 @@
 .idea
 target/
 *.time
+*.jit-time
 before/
 after/
 *.jar
