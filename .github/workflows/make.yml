@@ -33,6 +33,7 @@ jobs:
       - run: |
           mkdir gh-pages
           cp target/summary.html gh-pages
+          echo "<html><body><a href="summary.html">summary</a></body></html>" > gh-pages/index.html
       - uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
