@@ -91,16 +91,18 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 
 quick:
 	set -e
-	mvn package
+	rm -f before.jar
 	make before.jar
-	echo "Without JIT:"
-	T=10000000
-	time java -Xint -cp before.jar org.eolang.benchmark.Main "$${T}"
-	time java -Xint -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
-	echo "With JIT:"
-	T=10000000
-	time java -cp before.jar org.eolang.benchmark.Main "$${T}"
-	time java -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
+	rm -f target/benchmark-synthetic.jar
+	mvn package
+	T=40000000
+	JIT_OPTS=-XX:-EliminateAllocations
+	NOJIT_OPTS=-Xint
+	set -x
+	java $${NOJIT_OPTS} -cp before.jar org.eolang.benchmark.Main "$${T}"
+	java $${NOJIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
+	java $${JIT_OPTS} -cp before.jar org.eolang.benchmark.Main "$${T}"
+	java $${JIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
 
 clean:
 	set -e

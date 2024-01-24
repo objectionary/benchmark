@@ -8,6 +8,6 @@ class A implements F {
   }
 
   public int foo() {
-    return this.d + hashCode();
+    return this.d + 1;
   }
 }
