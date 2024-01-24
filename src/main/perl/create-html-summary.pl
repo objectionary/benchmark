@@ -34,6 +34,10 @@ sub inject {
   $safe =~ s/</&lt;/g;
   $safe =~ s/>/&gt;/g;
   $safe =~ s/\$/\\\$/g;
+  my $show = fread('src/main/html/show.html');
+  $show =~ s/\{snippet\}/${snippet}/g;
+  $show =~ s/\{pre\}/${safe}/g;
+  fwrite("target/html/$snippet.html", $show);
   $html =~ s/\{${snippet}\}/${safe}/g;
   return $html;
 }
@@ -120,4 +124,5 @@ $html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
 $html = inject($html, 'opeo-version', $ENV{OPEO_VERSION});
 $html = inject($html, 'ineo-version', $ENV{INEO_VERSION});
 
-fwrite('target/summary.html', $html);
+mkdir('target/html');
+fwrite('target/html/summary.html', $html);
