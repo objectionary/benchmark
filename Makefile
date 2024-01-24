@@ -27,7 +27,7 @@
 .EXPORT_ALL_VARIABLES:
 
 SHELL=bash
-TOTAL=100000000
+TOTAL=10000000
 MULTIPLIER=10
 
 EO_VERSION=0.35.1
@@ -58,20 +58,27 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 
 %.time: %.jar Makefile
 	set -e
+	echo "Testing that .JAR works..."
 	java -cp $< org.eolang.benchmark.Main 1
-	echo "Running JAR, please wait..."
+	echo "Running JAR (without JIT), please wait..."
 	time=$$({ time -p java -Xint -cp $< org.eolang.benchmark.Main "${TOTAL}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
+	echo "Took $${time}s to run JAR (without JIT)"
 
 %.jit-time: %.jar Makefile
 	set -e
 	java -cp $< org.eolang.benchmark.Main 1
+	echo "Collecting the machine binary code of the App.run() method"
+	mkdir -p binary
+	phase=$(subst .jar,,$<)
+	java '-XX:+UnlockDiagnosticVMOptions' '-XX:CompileCommand=print,*App.run' -cp $< org.eolang.benchmark.Main 10000 > binary/$${phase}.txt
 	t=$$(echo ${TOTAL} \* ${MULTIPLIER} | bc | xargs)
-	echo "Running JAR, please wait..."
-	time=$$({ time -p java -XX:CompileCommand=exclude,org/eolang/benchmark/Main,main -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
+	echo "Running JAR (with JIT), please wait..."
+	time=$$({ time -p java '-XX:CompileCommand=exclude,org/eolang/benchmark/Main,main' -cp $< org.eolang.benchmark.Main "$${t}" > /dev/null ; } 2>&1 | head -1 | cut -f2 -d' ')
 	echo "$${time}" > $@
+	echo "Took $${time}s to run JAR (with JIT)"
 
-%.jar: pom.xml Makefile
+%.jar: pom.xml Makefile src/main/java/org/eolang/benchmark/*.java
 	set -e
 	base=$(basename $@)
 	mvn --activate-profiles "$${base}" --update-snapshots clean package "-DfinalName=$${base}" "-Ddirectory=$${base}" \
@@ -81,6 +88,19 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 		-Dineo.version=${INEO_VERSION} \
 		-Djd.version=${JD_VERSION}
 	cp "$${base}/$${base}.jar" "$${base}.jar"
+
+quick:
+	set -e
+	mvn package
+	make before.jar
+	echo "Without JIT:"
+	T=10000000
+	time java -Xint -cp before.jar org.eolang.benchmark.Main "$${T}"
+	time java -Xint -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
+	echo "With JIT:"
+	T=10000000
+	time java -cp before.jar org.eolang.benchmark.Main "$${T}"
+	time java -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
 
 clean:
 	set -e

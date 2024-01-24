@@ -29,6 +29,6 @@ class A implements F {
         this.d = d;
     }
     @Override public int foo() {
-        return d + 1;
+        return d + hashCode();
     }
 }
