@@ -256,21 +256,21 @@ SOFTWARE.
               </execution>
               -->
               <execution>
-                <id>ineo:fuse</id>
+                <id>ineo:staticize</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
                 </goals>
                 <configuration>
                   <arguments combine.children="append">
-                    <argument>ineo:fuse</argument>
-                    <argument>-Dineo.sourcesDir=${directory}/generated-sources/opeo-decompile</argument>
-                    <argument>-Dineo.outputDir=${directory}/generated-sources/ineo-fuse</argument>
+                    <argument>ineo:staticize</argument>
+                    <argument>-Dineo.staticizeSourcesDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Dineo.staticizeOutputDir=${directory}/generated-sources/ineo-staticize</argument>
                   </arguments>
                 </configuration>
               </execution>
               <execution>
-                <id>print-eo-after-fuse</id>
+                <id>print-eo-after-staticize</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
@@ -278,8 +278,8 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/ineo-fuse</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/ineo-fuse.eo</argument>
+                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/ineo-staticize</argument>
+                    <argument>-Deo.printOutputDir=${directory}/generated-sources/ineo-staticize.eo</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -309,7 +309,7 @@ SOFTWARE.
                 <configuration>
                   <arguments combine.children="append">
                     <argument>opeo:compile</argument>
-                    <argument>-Dopeo.compile.sourcesDir=${directory}/generated-sources/ineo-fuse</argument>
+                    <argument>-Dopeo.compile.sourcesDir=${directory}/generated-sources/ineo-staticize</argument>
                     <argument>-Dopeo.compile.outputDir=${directory}/generated-sources/opeo-compile</argument>
                   </arguments>
                 </configuration>
