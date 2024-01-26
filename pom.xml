@@ -158,7 +158,6 @@ SOFTWARE.
                       <outputDirectory>${directory}</outputDirectory>
                     </artifactItem>
                   </artifactItems>
-                  <!-- other configurations here -->
                 </configuration>
               </execution>
             </executions>
