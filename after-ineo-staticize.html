@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>after-opeo-decompile</title>
+  <title>after-ineo-staticize</title>
   <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css.min.css", rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/drops.min.css", rel="stylesheet"/>
   <link rel="shortcut icon" href="https://www.objectionary.com/cactus.svg"/>
@@ -74,7 +74,7 @@
           172
         label
           "5da854fc-3fc5-4a6a-820a-cc8a991e5573"
-        org/eolang/benchmark/A
+        org/eolang/benchmark/StaticizedA
         .new
           \$
           .d
@@ -155,7 +155,7 @@
         label
           "e0aca9c9-9796-4ec8-87fe-79bb7c0b3b96"
         local3
-        org/eolang/benchmark/A
+        org/eolang/benchmark/StaticizedA
         .new
           42
         .get
@@ -202,7 +202,123 @@
         opcode &gt; RETURN
           177
         label
-          "3a0867ce-2eb3-4505-8d16-001351d83b79"</pre>
+          "3a0867ce-2eb3-4505-8d16-001351d83b79"
+
++package org.eolang.benchmark
++alias org.eolang.jeo.opcode
++alias org.eolang.jeo.label
+[] &gt; j\$StaticizedA
+  32 &gt; access
+  "java/lang/Object" &gt; supername
+  * &gt; interfaces
+  field &gt; j\$d
+    2
+    "I"
+    ""
+    ""
+  [arg__I__0] &gt; new
+    0 &gt; access
+    "(I)V" &gt; descriptor
+    "" &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          "8a87fcbe-ff38-42dc-bfa5-0e259ea6de29"
+        opcode &gt; ALOAD-1
+          25
+          0
+        opcode &gt; INVOKESPECIAL-2
+          183
+          "java/lang/Object"
+          "&lt;init&gt;"
+          "()V"
+        label
+          "a922f4cd-164a-4a72-8f6f-d2d176779531"
+        opcode &gt; ALOAD-3
+          25
+          0
+        opcode &gt; ILOAD-4
+          21
+          1
+        opcode &gt; PUTFIELD-5
+          181
+          "org/eolang/benchmark/StaticizedA"
+          "d"
+          "I"
+        label
+          "3a467923-526d-4823-bb8b-c156f14ee549"
+        opcode &gt; RETURN-6
+          177
+        label
+          "8235c4fe-a1d6-46dc-9467-41ae458940c1"
+  [] &gt; j\$get
+    1 &gt; access
+    "()I" &gt; descriptor
+    "" &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          "c4c47a8a-4250-4cac-a113-33b5e2a987e6"
+        opcode &gt; ALOAD-7
+          25
+          0
+        opcode &gt; GETFIELD-8
+          180
+          "org/eolang/benchmark/StaticizedA"
+          "d"
+          "I"
+        opcode &gt; INVOKESTATIC-9
+          184
+          "org/eolang/benchmark/StaticizedA"
+          "xget"
+          "(I)I"
+        opcode &gt; IRETURN-A
+          172
+        label
+          "a7e8ba0b-7ae4-4f99-b972-ffdf17144b22"
+  [arg__I__0] &gt; j\$xget
+    9 &gt; access
+    "(I)I" &gt; descriptor
+    "" &gt; signature
+    * &gt; exceptions
+    seq &gt; @
+      *
+        label
+          "c80fcb47-90a0-40bd-bc6d-1519177944ca"
+        opcode &gt; ILOAD-B
+          21
+          0
+        opcode &gt; IFGT-C
+          157
+          label
+            "a38c14e1-79a4-4852-91f8-db66f4471f00"
+        label
+          "1ddd9e9c-db4d-4ec5-914b-481ffa161394"
+        opcode &gt; ILOAD-D
+          21
+          0
+        opcode &gt; IRETURN-E
+          172
+        label
+          "a38c14e1-79a4-4852-91f8-db66f4471f00"
+        opcode &gt; ILOAD-F
+          21
+          0
+        opcode &gt; ICONST_1-10
+          4
+        opcode &gt; ISUB-11
+          100
+        opcode &gt; INVOKESTATIC-12
+          184
+          "org/eolang/benchmark/StaticizedA"
+          "xget"
+          "(I)I"
+        opcode &gt; IRETURN-13
+          172
+        label
+          "d29eba82-ed25-4506-9188-c293079f438e"</pre>
   </section>
 </body>
 </html>
