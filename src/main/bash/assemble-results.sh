@@ -26,13 +26,20 @@ set -e
 
 echo "This is the summary of the tests performed with the TOTAL set to ${TOTAL}, at $(date +'%Y-%m-%d %H:%M'), on $(uname), with $(nproc) CPUs:"
 echo ""
-echo "| | Before | After |"
-echo "| --- | --: | --: |"
-echo "| Time, seconds (with JIT, ×${MULTIPLIER} cycles) | $(cat before.jit-time) | $(cat after.jit-time) |"
-echo "| Time, seconds (no JIT) | $(cat before.time) | $(cat after.time) |"
-echo "| Total \`.class\` files | $(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) |"
-echo "| Bytes in all \`.class\` files | $(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $(du -bs after/classes/org/eolang/benchmark/ | cut -f1) |"
-echo "| JAR file size, bytes | $(du -bs before.jar | cut -f1) | $(du -bs after.jar | cut -f1) |"
+echo "| | Before | After | Diff |"
+echo "| --- | --: | --: | --: |"
+
+before=$(cat before.jit-time)
+after=$(cat after.jit-time)
+echo "| Time, seconds (with JIT, ×${MULTIPLIER} cycles) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
+
+before=$(cat before.time)
+after=$(cat after.time)
+echo "| Time, seconds (no JIT) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
+
+echo "| Total \`.class\` files | $(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) | |"
+echo "| Bytes in all \`.class\` files | $(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $(du -bs after/classes/org/eolang/benchmark/ | cut -f1) | |"
+echo "| JAR file size, bytes | $(du -bs before.jar | cut -f1) | $(du -bs after.jar | cut -f1) | |"
 echo ""
 echo "This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions."
 echo "The following JDK is used:"
