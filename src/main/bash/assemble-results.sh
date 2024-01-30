@@ -31,11 +31,11 @@ echo "| --- | --: | --: | --: |"
 
 before=$(cat before.jit-time)
 after=$(cat after.jit-time)
-echo "| Time, seconds (with JIT, ×${MULTIPLIER} cycles) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
+echo "| Time, msec (with JIT, ×${MULTIPLIER} cycles) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
 
 before=$(cat before.time)
 after=$(cat after.time)
-echo "| Time, seconds (no JIT) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
+echo "| Time, msec (no JIT) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
 
 echo "| Total \`.class\` files | $(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) | |"
 echo "| Bytes in all \`.class\` files | $(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $(du -bs after/classes/org/eolang/benchmark/ | cut -f1) | |"
