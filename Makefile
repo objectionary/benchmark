@@ -39,12 +39,12 @@ JD_VERSION=1.2.1
 all: env results.md html/summary.html
 	set -e
 
-html/summary.html:
+html/summary.html: ./src/main/perl/create-html-summary.pl
 	mkdir -p html
 	./src/main/perl/create-html-summary.pl
 	echo "<html><body><a href='summary.html'>summary</a></body></html>" > html/index.html
 
-README.md: results.md
+README.md: results.md src/main/perl/inject-into-readme.pl
 	src/main/perl/inject-into-readme.pl
 
 env:

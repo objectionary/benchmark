@@ -35,6 +35,13 @@ sub timed {
   return $html;
 }
 
+sub trimmed {
+  my ($txt) = @_;
+  $txt =~ s/^\s+//g;
+  $txt =~ s/\s+$//g;
+  return $txt;
+}
+
 sub inject {
   my ($html, $snippet, $pre) = @_;
   my $safe = $pre;
@@ -56,7 +63,7 @@ sub join_classes {
   foreach my $f (glob($dir . '/org/eolang/benchmark/*.class')) {
     my $base = substr($f, length($dir) + 1);
     my $code = `cd $dir ; javap -c '$base'`;
-    $code =~ s/^\s|\s$//g; # leading and tailing spaces
+    $code = trimmed($code);
     $codes = $codes . "\n\n" . $code;
     $total += 1;
   }
@@ -70,8 +77,7 @@ sub join_eo {
   my $eos = '';
   my $total = 0;
   foreach my $f (glob($dir . '/*.eo')) {
-    my $eo = fread($f);
-    $eo =~ s/^\s|\s$//g; # leading and tailing spaces
+    my $eo = trimmed(fread($f));
     $eo =~ s/\n\n/\n/g; # empty lines
     $eos = $eos . "\n\n" . $eo;
     $total += 1;
@@ -86,15 +92,14 @@ sub join_java {
   my $javas = '';
   my $total = 0;
   foreach my $f (glob($dir . '/*.java')) {
-    my $java = fread($f);
-    $java =~ s/^\s|\s$//g; # leading and tailing spaces
+    my $java = trimmed(fread($f));
     $java =~ s/\/\/.*\n//g; # one-line comments
     $java =~ s/\n\n/\n/g; # empty lines
     $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
     $javas = $javas . "\n\n" . $java;
     $total += 1;
   }
-  $javas =~ s/^\s|\s$//g;
+  $javas = trimmed($javas);
   print("$total .java files joined from $dir\n");
   return $javas;
 }
@@ -104,8 +109,7 @@ sub join_phi {
   my $phis = '';
   my $total = 0;
   foreach my $f (glob($dir . '/*.phi')) {
-    my $phi = fread($f);
-    $phi =~ s/^\s|\s$//g; # leading and tailing spaces
+    my $phi = trimmed(fread($f));
     $phis = $phis . "\n\n" . $phi;
     $total += 1;
   }
