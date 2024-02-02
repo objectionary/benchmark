@@ -96,7 +96,7 @@ sub join_java {
     $java =~ s/\/\/.*\n//g; # one-line comments
     $java =~ s/\n\n/\n/g; # empty lines
     $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
-    $javas = $javas . "\n\n" . $java;
+    $javas = $javas . "\n\n" . trimmed($java);
     $total += 1;
   }
   $javas = trimmed($javas);
