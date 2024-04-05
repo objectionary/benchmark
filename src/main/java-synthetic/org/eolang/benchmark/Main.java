@@ -6,7 +6,7 @@ public class Main {
         long sum = 0L;
         long start = System.currentTimeMillis();
         for (long i = 0; i < total; ++i) {
-            sum += new A(42).get();
+            sum += new Factorial(42).get();
         }
         System.out.printf("sum=%d time=%d\n", sum, System.currentTimeMillis() - start);
     }

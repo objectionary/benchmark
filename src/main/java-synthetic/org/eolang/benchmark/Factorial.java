@@ -1,18 +1,18 @@
 package org.eolang.benchmark;
 
-class A {
+class Factorial {
     private int d;
-    A(int d) {
+    Factorial(int d) {
         this.d = d;
     }
     public int get() {
-        return xget(this.d);
+        return Factorial.xget(this.d);
     }
     public static int xget(int xd) {
-        if (xd <= 0) {
-            return xd;
+        if (xd <= 1) {
+            return 1;
         }
-        return xget(xd - 1);
+        return xget(xd - 1) * xd;
    }
 }
 

@@ -23,16 +23,16 @@
  */
 package org.eolang.benchmark;
 
-class A {
+class Factorial {
     private int d;
-    A(int d) {
+    Factorial(int d) {
         this.d = d;
     }
     public int get() {
-        if (d <= 0) {
-            return d;
+        if (d <= 1) {
+            return 1;
         }
-        return new A(d - 1).get();
+        return new Factorial(d - 1).get() * d;
     }
 }
 
