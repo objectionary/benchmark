@@ -18,23 +18,23 @@ then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed with the TOTAL set to 1000000, at 2024-01-30 10:52, on Linux, with 4 CPUs:
+This is the summary of the tests performed with the TOTAL set to 1000000, at 2024-04-26 03:27, on Linux, with 4 CPUs:
 
 | | Before | After | Diff |
 | --- | --: | --: | --: |
-| Time, msec (with JIT, ×40 cycles) | 2128 | 1435 | -32% |
-| Time, msec (no JIT) | 2239 | 948 | -57% |
+| Time, msec (with JIT, ×40 cycles) | 2137 | 1437 | -32% |
+| Time, msec (no JIT) | 2244 | 938 | -58% |
 | Total `.class` files | 2 | 3 | |
 | Bytes in all `.class` files | 5593 | 5495 | |
-| JAR file size, bytes | 5067 | 5227 | |
+| JAR file size, bytes | 5067 | 5229 | |
 
 This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions.
 The following JDK is used:
 
 ```
-java 21.0.2 2024-01-16 LTS
-Java(TM) SE Runtime Environment (build 21.0.2+13-LTS-58)
-Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
+java 21.0.3 2024-04-16 LTS
+Java(TM) SE Runtime Environment (build 21.0.3+7-LTS-152)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.3+7-LTS-152, mixed mode, sharing)
 ```
 
 <!-- benchmark -->
