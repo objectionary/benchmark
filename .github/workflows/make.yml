@@ -5,9 +5,10 @@ on:
     branches:
       - master
     paths-ignore: [ 'README.md', 'LICENSE.txt' ]
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
+  pull_request:
+    branches:
+      - master
+    paths-ignore: [ 'README.md', 'LICENSE.txt' ]
 jobs:
   make:
     runs-on: ubuntu-22.04
