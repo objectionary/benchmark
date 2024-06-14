@@ -27,13 +27,13 @@
 .EXPORT_ALL_VARIABLES:
 
 SHELL=bash
-TOTAL=1000000
+TOTAL=10000000
 MULTIPLIER=40
 
-EO_VERSION=0.37.0
-JEO_VERSION=0.3.0
-OPEO_VERSION=0.1.9
-INEO_VERSION=0.2.0
+EO_VERSION=0.38.4
+JEO_VERSION=0.4.6
+OPEO_VERSION=0.2.2
+INEO_VERSION=0.3.1
 JD_VERSION=1.2.1
 
 all: env results.md html/summary.html
@@ -59,22 +59,27 @@ results.md: before.time before.jit-time after.time after.jit-time src/main/bash/
 %.time: %.jar Makefile
 	set -e
 	echo "Testing that .JAR works..."
-	java -cp $< org.eolang.benchmark.Main 1
+	java -jar $< 1
+	#java -cp $< org.eolang.benchmark.FactorialApplication 1
 	echo "Running JAR (without JIT), please wait..."
-	time=$$(java -Xint -cp $< org.eolang.benchmark.Main "${TOTAL}" | cut -d' ' -f2 | cut -d'=' -f2)
+	#time=$$(java -Xint -cp $< org.eolang.benchmark.FactorialApplication "${TOTAL}" | cut -d' ' -f2 | cut -d'=' -f2)
+	time=$$(java -Xint -jar $< ${TOTAL} | grep "time=" | awk -F'time=' '{print $$2}' | awk '{print $$1}')
 	echo "$${time}" > $@
 	echo "Took $${time}ms to run JAR (without JIT)"
 
 %.jit-time: %.jar Makefile
 	set -e
-	java -cp $< org.eolang.benchmark.Main 1
+	#java -cp $< org.eolang.benchmark.FactorialApplication 1
+	java -jar $< 1
 	echo "Collecting the machine binary code of the App.run() method"
 	mkdir -p binary
 	phase=$(subst .jar,,$<)
-	java '-XX:+UnlockDiagnosticVMOptions' '-XX:CompileCommand=print,*App.run' -cp $< org.eolang.benchmark.Main 10000 > binary/$${phase}.txt
+	#java '-XX:+UnlockDiagnosticVMOptions' '-XX:CompileCommand=print,*App.run' -cp $< org.eolang.benchmark.FactorialApplication 10000 > binary/$${phase}.txt
+	java '-XX:+UnlockDiagnosticVMOptions' '-XX:CompileCommand=print,*App.run' -jar $< 10000000 > binary/$${phase}.txt
 	t=$$(echo ${TOTAL} \* ${MULTIPLIER} | bc | xargs)
 	echo "Running JAR (with JIT), please wait..."
-	time=$$(java -cp $< org.eolang.benchmark.Main "$${t}" | cut -d' ' -f2 | cut -d'=' -f2)
+	#time=$$(java -cp $< org.eolang.benchmark.FactorialApplication $${t} | cut -d' ' -f2 | cut -d'=' -f2)
+	time=$$(java -jar $< $${t} | grep "time=" | awk -F'time=' '{print $$2}' | awk '{print $$1}')
 	echo "$${time}" > $@
 	echo "Took $${time}ms to run JAR (with JIT)"
 
@@ -95,11 +100,11 @@ quick:
 	make before.jar
 	rm -f target/benchmark-synthetic.jar
 	mvn package
-	T=100000000
+	T=10000000
 	JIT_OPTS=-XX:+EliminateAllocations
 	set -x
-	java $${JIT_OPTS} -cp before.jar org.eolang.benchmark.Main "$${T}"
-	java $${JIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.Main "$${T}"
+	java $${JIT_OPTS} -cp before.jar org.eolang.benchmark.FactorialApplication $${T}
+	java $${JIT_OPTS} -cp target/benchmark-synthetic.jar org.eolang.benchmark.FactorialApplication $${T}
 
 clean:
 	set -e

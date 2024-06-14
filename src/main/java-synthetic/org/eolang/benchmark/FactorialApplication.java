@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2023-2024 Objectionary.com
+ * Copyright (c) 2016-2023 Objectionary.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +23,29 @@
  */
 package org.eolang.benchmark;
 
-class A {
-    private int d;
-    A(int d) {
-        this.d = d;
-    }
-    public int get() {
-        if (d <= 0) {
-            return d;
-        }
-        return new A(d - 1).get();
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.client.RestTemplate;
+
+/**
+ * Spring Application Entry Point.
+ * @since 0.2
+ */
+@SpringBootApplication
+public class FactorialApplication {
+
+    /**
+     * Entry point for Factorial Spring Application.
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(FactorialApplication.class, args);
+        final Long rounds = Long.parseLong(args[0]);
+        new RestTemplate().getForEntity(
+            String.format("http://localhost:%d/factorial?rounds=%d", 8080, rounds),
+            String.class
+        ).getBody();
+        SpringApplication.exit(context);
     }
 }
-
-

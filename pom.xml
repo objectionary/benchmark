@@ -23,6 +23,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <!--
+      The version of 3.2.0 and similar requires rather high java
+      version: 17 or higher. So we intentionally use the version 2.7.18
+      here that requires java 11 since our plugin should be compatible with
+      java 11.
+    -->
+    <version>2.7.18</version>
+    <relativePath/>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eolang</groupId>
   <artifactId>benchmark</artifactId>
@@ -44,6 +56,17 @@ SOFTWARE.
     <ineo.version>0.0.0</ineo.version>
     <jd.version>1.2.1</jd.version>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
   <build>
     <directory>${directory}</directory>
     <finalName>${finalName}</finalName>
@@ -72,6 +95,29 @@ SOFTWARE.
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.6.1</version>
+        <executions>
+          <execution>
+            <id>unpack-dependencies</id>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                module-info.class
+              </excludes>
+              <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.12.1</version>
@@ -255,21 +301,23 @@ SOFTWARE.
               </execution>
               -->
               <execution>
-                <id>ineo:staticize</id>
+                <id>ineo:factorialize</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>
                 </goals>
                 <configuration>
                   <arguments combine.children="append">
-                    <argument>ineo:staticize</argument>
-                    <argument>-Dineo.staticizeSourcesDir=${directory}/generated-sources/opeo-decompile</argument>
-                    <argument>-Dineo.staticizeOutputDir=${directory}/generated-sources/ineo-staticize</argument>
+                    <argument>ineo:factorialize</argument>
+                    <argument>-Dineo.factorialize.sourcesDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Dineo.factorialize.outputDir=${directory}/generated-sources/ineo-staticize</argument>
+                    <argument>-Dineo.factorialize.main=${directory}/generated-sources/opeo-decompile/org/eolang/benchmark/Main.xmir</argument>
+                    <argument>-Dineo.factorialize.factorial=${directory}/generated-sources/opeo-decompile/org/eolang/benchmark/Factorial.xmir</argument>
                   </arguments>
                 </configuration>
               </execution>
               <execution>
-                <id>print-eo-after-staticize</id>
+                <id>print-eo-after-factorialize</id>
                 <phase>process-classes</phase>
                 <goals>
                   <goal>exec</goal>

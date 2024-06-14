@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2023-2024 Objectionary.com
+ * Copyright (c) 2016-2023 Objectionary.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,35 +23,29 @@
  */
 package org.eolang.benchmark;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.client.RestTemplate;
 
 /**
- * Main class.
- * We expect that the usage of Factorial objects in this class will be replaced.
+ * Spring Application Entry Point.
  * @since 0.2
  */
-@RestController
-public final class Main {
+@SpringBootApplication
+public class FactorialApplication {
 
-    @GetMapping("/factorial")
-    public String factorial(
-        @RequestParam(value = "rounds", defaultValue = "1") String prounds,
-        @RequestParam(value = "value", defaultValue = "10") String pvalue
-    ) {
-        long rounds = Long.parseLong(prounds);
-        int value = Integer.parseInt(pvalue);
-        long sum = 0L;
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < rounds; ++i) {
-            sum += new Factorial(value).get();
-        }
-        final String response = String.format(
-            "sum=%d time=%d\n", sum, System.currentTimeMillis() - start
-        );
-        System.out.println(response);
-        return response;
+    /**
+     * Entry point for Factorial Spring Application.
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(FactorialApplication.class, args);
+        final Long rounds = Long.parseLong(args[0]);
+        new RestTemplate().getForEntity(
+            String.format("http://localhost:%d/factorial?rounds=%d", 8080, rounds),
+            String.class
+        ).getBody();
+        SpringApplication.exit(context);
     }
-
 }

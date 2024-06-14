@@ -23,35 +23,35 @@
  */
 package org.eolang.benchmark;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 /**
- * Main class.
- * We expect that the usage of Factorial objects in this class will be replaced.
+ * Implementation of factorial using pure OOP approach.
+ * The methods in this class are going to be replaced by optimization.
  * @since 0.2
  */
-@RestController
-public final class Main {
+class Factorial {
+    /**
+     * Current value.
+     */
+    private int d;
 
-    @GetMapping("/factorial")
-    public String factorial(
-        @RequestParam(value = "rounds", defaultValue = "1") String prounds,
-        @RequestParam(value = "value", defaultValue = "10") String pvalue
-    ) {
-        long rounds = Long.parseLong(prounds);
-        int value = Integer.parseInt(pvalue);
-        long sum = 0L;
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < rounds; ++i) {
-            sum += new Factorial(value).get();
-        }
-        final String response = String.format(
-            "sum=%d time=%d\n", sum, System.currentTimeMillis() - start
-        );
-        System.out.println(response);
-        return response;
+    /**
+     * Constructor.
+     * @param d Value.
+     */
+    Factorial(int d) {
+        this.d = d;
     }
 
+    /**
+     * Get factorial.
+     * @return Factorial.
+     */
+    public int get() {
+        if (d <= 1) {
+            return 1;
+        }
+        return new Factorial(d - 1).get() * d;
+    }
 }
+
+
