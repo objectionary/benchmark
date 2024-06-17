@@ -267,6 +267,7 @@ SOFTWARE.
                     <argument>opeo:decompile</argument>
                     <argument>-Dopeo.decompile.sourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
                     <argument>-Dopeo.decompile.outputDir=${directory}/generated-sources/opeo-decompile</argument>
+                    <argument>-Dopeo.decompile.modifiedDir=${directory}/generated-sources/opeo-decompile-modified-xmir</argument>
                   </arguments>
                 </configuration>
               </execution>
@@ -386,6 +387,7 @@ SOFTWARE.
                     <argument>jeo:assemble</argument>
                     <argument>-Djeo.assemble.sourcesDir=${directory}/generated-sources/opeo-compile</argument>
                     <argument>-Djeo.assemble.outputDir=${directory}/classes</argument>
+                    <argument>-Djeo.assemble.skip.verification=true</argument>
                   </arguments>
                 </configuration>
               </execution>
