@@ -18,15 +18,15 @@ then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed with the TOTAL set to 1000000, at 2024-04-26 03:27, on Linux, with 4 CPUs:
+This is the summary of the tests performed with the TOTAL set to 10000000, at 2024-06-17 15:36, on Linux, with 4 CPUs:
 
 | | Before | After | Diff |
 | --- | --: | --: | --: |
-| Time, msec (with JIT, ×40 cycles) | 2137 | 1437 | -32% |
-| Time, msec (no JIT) | 2244 | 938 | -58% |
-| Total `.class` files | 2 | 3 | |
-| Bytes in all `.class` files | 5593 | 5495 | |
-| JAR file size, bytes | 5067 | 5229 | |
+| Time, msec (with JIT, ×40 cycles) | 4691 | 4345 | -7% |
+| Time, msec (no JIT) | 5699 | 2638 | -53% |
+| Total `.class` files | 3 | 4 | |
+| Bytes in all `.class` files | 8010 | 7300 | |
+| JAR file size, bytes | 49724094 | 43102077 | |
 
 This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions.
 The following JDK is used:
