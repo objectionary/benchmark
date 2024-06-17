@@ -242,20 +242,20 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
-              <execution>
-                <id>print-eo-after-disassemble</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <arguments combine.children="append">
-                    <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/jeo-disassemble</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/jeo-disassemble.eo</argument>
-                  </arguments>
-                </configuration>
-              </execution>
+<!--              <execution>-->
+<!--                <id>print-eo-after-disassemble</id>-->
+<!--                <phase>process-classes</phase>-->
+<!--                <goals>-->
+<!--                  <goal>exec</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                  <arguments combine.children="append">-->
+<!--                    <argument>eo:print</argument>-->
+<!--                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/jeo-disassemble</argument>-->
+<!--                    <argument>-Deo.printOutputDir=${directory}/generated-sources/jeo-disassemble.eo</argument>-->
+<!--                  </arguments>-->
+<!--                </configuration>-->
+<!--              </execution>-->
               <execution>
                 <id>opeo:decompile</id>
                 <phase>process-classes</phase>
@@ -270,20 +270,20 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
-              <execution>
-                <id>print-eo-after-decompile</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <arguments combine.children="append">
-                    <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-decompile</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-decompile.eo</argument>
-                  </arguments>
-                </configuration>
-              </execution>
+<!--              <execution>-->
+<!--                <id>print-eo-after-decompile</id>-->
+<!--                <phase>process-classes</phase>-->
+<!--                <goals>-->
+<!--                  <goal>exec</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                  <arguments combine.children="append">-->
+<!--                    <argument>eo:print</argument>-->
+<!--                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-decompile</argument>-->
+<!--                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-decompile.eo</argument>-->
+<!--                  </arguments>-->
+<!--                </configuration>-->
+<!--              </execution>-->
               <!--
               <execution>
                 <id>phi</id>
@@ -316,20 +316,20 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
-              <execution>
-                <id>print-eo-after-factorialize</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <arguments combine.children="append">
-                    <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/ineo-staticize</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/ineo-staticize.eo</argument>
-                  </arguments>
-                </configuration>
-              </execution>
+<!--              <execution>-->
+<!--                <id>print-eo-after-factorialize</id>-->
+<!--                <phase>process-classes</phase>-->
+<!--                <goals>-->
+<!--                  <goal>exec</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                  <arguments combine.children="append">-->
+<!--                    <argument>eo:print</argument>-->
+<!--                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/ineo-staticize</argument>-->
+<!--                    <argument>-Deo.printOutputDir=${directory}/generated-sources/ineo-staticize.eo</argument>-->
+<!--                  </arguments>-->
+<!--                </configuration>-->
+<!--              </execution>-->
               <!--
               <execution>
                 <id>unphi</id>
@@ -361,20 +361,20 @@ SOFTWARE.
                   </arguments>
                 </configuration>
               </execution>
-              <execution>
-                <id>print-eo-after-compile</id>
-                <phase>process-classes</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <arguments combine.children="append">
-                    <argument>eo:print</argument>
-                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-compile</argument>
-                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-compile.eo</argument>
-                  </arguments>
-                </configuration>
-              </execution>
+<!--              <execution>-->
+<!--                <id>print-eo-after-compile</id>-->
+<!--                <phase>process-classes</phase>-->
+<!--                <goals>-->
+<!--                  <goal>exec</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                  <arguments combine.children="append">-->
+<!--                    <argument>eo:print</argument>-->
+<!--                    <argument>-Deo.printSourcesDir=${directory}/generated-sources/opeo-compile</argument>-->
+<!--                    <argument>-Deo.printOutputDir=${directory}/generated-sources/opeo-compile.eo</argument>-->
+<!--                  </arguments>-->
+<!--                </configuration>-->
+<!--              </execution>-->
               <execution>
                 <id>jeo:assemble</id>
                 <phase>process-classes</phase>
