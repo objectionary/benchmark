@@ -36,7 +36,7 @@ jobs:
           base: master
         if: github.ref == 'refs/heads/master'
       - run: mv html gh-pages
-      - uses: JamesIves/github-pages-deploy-action@v4.6.4
+      - uses: JamesIves/github-pages-deploy-action@v4.6.6
         with:
           branch: gh-pages
           folder: gh-pages
