@@ -63,8 +63,7 @@ results.md: before.csv after.csv src/main/bash/assemble-results.sh
 
 clean:
 	set -e
-	rm -f *.time
-	rm -f *.jit-time
+	rm -f *.csv
 	rm -f *.jar
 	rm -f results.md
 	rm -rf before

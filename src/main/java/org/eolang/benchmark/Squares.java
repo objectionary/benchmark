@@ -83,7 +83,18 @@ public class Squares {
     }
 
     @Benchmark
-    public long sumOfSquaresEvenSeq() {
+    public long sumOfEvenSquaresBaseline() {
+        long acc = 0;
+        for (int i =0 ; i < VALUES.length ; i++) {
+            if (i % 2 == 0) {
+                acc += VALUES[i] * VALUES[i];
+            }
+        }
+        return acc;
+    }
+
+    @Benchmark
+    public long sumOfEvenSquaresSeq() {
         return LongStream.of(VALUES)
             .filter(x -> x % 2 == 0)
             .map(x -> x * x)
@@ -91,7 +102,7 @@ public class Squares {
     }
 
     @Benchmark
-    public long sumOfSquaresEvenPar() {
+    public long sumOfEvenSquaresPar() {
         return LongStream.of(VALUES)
             .parallel()
             .filter(x -> x % 2 == 0)
