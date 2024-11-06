@@ -9,16 +9,17 @@
 
 It's a benchmark that puts together:
 
-  * [eo-maven-plugin](https://github.com/objectionary/eo)
-  * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
-  * [eo-phi-normalizer](https://github.com/objectionary/eo-phi-normalizer)
+* [eo-maven-plugin](https://github.com/objectionary/eo)
+* [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
+* [eo-phi-normalizer](https://github.com/objectionary/eo-phi-normalizer)
 
 The goal is to test the performance of Java code before optimization and after,
-then comparing the results. Intermediate artifacts are in this 
+then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 
 <!-- benchmark -->
-This is the summary of the tests performed with the TOTAL set to 10000000, at 2024-06-17 15:36, on Linux, with 4 CPUs:
+This is the summary of the tests performed with the TOTAL set to 10000000,
+at 2024-06-17 15:36, on Linux, with 4 CPUs:
 
 | | Before | After | Diff |
 | --- | --: | --: | --: |
@@ -28,7 +29,9 @@ This is the summary of the tests performed with the TOTAL set to 10000000, at 20
 | Bytes in all `.class` files | 8010 | 7300 | |
 | JAR file size, bytes | 49724094 | 43102077 | |
 
-This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions.
+This table is updated on every successful run of the
+[make](https://github.com/objectionary/benchmark/actions/workflows/make.yml)
+job of GitHub Actions.
 The following JDK is used:
 
 ```
