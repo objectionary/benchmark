@@ -47,10 +47,14 @@ jobs:
           path: ~/.m2/repository
           key: ubuntu-jdk-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ubuntu-jdk-maven-
-      - run: make
       - run: |
           set -x
-          results=$(cat results.md)
+          SECONDS=0
+          make
+          results=$(
+            cat results.md
+            printf "\nThe entire test took %d seconds.\n" "${SECONDS}"
+          )
           export results
           perl -i -0777 -pe 's/(?<=<!-- benchmark_begin -->).*(?=<!-- benchmark_end -->)/\n$ENV{results}\n/gs;' README.md
           url=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
