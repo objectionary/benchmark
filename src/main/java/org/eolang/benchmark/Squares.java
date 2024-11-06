@@ -49,7 +49,7 @@ public class Squares {
         .toArray();
 
     @Benchmark
-    public long sumOfSquaresBaseline() {
+    public long sumOfSquares() {
         long acc = 0;
         for (int i =0 ; i < VALUES.length ; i++) {
             acc += VALUES[i] * VALUES[i];
@@ -65,6 +65,23 @@ public class Squares {
     }
 
     @Benchmark
+    public long sumOfSquaresPar() {
+        return LongStream.of(VALUES)
+            .parallel()
+            .map(d -> d * d)
+            .sum();
+    }
+
+    @Benchmark
+    public long sum() {
+        long acc = 0;
+        for (int i =0 ; i < VALUES.length ; i++) {
+            acc += VALUES[i];
+        }
+        return acc;
+    }
+
+    @Benchmark
     public long sumSeq() {
         return LongStream.of(VALUES).sum();
     }
@@ -75,15 +92,7 @@ public class Squares {
     }
 
     @Benchmark
-    public long sumOfSquaresPar() {
-        return LongStream.of(VALUES)
-            .parallel()
-            .map(d -> d * d)
-            .sum();
-    }
-
-    @Benchmark
-    public long sumOfEvenSquaresBaseline() {
+    public long sumOfEvenSquares() {
         long acc = 0;
         for (int i =0 ; i < VALUES.length ; i++) {
             if (i % 2 == 0) {
