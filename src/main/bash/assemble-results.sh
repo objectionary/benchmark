@@ -24,7 +24,9 @@
 
 set -e
 
-echo "This is the summary of the tests performed on $(date +'%Y-%m-%d')"
+echo "This is the summary of the tests performed"
+echo "by $(java --version | head -1 | cut -d ' ' -f1,2)"
+echo "on $(date +'%Y-%m-%d')"
 echo "at $(date +'%H:%M') on $(uname) with $(nproc) CPUs"
 echo "in [this GHA run][benchmark-gha]"
 echo "(the numbers are in milliseconds):"
