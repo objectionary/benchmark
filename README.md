@@ -24,28 +24,13 @@ and used by
 [Møller et al.](https://dl.acm.org/doi/abs/10.1145/3428236).
 
 <!-- benchmark_begin -->
-This is the summary of the tests performed with the TOTAL set to 10000000,
-at 2024-06-17 15:36, on Linux, with 4 CPUs:
+This is the summary of the tests performed on 2024-11-06
+at 12:41 on Linux with 4 CPUs (numbers in milliseconds):
 
-| | Before | After | Diff |
+| Test method | Before | After | Diff |
 | --- | --: | --: | --: |
-| Time, msec (with JIT, ×40 cycles) | 4691 | 4345 | -7% |
-| Time, msec (no JIT) | 5699 | 2638 | -53% |
-| Total `.class` files | 3 | 4 | |
-| Bytes in all `.class` files | 8010 | 7300 | |
-| JAR file size, bytes | 49724094 | 43102077 | |
-
-This table is updated on every successful run of the
-[make](https://github.com/objectionary/benchmark/actions/workflows/make.yml)
-job of GitHub Actions.
-The following JDK is used:
-
-```
-java 21.0.3 2024-04-16 LTS
-Java(TM) SE Runtime Environment (build 21.0.3+7-LTS-152)
-Java HotSpot(TM) 64-Bit Server VM (build 21.0.3+7-LTS-152, mixed mode, sharing)
-```
-
+ | [`Squares.sumOfSquaresBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | 3.97 | 3.86 | 0.11 |
+ | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | 4.10 | 3.88 | 0.22 |
 <!-- benchmark_end -->
 
 
@@ -63,4 +48,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: url
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/11703738081
