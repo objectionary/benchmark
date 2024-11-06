@@ -20,45 +20,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 ---
-name: make
-on:
+name: yamllint
+'on':
   push:
     branches:
       - master
-    paths-ignore: [ 'README.md', 'LICENSE.txt' ]
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
+  pull_request:
+    branches:
+      - master
 jobs:
-  make:
-    runs-on: ubuntu-22.04
+  yamllint:
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: ibiqlik/action-yamllint@v3
         with:
-          distribution: 'oracle'
-          java-version: 21
-      - uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-jdk-${{ matrix.java }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
-      - run: make
-      - run: make README.md
-      - uses: peter-evans/create-pull-request@v6
-        with:
-          branch: make
-          commit-message: 'new benchmark results'
-          delete-branch: true
-          title: 'New results of benchmarking'
-          assignees: yegor256
-          base: master
-        if: github.ref == 'refs/heads/master'
-      - run: mv html gh-pages
-      - uses: JamesIves/github-pages-deploy-action@v4.6.0
-        with:
-          branch: gh-pages
-          folder: gh-pages
-          clean: false
-        if: github.ref == 'refs/heads/master'
+          config-file: .yamllint.yml

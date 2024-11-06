@@ -21,7 +21,8 @@
 # SOFTWARE.
 
 .ONESHELL:
-.SHELLFLAGS: -e -o pipefail -c
+.SHELLFLAGS := -e -o pipefail -c
+SHELL := bash
 .PHONY: all clean
 .PRECIOUS: %.jar after before
 .EXPORT_ALL_VARIABLES:
