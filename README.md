@@ -1,4 +1,4 @@
-<img alt="logo" src="https://www.objectionary.com/cactus.svg" height="100px" />
+# Stream Fusion Benchmark
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![DevOps By Rultor.com](http://www.rultor.com/b/objectionary/eo)](http://www.rultor.com/p/objectionary/eo)
@@ -9,9 +9,9 @@
 
 It's a benchmark that puts together:
 
+  * [eo-maven-plugin](https://github.com/objectionary/eo)
   * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
-  * [opeo-maven-plugin](https://github.com/objectionary/opeo-maven-plugin)
-  * [ineo-maven-plugin](https://github.com/objectionary/ineo-maven-plugin)
+  * [eo-phi-normalizer](https://github.com/objectionary/eo-phi-normalizer)
 
 The goal is to test the performance of Java code before optimization and after,
 then comparing the results. Intermediate artifacts are in this 
@@ -49,8 +49,7 @@ provided they don't violate our quality standards. To avoid frustration,
 before sending us your pull request please run full build:
 
 ```bash
-$ make
+make
 ```
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
-
