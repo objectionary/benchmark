@@ -25,12 +25,19 @@ and used by
 
 <!-- benchmark_begin -->
 This is the summary of the tests performed on 2024-11-06
-at 12:41 on Linux with 4 CPUs (numbers in milliseconds):
+at 13:21 on Linux with 4 CPUs
+in [this GHA run][benchmark-gha]
+(the numbers are in milliseconds):
 
 | Test method | Before | After | Diff |
 | --- | --: | --: | --: |
- | [`Squares.sumOfSquaresBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | 3.97 | 3.86 | 0.11 |
- | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | 4.10 | 3.88 | 0.22 |
+ | [`Squares.sumOfSquaresBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `37.34` | `41.58` | `-4.24` |
+ | [`Squares.sumOfSquaresEvenPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `38.93` | `37.42` | `1.51` |
+ | [`Squares.sumOfSquaresEvenSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `77.90` | `78.36` | `-0.45` |
+ | [`Squares.sumOfSquaresPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `19.53` | `19.65` | `-0.12` |
+ | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `37.65` | `39.24` | `-1.59` |
+ | [`Squares.sumPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `19.11` | `19.81` | `-0.71` |
+ | [`Squares.sumSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `37.61` | `37.17` | `0.44` |
 <!-- benchmark_end -->
 
 ## How to Contribute
@@ -47,4 +54,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/11703738081
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/11704160416
