@@ -44,7 +44,9 @@ import java.util.*;
 @State(Scope.Benchmark)
 public class Squares {
 
-    private static final long[] VALUES = IntStream.range(0, 10_000_000).mapToLong(i -> i % 1000).toArray();
+    private static final long[] VALUES = IntStream.range(0, 100_000_000)
+        .mapToLong(i -> i % 1000)
+        .toArray();
 
     @Benchmark
     public long sumOfSquaresBaseline() {
@@ -62,4 +64,38 @@ public class Squares {
             .sum();
     }
 
+    @Benchmark
+    public long sumSeq() {
+        return LongStream.of(VALUES).sum();
+    }
+
+    @Benchmark
+    public long sumPar() {
+        return LongStream.of(VALUES).parallel().sum();
+    }
+
+    @Benchmark
+    public long sumOfSquaresPar() {
+        return LongStream.of(VALUES)
+            .parallel()
+            .map(d -> d * d)
+            .sum();
+    }
+
+    @Benchmark
+    public long sumOfSquaresEvenSeq() {
+        return LongStream.of(VALUES)
+            .filter(x -> x % 2 == 0)
+            .map(x -> x * x)
+            .sum();
+    }
+
+    @Benchmark
+    public long sumOfSquaresEvenPar() {
+        return LongStream.of(VALUES)
+            .parallel()
+            .filter(x -> x % 2 == 0)
+            .map(x -> x * x)
+            .sum();
+    }
 }

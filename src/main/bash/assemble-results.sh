@@ -25,7 +25,9 @@
 set -e
 
 echo "This is the summary of the tests performed on $(date +'%Y-%m-%d')"
-echo "at $(date +'%H:%M') on $(uname) with $(nproc) CPUs (numbers in milliseconds):"
+echo "at $(date +'%H:%M') on $(uname) with $(nproc) CPUs"
+echo "in [this GHA run][benchmark-gha]"
+echo "(the numbers are in milliseconds):"
 echo ""
 echo "| Test method | Before | After | Diff |"
 echo "| --- | --: | --: | --: |"
@@ -42,10 +44,10 @@ while IFS= read -r ln; do
         "${method}" \
         "$(echo "${method}" | cut -d '.' -f 1)"
     printf ' | '
-    printf "%0.2f" "${ms1}"
+    printf "\`%0.2f\`" "${ms1}"
     printf ' | '
-    printf "%0.2f" "${ms2}"
+    printf "\`%0.2f\`" "${ms2}"
     printf ' | '
-    printf "%0.2f" "$(echo "${ms1} - ${ms2}" | bc)"
+    printf "\`%0.2f\`" "$(echo "${ms1} - ${ms2}" | bc)"
     printf " |\n"
 done <<< "${before}"
