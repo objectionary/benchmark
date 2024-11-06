@@ -33,6 +33,7 @@ at 12:41 on Linux with 4 CPUs (numbers in milliseconds):
  | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | 4.10 | 3.88 | 0.22 |
 <!-- benchmark_end -->
 
+The numbers were calculated in [this GHA run][benchmark-gha].
 
 ## How to Contribute
 
