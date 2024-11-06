@@ -38,7 +38,9 @@ while IFS= read -r ln; do
     ms1=$(echo "${ln}" | cut -d ',' -f2)
     ms2=$(echo "${after}" | grep "${method}," | cut -d ',' -f2)
     printf ' | '
-    printf "[\`${method}\`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/$(echo "${method}" | cut -d '.' -f 1).java)"
+    printf "[\`%s\`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/%s.java)" \
+        "${method}" \
+        "$(echo "${method}" | cut -d '.' -f 1)"
     printf ' | '
     printf "%0.2f" "${ms1}"
     printf ' | '
