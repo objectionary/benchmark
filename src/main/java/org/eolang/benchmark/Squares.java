@@ -23,35 +23,43 @@
  */
 package org.eolang.benchmark;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.stream.*;
+import org.openjdk.jmh.annotations.*;
+import java.util.concurrent.TimeUnit;
+import java.util.*;
 
 /**
- * Main class.
- * We expect that the usage of Factorial objects in this class will be replaced.
+ * Squares.
+ *
+ * We expect that the usage of Stream API in this class will be replaced
+ * by imperative alternatives, thus making it faster.
+ *
  * @since 0.2
  */
-@RestController
-public final class Main {
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+@Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+@Fork(1)
+@State(Scope.Benchmark)
+public class Squares {
 
-    @GetMapping("/factorial")
-    public String factorial(
-        @RequestParam(value = "rounds", defaultValue = "1") String prounds,
-        @RequestParam(value = "value", defaultValue = "10") String pvalue
-    ) {
-        long rounds = Long.parseLong(prounds);
-        int value = Integer.parseInt(pvalue);
-        long sum = 0L;
-        long start = System.currentTimeMillis();
-        for (long i = 0; i < rounds; ++i) {
-            sum += new Factorial(value).get();
+    private static final long[] VALUES = IntStream.range(0, 10_000_000).mapToLong(i -> i % 1000).toArray();
+
+    @Benchmark
+    public long sumOfSquaresBaseline() {
+        long acc = 0;
+        for (int i =0 ; i < VALUES.length ; i++) {
+            acc += VALUES[i] * VALUES[i];
         }
-        final String response = String.format(
-            "sum=%d time=%d\n", sum, System.currentTimeMillis() - start
-        );
-        System.out.println(response);
-        return response;
+        return acc;
+    }
+
+    @Benchmark
+    public long sumOfSquaresSeq() {
+        return LongStream.of(VALUES)
+            .map(d -> d * d)
+            .sum();
     }
 
 }

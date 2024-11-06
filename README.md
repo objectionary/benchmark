@@ -13,11 +13,17 @@ It's a benchmark that puts together:
 * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
 * [eo-phi-normalizer](https://github.com/objectionary/eo-phi-normalizer)
 
-The goal is to test the performance of Java code before optimization and after,
-then comparing the results. Intermediate artifacts are in this
+The goal is to test the performance of Java Stream API before
+the "stream fusion" optimization
+and after it, then comparing the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
+We partially reuse [the benchmark](https://github.com/biboudis/clashofthelambdas)
+earlier suggested by
+[Biboudis et al.](https://arxiv.org/abs/1406.6631)
+and used by
+[Møller et al.](https://dl.acm.org/doi/abs/10.1145/3428236).
 
-<!-- benchmark -->
+<!-- benchmark_begin -->
 This is the summary of the tests performed with the TOTAL set to 10000000,
 at 2024-06-17 15:36, on Linux, with 4 CPUs:
 
@@ -40,7 +46,7 @@ Java(TM) SE Runtime Environment (build 21.0.3+7-LTS-152)
 Java HotSpot(TM) 64-Bit Server VM (build 21.0.3+7-LTS-152, mixed mode, sharing)
 ```
 
-<!-- benchmark -->
+<!-- benchmark_end -->
 
 
 ## How to Contribute
@@ -56,3 +62,5 @@ make
 ```
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
+
+[benchmark-gha]: url

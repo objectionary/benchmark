@@ -9,3 +9,6 @@ results.md
 gh-pages/
 html/
 binary/
+*.csv
+*.json
+dependency-reduced-pom.xml

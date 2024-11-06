@@ -24,26 +24,26 @@
 
 set -e
 
-echo "This is the summary of the tests performed with the TOTAL set to ${TOTAL}, at $(date +'%Y-%m-%d %H:%M'), on $(uname), with $(nproc) CPUs:"
+echo "This is the summary of the tests performed on $(date +'%Y-%m-%d')"
+echo "at $(date +'%H:%M') on $(uname) with $(nproc) CPUs (numbers in milliseconds):"
 echo ""
-echo "| | Before | After | Diff |"
+echo "| Test method | Before | After | Diff |"
 echo "| --- | --: | --: | --: |"
 
-before=$(cat before.jit-time)
-after=$(cat after.jit-time)
-echo "| Time, msec (with JIT, ×${MULTIPLIER} cycles) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
+before=$(tail -n +2 before.csv | cut -d ',' -f 1,5 | tr -d '"' | cut -c22-)
+after=$(tail -n +2 after.csv | cut -d ',' -f 1,5 | tr -d '"' | cut -c22-)
 
-before=$(cat before.time)
-after=$(cat after.time)
-echo "| Time, msec (no JIT) | ${before} | ${after} | $(echo 100 \* '(' "${after}" - "${before}" ')' / "${before}" | bc)% |"
-
-echo "| Total \`.class\` files | $(ls before/classes/org/eolang/benchmark/* | wc -l | xargs) | $(ls after/classes/org/eolang/benchmark/* | wc -l | xargs) | |"
-echo "| Bytes in all \`.class\` files | $(du -bs before/classes/org/eolang/benchmark/ | cut -f1) | $(du -bs after/classes/org/eolang/benchmark/ | cut -f1) | |"
-echo "| JAR file size, bytes | $(du -bs before.jar | cut -f1) | $(du -bs after.jar | cut -f1) | |"
-echo ""
-echo "This table is updated on every successful run of the [make](https://github.com/objectionary/benchmark/actions/workflows/make.yml) job of GitHub Actions."
-echo "The following JDK is used:"
-echo ""
-echo "\`\`\`"
-java --version
-echo "\`\`\`"
+while IFS= read -r ln; do
+    method=$(echo "${ln}" | cut -d ',' -f1)
+    ms1=$(echo "${ln}" | cut -d ',' -f2)
+    ms2=$(echo "${after}" | grep "${method}," | cut -d ',' -f2)
+    printf ' | '
+    printf "[\`${method}\`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/$(echo "${method}" | cut -d '.' -f 1).java)"
+    printf ' | '
+    printf "%0.2f" "${ms1}"
+    printf ' | '
+    printf "%0.2f" "${ms2}"
+    printf ' | '
+    printf "%0.2f" "$(echo "${ms1} - ${ms2}" | bc)"
+    printf " |\n"
+done <<< "${before}"

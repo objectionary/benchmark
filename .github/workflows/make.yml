@@ -46,7 +46,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
       - run: make
-      - run: make README.md
+      - run: |
+          set -x
+          results=$(cat results.md)
+          export results
+          perl -i -0777 -pe 's/(?<=<!-- benchmark_begin -->).*(?=<!-- benchmark_end -->)/\n$ENV{results}\n/gs;' README.md
+          url=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          export url
+          perl -i -0777 -pe 's/(?<=\[benchmark-gha\]: ).*(?=\n)/$ENV{url}/gs;' README.md
+        if: github.ref == 'refs/heads/master'
       - uses: peter-evans/create-pull-request@v7
         with:
           branch: make
