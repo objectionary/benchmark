@@ -57,65 +57,65 @@ public class Squares {
         return acc;
     }
 
-    @Benchmark
-    public long sumOfSquaresSeq() {
-        return LongStream.of(VALUES)
-            .map(d -> d * d)
-            .sum();
-    }
-
-    @Benchmark
-    public long sumOfSquaresPar() {
-        return LongStream.of(VALUES)
-            .parallel()
-            .map(d -> d * d)
-            .sum();
-    }
-
-    @Benchmark
-    public long sum() {
-        long acc = 0;
-        for (int i =0 ; i < VALUES.length ; i++) {
-            acc += VALUES[i];
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumSeq() {
-        return LongStream.of(VALUES).sum();
-    }
-
-    @Benchmark
-    public long sumPar() {
-        return LongStream.of(VALUES).parallel().sum();
-    }
-
-    @Benchmark
-    public long sumOfEvenSquares() {
-        long acc = 0;
-        for (int i =0 ; i < VALUES.length ; i++) {
-            if (i % 2 == 0) {
-                acc += VALUES[i] * VALUES[i];
-            }
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumOfEvenSquaresSeq() {
-        return LongStream.of(VALUES)
-            .filter(x -> x % 2 == 0)
-            .map(x -> x * x)
-            .sum();
-    }
-
-    @Benchmark
-    public long sumOfEvenSquaresPar() {
-        return LongStream.of(VALUES)
-            .parallel()
-            .filter(x -> x % 2 == 0)
-            .map(x -> x * x)
-            .sum();
-    }
+//    @Benchmark
+//    public long sumOfSquaresSeq() {
+//        return LongStream.of(VALUES)
+//            .map(d -> d * d)
+//            .sum();
+//    }
+//
+//    @Benchmark
+//    public long sumOfSquaresPar() {
+//        return LongStream.of(VALUES)
+//            .parallel()
+//            .map(d -> d * d)
+//            .sum();
+//    }
+//
+//    @Benchmark
+//    public long sum() {
+//        long acc = 0;
+//        for (int i =0 ; i < VALUES.length ; i++) {
+//            acc += VALUES[i];
+//        }
+//        return acc;
+//    }
+//
+//    @Benchmark
+//    public long sumSeq() {
+//        return LongStream.of(VALUES).sum();
+//    }
+//
+//    @Benchmark
+//    public long sumPar() {
+//        return LongStream.of(VALUES).parallel().sum();
+//    }
+//
+//    @Benchmark
+//    public long sumOfEvenSquares() {
+//        long acc = 0;
+//        for (int i =0 ; i < VALUES.length ; i++) {
+//            if (i % 2 == 0) {
+//                acc += VALUES[i] * VALUES[i];
+//            }
+//        }
+//        return acc;
+//    }
+//
+//    @Benchmark
+//    public long sumOfEvenSquaresSeq() {
+//        return LongStream.of(VALUES)
+//            .filter(x -> x % 2 == 0)
+//            .map(x -> x * x)
+//            .sum();
+//    }
+//
+//    @Benchmark
+//    public long sumOfEvenSquaresPar() {
+//        return LongStream.of(VALUES)
+//            .parallel()
+//            .filter(x -> x % 2 == 0)
+//            .map(x -> x * x)
+//            .sum();
+//    }
 }
