@@ -26,24 +26,22 @@ and used by
 <!-- benchmark_begin -->
 This is the summary of the tests performed
 by openjdk 23.0.1
-on 2024-11-06
-at 14:18 on Linux with 4 CPUs
+on 2024-11-07
+at 16:27 on Linux with 4 CPUs
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
 
 | Test method | Before | After | Diff |
 | --- | --: | --: | --: |
- | [`Squares.sum`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `39.33` | `38.97` | `0.36` |
- | [`Squares.sumOfEvenSquares`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `58.48` | `52.28` | `6.20` |
- | [`Squares.sumOfEvenSquaresPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `33.36` | `33.18` | `0.18` |
- | [`Squares.sumOfEvenSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `67.88` | `68.51` | `-0.63` |
- | [`Squares.sumOfSquares`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `40.12` | `40.64` | `-0.52` |
- | [`Squares.sumOfSquaresPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `20.26` | `20.92` | `-0.66` |
- | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `39.28` | `40.69` | `-1.41` |
- | [`Squares.sumPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `19.86` | `21.25` | `-1.40` |
- | [`Squares.sumSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `39.19` | `40.74` | `-1.55` |
+ | [`Big.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `30.85` | `35.40` | `-4.55` |
+ | [`Big.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `131.71` | `124.05` | `7.66` |
+ | [`Squares.sum`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `38.59` | `38.29` | `0.31` |
+ | [`Squares.sumOfEvenSquares`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `48.05` | `58.12` | `-10.07` |
+ | [`Squares.sumOfEvenSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `67.89` | `68.11` | `-0.23` |
+ | [`Squares.sumOfSquares`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `39.76` | `39.18` | `0.57` |
+ | [`Squares.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `40.07` | `38.98` | `1.09` |
 
-The entire test took 1145 seconds.
+The entire test took 1029 seconds.
 <!-- benchmark_end -->
 
 ## How to Contribute
@@ -60,4 +58,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/11705047269
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/11726832040
