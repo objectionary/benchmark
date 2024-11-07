@@ -23,10 +23,18 @@
  */
 package org.eolang.benchmark;
 
-import java.util.stream.*;
-import org.openjdk.jmh.annotations.*;
 import java.util.concurrent.TimeUnit;
-import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.Warmup;
 
 /**
  * Squares.
@@ -45,77 +53,50 @@ import java.util.*;
 public class Squares {
 
     private static final long[] VALUES = IntStream.range(0, 100_000_000)
-        .mapToLong(i -> i % 1000)
+        .mapToLong(i -> (long) (i % 1000))
         .toArray();
 
     @Benchmark
     public long sumOfSquares() {
-        long acc = 0;
-        for (int i =0 ; i < VALUES.length ; i++) {
-            acc += VALUES[i] * VALUES[i];
+        long acc = 0L;
+        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
+            acc += Squares.VALUES[idx] * Squares.VALUES[idx];
         }
         return acc;
     }
 
-//    @Benchmark
-//    public long sumOfSquaresSeq() {
-//        return LongStream.of(VALUES)
-//            .map(d -> d * d)
-//            .sum();
-//    }
-//
-//    @Benchmark
-//    public long sumOfSquaresPar() {
-//        return LongStream.of(VALUES)
-//            .parallel()
-//            .map(d -> d * d)
-//            .sum();
-//    }
-//
-//    @Benchmark
-//    public long sum() {
-//        long acc = 0;
-//        for (int i =0 ; i < VALUES.length ; i++) {
-//            acc += VALUES[i];
-//        }
-//        return acc;
-//    }
-//
-//    @Benchmark
-//    public long sumSeq() {
-//        return LongStream.of(VALUES).sum();
-//    }
-//
-//    @Benchmark
-//    public long sumPar() {
-//        return LongStream.of(VALUES).parallel().sum();
-//    }
-//
-//    @Benchmark
-//    public long sumOfEvenSquares() {
-//        long acc = 0;
-//        for (int i =0 ; i < VALUES.length ; i++) {
-//            if (i % 2 == 0) {
-//                acc += VALUES[i] * VALUES[i];
-//            }
-//        }
-//        return acc;
-//    }
-//
-//    @Benchmark
-//    public long sumOfEvenSquaresSeq() {
-//        return LongStream.of(VALUES)
-//            .filter(x -> x % 2 == 0)
-//            .map(x -> x * x)
-//            .sum();
-//    }
-//
-//    @Benchmark
-//    public long sumOfEvenSquaresPar() {
-//        return LongStream.of(VALUES)
-//            .parallel()
-//            .filter(x -> x % 2 == 0)
-//            .map(x -> x * x)
-//            .sum();
-//    }
+    @Benchmark
+    public long sumOfSquaresSeq() {
+        return LongStream.of(Squares.VALUES)
+            .map(num -> num * num)
+            .sum();
+    }
+
+    @Benchmark
+    public long sum() {
+        long acc = 0L;
+        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
+            acc += Squares.VALUES[idx];
+        }
+        return acc;
+    }
+
+    @Benchmark
+    public long sumOfEvenSquares() {
+        long acc = 0L;
+        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
+            if (idx % 2 == 0) {
+                acc += Squares.VALUES[idx] * Squares.VALUES[idx];
+            }
+        }
+        return acc;
+    }
+
+    @Benchmark
+    public long sumOfEvenSquaresSeq() {
+        return LongStream.of(Squares.VALUES)
+            .filter(x -> x % 2L == 0L)
+            .map(x -> x * x)
+            .sum();
+    }
 }
