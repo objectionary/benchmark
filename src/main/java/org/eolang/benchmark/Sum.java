@@ -37,10 +37,10 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 /**
- * Squares.
+ * Sum of squares.
  *
- * We expect that the usage of Stream API in this class will be replaced
- * by imperative alternatives, thus making it faster.
+ * <p>We expect that the usage of Stream API in this class will be replaced
+ * by imperative alternatives, thus making it faster.</p>
  *
  * @since 0.2
  */
@@ -50,53 +50,25 @@ import org.openjdk.jmh.annotations.Warmup;
 @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.MILLISECONDS)
 @Fork(1)
 @State(Scope.Benchmark)
-public class Squares {
+public class Sum {
 
     private static final long[] VALUES = IntStream.range(0, 100_000_000)
         .mapToLong(i -> (long) (i % 1000))
         .toArray();
 
     @Benchmark
-    public long sumOfSquares() {
+    public long plain() {
         long acc = 0L;
-        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
-            acc += Squares.VALUES[idx] * Squares.VALUES[idx];
+        for (int idx = 0; idx < Sum.VALUES.length ; idx++) {
+            acc += Sum.VALUES[idx] * Sum.VALUES[idx];
         }
         return acc;
     }
 
     @Benchmark
-    public long sumOfSquaresSeq() {
-        return LongStream.of(Squares.VALUES)
+    public long streams() {
+        return LongStream.of(Sum.VALUES)
             .map(num -> num * num)
-            .sum();
-    }
-
-    @Benchmark
-    public long sum() {
-        long acc = 0L;
-        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
-            acc += Squares.VALUES[idx];
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumOfEvenSquares() {
-        long acc = 0L;
-        for (int idx = 0; idx < Squares.VALUES.length ; idx++) {
-            if (idx % 2 == 0) {
-                acc += Squares.VALUES[idx] * Squares.VALUES[idx];
-            }
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumOfEvenSquaresSeq() {
-        return LongStream.of(Squares.VALUES)
-            .filter(x -> x % 2L == 0L)
-            .map(x -> x * x)
             .sum();
     }
 }

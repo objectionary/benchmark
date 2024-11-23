@@ -38,7 +38,6 @@ SOFTWARE.
     <maven.compiler.target>8</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
-    <hone.version>0.0.22</hone.version>
   </properties>
   <dependencies>
     <dependency>

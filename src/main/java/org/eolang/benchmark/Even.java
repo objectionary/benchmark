@@ -24,8 +24,8 @@
 package org.eolang.benchmark;
 
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -37,7 +37,7 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 /**
- * Bigger tests.
+ * Sum of even squares.
  *
  * <p>We expect that the usage of Stream API in this class will be replaced
  * by imperative alternatives, thus making it faster.</p>
@@ -46,39 +46,32 @@ import org.openjdk.jmh.annotations.Warmup;
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.MILLISECONDS)
-@Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
+@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+@Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.MILLISECONDS)
+@Fork(1)
 @State(Scope.Benchmark)
-@Fork(2)
-public class Big {
+public class Even {
 
-    private static final Object[] VALUES = LongStream.range(0L, 10_000_000L)
-        .boxed()
-        .map(x -> String.format("%04x", x))
+    private static final long[] VALUES = IntStream.range(0, 100_000_000)
+        .mapToLong(i -> (long) (i % 1000))
         .toArray();
 
     @Benchmark
     public long plain() {
         long acc = 0L;
-        for (int idx = 0; idx < Big.VALUES.length; idx++) {
-            final String str = ((String) Big.VALUES[idx]).trim();
-            if (str.length() != 4) {
-                continue;
+        for (int idx = 0; idx < Even.VALUES.length ; idx++) {
+            if (idx % 2 == 0) {
+                acc += Even.VALUES[idx] * Even.VALUES[idx];
             }
-            acc += Long.parseLong(str, 16) + 1L;
         }
         return acc;
     }
 
     @Benchmark
     public long streams() {
-        return Stream.of(Big.VALUES)
-            .map(obj -> (String) obj)
-            .map(String::trim)
-            .filter(str -> str.length() == 4)
-            .map(str -> Long.parseLong(str, 16) + 1L)
-            .mapToLong(num -> num)
+        return LongStream.of(Even.VALUES)
+            .filter(x -> x % 2L == 0L)
+            .map(x -> x * x)
             .sum();
     }
-
 }
