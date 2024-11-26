@@ -59,7 +59,7 @@ public class Even {
     @Benchmark
     public long plain() {
         long acc = 0L;
-        for (int idx = 0; idx < Even.VALUES.length ; idx++) {
+        for (int idx = 0; idx < Even.VALUES.length; idx++) {
             if (idx % 2 == 0) {
                 acc += Even.VALUES[idx] * Even.VALUES[idx];
             }
