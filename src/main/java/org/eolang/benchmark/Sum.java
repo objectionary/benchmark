@@ -25,6 +25,7 @@ package org.eolang.benchmark;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
+import java.util.function.LongUnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -59,10 +60,10 @@ public class Sum {
 
     @Benchmark
     public long plain() {
-        final Function<Long, Long> iface = num -> num * num;
+        final LongUnaryOperator iface = num -> num * num;
         long acc = 0L;
         for (int idx = 0; idx < Sum.VALUES.length ; idx++) {
-            acc += iface.apply(Sum.VALUES[idx]);
+            acc += iface.applyAsLong(Sum.VALUES[idx]);
         }
         return acc;
     }
