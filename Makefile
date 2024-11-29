@@ -30,7 +30,7 @@ SHELL := bash
 
 SHELL=bash
 
-HONE_VERSION=0.0.27
+HONE_VERSION=0.0.28
 
 all: env results.md html/summary.html
 	set -e
