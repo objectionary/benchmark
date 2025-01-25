@@ -26,7 +26,7 @@ rules:
     description: 'replace stream.sum with loop'
     pattern: |
       ⟦
-        φ ↦ Φ.jeo.seq.?t( 
+        φ ↦ Φ.jeo.seq.?t(
           α1 ↦ ξ.invokestatic-23E4,
           α2 ↦ ξ.t1,
           α3 ↦ ξ.invokeinterface-23E9,
@@ -34,7 +34,7 @@ rules:
           ?B2,
         ),
         t1 ↦ ...,
-        ?B3 
+        ?B3
       ⟧
     result: |
       ⟦ B ⟧
