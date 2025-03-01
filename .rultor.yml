@@ -3,6 +3,6 @@
 ---
 # yamllint disable rule:line-length
 docker:
-  image: yegor256/rultor-java
+  image: yegor256/java
 merge:
   script: mvn package
