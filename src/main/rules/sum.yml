@@ -1,23 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024 Objectionary.com
 # SPDX-License-Identifier: MIT
 ---
-title: "sum"
-rules:
-  - name: sum
-    description: 'replace stream.sum with loop'
-    pattern: |
-      ⟦
-        φ ↦ Φ.jeo.seq.?t(
-          α1 ↦ ξ.invokestatic-23E4,
-          α2 ↦ ξ.t1,
-          α3 ↦ ξ.invokeinterface-23E9,
-          α4 ↦ ξ.invokeinterface-23EC,
-          ?B2,
-        ),
-        t1 ↦ ...,
-        ?B3
-      ⟧
-    result: |
-      ⟦ B ⟧
-    when: [ ]
-    tests: [ ]
+name: sum
+pattern: ⟦ !B1 ⟧
+result: ⟦ !B1 ⟧
