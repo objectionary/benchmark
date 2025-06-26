@@ -5,7 +5,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 SHELL := bash
 
-.PHONY: all clean
+.PHONY: all clean test
 .PRECIOUS: %.jar after before
 .EXPORT_ALL_VARIABLES:
 
@@ -44,9 +44,5 @@ results.md: before.csv after.csv src/main/bash/assemble-results.sh
 
 clean:
 	set -e
-	rm -f *.csv
-	rm -f *.jar
-	rm -f results.md
-	rm -rf before
-	rm -rf after
+	rm -f *.csv *.jar results.md before after
 	rm -rf target

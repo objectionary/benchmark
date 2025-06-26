@@ -11,7 +11,7 @@ It's a benchmark that puts together:
 
 * [eo-maven-plugin](https://github.com/objectionary/eo)
 * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
-* [eo-phi-normalizer](https://github.com/objectionary/eo-phi-normalizer)
+* [phino](https://github.com/objectionary/phino)
 
 The goal is to test the performance of Java Stream API before
 the "stream fusion" optimization
@@ -20,6 +20,7 @@ and after it, then comparing the results. Intermediate artifacts are in this
 We partially reuse [the benchmark](https://github.com/biboudis/clashofthelambdas)
 earlier suggested by
 [Biboudis et al.](https://arxiv.org/abs/1406.6631)
+([sources](https://github.com/biboudis/clashofthelambdas))
 and used by
 [Møller et al.](https://dl.acm.org/doi/abs/10.1145/3428236).
 
