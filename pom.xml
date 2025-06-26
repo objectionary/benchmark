@@ -153,7 +153,8 @@
                   <goal>optimize</goal>
                 </goals>
                 <configuration>
-                  <skipPhino>true</skipPhino>
+                  <rules>none</rules>
+                  <skipPhino>false</skipPhino>
                 </configuration>
               </execution>
             </executions>
