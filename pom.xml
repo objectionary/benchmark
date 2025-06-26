@@ -19,6 +19,7 @@
     <maven.compiler.target>8</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
+    <eo.version>0.56.9</eo.version>
   </properties>
   <dependencies>
     <dependency>
@@ -163,7 +164,7 @@
           <plugin>
             <groupId>org.eolang</groupId>
             <artifactId>eo-maven-plugin</artifactId>
-            <version>0.56.9</version>
+            <version>${eo.version}</version>
             <executions>
               <execution>
                 <id>print-after-jeo</id>
