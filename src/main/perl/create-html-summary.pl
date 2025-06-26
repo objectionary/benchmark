@@ -114,19 +114,15 @@ my $html = fread('src/main/html/summary.html');
 
 $html = inject($html, 'java', join_java('src/main/java/org/eolang/benchmark'));
 $html = inject($html, 'after-javac', join_classes('after/bytecode'));
-$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/jeo-disassemble.eo/org/eolang/benchmark'));
-$html = inject($html, 'after-opeo-decompile', join_eo('after/generated-sources/opeo-decompile.eo/org/eolang/benchmark'));
+$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/jeo-disassemble/eo/org/eolang/benchmark'));
 $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
-$html = inject($html, 'after-ineo-staticize', join_eo('after/generated-sources/ineo-staticize.eo/org/eolang/benchmark'));
-$html = inject($html, 'after-opeo-compile', join_eo('after/generated-sources/opeo-compile.eo/org/eolang/benchmark'));
+$html = inject($html, 'after-phino', join_phi('after/generated-sources/phi-optimized/org/eolang/benchmark'));
 $html = inject($html, 'after-jeo-assemble', join_classes('after/classes'));
 $html = inject($html, 'after-jd', join_java('after/generated-sources/after-jd/org/eolang/benchmark'));
 
 $html = inject($html, 'version-javac', `javac --version`);
 $html = inject($html, 'eo-version', $ENV{EO_VERSION});
 $html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
-$html = inject($html, 'opeo-version', $ENV{OPEO_VERSION});
-$html = inject($html, 'ineo-version', $ENV{INEO_VERSION});
 $html = inject($html, 'jd-version', $ENV{JD_VERSION});
 
 fwrite('html/summary.html', timed($html));

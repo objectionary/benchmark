@@ -33,7 +33,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @State(Scope.Benchmark)
 public class Even {
 
-    private static final long[] VALUES = IntStream.range(0, 100_000_000)
+    private static final long[] VALUES = IntStream.range(0, 10_000_000)
         .mapToLong(i -> (long) (i % 1000))
         .toArray();
 
