@@ -152,6 +152,9 @@
                   <goal>pull</goal>
                   <goal>optimize</goal>
                 </goals>
+                <configuration>
+                  <skipPhino>true</skipPhino>
+                </configuration>
               </execution>
             </executions>
           </plugin>

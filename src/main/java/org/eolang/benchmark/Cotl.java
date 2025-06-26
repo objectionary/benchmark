@@ -42,7 +42,7 @@ public class Cotl {
         }
     }
 
-    public static final int N = 1_000_000;
+    public static final int N = 10_000_000;
 
     static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
