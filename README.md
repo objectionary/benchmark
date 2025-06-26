@@ -15,7 +15,7 @@ It's a benchmark that puts together:
 
 The goal is to test the performance of Java Stream API before
 the "stream fusion" optimization
-and after it, then comparing the results. Intermediate artifacts are in this
+and after it, then compare the results. Intermediate artifacts are in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
 We partially reuse [the benchmark](https://github.com/biboudis/clashofthelambdas)
 earlier suggested by

@@ -16,11 +16,12 @@ HONE_VERSION=0.0.34
 all: env results.md html/summary.html
 	set -e
 
-html/summary.html: ./src/main/perl/create-html-summary.pl
+html/summary.html: ./src/main/perl/create-html-summary.pl before.csv after.csv
 	mkdir -p html
 	./src/main/perl/create-html-summary.pl
 	echo "<html><body><a href='summary.html'>summary</a></body></html>" > html/index.html
 
+.SILENT:
 env:
 	if [[ "$(MAKE_VERSION)" =~ ^[1-3] ]]; then
 	    echo "Make must be 4+: $(MAKE_VERSION)"

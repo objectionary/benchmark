@@ -43,7 +43,7 @@ public class Sum {
     public long plain() {
         final LongUnaryOperator iface = num -> num * num;
         long acc = 0L;
-        for (int idx = 0; idx < Sum.VALUES.length ; idx++) {
+        for (int idx = 0; idx < Sum.VALUES.length; idx++) {
             acc += iface.applyAsLong(Sum.VALUES[idx]);
         }
         return acc;

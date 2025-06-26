@@ -23,14 +23,14 @@ use Utils qw( fread fwrite );
 sub timed {
   my ($html) = @_;
   my $time = `date +'%Y-%m-%d %H:%M'`;
-  $html =~ s/\{time\}/${time}/g;
+  chomp $time;
+  $html =~ s/\{time\}/$time/g;
   return $html;
 }
 
 sub trimmed {
   my ($txt) = @_;
-  $txt =~ s/^\s+//g;
-  $txt =~ s/\s+$//g;
+  $txt =~ s/^\s+|\s+$//g;
   return $txt;
 }
 
@@ -41,73 +41,78 @@ sub inject {
   $safe =~ s/>/&gt;/g;
   $safe =~ s/\$/\\\$/g;
   my $show = fread('src/main/html/show.html');
-  $show =~ s/\{snippet\}/${snippet}/g;
-  $show =~ s/\{pre\}/${safe}/g;
+  $show =~ s/\{snippet\}/$snippet/g;
+  $show =~ s/\{pre\}/$safe/g;
   fwrite("html/$snippet.html", timed($show));
-  $html =~ s/\{${snippet}\}/${safe}/g;
+  $html =~ s/\{$snippet\}/$safe/g;
   return $html;
 }
 
 sub join_classes {
   my ($dir) = @_;
-  my $codes = '';
+  my @codes;
   my $total = 0;
-  foreach my $f (glob($dir . '/org/eolang/benchmark/*.class')) {
+  foreach my $f (glob("$dir/org/eolang/benchmark/*.class")) {
     my $base = substr($f, length($dir) + 1);
-    my $code = `cd $dir ; javap -c '$base'`;
+    my $code = `cd '$dir' && javap -c '$base'`;
+    chomp $code;
     $code = trimmed($code);
-    $codes = $codes . "\n\n" . $code;
-    $total += 1;
+    push @codes, $code;
+    $total++;
   }
-  $codes =~ s/^\s|\s$//g;
-  print("$total .class files joined from $dir\n");
-  return $codes;
+  my $result = join("\n\n", @codes);
+  $result =~ s/^\s+|\s+$//g;
+  print "$total .class files joined from $dir\n";
+  return $result;
 }
 
 sub join_eo {
   my ($dir) = @_;
-  my $eos = '';
+  my @eos;
   my $total = 0;
-  foreach my $f (glob($dir . '/*.eo')) {
+  foreach my $f (glob("$dir/*.eo")) {
     my $eo = trimmed(fread($f));
-    $eo =~ s/\n\n/\n/g; # empty lines
-    $eos = $eos . "\n\n" . $eo;
-    $total += 1;
+    $eo =~ s/\n\n+/\n/g;
+    push @eos, $eo;
+    $total++;
   }
-  $eos =~ s/^\s|\s$//g;
-  print("$total .eo files joined from $dir\n");
-  return $eos;
+  my $result = join("\n\n", @eos);
+  $result =~ s/^\s+|\s+$//g;
+  print "$total .eo files joined from $dir\n";
+  return $result;
 }
 
 sub join_java {
   my ($dir) = @_;
-  my $javas = '';
+  my @javas;
   my $total = 0;
-  foreach my $f (glob($dir . '/*.java')) {
+  foreach my $f (glob("$dir/*.java")) {
     my $java = trimmed(fread($f));
-    $java =~ s/\/\/.*\n//g; # one-line comments
-    $java =~ s/\n\n/\n/g; # empty lines
-    $java =~ s/\/\*(.|\n)*\*\///gm; # block comments
-    $javas = $javas . "\n\n" . trimmed($java);
-    $total += 1;
+    $java =~ s{//.*$}{}gm;
+    $java =~ s/\n\n+/\n/g;
+    $java =~ s{/\*.*?\*/}{}gs;
+    push @javas, trimmed($java);
+    $total++;
   }
-  $javas = trimmed($javas);
-  print("$total .java files joined from $dir\n");
-  return $javas;
+  my $result = join("\n\n", @javas);
+  $result = trimmed($result);
+  print "$total .java files joined from $dir\n";
+  return $result;
 }
 
 sub join_phi {
   my ($dir) = @_;
-  my $phis = '';
+  my @phis;
   my $total = 0;
-  foreach my $f (glob($dir . '/*.phi')) {
+  foreach my $f (glob("$dir/*.phi")) {
     my $phi = trimmed(fread($f));
-    $phis = $phis . "\n\n" . $phi;
-    $total += 1;
+    push @phis, $phi;
+    $total++;
   }
-  $phis =~ s/^\s|\s$//g;
-  print("$total .phi files joined from $dir\n");
-  return $phis;
+  my $result = join("\n\n", @phis);
+  $result =~ s/^\s+|\s+$//g;
+  print "$total .phi files joined from $dir\n";
+  return $result;
 }
 
 my $html = fread('src/main/html/summary.html');
@@ -121,9 +126,11 @@ $html = inject($html, 'after-unphi', join_eo('after/generated-sources/unphi.eo/o
 $html = inject($html, 'after-jeo-assemble', join_classes('after/classes'));
 $html = inject($html, 'after-jd', join_java('after/generated-sources/after-jd/org/eolang/benchmark'));
 
-$html = inject($html, 'version-javac', `javac --version`);
-$html = inject($html, 'eo-version', $ENV{EO_VERSION});
-$html = inject($html, 'jeo-version', $ENV{JEO_VERSION});
-$html = inject($html, 'jd-version', $ENV{JD_VERSION});
+my $javac_version = `javac --version`;
+chomp $javac_version;
+$html = inject($html, 'version-javac', $javac_version);
+$html = inject($html, 'eo-version', $ENV{EO_VERSION} || '');
+$html = inject($html, 'jeo-version', $ENV{JEO_VERSION} || '');
+$html = inject($html, 'jd-version', $ENV{JD_VERSION} || '');
 
 fwrite('html/summary.html', timed($html));

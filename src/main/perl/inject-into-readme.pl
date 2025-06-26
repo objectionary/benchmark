@@ -18,13 +18,16 @@ use warnings;
 use lib('src/main/perl');
 use Utils qw( fread fwrite );
 
-my $file = "README.md";
+my $readme_file = "README.md";
+my $results_file = "results.md";
+my $separator = "<!-- benchmark -->";
 
-my $readme = fread($file);
-my $sep = "<!-- benchmark -->";
-my @p = split(/\Q$sep\E/, $readme);
+my $readme = fread($readme_file);
+my @parts = split(/\Q$separator\E/, $readme);
 
-my $table = fread('results.md');
-$p[1] = "\n" . $table . "\n";
+die "README.md must contain exactly 2 benchmark separators" unless @parts == 3;
 
-fwrite($file, join($sep, @p));
+my $table = fread($results_file);
+$parts[1] = "\n" . $table . "\n";
+
+fwrite($readme_file, join($separator, @parts));

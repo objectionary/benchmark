@@ -46,7 +46,7 @@ public class Cotl {
 
     static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
-    static long[] valuesLo = valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
+    static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
 
     static long[] valuesHi = IntStream.range(0, N).mapToLong(i -> i).toArray();
 
@@ -55,7 +55,7 @@ public class Cotl {
     @Benchmark
     public long sumBaseline() {
         long acc = 0;
-        for (int i =0 ; i < v.length ; i++) {
+        for (int i = 0; i < v.length; i++) {
             acc += v[i];
         }
         return acc;
@@ -64,7 +64,7 @@ public class Cotl {
     @Benchmark
     public long sumOfSquaresBaseline() {
         long acc = 0;
-        for (int i =0 ; i < v.length ; i++) {
+        for (int i = 0; i < v.length; i++) {
             acc += v[i] * v[i];
         }
         return acc;
@@ -73,8 +73,8 @@ public class Cotl {
     @Benchmark
     public long cartBaseline() {
         long cart = 0;
-        for (int d = 0 ; d < valuesHi.length ; d++) {
-            for (int dp = 0 ; dp < valuesLo.length ; dp++) {
+        for (int d = 0; d < valuesHi.length; d++) {
+            for (int dp = 0; dp < valuesLo.length; dp++) {
                 cart += valuesHi[d] * valuesLo[dp];
             }
         }
@@ -84,7 +84,7 @@ public class Cotl {
     @Benchmark
     public long sumOfSquaresEvenBaseline() {
         long acc = 0;
-        for (int i =0 ; i < v.length ; i++) {
+        for (int i = 0; i < v.length; i++) {
             if (v[i] % 2 == 0) {
                 acc += v[i] * v[i];
             }
@@ -160,7 +160,7 @@ public class Cotl {
     @Benchmark
     public long refBaseline() {
         long count = 0;
-        for (int i = 0 ; i < refs.length ; i++) {
+        for (int i = 0; i < refs.length; i++) {
             if (refs[i].num % 5 == 0 && refs[i].num % 7 == 0) {
                 count++;
             }
