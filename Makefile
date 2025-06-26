@@ -43,4 +43,4 @@ results.md: before.csv after.csv src/main/bash/assemble-results.sh
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:
-	rm -f *.csv *.jar results.md before after target
+	rm -rf *.csv *.jar results.md before after target

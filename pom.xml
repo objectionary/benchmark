@@ -148,6 +148,7 @@
             <version>${hone.version}</version>
             <executions>
               <execution>
+                <phase>process-classes</phase>
                 <goals>
                   <goal>pull</goal>
                   <goal>optimize</goal>
@@ -155,6 +156,35 @@
                 <configuration>
                   <rules>none</rules>
                   <skipPhino>false</skipPhino>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.eolang</groupId>
+            <artifactId>eo-maven-plugin</artifactId>
+            <version>0.56.9</version>
+            <executions>
+              <execution>
+                <id>print-after-jeo</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>print</goal>
+                </goals>
+                <configuration>
+                  <printSourcesDir>after/generated-sources/jeo-disassemble</printSourcesDir>
+                  <printOutputDir>after/generated-sources/jeo-disassemble.eo</printOutputDir>
+                </configuration>
+              </execution>
+              <execution>
+                <id>print-after-phino</id>
+                <phase>process-classes</phase>
+                <goals>
+                  <goal>print</goal>
+                </goals>
+                <configuration>
+                  <printSourcesDir>after/generated-sources/unphi</printSourcesDir>
+                  <printOutputDir>after/generated-sources/unphi.eo</printOutputDir>
                 </configuration>
               </execution>
             </executions>

@@ -113,10 +113,11 @@ sub join_phi {
 my $html = fread('src/main/html/summary.html');
 
 $html = inject($html, 'java', join_java('src/main/java/org/eolang/benchmark'));
-$html = inject($html, 'after-javac', join_classes('after/bytecode'));
-$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/jeo-disassemble/eo/org/eolang/benchmark'));
+$html = inject($html, 'after-javac', join_classes('after/classes-before-hone'));
+$html = inject($html, 'after-jeo-disassemble', join_eo('after/generated-sources/jeo-disassemble.eo/org/eolang/benchmark'));
 $html = inject($html, 'after-phi', join_phi('after/generated-sources/phi/org/eolang/benchmark'));
 $html = inject($html, 'after-phino', join_phi('after/generated-sources/phi-optimized/org/eolang/benchmark'));
+$html = inject($html, 'after-unphi', join_eo('after/generated-sources/unphi.eo/org/eolang/benchmark'));
 $html = inject($html, 'after-jeo-assemble', join_classes('after/classes'));
 $html = inject($html, 'after-jd', join_java('after/generated-sources/after-jd/org/eolang/benchmark'));
 
