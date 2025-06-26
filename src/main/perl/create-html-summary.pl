@@ -9,6 +9,8 @@ use File::Basename;
 use lib('src/main/perl');
 use Utils qw( fread fwrite );
 
+my $target = 'Big';
+
 sub timed {
   my ($html) = @_;
   my $time = `date +'%Y-%m-%d %H:%M'`;
@@ -40,7 +42,7 @@ sub join_classes {
   my ($dir) = @_;
   my @codes;
   my $total = 0;
-  foreach my $f (glob("$dir/org/eolang/benchmark/*.class")) {
+  foreach my $f (glob("$dir/org/eolang/benchmark/$target.class")) {
     my $base = substr($f, length($dir) + 1);
     my $code = `cd '$dir' && javap -c '$base'`;
     chomp $code;
@@ -58,7 +60,7 @@ sub join_eo {
   my ($dir) = @_;
   my @eos;
   my $total = 0;
-  foreach my $f (glob("$dir/*.eo")) {
+  foreach my $f (glob("$dir/$target.eo")) {
     my $eo = trimmed(fread($f));
     $eo =~ s/\n\n+/\n/g;
     push @eos, $eo;
@@ -74,7 +76,7 @@ sub join_java {
   my ($dir) = @_;
   my @javas;
   my $total = 0;
-  foreach my $f (glob("$dir/*.java")) {
+  foreach my $f (glob("$dir/$target.java")) {
     my $java = trimmed(fread($f));
     $java =~ s{//.*$}{}gm;
     $java =~ s/\n\n+/\n/g;
@@ -92,7 +94,7 @@ sub join_phi {
   my ($dir) = @_;
   my @phis;
   my $total = 0;
-  foreach my $f (glob("$dir/*.phi")) {
+  foreach my $f (glob("$dir/$target.phi")) {
     my $phi = trimmed(fread($f));
     push @phis, $phi;
     $total++;
