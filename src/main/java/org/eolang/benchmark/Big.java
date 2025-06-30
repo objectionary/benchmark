@@ -53,7 +53,8 @@ public class Big {
 
     @Benchmark
     public long streams() {
-        return Stream.of(Big.VALUES)
+        return Stream
+            .of(Big.VALUES)
             .map(obj -> (String) obj)
             .map(String::trim)
             .filter(str -> str.length() == 4)

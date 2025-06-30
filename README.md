@@ -7,18 +7,17 @@
 [![mvn](https://github.com/objectionary/benchmark/actions/workflows/mvn.yml/badge.svg)](https://github.com/objectionary/benchmark/actions/workflows/mvn.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 
-It's a benchmark that puts together:
+This benchmark combines:
 
 * [eo-maven-plugin](https://github.com/objectionary/eo)
 * [jeo-maven-plugin](https://github.com/objectionary/jeo-maven-plugin)
 * [phino](https://github.com/objectionary/phino)
 
-The goal is to test the performance of Java Stream API before
-the "stream fusion" optimization
-and after it, then compare the results. Intermediate artifacts are in this
+The goal is to test the performance of the Java Stream API before
+and after the "stream fusion" optimization, and then compare the results.
+Intermediate artifacts are available in this
 [`summary.html`](https://www.objectionary.com/benchmark/summary.html).
-We partially reuse [the benchmark](https://github.com/biboudis/clashofthelambdas)
-earlier suggested by
+We partially reuse the benchmark suggested by
 [Biboudis et al.](https://arxiv.org/abs/1406.6631)
 ([sources](https://github.com/biboudis/clashofthelambdas))
 and used by
@@ -26,10 +25,8 @@ and used by
 
 <!-- benchmark_begin -->
 This is the summary of the tests performed
-by openjdk 23.0.2,
-on 2025-06-26
-at 08:57,
-on Linux with 4 CPUs,
+by openjdk 23.0.2, on 2025-06-26
+at 08:57, on Linux with 4 CPUs,
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
 
@@ -62,11 +59,11 @@ The entire test took 359 seconds.
 
 ## How to Contribute
 
-Fork repository, make changes, then send us
+Fork the repository, make your changes, and then send us
 a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 We will review your changes and apply them to the `master` branch shortly,
 provided they don't violate our quality standards. To avoid frustration,
-before sending us your pull request please run full build:
+before sending us your pull request, please run a full build:
 
 ```bash
 make
@@ -74,4 +71,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/15897280264
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/9684425433

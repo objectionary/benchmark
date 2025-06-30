@@ -11,7 +11,9 @@ SHELL := bash
 
 SHELL=bash
 
-HONE_VERSION=0.0.34
+HONE_VERSION=0.0.35
+
+export
 
 all: env results.md html/summary.html
 	set -e

@@ -123,5 +123,6 @@ $html = inject($html, 'eo-version', $ENV{EO_VERSION} || '');
 $html = inject($html, 'jeo-version', $ENV{JEO_VERSION} || '');
 $html = inject($html, 'phino-version', $ENV{PHINO_VERSION} || '');
 $html = inject($html, 'jd-version', $ENV{JD_VERSION} || '');
+$html = inject($html, 'hone-version', $ENV{HONE_VERSION} || '');
 
 fwrite('html/summary.html', timed($html));
