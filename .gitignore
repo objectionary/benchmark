@@ -1,11 +1,12 @@
-.DS_Store
-.idea
-.idea/
 *.csv
+*.iml
 *.jar
 *.jit-time
 *.json
 *.time
+.DS_Store
+.idea
+.idea/
 after/
 before/
 binary/
