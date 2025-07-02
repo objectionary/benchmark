@@ -26,37 +26,22 @@ and used by
 <!-- benchmark_begin -->
 This is the summary of the tests performed
 by openjdk 23.0.2,
-on 2025-06-30
-at 08:18,
+on 2025-07-02
+at 14:01,
 on Linux with 4 CPUs,
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
 
 | Test method | Before | After | Diff | Gain |
 | --- | --: | --: | --: | --: |
-| [`Big.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `3.22` | `3.26` | `+0.04` | `+1%` |
-| [`Big.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `13.47` | `14.12` | `+0.65` | `+4%` |
-| [`Cotl.cartBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `4.71` | `4.84` | `+0.13` | `+2%` |
-| [`Cotl.cartPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `17.76` | `17.09` | `-0.68` | `-3%` |
-| [`Cotl.cartSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `36.85` | `37.07` | `+0.22` | `+0%` |
-| [`Cotl.refBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `1.17` | `1.19` | `+0.02` | `+1%` |
-| [`Cotl.refPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `1.37` | `1.25` | `-0.12` | `-8%` |
-| [`Cotl.refSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `2.56` | `2.57` | `+0.01` | `+0%` |
-| [`Cotl.sumBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.31` | `0.32` | `+0.00` | `+0%` |
-| [`Cotl.sumOfSquaresBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.19` | `0.19` | `-0.00` | `+0%` |
-| [`Cotl.sumOfSquaresEvenBaseline`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.64` | `0.67` | `+0.04` | `+5%` |
-| [`Cotl.sumOfSquaresEvenPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.51` | `0.59` | `+0.08` | `+16%` |
-| [`Cotl.sumOfSquaresEvenSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.69` | `0.68` | `-0.01` | `+0%` |
-| [`Cotl.sumOfSquaresPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.24` | `0.25` | `+0.01` | `+4%` |
-| [`Cotl.sumOfSquaresSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.20` | `0.19` | `-0.00` | `-1%` |
-| [`Cotl.sumPar`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.29` | `0.25` | `-0.04` | `-14%` |
-| [`Cotl.sumSeq`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cotl.java) | `0.32` | `0.32` | `-0.00` | `+0%` |
-| [`Even.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `4.69` | `5.98` | `+1.29` | `+27%` |
-| [`Even.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `7.07` | `7.01` | `-0.06` | `+0%` |
-| [`Sum.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `39.20` | `38.36` | `-0.84` | `-2%` |
-| [`Sum.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `39.26` | `38.37` | `-0.89` | `-2%` |
+| [`Big.fused1`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `233.14` | `310.71` | `+77.56` | `+33%` |
+| [`Big.fused2`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `39.09` | `47.95` | `+8.86` | `+22%` |
+| [`Big.fused3`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `49.91` | `47.93` | `-1.98` | `-3%` |
+| [`Big.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `31.82` | `34.07` | `+2.25` | `+7%` |
+| [`Big.prefused`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `320.72` | `555.86` | `+235.14` | `+73%` |
+| [`Big.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `123.18` | `123.12` | `-0.07` | `+0%` |
 
-The entire test took 221 seconds.
+The entire test took 156 seconds.
 <!-- benchmark_end -->
 
 ## How to Contribute
@@ -73,4 +58,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/15967566937
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/16027198999
