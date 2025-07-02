@@ -30,8 +30,8 @@ import org.openjdk.jmh.annotations.Warmup;
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
-@Warmup(iterations = 2, time = 10, timeUnit = TimeUnit.MILLISECONDS)
-@Measurement(iterations = 2, time = 10, timeUnit = TimeUnit.MILLISECONDS)
+@Warmup(iterations = 5, time = 100, timeUnit = TimeUnit.MILLISECONDS)
+@Measurement(iterations = 10, time = 100, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
 @Fork(2)
 public class Big {
