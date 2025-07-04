@@ -27,21 +27,21 @@ and used by
 This is the summary of the tests performed
 by openjdk 23.0.2,
 on 2025-07-04
-at 00:59,
+at 01:41,
 on Linux with 4 CPUs,
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
 
 | Test method | Before | After | Diff | Gain |
 | --- | --: | --: | --: | --: |
-| [`Big.fused1`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `193.19` | `195.30` | `+2.11` | `+1%` |
-| [`Big.fused2`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `38.34` | `39.69` | `+1.35` | `+3%` |
-| [`Big.fused3`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `58.58` | `44.87` | `-13.71` | `-23%` |
-| [`Big.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `34.35` | `33.27` | `-1.08` | `-3%` |
-| [`Big.prefused`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `377.36` | `358.74` | `-18.62` | `-4%` |
-| [`Big.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `124.75` | `123.45` | `-1.29` | `-1%` |
+| [`Big.fused1`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `176.51` | `195.49` | `+18.98` | `+10%` |
+| [`Big.fused2`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `37.12` | `39.69` | `+2.57` | `+6%` |
+| [`Big.fused3`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `48.76` | `42.89` | `-5.87` | `-12%` |
+| [`Big.plain`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `32.96` | `33.75` | `+0.79` | `+2%` |
+| [`Big.prefused`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `339.74` | `353.25` | `+13.52` | `+3%` |
+| [`Big.streams`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `123.40` | `123.90` | `+0.50` | `+0%` |
 
-The entire test took 208 seconds.
+The entire test took 203 seconds.
 <!-- benchmark_end -->
 
 ## How to Contribute
@@ -58,4 +58,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/16063441301
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/16063944665
