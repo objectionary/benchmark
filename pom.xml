@@ -15,11 +15,12 @@
   <inceptionYear>2023</inceptionYear>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
+    <maven.compiler.source>16</maven.compiler.source>
+    <maven.compiler.target>16</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
-    <eo.version>0.56.9</eo.version>
+    <eo.version>0.57.0</eo.version>
+    <hone.version>0.1.0</hone.version>
   </properties>
   <dependencies>
     <dependency>
@@ -41,6 +42,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
         <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
           <annotationProcessorPaths>
             <path>
               <groupId>org.openjdk.jmh</groupId>
@@ -156,7 +159,6 @@
                 </goals>
                 <configuration>
                   <rules>none</rules>
-                  <skipPhino>false</skipPhino>
                 </configuration>
               </execution>
             </executions>

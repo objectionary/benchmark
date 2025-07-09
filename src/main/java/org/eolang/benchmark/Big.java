@@ -7,6 +7,7 @@ package org.eolang.benchmark;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collector;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -68,37 +69,42 @@ public class Big {
     @Benchmark
     public long prefused() {
         return Stream.of(Big.VALUES)
-            .collect(col(
-                (BiConsumer<ArrayList<String>, Object>) (acc, item) -> {
-                    final String i = step1(item);
-                    acc.add(i);
-                }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<String>, String>) (acc, item) -> {
-                    final String i = step2(item);
-                    acc.add(i);
-                }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<String>, String>) (acc, item) -> {
-                    final String i = item;
-                    if (!step3(i)) {
-                        return;
+            .mapMulti(
+                new BiConsumer<Object, Consumer<String>>() {
+                    @Override
+                    public void accept(Object item, Consumer<String> then) {
+                        then.accept(step1(item));
                     }
-                    acc.add(i);
                 }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<Long>, String>) (acc, item) -> {
-                    final long i = step4(item);
-                    acc.add(i);
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<String>>() {
+                    @Override
+                    public void accept(String item, Consumer<String> then) {
+                        then.accept(step2(item));
+                    }
                 }
-            ))
-            .stream()
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<String>>() {
+                    @Override
+                    public void accept(String item, Consumer<String> then) {
+                        if (!step3(item)) {
+                            return;
+                        }
+                        then.accept(item);
+                    }
+                }
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<Long>>() {
+                    @Override
+                    public void accept(String item, Consumer<Long> then) {
+                        final long i = step4(item);
+                        then.accept(i);
+                    }
+                }
+            )
             .mapToLong(num -> num)
             .sum();
     }
@@ -106,30 +112,34 @@ public class Big {
     @Benchmark
     public long fused1() {
         return Stream.of(Big.VALUES)
-            .collect(col(
-                (BiConsumer<ArrayList<String>, Object>) (acc, item) -> {
-                    final String i = step2(step1(item));
-                    acc.add(i);
-                }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<String>, String>) (acc, item) -> {
-                    final String i = item;
-                    if (!step3(i)) {
-                        return;
+            .mapMulti(
+                new BiConsumer<Object, Consumer<String>>() {
+                    @Override
+                    public void accept(Object item, Consumer<String> then) {
+                        then.accept(step2(step1(item)));
                     }
-                    acc.add(i);
                 }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<Long>, String>) (acc, item) -> {
-                    final long i = step4(item);
-                    acc.add(i);
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<String>>() {
+                    @Override
+                    public void accept(String item, Consumer<String> then) {
+                        if (!step3(item)) {
+                            return;
+                        }
+                        then.accept(item);
+                    }
                 }
-            ))
-            .stream()
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<Long>>() {
+                    @Override
+                    public void accept(String item, Consumer<Long> then) {
+                        final long i = step4(item);
+                        then.accept(i);
+                    }
+                }
+            )
             .mapToLong(num -> num)
             .sum();
     }
@@ -137,23 +147,27 @@ public class Big {
     @Benchmark
     public long fused2() {
         return Stream.of(Big.VALUES)
-            .collect(col(
-                (BiConsumer<ArrayList<String>, Object>) (acc, item) -> {
-                    final String i = step2(step1(item));
-                    if (!step3(i)) {
-                        return;
+            .mapMulti(
+                new BiConsumer<Object, Consumer<String>>() {
+                    @Override
+                    public void accept(Object item, Consumer<String> then) {
+                        final String i = step2(step1(item));
+                        if (!step3(i)) {
+                            return;
+                        }
+                        then.accept(i);
                     }
-                    acc.add(i);
                 }
-            ))
-            .stream()
-            .collect(col(
-                (BiConsumer<ArrayList<Long>, String>) (acc, item) -> {
-                    final long i = step4(item);
-                    acc.add(i);
+            )
+            .mapMulti(
+                new BiConsumer<String, Consumer<Long>>() {
+                    @Override
+                    public void accept(String item, Consumer<Long> then) {
+                        final long i = step4(item);
+                        then.accept(i);
+                    }
                 }
-            ))
-            .stream()
+            )
             .mapToLong(num -> num)
             .sum();
     }
@@ -161,17 +175,19 @@ public class Big {
     @Benchmark
     public long fused3() {
         return Stream.of(Big.VALUES)
-            .collect(col(
-                (BiConsumer<ArrayList<Long>, Object>) (acc, item) -> {
-                    final String i = step2(step1(item));
-                    if (!step3(i)) {
-                        return;
+            .mapMulti(
+                new BiConsumer<Object, Consumer<Long>>() {
+                    @Override
+                    public void accept(Object item, Consumer<Long> then) {
+                        final String i1 = step2(step1(item));
+                        if (!step3(i1)) {
+                            return;
+                        }
+                        final long i2 = step4(i1);
+                        then.accept(i2);
                     }
-                    final long i2 = step4(i);
-                    acc.add(i2);
                 }
-            ))
-            .stream()
+            )
             .mapToLong(num -> num)
             .sum();
     }
