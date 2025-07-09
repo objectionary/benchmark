@@ -208,17 +208,4 @@ public class Big {
         return Long.parseLong(item, 16) + 1L;
     }
 
-    private static <T, R> Collector<T, ArrayList<R>, ArrayList<R>> col(
-        BiConsumer<ArrayList<R>, T> fn
-    ) {
-        return Collector.of(
-            () -> new ArrayList<>(0),
-            fn,
-            (left, right) -> {
-                left.addAll(right);
-                return left;
-            }
-        );
-    }
-
 }
