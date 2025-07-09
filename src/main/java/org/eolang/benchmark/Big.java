@@ -70,39 +70,27 @@ public class Big {
     public long prefused() {
         return Stream.of(Big.VALUES)
             .mapMulti(
-                new BiConsumer<Object, Consumer<String>>() {
-                    @Override
-                    public void accept(Object item, Consumer<String> then) {
-                        then.accept(step1(item));
-                    }
+                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
+                    then.accept(step1(item));
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<String>>() {
-                    @Override
-                    public void accept(String item, Consumer<String> then) {
-                        then.accept(step2(item));
-                    }
+                (BiConsumer<String, Consumer<String>>) (item, then) -> {
+                    then.accept(step2(item));
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<String>>() {
-                    @Override
-                    public void accept(String item, Consumer<String> then) {
-                        if (!step3(item)) {
-                            return;
-                        }
-                        then.accept(item);
+                (BiConsumer<String, Consumer<String>>) (item, then) -> {
+                    if (!step3(item)) {
+                        return;
                     }
+                    then.accept(item);
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<Long>>() {
-                    @Override
-                    public void accept(String item, Consumer<Long> then) {
-                        final long i = step4(item);
-                        then.accept(i);
-                    }
+                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
+                    final long i = step4(item);
+                    then.accept(i);
                 }
             )
             .mapToLong(num -> num)
@@ -113,31 +101,22 @@ public class Big {
     public long fused1() {
         return Stream.of(Big.VALUES)
             .mapMulti(
-                new BiConsumer<Object, Consumer<String>>() {
-                    @Override
-                    public void accept(Object item, Consumer<String> then) {
-                        then.accept(step2(step1(item)));
-                    }
+                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
+                    then.accept(step2(step1(item)));
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<String>>() {
-                    @Override
-                    public void accept(String item, Consumer<String> then) {
-                        if (!step3(item)) {
-                            return;
-                        }
-                        then.accept(item);
+                (BiConsumer<String, Consumer<String>>) (item, then) -> {
+                    if (!step3(item)) {
+                        return;
                     }
+                    then.accept(item);
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<Long>>() {
-                    @Override
-                    public void accept(String item, Consumer<Long> then) {
-                        final long i = step4(item);
-                        then.accept(i);
-                    }
+                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
+                    final long i = step4(item);
+                    then.accept(i);
                 }
             )
             .mapToLong(num -> num)
@@ -148,24 +127,18 @@ public class Big {
     public long fused2() {
         return Stream.of(Big.VALUES)
             .mapMulti(
-                new BiConsumer<Object, Consumer<String>>() {
-                    @Override
-                    public void accept(Object item, Consumer<String> then) {
-                        final String i = step2(step1(item));
-                        if (!step3(i)) {
-                            return;
-                        }
-                        then.accept(i);
+                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
+                    final String i = step2(step1(item));
+                    if (!step3(i)) {
+                        return;
                     }
+                    then.accept(i);
                 }
             )
             .mapMulti(
-                new BiConsumer<String, Consumer<Long>>() {
-                    @Override
-                    public void accept(String item, Consumer<Long> then) {
-                        final long i = step4(item);
-                        then.accept(i);
-                    }
+                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
+                    final long i = step4(item);
+                    then.accept(i);
                 }
             )
             .mapToLong(num -> num)
@@ -176,16 +149,13 @@ public class Big {
     public long fused3() {
         return Stream.of(Big.VALUES)
             .mapMulti(
-                new BiConsumer<Object, Consumer<Long>>() {
-                    @Override
-                    public void accept(Object item, Consumer<Long> then) {
-                        final String i1 = step2(step1(item));
-                        if (!step3(i1)) {
-                            return;
-                        }
-                        final long i2 = step4(i1);
-                        then.accept(i2);
+                (BiConsumer<Object, Consumer<Long>>) (item, then) -> {
+                    final String i1 = step2(step1(item));
+                    if (!step3(i1)) {
+                        return;
                     }
+                    final long i2 = step4(i1);
+                    then.accept(i2);
                 }
             )
             .mapToLong(num -> num)
