@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 public class Foo {
@@ -13,7 +15,14 @@ public class Foo {
             .boxed()
             .map(x -> Integer.toString(x))
             .map(String::trim)
-            .map(Integer::parseInt)
+            .mapMulti(
+                (BiConsumer<String, Consumer<Integer>>) (str, consumer) -> {
+                    if (str.length() != 1) {
+                        return;
+                    }
+                    consumer.accept(Integer.parseInt(str));
+                }
+            )
             .map(x -> x * x)
             .mapToLong(num -> (long) num)
             .sum();

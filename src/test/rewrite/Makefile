@@ -15,7 +15,11 @@ all: Foo.back.out
 	phino rewrite --sweet --input=xmir --nothing < $< > $@
 
 %.after.phi: %.phi Makefile $(RULES)
-	phino rewrite --sweet --rule invokeinterface-to-lambda.yml < $< > $@
+	phino rewrite --sweet --nothing < $< > $@
+	for r in invokeinterface-to-lambda map-to-mapMulti; do
+		cp $@ target/intermediate.phi
+		phino rewrite --sweet --rule "$${r}.yml" --log-level=DEBUG < target/intermediate.phi > $@
+	done
 
 %.back.phi: %.after.phi Makefile $(RULES)
 	phino rewrite --sweet --rule lambda-to-invokeinterface.yml < $< > $@
