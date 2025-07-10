@@ -1,60 +1,11 @@
 # SPDX-FileCopyrightText: Copyright (c) 2024-2025 Objectionary.com
 # SPDX-License-Identifier: MIT
 ---
-name: invokeinterface-to-lambda
+name: lambda-to-invokeinterface
 pattern: |
   ⟦
     𝐵1,
-    𝜏1 ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokedynamic",
-      𝜏2 ↦ 186,
-      𝜏3 ↦ 𝑒1,
-      𝜏4 ↦ 𝑒2,
-      𝜏5 ↦ ⟦
-        base ↦ "Q.jeo.handle",
-        𝜏6 ↦ 6,
-        𝜏7 ↦ "java/lang/invoke/LambdaMetafactory",
-        𝜏8 ↦ "metafactory",
-        𝜏9 ↦ "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
-        𝜏10 ↦ Φ̇.false,
-        𝐵10
-      ⟧,
-      𝜏11 ↦ ⟦
-        base ↦ "Q.jeo.type",
-        𝜏12 ↦ 𝑒3,
-        𝐵11
-      ⟧,
-      𝜏13 ↦ ⟦
-        base ↦ "Q.jeo.handle",
-        𝜏14 ↦ 6,
-        𝜏15 ↦ 𝑒4,
-        𝜏16 ↦ 𝑒5,
-        𝜏17 ↦ 𝑒6,
-        𝜏18 ↦ Φ̇.false,
-        𝐵12
-      ⟧,
-      𝜏19 ↦ ⟦
-        base ↦ "Q.jeo.type",
-        𝜏21 ↦ 𝑒7,
-        𝐵13
-      ⟧,
-      𝐵14
-    ⟧,
-    𝜏22 ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokeinterface",
-      𝜏23 ↦ 185,
-      𝜏24 ↦ 𝑒8,
-      𝜏25 ↦ 𝑒9,
-      𝜏26 ↦ 𝑒10,
-      𝜏27 ↦ Φ̇.true,
-      𝐵15
-    ⟧,
-    𝐵2
-  ⟧
-result: |
-  ⟦
-    𝐵1,
-    𝜏1 ↦ ⟦
+    𝜏 ↦ ⟦
       base ↦ "Q.hone.lambda",
       method ↦ 𝑒1,
       interface ↦ 𝑒2,
@@ -66,6 +17,49 @@ result: |
       stream-class ↦ 𝑒8,
       stream-method ↦ 𝑒9,
       stream-signature ↦ 𝑒10
+    ⟧,
+    𝐵2
+  ⟧
+result: |
+  ⟦
+    𝐵1,
+    𝜏 ↦ ⟦
+      base ↦ "Q.jeo.opcode.invokedynamic",
+      a1 ↦ 186,
+      a2 ↦ 𝑒1,
+      a3 ↦ 𝑒2,
+      a4 ↦ ⟦
+        base ↦ "Q.jeo.handle",
+        a1 ↦ 6,
+        a2 ↦ "java/lang/invoke/LambdaMetafactory",
+        a3 ↦ "metafactory",
+        a4 ↦ "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
+        a5 ↦ Φ̇.false
+      ⟧,
+      a5 ↦ ⟦
+        base ↦ "Q.jeo.type",
+        a1 ↦ 𝑒3
+      ⟧,
+      a6 ↦ ⟦
+        base ↦ "Q.jeo.handle",
+        a1 ↦ 6,
+        a2 ↦ 𝑒4,
+        a3 ↦ 𝑒5,
+        a4 ↦ 𝑒6,
+        a5 ↦ Φ̇.false
+      ⟧,
+      a7 ↦ ⟦
+        base ↦ "Q.jeo.type",
+        a1 ↦ 𝑒7
+      ⟧
+    ⟧,
+    xxxx ↦ ⟦
+      base ↦ "Q.jeo.opcode.invokeinterface",
+      a1 ↦ 185,
+      a2 ↦ 𝑒8,
+      a3 ↦ 𝑒9,
+      a4 ↦ 𝑒10,
+      a5 ↦ Φ̇.true
     ⟧,
     𝐵2
   ⟧

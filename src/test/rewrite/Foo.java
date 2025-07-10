@@ -7,9 +7,9 @@ import java.util.stream.IntStream;
 
 public class Foo {
 
-    public long main() {
-        final int[] input = { 1, 2, 3 };
-        return IntStream.of(input)
+    public static void main(String[] args) {
+        final int[] input = { 1, 2, 4, 8, 16 };
+        final long r = IntStream.of(input)
             .boxed()
             .map(x -> Integer.toString(x))
             .map(String::trim)
@@ -17,6 +17,7 @@ public class Foo {
             .map(x -> x * x)
             .mapToLong(num -> (long) num)
             .sum();
+        System.out.printf("result = %d\n", r);
     }
 
 }
