@@ -11,7 +11,7 @@ SHELL := bash
 
 SHELL=bash
 
-HONE_VERSION=0.1.0
+HONE_VERSION=0.1.1
 
 export
 

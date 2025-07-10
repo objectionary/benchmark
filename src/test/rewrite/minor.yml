@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+name: minor
+pattern: |
+  ⟦
+    𝐵1,
+    𝜏1 ↦ ⟦
+      base ↦ "Q.jeo.opcode.invokedynamic",
+      𝜏2 ↦ 186,
+      𝜏3 ↦ 𝑒1,
+      𝜏4 ↦ 𝑒2,
+      𝜏5 ↦ ⟦
+        base ↦ "Q.jeo.handle",
+        𝜏6 ↦ 6,
+        𝜏7 ↦ "java/lang/invoke/LambdaMetafactory",
+        𝜏8 ↦ "metafactory",
+        𝜏9 ↦ "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
+        𝜏10 ↦ Φ̇.false,
+        ρ ↦ ∅
+      ⟧,
+      𝜏11 ↦ ⟦
+        base ↦ "Q.jeo.type",
+        𝜏12 ↦ 𝑒3,
+        ρ ↦ ∅
+      ⟧,
+      𝜏13 ↦ ⟦
+        base ↦ "Q.jeo.handle",
+        𝜏14 ↦ 6,
+        𝜏15 ↦ 𝑒4,
+        𝜏16 ↦ 𝑒5,
+        𝜏17 ↦ 𝑒6,
+        𝜏18 ↦ Φ̇.false,
+        ρ ↦ ∅
+      ⟧,
+      𝜏19 ↦ ⟦
+        base ↦ "Q.jeo.type",
+        𝜏20 ↦ 𝑒7,
+        ρ ↦ ∅
+      ⟧,
+      ρ ↦ ∅
+    ⟧,
+    𝐵2
+  ⟧
+result: |
+  ⟦
+    𝐵1,
+    xxx ↦ "MINOR",
+    𝐵2
+  ⟧
