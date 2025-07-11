@@ -12,6 +12,8 @@ SHELL := bash
 SHELL=bash
 
 HONE_VERSION=0.1.1
+JEO_VERSION=0.11.4
+EO_VERSION=0.57.0
 
 export
 
@@ -42,7 +44,7 @@ results.md: before.csv after.csv src/main/bash/assemble-results.sh
 	base=$(basename $@)
 	mvn --activate-profiles "$${base}" --update-snapshots clean package \
 		"-DfinalName=$${base}" "-Ddirectory=$${base}" \
-		-Dhone.version=${HONE_VERSION}
+		-Dhone.version=${HONE_VERSION} -Djeo.version=${JEO_VERSION} -Deo.version=${EO_VERSION}
 	cp "$${base}/$${base}.jar" "$${base}.jar"
 
 clean:
