@@ -9,6 +9,8 @@ SHELL := bash
 
 RULES=$(wildcard *.yml)
 
+JEO_VERSION=0.11.4
+
 all: Foo.back.out
 
 %.phi: %.xmir Makefile
@@ -29,13 +31,13 @@ all: Foo.back.out
 
 %.xmir: %.class Makefile
 	mkdir -p target/classes
-	mvn org.eolang:jeo-maven-plugin:0.11.3:disassemble --quiet -Djeo.disassemble.sourcesDir=. -Djeo.disassemble.outputDir=.
+	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):disassemble" --quiet -Djeo.disassemble.sourcesDir=. -Djeo.disassemble.outputDir=.
 
 %.back.class: %.back.xmir Makefile
 	mkdir -p target/tmp
 	rm -rf target/tmp/*
 	cp $< target/tmp
-	mvn org.eolang:jeo-maven-plugin:0.11.3:assemble --quiet -Djeo.assemble.sourcesDir=target/tmp -Djeo.assemble.outputDir=target/tmp -Djeo.assemble.skip.verification
+	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=target/tmp -Djeo.assemble.outputDir=target/tmp -Djeo.assemble.skip.verification
 	cp target/tmp/Foo.class $@
 
 %.class: %.java Makefile
