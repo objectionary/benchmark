@@ -38,15 +38,16 @@ pattern: |
         base ↦ "Q.jeo.method",
         𝐵9,
         body ↦ ⟦
+          base ↦ 𝑒4,
           𝐵10,
           𝜏5 ↦ ⟦
-            base ↦ "Q.jeo.opcode.return",
-            𝜏6 ↦ 177,
+            base ↦ "Q.jeo.opcode.areturn",
+            𝜏6 ↦ 176,
             𝐵11
           ⟧,
           𝐵12
         ⟧,
-        name ↦ 𝑒3,
+        name ↦ "lambda$main$0",
         𝐵13
       ⟧,
       𝐵14
@@ -89,14 +90,16 @@ result: |
         base ↦ "Q.jeo.method",
         𝐵9,
         body ↦ ⟦
+          base ↦ 𝑒4,
           𝐵10,
           𝜏5 ↦ ⟦
-            base ↦ "Q.jeo.opcode.return",
-            𝜏6 ↦ 177,
+            base ↦ "Q.jeo.opcode.areturn",
+            𝜏6 ↦ 176,
             𝐵11
           ⟧,
           𝐵12
         ⟧,
+        name ↦ "lambda$main$0",
         𝐵13
       ⟧,
       𝐵14,
@@ -108,8 +111,8 @@ result: |
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
-          val599 ↦ 2,
-          val600 ↦ 2
+          val576 ↦ 2,
+          val577 ↦ 2
         ⟧,
         params ↦ ⟦
           base ↦ "Q.jeo.params",
@@ -127,6 +130,12 @@ result: |
           ⟧
         ⟧,
         body ↦ ⟦
+          base ↦ 𝑒4,
+          instruction581 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            val582 ↦ 25,
+            val583 ↦ 1
+          ⟧,
           𝐵10,
           instruction620 ↦ ⟦
             base ↦ "Q.jeo.opcode.invokeinterface",

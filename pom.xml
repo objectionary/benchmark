@@ -161,6 +161,11 @@
                 <configuration>
                   <jeoVersion>${jeo.version}</jeoVersion>
                   <rules>none</rules>
+                  <extra>
+                    <rule>src/test/rewrite/01-invokedynamic-to-lambda.yml</rule>
+                    <rule>src/test/rewrite/02-map-to-mapMulti.yml</rule>
+                    <rule>src/test/rewrite/09-lambda-to-invokedynamic.yml</rule>
+                  </extra>
                 </configuration>
               </execution>
             </executions>
