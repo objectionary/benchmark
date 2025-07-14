@@ -5,50 +5,58 @@
 .SHELLFLAGS := -e -o pipefail -c
 SHELL := bash
 .SECONDARY:
-.PHONY: all
+.PHONY: all clean after back
 
-RULES=$(wildcard *.yml)
+RULES=$(sort $(wildcard *.yml))
+RULE_NAMES=$(subst .yml,,$(RULES))
 
 JEO_VERSION=0.11.4
 
-all: Foo.back.out
+all: after/Foo.out
 
-%.phi: %.xmir Makefile
+before/%.class: %.java Makefile
+	javac -d "$$(dirname $@)" $<
+
+before/%.xmir: before/%.class Makefile | before
+	rm -f $@
+	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):disassemble" --quiet "-Djeo.disassemble.sourcesDir=$$(dirname $<)" "-Djeo.disassemble.outputDir=$$(dirname $@)"
+
+before/%.phi: before/%.xmir Makefile
 	phino rewrite --sweet --input=xmir --nothing < $< > $@
 
-%.after.phi: %.phi Makefile $(RULES)
+after/%.phi: before/%.phi Makefile $(RULES) | after
 	phino rewrite --sweet --nothing < $< > $@
-	for r in invokeinterface-to-lambda map-to-mapMulti; do
-		cp $@ target/intermediate.phi
-		phino rewrite --sweet --rule "$${r}.yml" --log-level=DEBUG < target/intermediate.phi > $@
+	for r in $(RULE_NAMES); do
+		mkdir -p tmp
+		cp $@ tmp/intermediate.phi
+		phino rewrite --sweet --rule "$${r}.yml" < tmp/intermediate.phi > $@
+	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
+		diff --color=auto -u tmp/intermediate.phi $@ || true
 	done
 
-%.back.phi: %.after.phi Makefile $(RULES)
-	phino rewrite --sweet --rule lambda-to-invokeinterface.yml < $< > $@
-
-%.back.xmir: %.back.phi Makefile $(RULES)
+after/%.xmir: after/%.phi Makefile $(RULES) | after
 	phino rewrite --nothing --output=xmir < $< > $@
 
-%.xmir: %.class Makefile
-	mkdir -p target/classes
-	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):disassemble" --quiet -Djeo.disassemble.sourcesDir=. -Djeo.disassemble.outputDir=.
+after/%.class: after/%.xmir Makefile | back
+	mkdir -p tmp/assemble
+	rm -rf tmp/assemble/*
+	cp $< tmp/assemble
+	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=tmp/assemble -Djeo.assemble.outputDir=tmp/assemble -Djeo.assemble.skip.verification
+	cp tmp/assemble/Foo.class $@
 
-%.back.class: %.back.xmir Makefile
-	mkdir -p target/tmp
-	rm -rf target/tmp/*
-	cp $< target/tmp
-	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=target/tmp -Djeo.assemble.outputDir=target/tmp -Djeo.assemble.skip.verification
-	cp target/tmp/Foo.class $@
-
-%.class: %.java Makefile
-	javac $<
-
-%.back.out: %.back.class Makefile
-	mkdir -p target/exec
-	rm -rf target/exec/*
-	cp $< target/exec/Foo.class
-	cd target/exec
+after/%.out: after/%.class Makefile | after
+	mkdir -p tmp/exec
+	rm -rf tmp/exec/*
+	cp $< tmp/exec/Foo.class
+	cd tmp/exec
 	java Foo
 
 clean:
-	rm -rf *.phi *.class *.xmir target/
+	rm -rf tmp/ before/ after/
+
+before:
+	mkdir -p before
+
+after:
+	mkdir -p after
+

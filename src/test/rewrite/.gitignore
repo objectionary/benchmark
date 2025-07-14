@@ -1,3 +1,6 @@
 *.xmir
 *.phi
 *.class
+before/
+after/
+tmp/
