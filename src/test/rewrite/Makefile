@@ -27,11 +27,11 @@ before/%.phi: before/%.xmir Makefile
 after/%.phi: before/%.phi Makefile $(RULES) | after
 	phino rewrite --sweet --nothing < $< > $@
 	for r in $(RULE_NAMES); do
-		mkdir -p tmp
-		cp $@ tmp/intermediate.phi
-		phino rewrite --sweet --rule "$${r}.yml" < tmp/intermediate.phi > $@
+		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
+		phino rewrite --sweet --rule "$${r}.yml" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
-		diff --color=auto -u tmp/intermediate.phi $@ || true
+		diff --color=auto -u "$${n}" $@ || true
+		cp "$${n}" $@
 	done
 
 after/%.xmir: after/%.phi Makefile $(RULES) | after
@@ -59,4 +59,3 @@ before:
 
 after:
 	mkdir -p after
-
