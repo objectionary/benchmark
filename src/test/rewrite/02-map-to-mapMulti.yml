@@ -20,34 +20,38 @@ pattern: |
             method ↦ "apply",
             interface ↦ "()Ljava/util/function/Function;",
             signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-            target-class ↦ 𝑒1,
-            target-method ↦ 𝑒2,
+            target-class ↦ 𝑒2,
+            target-method ↦ 𝑒3,
             target-signature ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
             intermediate-signature ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
             stream-class ↦ "java/util/stream/Stream",
             stream-method ↦ "map",
-            stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
+            stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
+            𝐵5
           ⟧,
-          𝐵5
+          𝐵6
         ⟧,
-        𝐵6
+        𝐵7
       ⟧,
-      𝐵7,
+      𝐵8,
       𝜏4 ↦ ⟦
         base ↦ "Q.jeo.method",
-        𝐵8,
+        𝐵9,
         body ↦ ⟦
-          𝐵9,
+          𝐵10,
           𝜏5 ↦ ⟦
             base ↦ "Q.jeo.opcode.return",
-            𝜏6 ↦ 177
-          ⟧
+            𝜏6 ↦ 177,
+            𝐵11
+          ⟧,
+          𝐵12
         ⟧,
-        𝐵10
+        name ↦ 𝑒3,
+        𝐵13
       ⟧,
-      𝐵11
+      𝐵14
     ⟧,
-    𝐵12
+    𝐵15
   ⟧
 result: |
   ⟦
@@ -67,36 +71,40 @@ result: |
             method ↦ "accept",
             interface ↦ "()Ljava/util/function/BiConsumer;",
             signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
-            target-class ↦ 𝑒1,
-            target-method ↦ "j$lambda$main$999",
-            target-signature ↦ "(Ljava/lang/String;Ljava/util/function/Consumer;)V",
-            intermediate-signature ↦ "(Ljava/lang/String;Ljava/util/function/Consumer;)V",
+            target-class ↦ 𝑒2,
+            target-method ↦ "fake_static_consumer",
+            target-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
+            intermediate-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
             stream-class ↦ "java/util/stream/Stream",
             stream-method ↦ "mapMulti",
-            stream-signature ↦ "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;"
+            stream-signature ↦ "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;",
+            𝐵5
           ⟧,
-          𝐵5
+          𝐵6
         ⟧,
-        𝐵6
+        𝐵7
       ⟧,
-      𝐵7,
+      𝐵8,
       𝜏4 ↦ ⟦
         base ↦ "Q.jeo.method",
-        𝐵8,
+        𝐵9,
         body ↦ ⟦
-          𝐵9,
+          𝐵10,
           𝜏5 ↦ ⟦
             base ↦ "Q.jeo.opcode.return",
-            𝜏6 ↦ 177
-          ⟧
+            𝜏6 ↦ 177,
+            𝐵11
+          ⟧,
+          𝐵12
         ⟧,
-        𝐵10
+        𝐵13
       ⟧,
-      𝐵11,
+      𝐵14,
       𝜏99 ↦ ⟦
         base ↦ "Q.jeo.method",
+        name ↦ "fake_static_consumer",
         access ↦ 4106,
-        descriptor ↦ "(Ljava/lang/String;Ljava/util/function/Consumer;)V",
+        descriptor ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
@@ -109,7 +117,7 @@ result: |
             base ↦ "Q.jeo.param",
             index ↦ 0,
             access ↦ 0,
-            type ↦ "Ljava/lang/String;"
+            type ↦ "Ljava/lang/Integer;"
           ⟧,
           arg1 ↦ ⟦
             base ↦ "Q.jeo.param",
@@ -119,18 +127,18 @@ result: |
           ⟧
         ⟧,
         body ↦ ⟦
-          𝐵7,
-          instruction681 ↦ ⟦
+          𝐵10,
+          instruction620 ↦ ⟦
             base ↦ "Q.jeo.opcode.invokeinterface",
-            val682 ↦ 185,
-            val683 ↦ "java/util/function/Consumer",
-            val684 ↦ "accept",
-            val685 ↦ "(Ljava/lang/Object;)V",
-            val686 ↦ Φ̇.true
+            val621 ↦ 185,
+            val622 ↦ "java/util/function/Consumer",
+            val623 ↦ "accept",
+            val624 ↦ "(Ljava/lang/Object;)V",
+            val625 ↦ Φ̇.true
           ⟧,
-          instruction689 ↦ ⟦
+          instruction628 ↦ ⟦
             base ↦ "Q.jeo.opcode.return",
-            val690 ↦ 177
+            val629 ↦ 177
           ⟧
         ⟧
       ⟧

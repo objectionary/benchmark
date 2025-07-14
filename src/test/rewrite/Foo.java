@@ -14,16 +14,13 @@ public class Foo {
         final long r = IntStream.of(input)
             .boxed()
             .map(x -> Integer.toString(x))
-            .map(String::trim)
+            .map(x -> Integer.parseInt(x))
             .mapMulti(
-                (BiConsumer<String, Consumer<Integer>>) (str, consumer) -> {
-                    if (str.length() != 1) {
-                        return;
-                    }
-                    consumer.accept(Integer.parseInt(str));
+                (BiConsumer<Integer, Consumer<String>>) (x, consumer) -> {
+                    consumer.accept(Integer.toString(x));
                 }
             )
-            .map(x -> x * x)
+            .map(x -> Integer.parseInt(x))
             .mapToLong(num -> (long) num)
             .sum();
         System.out.printf("result = %d\n", r);

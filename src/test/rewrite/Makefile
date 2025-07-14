@@ -30,7 +30,7 @@ after/%.phi: before/%.phi Makefile $(RULES) | after
 		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
 		phino rewrite --sweet --rule "$${r}.yml" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
-		diff --color=auto -u "$${n}" $@ || true
+		diff --color=auto -u $@ "$${n}" || true
 		cp "$${n}" $@
 	done
 
