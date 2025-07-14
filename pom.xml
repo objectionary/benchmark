@@ -19,8 +19,8 @@
     <maven.compiler.target>16</maven.compiler.target>
     <finalName>benchmark</finalName>
     <directory>target</directory>
-    <eo.version>0.57.0</eo.version>
-    <hone.version>0.1.0</hone.version>
+    <eo.version>0.57.1</eo.version>
+    <hone.version>0.1.3</hone.version>
     <jeo.version>0.11.4</jeo.version>
   </properties>
   <dependencies>

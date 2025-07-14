@@ -156,4 +156,4 @@ result: |
 where:
   - meta: 𝜏99
     function: random-tau
-    args: [ 'base', '𝐵1', 'name', '𝐵2', '𝜏2', '𝐵7', '𝜏4', '𝐵11' ]
+    args: [ 'base', 'name', '!B1', '!B2', '!a2', '!B7', '!a4', '!B11' ]
