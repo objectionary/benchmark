@@ -25,7 +25,7 @@ pattern: |
           𝜏4 ↦ 𝑒-params-2
         ⟧,
         body ↦ 𝑒-body,
-        name ↦ 𝑒-name
+        name ↦ 𝑒-func-name
       ⟧,
       𝐵3
     ⟧
@@ -54,7 +54,7 @@ result: |
           𝜏4 ↦ 𝑒-params-2
         ⟧,
         body ↦ 𝑒-body,
-        name ↦ 𝑒-name
+        name ↦ 𝑒-func-name
       ⟧,
       𝐵3,
       𝜏1 ↦ ⟦
@@ -93,7 +93,7 @@ result: |
             base ↦ "Q.jeo.opcode.invokestatic",
             i1 ↦ 184,
             i2 ↦ 𝑒-class-name,
-            i3 ↦ 𝑒-method-name,
+            i3 ↦ 𝑒-func-name,
             i4 ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
             i5 ↦ Φ̇.false
           ⟧,
@@ -114,7 +114,7 @@ result: |
             i1 ↦ 177
           ⟧
         ],
-        name ↦ 𝑒-bimethod-name
+        name ↦ 𝑒-bifunc-name
       ⟧
     ⟧
     𝐵4
@@ -124,15 +124,15 @@ when:
     - '"\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;"'
     - 𝑒-func-descriptor
 where:
-  - meta: 𝑒-bimethod-name
+  - meta: 𝑒-bifunc-name
     function: random-string
     args:
-      - '"bimethod_%x"'
+      - '"bifunc_%x"'
   - meta: 𝑒-func-input-type
     function: sed
     args:
       - 𝑒-func-descriptor
-      - '"s/\\((L.+;)\\)/\\1/g"'
+      - '"s/\\((L.+;)\\).*/\\1/g"'
   - meta: 𝑒-bifunc-descriptor
     function: concat
     args:
