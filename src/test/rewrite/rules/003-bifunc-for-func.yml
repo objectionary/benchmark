@@ -4,39 +4,45 @@
 name: bifunc-for-func
 pattern: |
   ⟦
-    𝜏0 ↦ ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
       base ↦ "Q.jeo.class",
       𝐵1,
-      name ↦ 𝑒f-class-name,
+      name ↦ 𝑒-class-name,
       𝐵2,
-      𝜏1 ↦ ⟦
+      𝜏2 ↦ ⟦
         base ↦ "Q.jeo.method",
         access ↦ 4106,
         descriptor ↦ 𝑒-func-descriptor,
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
-          𝜏1 ↦ 1,
-          𝜏2 ↦ 1
+          𝜏3 ↦ 1,
+          𝜏4 ↦ 1
         ⟧,
         params ↦ ⟦
           base ↦ "Q.jeo.params",
-          𝜏3 ↦ 𝑒-params-1,
-          𝜏4 ↦ 𝑒-params-2
+          𝜏5 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-func-input-type
+          ⟧
         ⟧,
         body ↦ 𝑒-body,
         name ↦ 𝑒-func-name
       ⟧,
       𝐵3
-    ⟧
+    ⟧,
     𝐵4
   ⟧
 result: |
   ⟦
-    𝜏0 ↦ ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
       base ↦ "Q.jeo.class",
       𝐵1,
-      name ↦ 𝑒f-class-name,
+      name ↦ 𝑒-class-name,
       𝐵2,
       𝜏1 ↦ ⟦
         base ↦ "Q.jeo.method",
@@ -45,19 +51,19 @@ result: |
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
-          𝜏1 ↦ 1,
-          𝜏2 ↦ 1
+          i1 ↦ 1,
+          i2 ↦ 1
         ⟧,
         params ↦ ⟦
           base ↦ "Q.jeo.params",
-          𝜏3 ↦ 𝑒-params-1,
-          𝜏4 ↦ 𝑒-params-2
+          i1 ↦ 𝑒-params-1,
+          i2 ↦ 𝑒-params-2
         ⟧,
         body ↦ 𝑒-body,
         name ↦ 𝑒-func-name
       ⟧,
       𝐵3,
-      𝜏1 ↦ ⟦
+      𝜏-bifunc ↦ ⟦
         base ↦ "Q.jeo.method",
         access ↦ 4106,
         descriptor ↦ 𝑒-bifunc-descriptor,
@@ -82,7 +88,7 @@ result: |
             type ↦ "Ljava/util/function/Consumer;"
           ⟧
         ⟧,
-        body ↦ [
+        body ↦ ⟦
           base ↦ "Q.jeo.seq.of5",
           i1 ↦ ⟦
             base ↦ "Q.jeo.opcode.aload",
@@ -113,26 +119,24 @@ result: |
             base ↦ "Q.jeo.opcode.return",
             i1 ↦ 177
           ⟧
-        ],
+        ⟧,
         name ↦ 𝑒-bifunc-name
       ⟧
-    ⟧
+    ⟧,
     𝐵4
   ⟧
 when:
   matches:
-    - '"\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;"'
+    - '\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;'
     - 𝑒-func-descriptor
 where:
+  - meta: 𝜏-bifunc
+    function: random-tau
+    args: [ 'base', 'name', '𝐵1', '𝐵2', '𝐵3' ]
   - meta: 𝑒-bifunc-name
     function: random-string
     args:
       - '"bifunc_%x"'
-  - meta: 𝑒-func-input-type
-    function: sed
-    args:
-      - 𝑒-func-descriptor
-      - '"s/\\((L.+;)\\).*/\\1/g"'
   - meta: 𝑒-bifunc-descriptor
     function: concat
     args:
