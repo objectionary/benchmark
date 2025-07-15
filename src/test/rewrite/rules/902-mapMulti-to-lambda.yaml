@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+name: mapMulti-to-lambda
+pattern: |
+  ⟦
+    base ↦ "Q.hone.mapMulti",
+    class ↦ 𝑒1,
+    method ↦ 𝑒2,
+    in ↦ 𝑒3
+  ⟧
+result: |
+  ⟦
+    base ↦ "Q.hone.lambda",
+    method ↦ "apply",
+    interface ↦ "()Ljava/util/function/Function;",
+    signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+    target-class ↦ 𝑒1,
+    target-method ↦ 𝑒2,
+    target-signature ↦ 𝑒4,
+    intermediate-signature ↦ 𝑒4,
+    stream-class ↦ "java/util/stream/Stream",
+    stream-method ↦ "map",
+    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
+    𝐵1
+  ⟧
+where:
+  - meta: 𝑒4
+    function: concat
+    args:
+      - '"(L"'
+      - 𝑒3
+      - '";Ljava/util/function/Consumer;)V"'

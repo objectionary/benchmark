@@ -5,14 +5,31 @@
 .SHELLFLAGS := -e -o pipefail -c
 SHELL := bash
 .SECONDARY:
-.PHONY: all clean after back
+.PHONY: all clean after back test
 
-RULES=$(sort $(wildcard *.yml))
+RULE_FILES=$(wildcard rules/*.yml)
+RULES=$(sort $(subst rules/,,$(RULE_FILES)))
 RULE_NAMES=$(subst .yml,,$(RULES))
+TEST_FILES=$(wildcard tests/*.phi)
+TESTS=$(subst .phi,,$(subst tests/,,$(TEST_FILES)))
 
 JEO_VERSION=0.11.4
 
 all: after/Foo.out
+
+test: $(TEST_FILES)
+	mkdir -p tests-output
+	for t in $(TESTS); do
+		n=$$(echo "$${t}" | sed 's/-.*$$//g')
+		rule=$$(find rules/ -name "$${n}-*.yml")
+		phino rewrite --sweet --nothing "tests/$${t}.phi" > /dev/null
+		printf "\nTesting \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
+		phino rewrite --sweet --rule "$${rule}" "tests/$${t}.phi" > tests-output/$${t}.phi
+		if ! diff -q "tests/$${t}.phi" tests-output/$${t}.phi; then
+			echo "No changes after $${t}"
+			exit 1
+		fi
+	done
 
 before/%.class: %.java Makefile
 	javac -d "$$(dirname $@)" $<
@@ -24,11 +41,11 @@ before/%.xmir: before/%.class Makefile | before
 before/%.phi: before/%.xmir Makefile
 	phino rewrite --sweet --input=xmir --nothing < $< > $@
 
-after/%.phi: before/%.phi Makefile $(RULES) | after
+after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	phino rewrite --sweet --nothing < $< > $@
 	for r in $(RULE_NAMES); do
 		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
-		phino rewrite --sweet --rule "$${r}.yml" < $@ > "$${n}"
+		phino rewrite --sweet --rule "rules/$${r}.yml" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
 		if diff --color=auto -u $@ "$${n}"; then
 			echo "No changes made by $${r}"
@@ -37,7 +54,7 @@ after/%.phi: before/%.phi Makefile $(RULES) | after
 		cp "$${n}" $@
 	done
 
-after/%.xmir: after/%.phi Makefile $(RULES) | after
+after/%.xmir: after/%.phi Makefile | after
 	phino rewrite --nothing --output=xmir < $< > $@
 
 after/%.class: after/%.xmir Makefile | back

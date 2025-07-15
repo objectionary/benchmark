@@ -1,0 +1,141 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+name: bifunc-for-func
+pattern: |
+  ⟦
+    𝜏0 ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      name ↦ 𝑒f-class-name,
+      𝐵2,
+      𝜏1 ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-func-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          𝜏1 ↦ 1,
+          𝜏2 ↦ 1
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          𝜏3 ↦ 𝑒-params-1,
+          𝜏4 ↦ 𝑒-params-2
+        ⟧,
+        body ↦ 𝑒-body,
+        name ↦ 𝑒-name
+      ⟧,
+      𝐵3
+    ⟧
+    𝐵4
+  ⟧
+result: |
+  ⟦
+    𝜏0 ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      name ↦ 𝑒f-class-name,
+      𝐵2,
+      𝜏1 ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-func-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          𝜏1 ↦ 1,
+          𝜏2 ↦ 1
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          𝜏3 ↦ 𝑒-params-1,
+          𝜏4 ↦ 𝑒-params-2
+        ⟧,
+        body ↦ 𝑒-body,
+        name ↦ 𝑒-name
+      ⟧,
+      𝐵3,
+      𝜏1 ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-bifunc-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          i1 ↦ 2,
+          i2 ↦ 2
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-func-input-type
+          ⟧,
+          i2 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 1,
+            access ↦ 0,
+            type ↦ "Ljava/util/function/Consumer;"
+          ⟧
+        ⟧,
+        body ↦ [
+          base ↦ "Q.jeo.seq.of5",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
+            i1 ↦ 0
+          ⟧,
+          i2 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokestatic",
+            i1 ↦ 184,
+            i2 ↦ 𝑒-class-name,
+            i3 ↦ 𝑒-method-name,
+            i4 ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
+            i5 ↦ Φ̇.false
+          ⟧,
+          i3 ↦ ⟦
+            base ↦ "Q.jeo.opcode.pop",
+            i1 ↦ 87
+          ⟧,
+          i4 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokeinterface",
+            i1 ↦ 185,
+            i2 ↦ "java/util/function/Consumer",
+            i3 ↦ "accept",
+            i4 ↦ "(Ljava/lang/Object;)V",
+            i5 ↦ Φ̇.true
+          ⟧,
+          i5 ↦ ⟦
+            base ↦ "Q.jeo.opcode.return",
+            i1 ↦ 177
+          ⟧
+        ],
+        name ↦ 𝑒-bimethod-name
+      ⟧
+    ⟧
+    𝐵4
+  ⟧
+when:
+  matches:
+    - '"\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;"'
+    - 𝑒-func-descriptor
+where:
+  - meta: 𝑒-bimethod-name
+    function: random-string
+    args:
+      - '"bimethod_%x"'
+  - meta: 𝑒-func-input-type
+    function: sed
+    args:
+      - 𝑒-func-descriptor
+      - '"s/\\((L.+;)\\)/\\1/g"'
+  - meta: 𝑒-bifunc-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-func-input-type
+      - '"Ljava/util/function/Consumer;)V"'
