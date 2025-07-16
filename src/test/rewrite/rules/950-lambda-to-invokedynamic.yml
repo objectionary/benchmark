@@ -5,61 +5,65 @@ name: lambda-to-invokeinterface
 pattern: |
   ⟦
     𝐵1,
-    𝜏 ↦ ⟦
+    𝜏1 ↦ ⟦
       base ↦ "Q.hone.lambda",
-      method ↦ 𝑒1,
-      interface ↦ 𝑒2,
-      signature ↦ 𝑒3,
-      target-class ↦ 𝑒4,
-      target-method ↦ 𝑒5,
-      target-signature ↦ 𝑒6,
-      intermediate-signature ↦ 𝑒7,
-      stream-class ↦ 𝑒8,
-      stream-method ↦ 𝑒9,
-      stream-signature ↦ 𝑒10
+      method ↦ 𝑒-method-name,
+      interface ↦ 𝑒-interface-name,
+      signature ↦ 𝑒-signature,
+      target-class ↦ 𝑒-class-name,
+      target-method ↦ 𝑒-target-method-name,
+      target-signature ↦ 𝑒-target-signature,
+      intermediate-signature ↦ 𝑒-intermediate-signature,
+      stream-class ↦ 𝑒-stream-class-name,
+      stream-method ↦ 𝑒-stream-method-name,
+      stream-signature ↦ 𝑒-stream-signature
     ⟧,
     𝐵2
   ⟧
 result: |
   ⟦
     𝐵1,
-    𝜏 ↦ ⟦
+    𝜏1 ↦ ⟦
       base ↦ "Q.jeo.opcode.invokedynamic",
-      a1 ↦ 186,
-      a2 ↦ 𝑒1,
-      a3 ↦ 𝑒2,
-      a4 ↦ ⟦
+      i1 ↦ 186,
+      i2 ↦ 𝑒-method-name,
+      i3 ↦ 𝑒-interface-name,
+      i4 ↦ ⟦
         base ↦ "Q.jeo.handle",
-        a1 ↦ 6,
-        a2 ↦ "java/lang/invoke/LambdaMetafactory",
-        a3 ↦ "metafactory",
-        a4 ↦ "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
-        a5 ↦ Φ̇.false
+        i1 ↦ 6,
+        i2 ↦ "java/lang/invoke/LambdaMetafactory",
+        i3 ↦ "metafactory",
+        i4 ↦ "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;",
+        i5 ↦ Φ̇.false
       ⟧,
-      a5 ↦ ⟦
+      i5 ↦ ⟦
         base ↦ "Q.jeo.type",
-        a1 ↦ 𝑒3
+        i1 ↦ 𝑒-signature
       ⟧,
-      a6 ↦ ⟦
+      i6 ↦ ⟦
         base ↦ "Q.jeo.handle",
-        a1 ↦ 6,
-        a2 ↦ 𝑒4,
-        a3 ↦ 𝑒5,
-        a4 ↦ 𝑒6,
-        a5 ↦ Φ̇.false
+        i1 ↦ 6,
+        i2 ↦ 𝑒-class-name,
+        i3 ↦ 𝑒-target-method-name,
+        i4 ↦ 𝑒-target-signature,
+        i5 ↦ Φ̇.false
       ⟧,
-      a7 ↦ ⟦
+      i7 ↦ ⟦
         base ↦ "Q.jeo.type",
-        a1 ↦ 𝑒7
+        i1 ↦ 𝑒-intermediate-signature
       ⟧
     ⟧,
-    xxxx ↦ ⟦
+    𝜏2 ↦ ⟦
       base ↦ "Q.jeo.opcode.invokeinterface",
-      a1 ↦ 185,
-      a2 ↦ 𝑒8,
-      a3 ↦ 𝑒9,
-      a4 ↦ 𝑒10,
-      a5 ↦ Φ̇.true
+      i1 ↦ 185,
+      i2 ↦ 𝑒-stream-class-name,
+      i3 ↦ 𝑒-stream-method-name,
+      i4 ↦ 𝑒-stream-signature,
+      i5 ↦ Φ̇.true
     ⟧,
     𝐵2
   ⟧
+where:
+  - meta: 𝜏2
+    function: random-tau
+    args: [ '𝐵1', '𝜏1', '𝐵2' ]

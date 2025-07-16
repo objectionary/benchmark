@@ -147,7 +147,7 @@ when:
 where:
   - meta: 𝜏-bifunc
     function: random-tau
-    args: [ 'base', 'name', '𝐵1', '𝐵2', '𝐵3' ]
+    args: [ 'base', 'name', '𝐵1', '𝐵2', '𝐵3', '𝐵6' ]
   - meta: 𝑒-bifunc-name
     function: concat
     args:

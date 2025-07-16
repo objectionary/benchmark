@@ -15,7 +15,9 @@ TESTS=$(subst .phi,,$(subst tests/,,$(TEST_FILES)))
 
 JEO_VERSION=0.11.4
 
-all: after/Foo.out
+all: test run
+
+run: after/Foo.out
 
 test: $(TEST_FILES)
 	mkdir -p tests-output
