@@ -10,7 +10,7 @@ pattern: |
       𝐵1,
       name ↦ 𝑒-class-name,
       𝐵2,
-      𝜏2 ↦ ⟦
+      𝜏1 ↦ ⟦
         base ↦ "Q.jeo.method",
         access ↦ 4106,
         descriptor ↦ 𝑒-func-descriptor,
@@ -18,7 +18,8 @@ pattern: |
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
           𝜏3 ↦ 1,
-          𝜏4 ↦ 1
+          𝜏4 ↦ 1,
+          𝐵3
         ⟧,
         params ↦ ⟦
           base ↦ "Q.jeo.params",
@@ -27,14 +28,16 @@ pattern: |
             index ↦ 0,
             access ↦ 0,
             type ↦ 𝑒-func-input-type
-          ⟧
+          ⟧,
+          𝐵4
         ⟧,
         body ↦ 𝑒-body,
-        name ↦ 𝑒-func-name
+        name ↦ 𝑒-func-name,
+        𝐵5
       ⟧,
-      𝐵3
+      𝐵6
     ⟧,
-    𝐵4
+    𝐵7
   ⟧
 result: |
   ⟦
@@ -52,17 +55,24 @@ result: |
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
           i1 ↦ 1,
-          i2 ↦ 1
+          i2 ↦ 1,
+          𝐵3
         ⟧,
         params ↦ ⟦
           base ↦ "Q.jeo.params",
-          i1 ↦ 𝑒-params-1,
-          i2 ↦ 𝑒-params-2
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-func-input-type
+          ⟧,
+          𝐵4
         ⟧,
         body ↦ 𝑒-body,
-        name ↦ 𝑒-func-name
+        name ↦ 𝑒-func-name,
+        𝐵5
       ⟧,
-      𝐵3,
+      𝐵6,
       𝜏-bifunc ↦ ⟦
         base ↦ "Q.jeo.method",
         access ↦ 4106,
@@ -100,7 +110,7 @@ result: |
             i1 ↦ 184,
             i2 ↦ 𝑒-class-name,
             i3 ↦ 𝑒-func-name,
-            i4 ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
+            i4 ↦ 𝑒-func-descriptor,
             i5 ↦ Φ̇.false
           ⟧,
           i3 ↦ ⟦
@@ -123,7 +133,7 @@ result: |
         name ↦ 𝑒-bifunc-name
       ⟧
     ⟧,
-    𝐵4
+    𝐵7
   ⟧
 when:
   matches:
