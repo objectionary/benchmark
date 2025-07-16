@@ -103,6 +103,11 @@ result: |
           i1 ↦ ⟦
             base ↦ "Q.jeo.opcode.aload",
             i1 ↦ 25,
+            i1 ↦ 1
+          ⟧,
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
             i1 ↦ 0
           ⟧,
           i2 ↦ ⟦
@@ -112,10 +117,6 @@ result: |
             i3 ↦ 𝑒-func-name,
             i4 ↦ 𝑒-func-descriptor,
             i5 ↦ Φ̇.false
-          ⟧,
-          i3 ↦ ⟦
-            base ↦ "Q.jeo.opcode.pop",
-            i1 ↦ 87
           ⟧,
           i4 ↦ ⟦
             base ↦ "Q.jeo.opcode.invokeinterface",

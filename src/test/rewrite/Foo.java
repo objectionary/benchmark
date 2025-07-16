@@ -26,12 +26,12 @@ public class Foo {
         System.out.printf("result = %d\n", r);
     }
 
-    // private static String first(Integer x) {
-    //     return Integer.toString(x) + " hey";
-    // }
+    private static String first(Integer x) {
+        return Integer.toString(x) + " hey";
+    }
 
-    // private static void second(Integer x) {
-    //     first(x);
-    // }
+    private static void second(Integer x, Consumer<String> c) {
+        c.accept(first(x));
+    }
 
 }
