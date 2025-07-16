@@ -8,10 +8,10 @@ pattern: |
     method ↦ "apply",
     interface ↦ "()Ljava/util/function/Function;",
     signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-    target-class ↦ 𝑒1,
-    target-method ↦ 𝑒2,
-    target-signature ↦ 𝑒3,
-    intermediate-signature ↦ 𝑒3,
+    target-class ↦ 𝑒-class-name,
+    target-method ↦ 𝑒-method-name,
+    target-signature ↦ 𝑒-signature,
+    intermediate-signature ↦ 𝑒-signature,
     stream-class ↦ "java/util/stream/Stream",
     stream-method ↦ "map",
     stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
@@ -20,21 +20,21 @@ pattern: |
 result: |
   ⟦
     base ↦ "Q.hone.map",
-    class ↦ 𝑒1,
-    method ↦ 𝑒2,
-    in ↦ 𝑒4,
-    out ↦ 𝑒5
+    class ↦ 𝑒-class-name,
+    method ↦ 𝑒-method-name,
+    in ↦ 𝑒-input-type,
+    out ↦ 𝑒-output-type
   ⟧
 where:
-  - meta: 𝑒4
+  - meta: 𝑒-input-type
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
-      - 𝑒3
+      - 𝑒-signature
       - '"s/\\((L.+;)\\).*/$1/g"'
-  - meta: 𝑒5
+  - meta: 𝑒-output-type
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
-      - 𝑒3
+      - 𝑒-signature
       - '"s/.*;\\)(L.+;)/$1/g"'

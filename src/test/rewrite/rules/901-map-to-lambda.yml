@@ -22,8 +22,7 @@ result: |
     intermediate-signature ↦ 𝑒-signature,
     stream-class ↦ "java/util/stream/Stream",
     stream-method ↦ "map",
-    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
-    𝐵1
+    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
   ⟧
 where:
   - meta: 𝑒-signature
