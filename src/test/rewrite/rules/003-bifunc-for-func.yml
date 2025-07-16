@@ -136,17 +136,23 @@ result: |
     𝐵7
   ⟧
 when:
-  matches:
-    - '\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;'
-    - 𝑒-func-descriptor
+  and:
+    - matches:
+        - '\(L[a-zA-Z0-9_$/]+;\)L[a-zA-Z0-9_$/]+;'
+        - 𝑒-func-descriptor
+    - not:
+        part-of:
+          - 𝑒-bifunc-name
+          - 𝐵6
 where:
   - meta: 𝜏-bifunc
     function: random-tau
     args: [ 'base', 'name', '𝐵1', '𝐵2', '𝐵3' ]
   - meta: 𝑒-bifunc-name
-    function: random-string
+    function: concat
     args:
-      - '"bifunc_%x"'
+      - 𝑒-func-name
+      - '"_bifunc"'
   - meta: 𝑒-bifunc-descriptor
     function: concat
     args:

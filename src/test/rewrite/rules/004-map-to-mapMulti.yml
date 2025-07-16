@@ -4,156 +4,32 @@
 name: map-to-mapMulti
 pattern: |
   ⟦
-    𝐵0,
+    𝐵1,
     𝜏1 ↦ ⟦
-      base ↦ "Q.jeo.class",
-      𝐵1,
-      name ↦ 𝑒1,
-      𝐵2,
-      𝜏2 ↦ ⟦
-        base ↦ "Q.jeo.method",
-        𝐵3,
-        body ↦ ⟦
-          𝐵4,
-          𝜏3 ↦ ⟦
-            base ↦ "Q.hone.lambda",
-            method ↦ "apply",
-            interface ↦ "()Ljava/util/function/Function;",
-            signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-            target-class ↦ 𝑒2,
-            target-method ↦ 𝑒3,
-            target-signature ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
-            intermediate-signature ↦ "(Ljava/lang/Integer;)Ljava/lang/String;",
-            stream-class ↦ "java/util/stream/Stream",
-            stream-method ↦ "map",
-            stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
-            𝐵5
-          ⟧,
-          𝐵6
-        ⟧,
-        𝐵7
-      ⟧,
-      𝐵8,
-      𝜏4 ↦ ⟦
-        base ↦ "Q.jeo.method",
-        𝐵9,
-        body ↦ ⟦
-          base ↦ 𝑒4,
-          𝐵10,
-          𝜏5 ↦ ⟦
-            base ↦ "Q.jeo.opcode.areturn",
-            𝜏6 ↦ 176,
-            𝐵11
-          ⟧,
-          𝐵12
-        ⟧,
-        name ↦ "lambda$main$0",
-        𝐵13
-      ⟧,
-      𝐵14
+      base ↦ "Q.hone.map",
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-method-name,
+      in ↦ 𝑒-input-type,
+      out ↦ 𝑒-output-type,
+      𝐵2
     ⟧,
-    𝐵15
+    𝐵3
   ⟧
 result: |
   ⟦
-    𝐵0,
+    𝐵1,
     𝜏1 ↦ ⟦
-      base ↦ "Q.jeo.class",
-      𝐵1,
-      name ↦ 𝑒1,
-      𝐵2,
-      𝜏2 ↦ ⟦
-        base ↦ "Q.jeo.method",
-        𝐵3,
-        body ↦ ⟦
-          𝐵4,
-          instruction-000 ↦ ⟦
-            base ↦ "Q.hone.lambda",
-            method ↦ "accept",
-            interface ↦ "()Ljava/util/function/BiConsumer;",
-            signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
-            target-class ↦ 𝑒2,
-            target-method ↦ "fake_static_consumer",
-            target-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
-            intermediate-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
-            stream-class ↦ "java/util/stream/Stream",
-            stream-method ↦ "mapMulti",
-            stream-signature ↦ "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;",
-            𝐵5
-          ⟧,
-          𝐵6
-        ⟧,
-        𝐵7
-      ⟧,
-      𝐵8,
-      𝜏4 ↦ ⟦
-        base ↦ "Q.jeo.method",
-        𝐵9,
-        body ↦ ⟦
-          base ↦ 𝑒4,
-          𝐵10,
-          𝜏5 ↦ ⟦
-            base ↦ "Q.jeo.opcode.areturn",
-            𝜏6 ↦ 176,
-            𝐵11
-          ⟧,
-          𝐵12
-        ⟧,
-        name ↦ "lambda$main$0",
-        𝐵13
-      ⟧,
-      𝐵14,
-      𝜏99 ↦ ⟦
-        base ↦ "Q.jeo.method",
-        name ↦ "fake_static_consumer",
-        access ↦ 4106,
-        descriptor ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
-        signature ↦ "",
-        maxs ↦ ⟦
-          base ↦ "Q.jeo.maxs",
-          val576 ↦ 2,
-          val577 ↦ 2
-        ⟧,
-        params ↦ ⟦
-          base ↦ "Q.jeo.params",
-          arg0 ↦ ⟦
-            base ↦ "Q.jeo.param",
-            index ↦ 0,
-            access ↦ 0,
-            type ↦ "Ljava/lang/Integer;"
-          ⟧,
-          arg1 ↦ ⟦
-            base ↦ "Q.jeo.param",
-            index ↦ 1,
-            access ↦ 0,
-            type ↦ "Ljava/util/function/Consumer;"
-          ⟧
-        ⟧,
-        body ↦ ⟦
-          base ↦ 𝑒4,
-          instruction581 ↦ ⟦
-            base ↦ "Q.jeo.opcode.aload",
-            val582 ↦ 25,
-            val583 ↦ 1
-          ⟧,
-          𝐵10,
-          instruction620 ↦ ⟦
-            base ↦ "Q.jeo.opcode.invokeinterface",
-            val621 ↦ 185,
-            val622 ↦ "java/util/function/Consumer",
-            val623 ↦ "accept",
-            val624 ↦ "(Ljava/lang/Object;)V",
-            val625 ↦ Φ̇.true
-          ⟧,
-          instruction628 ↦ ⟦
-            base ↦ "Q.jeo.opcode.return",
-            val629 ↦ 177
-          ⟧
-        ⟧
-      ⟧
-    ⟧
+      base ↦ "Q.hone.mapMulti",
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-multi-method-name,
+      in ↦ 𝑒-input-type,
+      𝐵2
+    ⟧,
+    𝐵3
   ⟧
 where:
-  - meta: 𝜏99
-    function: random-tau
-    args: [ 'base', 'name', '!B1', '!B2', '!a2', '!B7', '!a4', '!B11' ]
+  - meta: 𝑒-multi-method-name
+    function: concat
+    args:
+      - 𝑒-method-name
+      - '"_bifunc"'

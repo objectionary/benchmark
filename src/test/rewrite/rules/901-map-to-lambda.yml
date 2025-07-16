@@ -5,10 +5,10 @@ name: map-to-lambda
 pattern: |
   ⟦
     base ↦ "Q.hone.map",
-    class ↦ 𝑒1,
-    method ↦ 𝑒2,
-    in ↦ 𝑒3,
-    out ↦ 𝑒4
+    class ↦ 𝑒-class-name,
+    method ↦ 𝑒-method-name,
+    in ↦ 𝑒-input-type,
+    out ↦ 𝑒-output-type
   ⟧
 result: |
   ⟦
@@ -16,21 +16,20 @@ result: |
     method ↦ "apply",
     interface ↦ "()Ljava/util/function/Function;",
     signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-    target-class ↦ 𝑒1,
-    target-method ↦ 𝑒2,
-    target-signature ↦ 𝑒5,
-    intermediate-signature ↦ 𝑒5,
+    target-class ↦ 𝑒-class-name,
+    target-method ↦ 𝑒-method-name,
+    target-signature ↦ 𝑒-signature,
+    intermediate-signature ↦ 𝑒-signature,
     stream-class ↦ "java/util/stream/Stream",
     stream-method ↦ "map",
     stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
     𝐵1
   ⟧
 where:
-  - meta: 𝑒5
+  - meta: 𝑒-signature
     function: concat
     args:
-      - '"(L"'
-      - 𝑒3
-      - '";)L"'
-      - 𝑒4
-      - '";"'
+      - '"("'
+      - 𝑒-input-type
+      - '")"'
+      - 𝑒-output-type

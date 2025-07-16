@@ -31,10 +31,10 @@ where:
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒3
-      - '"s/\\(L(.+);\\)/$1/g"'
+      - '"s/\\((L.+;)\\).*/$1/g"'
   - meta: 𝑒5
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒3
-      - '"s/;\\)L(.+);/$1/g"'
+      - '"s/.*;\\)(L.+;)/$1/g"'
