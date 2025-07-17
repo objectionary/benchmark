@@ -26,11 +26,7 @@ test: $(TEST_FILES)
 		rule=$$(find rules/ -name "$${n}-*.yml")
 		phino rewrite --sweet --nothing "tests/$${t}.phi" > /dev/null
 		printf "\nTesting \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
-		phino rewrite --sweet --rule "$${rule}" "tests/$${t}.phi" > tests-output/$${t}.phi
-		if diff -q "tests/$${t}.phi" "tests-output/$${t}.phi"; then
-			printf "No changes after \e[38;5;160m%s\e[0m\n" "$${t}"
-			exit 1
-		fi
+		phino rewrite --sweet --must=1 --rule "$${rule}" "tests/$${t}.phi" > tests-output/$${t}.phi
 	done
 
 before/%.class: %.java Makefile
