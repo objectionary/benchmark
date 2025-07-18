@@ -119,7 +119,7 @@
         <executions>
           <execution>
             <id>jd-cli</id>
-            <phase>process-classes</phase>
+            <phase>process-test-sources</phase>
             <goals>
               <goal>exec</goal>
             </goals>
