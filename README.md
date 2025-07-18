@@ -44,6 +44,8 @@ in [this GHA run][benchmark-gha]
 The entire test took 202 seconds.
 <!-- benchmark_end -->
 
+Important numbers are in the "Gain" column.
+
 ## How to Contribute
 
 Fork the repository, make your changes, and then send us
