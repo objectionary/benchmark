@@ -67,7 +67,7 @@ result: |
 where:
   - meta: 𝜏-invokedynamic
     function: random-tau
-    args: [ '𝐵1', '𝐵2' ]
+    args: ['𝐵1', '𝐵2']
   - meta: 𝜏-invokeinterface
     function: random-tau
-    args: [ '𝐵1', '𝜏-invokedynamic', '𝐵2' ]
+    args: ['𝐵1', '𝜏-invokedynamic', '𝐵2']
