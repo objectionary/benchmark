@@ -23,7 +23,7 @@ pattern: |
 result: |
   ⟦
     𝐵1,
-    𝜏1 ↦ ⟦
+    𝜏-invokedynamic ↦ ⟦
       base ↦ "Q.jeo.opcode.invokedynamic",
       i1 ↦ 186,
       i2 ↦ 𝑒-method-name,
@@ -53,7 +53,7 @@ result: |
         i1 ↦ 𝑒-intermediate-signature
       ⟧
     ⟧,
-    𝜏2 ↦ ⟦
+    𝜏-invokeinterface ↦ ⟦
       base ↦ "Q.jeo.opcode.invokeinterface",
       i1 ↦ 185,
       i2 ↦ 𝑒-stream-class-name,
@@ -64,6 +64,9 @@ result: |
     𝐵2
   ⟧
 where:
-  - meta: 𝜏2
+  - meta: 𝜏-invokedynamic
     function: random-tau
-    args: [ '𝐵1', '𝜏1', '𝐵2' ]
+    args: [ '𝐵1', '𝐵2' ]
+  - meta: 𝜏-invokeinterface
+    function: random-tau
+    args: [ '𝐵1', '𝜏-invokedynamic', '𝐵2' ]
