@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: lambda-to-filter
+pattern: |
+  ⟦
+    base ↦ "Q.hone.lambda",
+    method ↦ "test",
+    interface ↦ "()Ljava/util/function/Predicate;",
+    signature ↦ "(Ljava/lang/Object;)Z",
+    target-class ↦ 𝑒-class-name,
+    target-method ↦ 𝑒-method-name,
+    target-signature ↦ 𝑒-signature,
+    intermediate-signature ↦ 𝑒-signature,
+    stream-class ↦ "java/util/stream/Stream",
+    stream-method ↦ "filter",
+    stream-signature ↦ "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;",
+    𝐵1
+  ⟧
+result: |
+  ⟦
+    base ↦ "Q.hone.filter",
+    class ↦ 𝑒-class-name,
+    method ↦ 𝑒-method-name,
+    in ↦ 𝑒-input-type
+  ⟧
+where:
+  - meta: 𝑒-input-type
+    function: sed
+    # "(Ljava/lang/Integer;)Z"
+    args:
+      - 𝑒-signature
+      - '"s/\\((L.+;)\\)Z/$1/g"'

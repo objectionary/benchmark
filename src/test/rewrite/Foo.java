@@ -13,15 +13,15 @@ public class Foo {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
             .boxed()
-            .map(x -> Integer.toString(x))
-            .map(x -> Integer.parseInt(x))
+            .filter(x -> x > 10)
             .mapMulti(
-                (BiConsumer<Integer, Consumer<String>>) (x, consumer) -> {
-                    consumer.accept(Integer.toString(x));
+                (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
+                    if (x > 10) {
+                        consumer.accept(x);
+                    }
                 }
             )
-            .map(x -> Integer.parseInt(x))
-            .mapToLong(num -> (long) num)
+            .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("result = %d\n", r);
     }
