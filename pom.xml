@@ -159,7 +159,7 @@
                   <goal>optimize</goal>
                 </goals>
                 <configuration>
-                  <smallSteps>false</smallSteps>
+                  <smallSteps>true</smallSteps>
                   <maxDepth>50</maxDepth>
                   <jeoVersion>${jeo.version}</jeoVersion>
                   <rules>none</rules>
