@@ -37,7 +37,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Fork(2)
 public class Big {
 
-    private static final Object[] VALUES = LongStream.range(0L, 100_000_000L)
+    private static final Object[] VALUES = LongStream.range(0L, 42_000_000L)
         .boxed()
         .map(x -> String.format("%04x", x))
         .toArray();
