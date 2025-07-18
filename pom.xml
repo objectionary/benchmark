@@ -20,7 +20,7 @@
     <finalName>benchmark</finalName>
     <directory>target</directory>
     <eo.version>0.57.1</eo.version>
-    <hone.version>0.2.0</hone.version>
+    <hone.version>0.3.0</hone.version>
     <jeo.version>0.11.4</jeo.version>
   </properties>
   <dependencies>
@@ -159,6 +159,7 @@
                   <goal>optimize</goal>
                 </goals>
                 <configuration>
+                  <smallSteps>false</smallSteps>
                   <jeoVersion>${jeo.version}</jeoVersion>
                   <rules>none</rules>
                   <extra>
