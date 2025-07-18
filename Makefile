@@ -36,7 +36,7 @@ results.md: before.csv after.csv src/main/bash/assemble-results.sh
 	src/main/bash/assemble-results.sh > results.md
 
 %.csv: %.jar Makefile
-	java -jar $< -rf csv
+	java -enableassertions -jar $< -rf csv
 	mv jmh-result.csv "$@"
 
 %.jar: pom.xml Makefile src/main/java/org/eolang/benchmark/*.java
