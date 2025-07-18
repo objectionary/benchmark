@@ -16,7 +16,7 @@ public class Foo {
             .filter(x -> x > 10)
             .mapMulti(
                 (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
-                    if (x > 10) {
+                    if (bobobo(x)) {
                         consumer.accept(x);
                     }
                 }
@@ -24,6 +24,10 @@ public class Foo {
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("result = %d\n", r);
+    }
+
+    private static boolean bobobo(Integer i) {
+        return i > 10;
     }
 
 }

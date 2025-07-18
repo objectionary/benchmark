@@ -1,0 +1,201 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: bipredicate-for-predicate
+pattern: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      name ↦ 𝑒-class-name,
+      𝐵2,
+      𝜏1 ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-predicate-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          𝜏3 ↦ 𝑒-max-stack,
+          𝜏4 ↦ 𝑒-max-locals,
+          𝐵3
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          𝜏5 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-predicate-input-type
+          ⟧,
+          𝐵4
+        ⟧,
+        body ↦ 𝑒-body,
+        name ↦ 𝑒-predicate-name,
+        𝐵5
+      ⟧,
+      𝐵6
+    ⟧,
+    𝐵7
+  ⟧
+result: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      name ↦ 𝑒-class-name,
+      𝐵2,
+      𝜏1 ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-predicate-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          i1 ↦ 𝑒-max-stack,
+          i2 ↦ 𝑒-max-locals,
+          𝐵3
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-predicate-input-type
+          ⟧,
+          𝐵4
+        ⟧,
+        body ↦ 𝑒-body,
+        name ↦ 𝑒-predicate-name,
+        𝐵5
+      ⟧,
+      𝐵6,
+      𝜏-bipredicate ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-bipredicate-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          i1 ↦ 2,
+          i2 ↦ 2
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-predicate-input-type
+          ⟧,
+          i2 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 1,
+            access ↦ 0,
+            type ↦ "Ljava/util/function/Consumer;"
+          ⟧
+        ⟧,
+        body ↦ ⟦
+          base ↦ "Q.jeo.seq.of5",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
+            i1 ↦ 0
+          ⟧,
+          i2 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokestatic",
+            i1 ↦ 184,
+            i2 ↦ 𝑒-class-name,
+            i3 ↦ 𝑒-predicate-name,
+            i4 ↦ 𝑒-predicate-descriptor,
+            i5 ↦ Φ̇.false
+          ⟧,
+          i3 ↦ ⟦
+            base ↦ "Q.jeo.opcode.ifeq",
+            i1 ↦ 153,
+            i2 ↦ ⟦
+              base ↦ "Q.jeo.label",
+              i1 ↦ Φ̇.bytes(
+                ⟦
+                  Δ ⤍ 4C-31-32-30-34-38-32-32-39-36-37
+                ⟧
+              )
+            ⟧
+          ⟧,
+          i4 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
+            i1 ↦ 1
+          ⟧,
+          i5 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
+            i1 ↦ 0
+          ⟧,
+          i6 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokeinterface",
+            i1 ↦ 185,
+            i2 ↦ "java/util/function/Consumer",
+            i3 ↦ "accept",
+            i4 ↦ "(Ljava/lang/Object;)V",
+            i5 ↦ Φ̇.true
+          ⟧,
+          i7 ↦ ⟦
+            base ↦ "Q.jeo.label",
+            i1 ↦ Φ̇.bytes(
+              ⟦
+                Δ ⤍ 4C-31-32-30-34-38-32-32-39-36-37
+              ⟧
+            )
+          ⟧,
+          i8 ↦ ⟦
+            base ↦ "Q.jeo.frame",
+            i1 ↦ 3,
+            i2 ↦ 0,
+            i3 ↦ ⟦
+              base ↦ "Q.jeo.seq.of0"
+            ⟧,
+            i4 ↦ 0,
+            i5 ↦ ⟦
+              base ↦ "Q.jeo.seq.of0"
+            ⟧
+          ⟧,
+          i9 ↦ ⟦
+            base ↦ "Q.jeo.opcode.return",
+            i1 ↦ 177
+          ⟧
+        ⟧,
+        name ↦ 𝑒-bipredicate-name
+      ⟧
+    ⟧,
+    𝐵7
+  ⟧
+when:
+  and:
+    - matches:
+        - '\(L[a-zA-Z0-9_$/]+;\)Z'
+        - 𝑒-predicate-descriptor
+where:
+  - meta: 𝜏-bipredicate
+    function: random-tau
+    args: ['base', 'name', '𝐵1', '𝐵2', '𝐵3', '𝐵6']
+  - meta: 𝑒-bipredicate-name
+    function: concat
+    args:
+      - 𝑒-predicate-name
+      - '"_bipredicate"'
+  - meta: 𝑒-bipredicate-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-predicate-input-type
+      - '"Ljava/util/function/Consumer;)V"'
+having:
+  not:
+    part-of:
+      - 𝑒-bipredicate-name
+      - 𝐵6

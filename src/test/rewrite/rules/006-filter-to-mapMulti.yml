@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: filter-to-mapMulti
+pattern: |
+  ⟦
+    𝐵1,
+    𝜏1 ↦ ⟦
+      base ↦ "Q.hone.filter",
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-method-name,
+      in ↦ 𝑒-input-type,
+      𝐵2
+    ⟧,
+    𝐵3
+  ⟧
+result: |
+  ⟦
+    𝐵1,
+    𝜏1 ↦ ⟦
+      base ↦ "Q.hone.mapMulti",
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-multi-method-name,
+      in ↦ 𝑒-input-type,
+      𝐵2
+    ⟧,
+    𝐵3
+  ⟧
+where:
+  - meta: 𝑒-multi-method-name
+    function: concat
+    args:
+      - 𝑒-method-name
+      - '"_bipredicate"'
