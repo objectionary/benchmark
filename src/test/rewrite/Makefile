@@ -47,7 +47,6 @@ after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
 		if diff --color=auto -u $@ "$${n}"; then
 			echo "No changes made by $${r}"
-# 			exit 1
 		fi
 		cp "$${n}" $@
 	done

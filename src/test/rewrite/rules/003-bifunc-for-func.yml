@@ -17,8 +17,8 @@ pattern: |
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
-          𝜏3 ↦ 1,
-          𝜏4 ↦ 1,
+          𝜏3 ↦ 𝑒-max-stack,
+          𝜏4 ↦ 𝑒-max-locals,
           𝐵3
         ⟧,
         params ↦ ⟦
@@ -54,8 +54,8 @@ result: |
         signature ↦ "",
         maxs ↦ ⟦
           base ↦ "Q.jeo.maxs",
-          i1 ↦ 1,
-          i2 ↦ 1,
+          i1 ↦ 𝑒-max-stack,
+          i2 ↦ 𝑒-max-locals,
           𝐵3
         ⟧,
         params ↦ ⟦
