@@ -17,7 +17,7 @@ JEO_VERSION=0.11.4
 
 all: test run
 
-run: after/Foo.out
+run: after/Foo.bc after/Foo.out
 
 test: $(TEST_FILES)
 	mkdir -p tests-output
@@ -61,6 +61,9 @@ after/%.class: after/%.xmir Makefile | back
 	cp $< tmp/assemble
 	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=tmp/assemble -Djeo.assemble.outputDir=tmp/assemble -Djeo.assemble.skip.verification
 	cp tmp/assemble/Foo.class $@
+
+after/%.bc: after/%.class Makefile | after
+	javap -c -s -l -constants $< > $@
 
 after/%.out: after/%.class Makefile | after
 	mkdir -p tmp/exec
