@@ -14,8 +14,6 @@ public class Foo {
         final long r = IntStream.of(input)
             .boxed()
             .filter(x -> x > 10)
-            .filter(x -> x > 50)
-            .filter(x -> x > 666)
             .mapMulti(
                 (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
                     if (bobobo(x)) {
@@ -25,6 +23,7 @@ public class Foo {
             )
             .mapToLong(x -> (long) x)
             .sum();
+        assert r == 16;
         System.out.printf("result = %d\n", r);
     }
 

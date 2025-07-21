@@ -69,7 +69,7 @@ after/%.out: after/%.class Makefile | after
 	rm -rf tmp/exec/*
 	cp $< tmp/exec/Foo.class
 	cd tmp/exec
-	java Foo
+	java -enableassertions Foo
 
 clean:
 	rm -rf tmp/ before/ after/
