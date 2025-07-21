@@ -1,0 +1,145 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: fuse-map-map
+pattern: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      𝜏-method ↦ ⟦
+        base ↦ "Q.jeo.method",
+        𝐵2,
+        body ↦ ⟦
+          𝐵3,
+          𝜏-first ↦ ⟦
+            base ↦ "Q.hone.map",
+            class ↦ 𝑒-class-name,
+            method ↦ 𝑒-first-method-name,
+            in ↦ 𝑒-first-input-type,
+            out ↦ 𝑒-first-output-type,
+            𝐵4
+          ⟧,
+          𝜏-second ↦ ⟦
+            base ↦ "Q.hone.map",
+            class ↦ 𝑒-class-name,
+            method ↦ 𝑒-second-method-name,
+            in ↦ 𝑒-second-input-type,
+            out ↦ 𝑒-second-output-type,
+            𝐵5
+          ⟧,
+          𝐵6
+        ⟧,
+        𝐵7
+      ⟧,
+      𝐵8
+    ⟧,
+    𝐵9
+  ⟧
+result: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      base ↦ "Q.jeo.class",
+      𝐵1,
+      𝜏-method ↦ ⟦
+        base ↦ "Q.jeo.method",
+        𝐵2,
+        body ↦ ⟦
+          𝐵3,
+          𝜏-first ↦ ⟦
+            base ↦ "Q.hone.map",
+            class ↦ 𝑒-class-name,
+            method ↦ 𝑒-fuse-method-name,
+            in ↦ 𝑒-first-input-type,
+            out ↦ 𝑒-second-output-type
+          ⟧,
+          𝐵6
+        ⟧,
+        𝐵7
+      ⟧,
+      𝐵8,
+      𝜏-fuse ↦ ⟦
+        base ↦ "Q.jeo.method",
+        access ↦ 4106,
+        descriptor ↦ 𝑒-fuse-descriptor,
+        signature ↦ "",
+        maxs ↦ ⟦
+          base ↦ "Q.jeo.maxs",
+          i1 ↦ 1,
+          i2 ↦ 1
+        ⟧,
+        params ↦ ⟦
+          base ↦ "Q.jeo.params",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.param",
+            index ↦ 0,
+            access ↦ 0,
+            type ↦ 𝑒-first-input-type
+          ⟧
+        ⟧,
+        body ↦ ⟦
+          base ↦ "Q.jeo.seq.of5",
+          i1 ↦ ⟦
+            base ↦ "Q.jeo.opcode.aload",
+            i1 ↦ 25,
+            i1 ↦ 0
+          ⟧,
+          i2 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokestatic",
+            i1 ↦ 184,
+            i2 ↦ 𝑒-class-name,
+            i3 ↦ 𝑒-first-method-name,
+            i4 ↦ 𝑒-first-descriptor,
+            i5 ↦ Φ̇.false
+          ⟧,
+          i3 ↦ ⟦
+            base ↦ "Q.jeo.opcode.invokestatic",
+            i1 ↦ 184,
+            i2 ↦ 𝑒-class-name,
+            i3 ↦ 𝑒-second-method-name,
+            i4 ↦ 𝑒-second-descriptor,
+            i5 ↦ Φ̇.false
+          ⟧,
+          i4 ↦ ⟦
+            base ↦ "Q.jeo.opcode.areturn",
+            i1 ↦ 176
+          ⟧
+        ⟧,
+        name ↦ 𝑒-fuse-method-name
+      ⟧
+    ⟧,
+    𝐵9
+  ⟧
+where:
+  - meta: 𝜏-fuse
+    function: random-tau
+    args: ['base', '𝐵1', '𝐵8', '𝜏1']
+  - meta: 𝑒-fuse-method-name
+    function: concat
+    args:
+      - 𝑒-first-method-name
+      - '"_fuse"'
+  - meta: 𝑒-fuse-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-first-input-type
+      - '")"'
+      - 𝑒-second-output-type
+  - meta: 𝑒-first-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-first-input-type
+      - '")"'
+      - 𝑒-first-output-type
+  - meta: 𝑒-second-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-second-input-type
+      - '")"'
+      - 𝑒-second-output-type

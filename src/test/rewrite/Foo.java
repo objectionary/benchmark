@@ -14,6 +14,8 @@ public class Foo {
         final long r = IntStream.of(input)
             .boxed()
             .filter(x -> x > 10)
+            .map(x -> x + 1)
+            .map(x -> x + 1)
             .mapMulti(
                 (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
                     if (bobobo(x)) {
