@@ -160,7 +160,7 @@
                 </goals>
                 <configuration>
                   <smallSteps>true</smallSteps>
-                  <maxDepth>50</maxDepth>
+                  <maxDepth>25</maxDepth>
                   <jeoVersion>${jeo.version}</jeoVersion>
                   <rules>none</rules>
                   <extra>
