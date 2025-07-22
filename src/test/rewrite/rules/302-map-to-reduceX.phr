@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: map-to-reduceX
+pattern: |
+  ⟦
+    𝐵-body-head,
+    𝜏-opcode ↦ ⟦
+      φ ↦ Φ.hone.map,
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-method-name,
+      in ↦ 𝑒-input-type,
+      out ↦ 𝑒-output-type
+    ⟧,
+    𝐵-body-tail
+  ⟧
+result: |
+  ⟦
+    𝐵-body-head,
+    𝜏-opcode ↦ ⟦
+      φ ↦ Φ.hone.reduceX,
+      class ↦ 𝑒-class-name,
+      in ↦ 𝑒-input-type,
+      body ↦ ⟦
+        i1 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.invokestatic,
+          i1 ↦ 184,
+          i2 ↦ 𝑒-class-name,
+          i3 ↦ 𝑒-method-name,
+          i4 ↦ 𝑒-signature,
+          i5 ↦ Φ̇.false
+        ⟧
+      ⟧
+    ⟧,
+    𝐵-body-tail
+  ⟧
+where:
+  - meta: 𝑒-signature
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-input-type
+      - '")"'
+      - 𝑒-output-type

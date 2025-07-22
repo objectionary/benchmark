@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: fuse-map-map
+pattern: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      φ ↦ Φ.jeo.class,
+      𝐵-class-head,
+      𝜏-method ↦ ⟦
+        φ ↦ Φ.jeo.method,
+        𝐵-method-head,
+        body ↦ ⟦
+          𝐵-body-head,
+          𝜏-reduceX ↦ ⟦
+            φ ↦ Φ.hone.reduceX,
+            class ↦ 𝑒-class-name,
+            method ↦ 𝑒-first-method-name,
+            in ↦ 𝑒-first-input-type
+          ⟧,
+          𝐵-body-tail
+        ⟧,
+        𝐵-method-tail
+      ⟧,
+      𝐵-class-more,
+      𝜏-first-method ↦ ⟦
+        φ ↦ Φ.jeo.method,
+        𝐵-first-method-head,
+        body ↦ ⟦
+          𝐵-first-body-head,
+          i-pop-item ↦ 𝑒-first-pop-item,
+          i-pop-consumer ↦ 𝑒-first-pop-consumer,
+          𝐵-first-body,
+          i-invoke ↦ 𝑒-first-invoke,
+          i-return ↦ 𝑒-first-return,
+          𝐵-first-body-tail
+        ⟧,
+        𝐵-first-method-tail
+      ⟧,
+      𝐵-class-tail,
+      𝐵6
+    ⟧,
+    𝐵7
+  ⟧
+result: |
+  ⟦
+    𝐵0,
+    𝜏-class ↦ ⟦
+      φ ↦ Φ.jeo.class,
+      𝐵1,
+      𝜏-method ↦ ⟦
+        φ ↦ Φ.jeo.method,
+        𝐵2,
+        body ↦ ⟦
+          𝐵3,
+          𝜏-fuse-opcode ↦ ⟦
+            φ ↦ Φ.hone.reduceX,
+            class ↦ 𝑒-class-name,
+            method ↦ 𝑒-fuse-method-name,
+            in ↦ 𝑒-first-input-type,
+            body ↦ ⟦ 𝐵-first-body ⟧
+          ⟧,
+          𝐵4
+        ⟧,
+        𝐵5
+      ⟧,
+      𝐵6,
+    ⟧,
+    𝐵7
+  ⟧

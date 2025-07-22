@@ -1,0 +1,116 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: reduceX-to-mapMulti
+pattern: |
+  ⟦
+    φ ↦ Φ.jeo.class,
+    𝐵-class-head-1,
+    name ↦ 𝑒-class-name,
+    𝐵-class-head-2,
+    𝜏-method ↦ ⟦
+      φ ↦ Φ.jeo.method,
+      𝐵-method-head,
+      body ↦ ⟦
+        𝐵-body-head,
+        𝜏-reduceX ↦ ⟦
+          φ ↦ Φ.hone.reduceX,
+          in ↦ 𝑒-input-type,
+          body ↦ ⟦ 𝐵-body ⟧
+        ⟧,
+        𝐵-body-tail
+      ⟧,
+      𝐵-method-tail
+    ⟧,
+    𝐵-class-tail
+  ⟧
+result: |
+  ⟦
+    φ ↦ Φ.jeo.class,
+    𝐵-class-head-1,
+    name ↦ 𝑒-class-name,
+    𝐵-class-head-2,
+    𝜏-method ↦ ⟦
+      φ ↦ Φ.jeo.method,
+      𝐵-method-head,
+      body ↦ ⟦
+        𝐵-body-head,
+        𝜏-reduceX ↦ ⟦
+          φ ↦ Φ.hone.mapMulti,
+          class ↦ 𝑒-class-name,
+          method ↦ 𝑒-method-name,
+          in ↦ 𝑒-input-type
+        ⟧
+        𝐵-body-tail
+      ⟧,
+      𝐵-method-tail
+    ⟧,
+    𝐵6-class-tail,
+    𝜏-reduce ↦ ⟦
+      φ ↦ Φ.jeo.method,
+      access ↦ 4106,
+      descriptor ↦ 𝑒-reduce-descriptor,
+      signature ↦ "",
+      maxs ↦ ⟦
+        φ ↦ Φ.jeo.maxs,
+        max-stack ↦ 2,
+        max-locals ↦ 2
+      ⟧,
+      params ↦ ⟦
+        φ ↦ Φ.jeo.params,
+        i1 ↦ ⟦
+          φ ↦ Φ.jeo.param,
+          index ↦ 0,
+          access ↦ 0,
+          type ↦ 𝑒-input-type
+        ⟧,
+        i2 ↦ ⟦
+          φ ↦ Φ.jeo.param,
+          index ↦ 1,
+          access ↦ 0,
+          type ↦ "Ljava/util/function/Consumer;"
+        ⟧
+      ⟧,
+      body ↦ ⟦
+        φ ↦ Φ.jeo.seq.of5,
+        i-pop-item ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 25,
+          i1 ↦ 1
+        ⟧,
+        i-pop-consumer ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 25,
+          i1 ↦ 0
+        ⟧,
+        𝐵-body,
+        i-invoke ↦ ⟦
+          φ ↦ Φ.jeo.opcode.invokeinterface,
+          i1 ↦ 185,
+          i2 ↦ "java/util/function/Consumer",
+          i3 ↦ "accept",
+          i4 ↦ "(Ljava/lang/Object;)V",
+          i5 ↦ Φ̇.true
+        ⟧,
+        i-return ↦ ⟦
+          φ ↦ Φ.jeo.opcode.return,
+          i1 ↦ 177
+        ⟧
+      ⟧,
+      name ↦ 𝑒-reduce-name
+    ⟧
+  ⟧
+where:
+  - meta: 𝜏-reduce
+    function: random-tau
+    args: ['name', '𝐵-class-head-1', '𝐵-class-head-2', '𝐵-class-tail']
+  - meta: 𝑒-method-name
+    function: random-string
+    args: [ 'reduce_%d' ]
+  - meta: 𝑒-reduce-descriptor
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-func-input-type
+      - '"Ljava/util/function/Consumer;)V"'

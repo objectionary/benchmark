@@ -23,7 +23,7 @@ test: $(TEST_FILES)
 	mkdir -p tests-output
 	for t in $(TESTS); do
 		n=$$(echo "$${t}" | sed 's/-.*$$//g')
-		rule=$$(find rules/ -name "$${n}-*.yml")
+		rule=$$(find rules/ -name "$${n}-*.phr")
 		phino rewrite --sweet --nothing "tests/$${t}.phi" > /dev/null
 		printf "\nTesting \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
 		phino rewrite --sweet --must=1 --rule "$${rule}" "tests/$${t}.phi" > tests-output/$${t}.phi
