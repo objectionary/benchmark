@@ -25,7 +25,6 @@ result: |
       body ↦ ⟦
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
-          i1 ↦ 184,
           i2 ↦ 𝑒-class-name,
           i3 ↦ 𝑒-method-name,
           i4 ↦ 𝑒-signature,

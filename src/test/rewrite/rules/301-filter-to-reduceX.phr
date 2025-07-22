@@ -24,7 +24,6 @@ result: |
       body ↦ ⟦
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
-          i1 ↦ 184,
           i2 ↦ 𝑒-class-name,
           i3 ↦ 𝑒-method-name,
           i4 ↦ 𝑒-signature,
@@ -32,15 +31,13 @@ result: |
         ⟧,
         i2 ↦ ⟦
           φ ↦ Φ.jeo.opcode.ifne,
-          i1 ↦ 154,
           i2 ↦ ⟦
             φ ↦ Φ.jeo.label,
             i1 ↦ 𝑒-label
           ⟧
         ⟧,
         i3 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.return,
-          i1 ↦ 177
+          φ ↦ Φ.jeo.opcode.return
         ⟧,
         i4 ↦ ⟦
           φ ↦ Φ.jeo.label,
@@ -48,13 +45,13 @@ result: |
         ⟧,
         i5 ↦ ⟦
           φ ↦ Φ.jeo.frame,
-          i1 ↦ 3,
-          i3 ↦ 0,
-          i3 ↦ ⟦
+          type ↦ 3,
+          nlocal ↦ 0,
+          locals ↦ ⟦
             φ ↦ Φ.jeo.seq.of0
           ⟧,
-          i4 ↦ 0,
-          i5 ↦ ⟦
+          nstack ↦ 0,
+          stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of0
           ⟧
         ⟧

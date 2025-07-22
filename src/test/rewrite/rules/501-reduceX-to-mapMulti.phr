@@ -71,28 +71,32 @@ result: |
       ⟧,
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of5,
-        i-pop-item ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 25,
-          i1 ↦ 1
-        ⟧,
         i-pop-consumer ↦ ⟦
           φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 25,
           i1 ↦ 0
         ⟧,
         𝐵-body,
+        i-save-it ↦ ⟦
+          φ ↦ Φ.jeo.opcode.astore,
+          i1 ↦ 0
+        ⟧,
+        i-pop-item ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 1
+        ⟧,
+        i-put-it ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 0
+        ⟧,
         i-invoke ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokeinterface,
-          i1 ↦ 185,
           i2 ↦ "java/util/function/Consumer",
           i3 ↦ "accept",
           i4 ↦ "(Ljava/lang/Object;)V",
           i5 ↦ Φ̇.true
         ⟧,
         i-return ↦ ⟦
-          φ ↦ Φ.jeo.opcode.return,
-          i1 ↦ 177
+          φ ↦ Φ.jeo.opcode.return
         ⟧
       ⟧,
       name ↦ 𝑒-method-name
