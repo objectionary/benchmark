@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: map-to-mapMulti
+name: map-to-mapMultiX
 pattern: |
   ⟦
     𝐵1,
     𝜏1 ↦ ⟦
-      base ↦ "Q.hone.map",
+      φ ↦ Φ.hone.map,
       class ↦ 𝑒-class-name,
       method ↦ 𝑒-method-name,
       in ↦ 𝑒-input-type,
@@ -20,7 +20,7 @@ result: |
   ⟦
     𝐵1,
     𝜏1 ↦ ⟦
-      base ↦ "Q.hone.mapMulti",
+      φ ↦ Φ.hone.mapMultiX,
       class ↦ 𝑒-class-name,
       method ↦ 𝑒-multi-method-name,
       in ↦ 𝑒-input-type,

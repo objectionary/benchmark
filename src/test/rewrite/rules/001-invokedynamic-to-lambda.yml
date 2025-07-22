@@ -5,14 +5,13 @@
 name: invokeinterface-to-lambda
 pattern: |
   ⟦
-    𝐵1,
-    𝜏1 ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokedynamic",
-      𝜏2 ↦ 186,
+    𝐵-body-head,
+    𝜏-invokedynamic ↦ ⟦
+      φ ↦ Φ.jeo.opcode.invokedynamic,
       𝜏3 ↦ 𝑒-method-name,
       𝜏4 ↦ 𝑒-interface-name,
       𝜏5 ↦ ⟦
-        base ↦ "Q.jeo.handle",
+        φ ↦ Φ.jeo.handle,
         𝜏6 ↦ 6,
         𝜏7 ↦ "java/lang/invoke/LambdaMetafactory",
         𝜏8 ↦ "metafactory",
@@ -21,12 +20,12 @@ pattern: |
         𝐵10
       ⟧,
       𝜏11 ↦ ⟦
-        base ↦ "Q.jeo.type",
+        φ ↦ Φ.jeo.type,
         𝜏12 ↦ 𝑒-signature,
         𝐵11
       ⟧,
       𝜏13 ↦ ⟦
-        base ↦ "Q.jeo.handle",
+        φ ↦ Φ.jeo.handle,
         𝜏14 ↦ 6,
         𝜏15 ↦ 𝑒-class-name,
         𝜏16 ↦ 𝑒-target-method-name,
@@ -35,28 +34,27 @@ pattern: |
         𝐵12
       ⟧,
       𝜏19 ↦ ⟦
-        base ↦ "Q.jeo.type",
+        φ ↦ Φ.jeo.type,
         𝜏21 ↦ 𝑒-intermediate-signature,
         𝐵13
       ⟧,
       𝐵14
     ⟧,
-    𝜏22 ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokeinterface",
-      𝜏23 ↦ 185,
+    𝜏-invokeinterface ↦ ⟦
+      φ ↦ Φ.jeo.opcode.invokeinterface,
       𝜏24 ↦ 𝑒-stream-class-name,
       𝜏25 ↦ 𝑒-stream-method-name,
       𝜏26 ↦ 𝑒-stream-signature,
       𝜏27 ↦ Φ̇.true,
       𝐵15
     ⟧,
-    𝐵2
+    𝐵-body-tail
   ⟧
 result: |
   ⟦
-    𝐵1,
-    𝜏1 ↦ ⟦
-      base ↦ "Q.hone.lambda",
+    𝐵-body-head,
+    𝜏-lambda ↦ ⟦
+      φ ↦ Φ.hone.lambda,
       method ↦ 𝑒-method-name,
       interface ↦ 𝑒-interface-name,
       signature ↦ 𝑒-signature,
@@ -68,5 +66,9 @@ result: |
       stream-method ↦ 𝑒-stream-method-name,
       stream-signature ↦ 𝑒-stream-signature
     ⟧,
-    𝐵2
+    𝐵-body-tail
   ⟧
+where:
+  - meta: 𝜏-lambda
+    function: random-tau
+    args: ['𝐵-body-head', '𝐵-body-tail', '𝜏-invokeinterface', '𝜏-invokedynamic']

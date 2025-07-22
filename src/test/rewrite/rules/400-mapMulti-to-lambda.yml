@@ -5,14 +5,14 @@
 name: mapMulti-to-lambda
 pattern: |
   ⟦
-    base ↦ "Q.hone.mapMulti",
+    φ ↦ Φ.hone.mapMulti,
     class ↦ 𝑒-class-name,
     method ↦ 𝑒-method-name,
     in ↦ 𝑒-input-type
   ⟧
 result: |
   ⟦
-    base ↦ "Q.hone.lambda",
+    φ ↦ Φ.hone.lambda,
     method ↦ "accept",
     interface ↦ "()Ljava/util/function/BiConsumer;",
     signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",

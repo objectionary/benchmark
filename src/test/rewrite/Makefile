@@ -13,7 +13,7 @@ RULE_NAMES=$(subst .yml,,$(RULES))
 TEST_FILES=$(wildcard tests/*.phi)
 TESTS=$(subst .phi,,$(subst tests/,,$(TEST_FILES)))
 
-JEO_VERSION=0.11.4
+JEO_VERSION=0.12.0
 
 all: test run
 

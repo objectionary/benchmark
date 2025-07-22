@@ -5,7 +5,7 @@
 name: lambda-to-filter
 pattern: |
   ⟦
-    base ↦ "Q.hone.lambda",
+    φ ↦ Φ.hone.lambda,
     method ↦ "test",
     interface ↦ "()Ljava/util/function/Predicate;",
     signature ↦ "(Ljava/lang/Object;)Z",
@@ -20,7 +20,7 @@ pattern: |
   ⟧
 result: |
   ⟦
-    base ↦ "Q.hone.filter",
+    φ ↦ Φ.hone.filter,
     class ↦ 𝑒-class-name,
     method ↦ 𝑒-method-name,
     in ↦ 𝑒-input-type

@@ -7,7 +7,7 @@ pattern: |
   ⟦
     𝐵1,
     𝜏1 ↦ ⟦
-      base ↦ "Q.hone.lambda",
+      φ ↦ Φ.hone.lambda,
       method ↦ 𝑒-method-name,
       interface ↦ 𝑒-interface-name,
       signature ↦ 𝑒-signature,
@@ -25,12 +25,12 @@ result: |
   ⟦
     𝐵1,
     𝜏-invokedynamic ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokedynamic",
+      φ ↦ Φ.jeo.opcode.invokedynamic,
       i1 ↦ 186,
       i2 ↦ 𝑒-method-name,
       i3 ↦ 𝑒-interface-name,
       i4 ↦ ⟦
-        base ↦ "Q.jeo.handle",
+        φ ↦ Φ.jeo.handle,
         i1 ↦ 6,
         i2 ↦ "java/lang/invoke/LambdaMetafactory",
         i3 ↦ "metafactory",
@@ -38,11 +38,11 @@ result: |
         i5 ↦ Φ̇.false
       ⟧,
       i5 ↦ ⟦
-        base ↦ "Q.jeo.type",
+        φ ↦ Φ.jeo.type,
         i1 ↦ 𝑒-signature
       ⟧,
       i6 ↦ ⟦
-        base ↦ "Q.jeo.handle",
+        φ ↦ Φ.jeo.handle,
         i1 ↦ 6,
         i2 ↦ 𝑒-class-name,
         i3 ↦ 𝑒-target-method-name,
@@ -50,12 +50,12 @@ result: |
         i5 ↦ Φ̇.false
       ⟧,
       i7 ↦ ⟦
-        base ↦ "Q.jeo.type",
+        φ ↦ Φ.jeo.type,
         i1 ↦ 𝑒-intermediate-signature
       ⟧
     ⟧,
     𝜏-invokeinterface ↦ ⟦
-      base ↦ "Q.jeo.opcode.invokeinterface",
+      φ ↦ Φ.jeo.opcode.invokeinterface,
       i1 ↦ 185,
       i2 ↦ 𝑒-stream-class-name,
       i3 ↦ 𝑒-stream-method-name,

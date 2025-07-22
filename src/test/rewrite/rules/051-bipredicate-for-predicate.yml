@@ -7,25 +7,25 @@ pattern: |
   ⟦
     𝐵0,
     𝜏-class ↦ ⟦
-      base ↦ "Q.jeo.class",
+      φ ↦ Φ.jeo.class,
       𝐵1,
       name ↦ 𝑒-class-name,
       𝐵2,
       𝜏1 ↦ ⟦
-        base ↦ "Q.jeo.method",
+        φ ↦ Φ.jeo.method,
         access ↦ 4106,
         descriptor ↦ 𝑒-predicate-descriptor,
         signature ↦ "",
         maxs ↦ ⟦
-          base ↦ "Q.jeo.maxs",
+          φ ↦ Φ.jeo.maxs,
           𝜏3 ↦ 𝑒-max-stack,
           𝜏4 ↦ 𝑒-max-locals,
           𝐵3
         ⟧,
         params ↦ ⟦
-          base ↦ "Q.jeo.params",
+          φ ↦ Φ.jeo.params,
           𝜏5 ↦ ⟦
-            base ↦ "Q.jeo.param",
+            φ ↦ Φ.jeo.param,
             index ↦ 0,
             access ↦ 0,
             type ↦ 𝑒-predicate-input-type
@@ -44,25 +44,24 @@ result: |
   ⟦
     𝐵0,
     𝜏-class ↦ ⟦
-      base ↦ "Q.jeo.class",
+      φ ↦ Φ.jeo.class,
       𝐵1,
       name ↦ 𝑒-class-name,
       𝐵2,
       𝜏1 ↦ ⟦
-        base ↦ "Q.jeo.method",
+        φ ↦ Φ.jeo.method,
         access ↦ 4106,
         descriptor ↦ 𝑒-predicate-descriptor,
         signature ↦ "",
         maxs ↦ ⟦
-          base ↦ "Q.jeo.maxs",
-          i1 ↦ 𝑒-max-stack,
-          i2 ↦ 𝑒-max-locals,
-          𝐵3
+          φ ↦ Φ.jeo.maxs,
+          max-stack ↦ 𝑒-max-stack,
+          max-locals ↦ 𝑒-max-locals
         ⟧,
         params ↦ ⟦
-          base ↦ "Q.jeo.params",
+          φ ↦ Φ.jeo.params,
           i1 ↦ ⟦
-            base ↦ "Q.jeo.param",
+            φ ↦ Φ.jeo.param,
             index ↦ 0,
             access ↦ 0,
             type ↦ 𝑒-predicate-input-type
@@ -75,39 +74,44 @@ result: |
       ⟧,
       𝐵6,
       𝜏-bipredicate ↦ ⟦
-        base ↦ "Q.jeo.method",
+        φ ↦ Φ.jeo.method,
         access ↦ 4106,
         descriptor ↦ 𝑒-bipredicate-descriptor,
         signature ↦ "",
         maxs ↦ ⟦
-          base ↦ "Q.jeo.maxs",
-          i1 ↦ 2,
-          i2 ↦ 2
+          φ ↦ Φ.jeo.maxs,
+          max-stack ↦ 2,
+          max-locals ↦ 2
         ⟧,
         params ↦ ⟦
-          base ↦ "Q.jeo.params",
+          φ ↦ Φ.jeo.params,
           i1 ↦ ⟦
-            base ↦ "Q.jeo.param",
+            φ ↦ Φ.jeo.param,
             index ↦ 0,
             access ↦ 0,
             type ↦ 𝑒-predicate-input-type
           ⟧,
           i2 ↦ ⟦
-            base ↦ "Q.jeo.param",
+            φ ↦ Φ.jeo.param,
             index ↦ 1,
             access ↦ 0,
             type ↦ "Ljava/util/function/Consumer;"
           ⟧
         ⟧,
         body ↦ ⟦
-          base ↦ "Q.jeo.seq.of5",
-          i1 ↦ ⟦
-            base ↦ "Q.jeo.opcode.aload",
+          φ ↦ Φ.jeo.seq.of5,
+          i-pop-item ↦ ⟦
+            φ ↦ Φ.jeo.opcode.aload,
+            i1 ↦ 25,
+            i1 ↦ 1
+          ⟧,
+          i-pop-consumer ↦ ⟦
+            φ ↦ Φ.jeo.opcode.aload,
             i1 ↦ 25,
             i1 ↦ 0
           ⟧,
           i2 ↦ ⟦
-            base ↦ "Q.jeo.opcode.invokestatic",
+            φ ↦ Φ.jeo.opcode.invokestatic,
             i1 ↦ 184,
             i2 ↦ 𝑒-class-name,
             i3 ↦ 𝑒-predicate-name,
@@ -115,57 +119,51 @@ result: |
             i5 ↦ Φ̇.false
           ⟧,
           i3 ↦ ⟦
-            base ↦ "Q.jeo.opcode.ifeq",
-            i1 ↦ 153,
+            φ ↦ Φ.jeo.opcode.ifne,
+            i1 ↦ 154,
             i2 ↦ ⟦
-              base ↦ "Q.jeo.label",
+              φ ↦ Φ.jeo.label,
               i1 ↦ Φ̇.bytes(
                 ⟦
-                  Δ ⤍ 4C-31-32-30-34-38-32-32-39-36-37
+                  Δ ⤍ 4C-32-30-32-38-30-34-32-39-30-35
                 ⟧
               )
             ⟧
           ⟧,
           i4 ↦ ⟦
-            base ↦ "Q.jeo.opcode.aload",
-            i1 ↦ 25,
-            i1 ↦ 1
+            φ ↦ Φ.jeo.opcode.return,
+            i1 ↦ 177
           ⟧,
           i5 ↦ ⟦
-            base ↦ "Q.jeo.opcode.aload",
-            i1 ↦ 25,
-            i1 ↦ 0
+            φ ↦ Φ.jeo.label,
+            i1 ↦ Φ̇.bytes(
+              ⟦
+                Δ ⤍ 4C-32-30-32-38-30-34-32-39-30-35
+              ⟧
+            )
           ⟧,
           i6 ↦ ⟦
-            base ↦ "Q.jeo.opcode.invokeinterface",
+            φ ↦ Φ.jeo.frame,
+            i1 ↦ 3,
+            i3 ↦ 0,
+            i3 ↦ ⟦
+              φ ↦ Φ.jeo.seq.of0
+            ⟧,
+            i4 ↦ 0,
+            i5 ↦ ⟦
+              φ ↦ Φ.jeo.seq.of0
+            ⟧
+          ⟧,
+          i-invoke ↦ ⟦
+            φ ↦ Φ.jeo.opcode.invokeinterface,
             i1 ↦ 185,
             i2 ↦ "java/util/function/Consumer",
             i3 ↦ "accept",
             i4 ↦ "(Ljava/lang/Object;)V",
             i5 ↦ Φ̇.true
           ⟧,
-          i7 ↦ ⟦
-            base ↦ "Q.jeo.label",
-            i1 ↦ Φ̇.bytes(
-              ⟦
-                Δ ⤍ 4C-31-32-30-34-38-32-32-39-36-37
-              ⟧
-            )
-          ⟧,
-          i8 ↦ ⟦
-            base ↦ "Q.jeo.frame",
-            i1 ↦ 3,
-            i2 ↦ 0,
-            i3 ↦ ⟦
-              base ↦ "Q.jeo.seq.of0"
-            ⟧,
-            i4 ↦ 0,
-            i5 ↦ ⟦
-              base ↦ "Q.jeo.seq.of0"
-            ⟧
-          ⟧,
-          i9 ↦ ⟦
-            base ↦ "Q.jeo.opcode.return",
+          i-return ↦ ⟦
+            φ ↦ Φ.jeo.opcode.return,
             i1 ↦ 177
           ⟧
         ⟧,
