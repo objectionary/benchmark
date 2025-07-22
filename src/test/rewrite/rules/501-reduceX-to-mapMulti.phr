@@ -6,9 +6,7 @@ name: reduceX-to-mapMulti
 pattern: |
   ⟦
     φ ↦ Φ.jeo.class,
-    𝐵-class-head-1,
-    name ↦ 𝑒-class-name,
-    𝐵-class-head-2,
+    𝐵-class-head,
     𝜏-method ↦ ⟦
       φ ↦ Φ.jeo.method,
       𝐵-method-head,
@@ -16,6 +14,7 @@ pattern: |
         𝐵-body-head,
         𝜏-reduceX ↦ ⟦
           φ ↦ Φ.hone.reduceX,
+          class ↦ 𝑒-class-name,
           in ↦ 𝑒-input-type,
           body ↦ ⟦ 𝐵-body ⟧
         ⟧,
@@ -28,9 +27,7 @@ pattern: |
 result: |
   ⟦
     φ ↦ Φ.jeo.class,
-    𝐵-class-head-1,
-    name ↦ 𝑒-class-name,
-    𝐵-class-head-2,
+    𝐵-class-head,
     𝜏-method ↦ ⟦
       φ ↦ Φ.jeo.method,
       𝐵-method-head,
@@ -41,16 +38,16 @@ result: |
           class ↦ 𝑒-class-name,
           method ↦ 𝑒-method-name,
           in ↦ 𝑒-input-type
-        ⟧
+        ⟧,
         𝐵-body-tail
       ⟧,
       𝐵-method-tail
     ⟧,
-    𝐵6-class-tail,
+    𝐵-class-tail,
     𝜏-reduce ↦ ⟦
       φ ↦ Φ.jeo.method,
       access ↦ 4106,
-      descriptor ↦ 𝑒-reduce-descriptor,
+      descriptor ↦ 𝑒-signature,
       signature ↦ "",
       maxs ↦ ⟦
         φ ↦ Φ.jeo.maxs,
@@ -98,19 +95,19 @@ result: |
           i1 ↦ 177
         ⟧
       ⟧,
-      name ↦ 𝑒-reduce-name
+      name ↦ 𝑒-method-name
     ⟧
   ⟧
 where:
   - meta: 𝜏-reduce
     function: random-tau
-    args: ['name', '𝐵-class-head-1', '𝐵-class-head-2', '𝐵-class-tail']
+    args: ['name', '𝐵-class-head', '𝐵-class-tail']
   - meta: 𝑒-method-name
     function: random-string
-    args: [ 'reduce_%d' ]
-  - meta: 𝑒-reduce-descriptor
+    args: [ '"reduce_%d"' ]
+  - meta: 𝑒-signature
     function: concat
     args:
       - '"("'
-      - 𝑒-func-input-type
+      - 𝑒-input-type
       - '"Ljava/util/function/Consumer;)V"'

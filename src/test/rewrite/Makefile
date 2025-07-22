@@ -7,17 +7,23 @@ SHELL := bash
 .SECONDARY:
 .PHONY: all clean after back test
 
-RULE_FILES=$(wildcard rules/*.yml)
+RULE_FILES=$(wildcard rules/*.phr)
 RULES=$(sort $(subst rules/,,$(RULE_FILES)))
-RULE_NAMES=$(subst .yml,,$(RULES))
+RULE_NAMES=$(subst .phr,,$(RULES))
 TEST_FILES=$(wildcard tests/*.phi)
 TESTS=$(subst .phi,,$(subst tests/,,$(TEST_FILES)))
 
 JEO_VERSION=0.12.0
 
-all: test run
+all: test jeo-test run
 
 run: after/Foo.bc after/Foo.out
+
+jeo-test: before/Foo.xmir
+	mkdir -p tmp/assemble
+	rm -rf tmp/assemble/*
+	cp $< tmp/assemble
+	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=tmp/assemble -Djeo.assemble.outputDir=tmp/assemble -Djeo.assemble.skip.verification
 
 test: $(TEST_FILES)
 	mkdir -p tests-output
@@ -43,7 +49,8 @@ after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	phino rewrite --sweet --nothing < $< > $@
 	for r in $(RULE_NAMES); do
 		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
-		phino rewrite --sweet --max-depth=10 --rule "rules/$${r}.yml" < $@ > "$${n}"
+	    printf 'Applying %s rule...\n' "$${r}"
+		phino rewrite --sweet --max-depth=10 --rule "rules/$${r}.phr" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
 		if diff --color=auto -u $@ "$${n}"; then
 			echo "No changes made by $${r}"
@@ -52,7 +59,7 @@ after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	done
 
 after/%.xmir: after/%.phi Makefile | after
-	phino rewrite --nothing --output=xmir < $< > $@
+	phino rewrite --nothing --output=xmir --omit-comments --omit-listing < $< > $@
 
 after/%.class: after/%.xmir Makefile | back
 	mkdir -p tmp/assemble
