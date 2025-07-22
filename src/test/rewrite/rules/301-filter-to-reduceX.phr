@@ -54,6 +54,10 @@ result: |
           stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of0
           ⟧
+        ⟧,
+        i-pop-again ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 0
         ⟧
       ⟧
     ⟧,

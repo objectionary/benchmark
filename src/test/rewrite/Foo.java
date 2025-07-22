@@ -15,25 +15,24 @@ public class Foo {
             .boxed()
             .filter(x -> x > 10)
             .map(x -> x + 1)
-            // .mapMulti(
-            //     (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
-            //         if (!bobobo(x)) {
-            //             return;
-            //         }
-            //         consumer.accept(x);
-            //     }
-            // )
-            // .mapMulti(
-            //     (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
-            //         if (bobobo(x)) {
-            //             consumer.accept(x);
-            //         }
-            //     }
-            // )
+            .mapMulti(
+                (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
+                    if (!bobobo(x)) {
+                        return;
+                    }
+                    consumer.accept(x);
+                }
+            )
+            .mapMulti(
+                (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
+                    if (bobobo(x)) {
+                        consumer.accept(x);
+                    }
+                }
+            )
             .mapToLong(x -> (long) x)
             .sum();
-        assert r == 16;
-        System.out.printf("result = %d\n", r);
+        System.out.printf("RESULT:%d\n", r);
     }
 
     private static boolean bobobo(Integer i) {

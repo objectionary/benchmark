@@ -5,7 +5,7 @@
 .SHELLFLAGS := -e -o pipefail -c
 SHELL := bash
 .SECONDARY:
-.PHONY: all clean after back test
+.PHONY: all clean after back test diff jeo-test run
 
 RULE_FILES=$(wildcard rules/*.phr)
 RULES=$(sort $(subst rules/,,$(RULE_FILES)))
@@ -17,7 +17,11 @@ JEO_VERSION=0.12.0
 
 all: test jeo-test run
 
-run: after/Foo.bc after/Foo.out
+run: after/Foo.bc diff
+
+diff: before/Foo.out after/Foo.out
+	diff before/Foo.out after/Foo.out
+	echo 'ALL GOOD!'
 
 jeo-test: before/Foo.xmir
 	mkdir -p tmp/assemble
@@ -44,6 +48,14 @@ before/%.xmir: before/%.class Makefile | before
 
 before/%.phi: before/%.xmir Makefile
 	phino rewrite --sweet --input=xmir --nothing < $< > $@
+
+before/%.out: before/%.class Makefile | before
+	mkdir -p tmp/exec
+	rm -rf tmp/exec/*
+	cp $< tmp/exec/Foo.class
+	out=$$(realpath "$$(dirname $@)")/$$(basename $@)
+	cd tmp/exec
+	java -enableassertions Foo > "$${out}"
 
 after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	phino rewrite --sweet --nothing < $< > $@
@@ -75,8 +87,9 @@ after/%.out: after/%.class Makefile | after
 	mkdir -p tmp/exec
 	rm -rf tmp/exec/*
 	cp $< tmp/exec/Foo.class
+	out=$$(realpath "$$(dirname $@)")/$$(basename $@)
 	cd tmp/exec
-	java -enableassertions Foo
+	java -enableassertions Foo > "$${out}"
 
 clean:
 	rm -rf tmp/ before/ after/
