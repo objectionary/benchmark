@@ -61,7 +61,7 @@ public class Big {
     public long streams() throws IOException {
        final long acc = Stream.of(Big.VALUES)
            .map(obj -> (String) obj)
-           .map(String::trim)
+           .map(str -> str.trim())
            .filter(str -> str.length() == 4)
            .map(str -> Long.parseLong(str, 16) + 1L)
            .mapToLong(num -> num)
