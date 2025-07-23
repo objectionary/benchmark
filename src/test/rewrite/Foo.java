@@ -13,8 +13,11 @@ public class Foo {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
             .boxed()
-            .filter(x -> x > 10)
             .map(x -> x + 1)
+            .map(x -> x + 1)
+            .filter(x -> x > 8)
+            .map(x -> x + 1)
+            .filter(x -> x > 8)
             .mapMulti(
                 (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
                     if (!bobobo(x)) {
@@ -32,7 +35,7 @@ public class Foo {
             )
             .mapToLong(x -> (long) x)
             .sum();
-        System.out.printf("RESULT:%d\n", r);
+        System.out.printf("%d\n", r);
     }
 
     private static boolean bobobo(Integer i) {

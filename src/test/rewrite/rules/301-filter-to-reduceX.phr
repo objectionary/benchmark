@@ -22,6 +22,14 @@ result: |
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-input-type,
       body ↦ ⟦
+        i-save ↦ ⟦
+          φ ↦ Φ.jeo.opcode.astore,
+          i1 ↦ 0
+        ⟧,
+        i-pop-again ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 0
+        ⟧,
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
           i2 ↦ 𝑒-class-name,

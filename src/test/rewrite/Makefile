@@ -19,16 +19,23 @@ all: test jeo-test run
 
 run: after/Foo.bc diff
 
+.SILENT:
 diff: before/Foo.out after/Foo.out
+	echo "BEFORE:"
+	cat before/Foo.out
+	echo "AFTER:"
+	cat after/Foo.out
 	diff before/Foo.out after/Foo.out
 	echo 'ALL GOOD!'
 
+.SILENT:
 jeo-test: before/Foo.xmir
 	mkdir -p tmp/assemble
 	rm -rf tmp/assemble/*
 	cp $< tmp/assemble
 	mvn "org.eolang:jeo-maven-plugin:$(JEO_VERSION):assemble" --quiet -Djeo.assemble.sourcesDir=tmp/assemble -Djeo.assemble.outputDir=tmp/assemble -Djeo.assemble.skip.verification
 
+.SILENT:
 test: $(TEST_FILES)
 	mkdir -p tests-output
 	for t in $(TESTS); do
@@ -49,6 +56,7 @@ before/%.xmir: before/%.class Makefile | before
 before/%.phi: before/%.xmir Makefile
 	phino rewrite --sweet --input=xmir --nothing < $< > $@
 
+.SILENT:
 before/%.out: before/%.class Makefile | before
 	mkdir -p tmp/exec
 	rm -rf tmp/exec/*
@@ -57,6 +65,7 @@ before/%.out: before/%.class Makefile | before
 	cd tmp/exec
 	java -enableassertions Foo > "$${out}"
 
+.SILENT:
 after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 	phino rewrite --sweet --nothing < $< > $@
 	for r in $(RULE_NAMES); do
@@ -73,6 +82,7 @@ after/%.phi: before/%.phi Makefile $(RULE_FILES) | after
 after/%.xmir: after/%.phi Makefile | after
 	phino rewrite --nothing --output=xmir --omit-comments --omit-listing < $< > $@
 
+.SILENT:
 after/%.class: after/%.xmir Makefile | back
 	mkdir -p tmp/assemble
 	rm -rf tmp/assemble/*
@@ -83,6 +93,7 @@ after/%.class: after/%.xmir Makefile | back
 after/%.bc: after/%.class Makefile | after
 	javap -c -s -l -constants $< > $@
 
+.SILENT:
 after/%.out: after/%.class Makefile | after
 	mkdir -p tmp/exec
 	rm -rf tmp/exec/*
