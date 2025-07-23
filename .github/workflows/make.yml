@@ -33,11 +33,12 @@ jobs:
           path: ~/.m2/repository
           key: ubuntu-jdk-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ubuntu-jdk-maven-
+      - run: make
+        if: github.ref != 'refs/heads/master'
       - run: |
           set -x
           SECONDS=0
           make
-      - run: |
           results=$(
             cat results.md
             printf "\nThe entire test took %d seconds.\n" "${SECONDS}"
