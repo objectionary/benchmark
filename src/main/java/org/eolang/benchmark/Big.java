@@ -6,8 +6,6 @@ package org.eolang.benchmark;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -36,158 +34,40 @@ import org.openjdk.jmh.annotations.Warmup;
 @Fork(1)
 public class Big {
 
-    private static final long EXPECTED = 2147516416L;
+    private static final long EXPECTED = 2249512L;
 
-    private static final Object[] VALUES = LongStream.range(0L, 10_000_000L)
-       .boxed()
-       .map(x -> String.format("%04x", x))
-       .toArray();
+    private static final Long[] VALUES = LongStream.range(0L, 10_000_000L)
+        .boxed()
+        .toArray(Long[]::new);
 
     @Benchmark
-    public long plain() {
-        long acc = 0L;
+    public long plain() throws IOException {
+        long count = 0;
         for (int idx = 0; idx < Big.VALUES.length; idx++) {
-            final String str = ((String) Big.VALUES[idx]).trim();
-            if (str.length() != 4) {
+            long num = Big.VALUES[idx] + 1;
+            if (num % 13 == 0) {
                 continue;
             }
-            acc += Long.parseLong(str, 16) + 1L;
+            num = num * num / 17;
+            if (num % 7 == 0) {
+                count += 1;
+            }
         }
-        assert acc == Big.EXPECTED;
-        return acc;
+        assert count == Big.EXPECTED;
+        return count;
     }
 
     @Benchmark
-    public long streams() throws IOException {
-       final long acc = Stream.of(Big.VALUES)
-           .map(obj -> (String) obj)
-           .map(str -> str.trim().trim())
-           .filter(str -> str.length() == 4)
-           .map(str -> Long.parseLong(str, 16) + 1L)
-           .mapToLong(num -> num)
-           .sum();
-       assert acc == Big.EXPECTED;
-       return acc;
-    }
-
-    @Benchmark
-    public long prefused() {
-        final long acc = Stream.of(Big.VALUES)
-            .mapMulti(
-                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
-                    then.accept(step1(item));
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<String>>) (item, then) -> {
-                    then.accept(step2(item));
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<String>>) (item, then) -> {
-                    if (!step3(item)) {
-                        return;
-                    }
-                    then.accept(item);
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
-                    final long i = step4(item);
-                    then.accept(i);
-                }
-            )
-            .mapToLong(num -> num)
-            .sum();
-        assert acc == Big.EXPECTED;
-        return acc;
-    }
-
-    @Benchmark
-    public long fused1() {
-        final long acc = Stream.of(Big.VALUES)
-            .mapMulti(
-                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
-                    then.accept(step2(step1(item)));
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<String>>) (item, then) -> {
-                    if (!step3(item)) {
-                        return;
-                    }
-                    then.accept(item);
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
-                    final long i = step4(item);
-                    then.accept(i);
-                }
-            )
-            .mapToLong(num -> num)
-            .sum();
-        assert acc == Big.EXPECTED;
-        return acc;
-    }
-
-    @Benchmark
-    public long fused2() {
-        final long acc = Stream.of(Big.VALUES)
-            .mapMulti(
-                (BiConsumer<Object, Consumer<String>>) (item, then) -> {
-                    final String i = step2(step1(item));
-                    if (!step3(i)) {
-                        return;
-                    }
-                    then.accept(i);
-                }
-            )
-            .mapMulti(
-                (BiConsumer<String, Consumer<Long>>) (item, then) -> {
-                    final long i = step4(item);
-                    then.accept(i);
-                }
-            )
-            .mapToLong(num -> num)
-            .sum();
-        assert acc == Big.EXPECTED;
-        return acc;
-    }
-
-    @Benchmark
-    public long fused3() {
-        final long acc = Stream.of(Big.VALUES)
-            .mapMulti(
-                (BiConsumer<Object, Consumer<Long>>) (item, then) -> {
-                    final String i1 = step2(step1(item));
-                    if (!step3(i1)) {
-                        return;
-                    }
-                    final long i2 = step4(i1);
-                    then.accept(i2);
-                }
-            )
-            .mapToLong(num -> num)
-            .sum();
-        assert acc == Big.EXPECTED;
-        return acc;
-    }
-
-    private static String step1(final Object item) {
-        return (String) item;
-    }
-
-    private static String step2(final String item) {
-        return item.trim().trim();
-    }
-
-    private static boolean step3(final String item) {
-        return item.length() == 4;
-    }
-
-    private static long step4(final String item) {
-        return Long.parseLong(item, 16) + 1L;
+    public long streams() {
+       final long count = Stream.of(Big.VALUES)
+           .map(num -> num + 1)
+           .filter(num -> num % 13 != 0)
+           .map(num -> num * num)
+           .map(num -> num / 17)
+           .filter(num -> num % 7 == 0)
+           .count();
+       assert count == Big.EXPECTED;
+       return count;
     }
 
 }

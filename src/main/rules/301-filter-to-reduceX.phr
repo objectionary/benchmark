@@ -54,9 +54,11 @@ result: |
         i5 ↦ ⟦
           φ ↦ Φ.jeo.frame,
           type ↦ 3,
-          nlocal ↦ 0,
+          nlocal ↦ 2,
           locals ↦ ⟦
-            φ ↦ Φ.jeo.seq.of0
+            φ ↦ Φ.jeo.seq.of2,
+            item ↦ 𝑒-input-type,
+            consumer ↦ "Ljava/util/function/Consumer;"
           ⟧,
           nstack ↦ 0,
           stack ↦ ⟦
