@@ -25,7 +25,9 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 23
-      - run: sudo wget http://phino.objectionary.com/releases/ubuntu-24.04/phino-latest -o /usr/bin/phino
+      - run: |
+          sudo wget http://phino.objectionary.com/releases/ubuntu-24.04/phino-latest -o /usr/bin/phino
+          sudo chmod a+x /usr/bin/phino
       - uses: actions/cache@v4
         with:
           path: ~/.m2/repository
