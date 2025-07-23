@@ -61,7 +61,7 @@ public class Big {
     public long streams() throws IOException {
        final long acc = Stream.of(Big.VALUES)
            .map(obj -> (String) obj)
-           .map(str -> str.trim())
+           .map(str -> str.trim().trim())
            .filter(str -> str.length() == 4)
            .map(str -> Long.parseLong(str, 16) + 1L)
            .mapToLong(num -> num)
@@ -179,7 +179,7 @@ public class Big {
     }
 
     private static String step2(final String item) {
-        return item.trim();
+        return item.trim().trim();
     }
 
     private static boolean step3(final String item) {
