@@ -5,7 +5,10 @@
 package org.eolang.benchmark;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
@@ -34,23 +37,23 @@ import org.openjdk.jmh.annotations.Warmup;
 @Fork(1)
 public class Big {
 
-    private static final long EXPECTED = 2249512L;
+    private static final long EXPECTED = 1325403L;
 
-    private static final Long[] VALUES = LongStream.range(0L, 10_000_000L)
+    private static final Integer[] VALUES = IntStream.range(0, 10_000_000)
         .boxed()
-        .toArray(Long[]::new);
+        .toArray(Integer[]::new);
 
     @Benchmark
-    public long plain() throws IOException {
-        long count = 0;
+    public long plain() {
+        long count = 0L;
         for (int idx = 0; idx < Big.VALUES.length; idx++) {
-            long num = Big.VALUES[idx] + 1;
+            int num = Big.VALUES[idx] + 1;
             if (num % 13 == 0) {
                 continue;
             }
             num = num * num / 17;
             if (num % 7 == 0) {
-                count += 1;
+                count += 1L;
             }
         }
         assert count == Big.EXPECTED;
