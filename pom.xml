@@ -163,8 +163,9 @@
                   <maxDepth>25</maxDepth>
                   <jeoVersion>${jeo.version}</jeoVersion>
                   <rules>none</rules>
+                  <extraExtensions>phr</extraExtensions>
                   <extra>
-                    <rule>src/test/rewrite/rules</rule>
+                    <rule>src/main/rules</rule>
                   </extra>
                 </configuration>
               </execution>
