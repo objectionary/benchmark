@@ -1,6 +1,6 @@
 *.xmir
-*.phi
 *.class
 before/
 after/
 tmp/
+tests-output/

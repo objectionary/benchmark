@@ -16,3 +16,4 @@ html/
 node_modules/
 results.md
 target/
+tmp/

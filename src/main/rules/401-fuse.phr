@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: fuse
+pattern: |
+  ⟦
+    𝐵-body-head,
+    𝜏-first ↦ ⟦
+      φ ↦ Φ.hone.reduceX,
+      class ↦ 𝑒-class-name,
+      in ↦ 𝑒-first-input-type,
+      body ↦ ⟦ 𝐵-first-body ⟧
+    ⟧,
+    𝜏-second ↦ ⟦
+      φ ↦ Φ.hone.reduceX,
+      class ↦ 𝑒-class-name,
+      in ↦ 𝑒-second-input-type,
+      body ↦ ⟦ 𝐵-second-body ⟧
+    ⟧,
+    𝐵-body-tail
+  ⟧
+result: |
+  ⟦
+    𝐵-body-head,
+    𝜏-first ↦ ⟦
+      φ ↦ Φ.hone.reduceX,
+      class ↦ 𝑒-class-name,
+      in ↦ 𝑒-first-input-type,
+      body ↦ ⟦
+        𝐵-first-body,
+        𝐵-second-body
+      ⟧
+    ⟧,
+    𝐵-body-tail
+  ⟧

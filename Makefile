@@ -5,20 +5,23 @@
 .SHELLFLAGS := -e -o pipefail -c
 SHELL := bash
 
-.PHONY: all clean test
+.PHONY: all clean test env
 .PRECIOUS: %.jar after before
 .EXPORT_ALL_VARIABLES:
 
-SHELL=bash
-
-HONE_VERSION=0.4.2
-JEO_VERSION=0.11.4
+HONE_VERSION=0.5.2
+JEO_VERSION=0.12.0
 EO_VERSION=0.57.2
+
+TARGET=$$(realpath ./tmp)
 
 export
 
-all: env results.md html/summary.html
+all: env test results.md html/summary.html
 	set -e
+
+test:
+	make -C src/test "TARGET=$(TARGET)"
 
 html/summary.html: ./src/main/perl/create-html-summary.pl before.csv after.csv
 	mkdir -p html

@@ -25,6 +25,9 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 23
+      - run: |
+          sudo wget -q -O /usr/bin/phino http://phino.objectionary.com/releases/ubuntu-24.04/phino-latest
+          sudo chmod a+x /usr/bin/phino
       - uses: actions/cache@v4
         with:
           path: ~/.m2/repository
@@ -34,6 +37,7 @@ jobs:
           set -x
           SECONDS=0
           make
+      - run: |
           results=$(
             cat results.md
             printf "\nThe entire test took %d seconds.\n" "${SECONDS}"
@@ -55,6 +59,7 @@ jobs:
           base: master
         if: github.ref == 'refs/heads/master'
       - run: mv html gh-pages
+        if: github.ref == 'refs/heads/master'
       - uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           branch: gh-pages

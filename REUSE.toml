@@ -22,6 +22,7 @@ path = [
     "**/*.svg",
     "**/*.txt",
     "**/*.vm",
+    "**/*.phi",
     "**/CNAME",
     "README.md",
     "renovate.json",

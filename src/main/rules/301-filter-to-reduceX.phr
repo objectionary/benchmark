@@ -1,0 +1,85 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: filter-to-reduceX
+pattern: |
+  ⟦
+    𝐵-body-head,
+    𝜏-opcode ↦ ⟦
+      φ ↦ Φ.hone.filter,
+      class ↦ 𝑒-class-name,
+      method ↦ 𝑒-method-name,
+      in ↦ 𝑒-input-type
+    ⟧,
+    𝐵-body-tail
+  ⟧
+result: |
+  ⟦
+    𝐵-body-head,
+    𝜏-opcode ↦ ⟦
+      φ ↦ Φ.hone.reduceX,
+      class ↦ 𝑒-class-name,
+      in ↦ 𝑒-input-type,
+      body ↦ ⟦
+        i-save ↦ ⟦
+          φ ↦ Φ.jeo.opcode.astore,
+          i1 ↦ 0
+        ⟧,
+        i-pop-again ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 0
+        ⟧,
+        i1 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.invokestatic,
+          i2 ↦ 𝑒-class-name,
+          i3 ↦ 𝑒-method-name,
+          i4 ↦ 𝑒-signature,
+          i5 ↦ Φ̇.false
+        ⟧,
+        i2 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.ifne,
+          i2 ↦ ⟦
+            φ ↦ Φ.jeo.label,
+            i1 ↦ 𝑒-label
+          ⟧
+        ⟧,
+        i3 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.return
+        ⟧,
+        i4 ↦ ⟦
+          φ ↦ Φ.jeo.label,
+          i1 ↦ 𝑒-label
+        ⟧,
+        i5 ↦ ⟦
+          φ ↦ Φ.jeo.frame,
+          type ↦ 3,
+          nlocal ↦ 2,
+          locals ↦ ⟦
+            φ ↦ Φ.jeo.seq.of2,
+            item ↦ 𝑒-input-type,
+            consumer ↦ "Ljava/util/function/Consumer;"
+          ⟧,
+          nstack ↦ 0,
+          stack ↦ ⟦
+            φ ↦ Φ.jeo.seq.of0
+          ⟧
+        ⟧,
+        i-pop-again ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 0
+        ⟧
+      ⟧
+    ⟧,
+    𝐵-body-tail
+  ⟧
+where:
+  - meta: 𝑒-label
+    function: random-string
+    args: ['"L%d"']
+  - meta: 𝑒-signature
+    function: concat
+    args:
+      - '"("'
+      - 𝑒-input-type
+      - '")Z"'
