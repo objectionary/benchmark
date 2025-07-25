@@ -22,6 +22,11 @@ result: |
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-input-type,
+      out ↦ 𝑒-output-type,
+      locals ↦ ⟦
+        item ↦ 𝑒-input-type,
+        consumer ↦ "java/util/function/Consumer"
+      ⟧,
       body ↦ ⟦
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
@@ -38,7 +43,8 @@ where:
   - meta: 𝑒-signature
     function: concat
     args:
-      - '"("'
+      - '"(L"'
       - 𝑒-input-type
-      - '")"'
+      - '";)L"'
       - 𝑒-output-type
+      - '";"'

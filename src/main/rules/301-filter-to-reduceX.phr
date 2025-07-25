@@ -21,14 +21,14 @@ result: |
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-input-type,
+      out ↦ 𝑒-input-type,
+      locals ↦ ⟦
+        item ↦ 𝑒-input-type,
+        consumer ↦ "java/util/function/Consumer"
+      ⟧,
       body ↦ ⟦
-        i-save ↦ ⟦
-          φ ↦ Φ.jeo.opcode.astore,
-          i1 ↦ 0
-        ⟧,
-        i-pop-again ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 0
+        i-dup ↦ ⟦
+          φ ↦ Φ.jeo.opcode.dup
         ⟧,
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
@@ -50,24 +50,6 @@ result: |
         i4 ↦ ⟦
           φ ↦ Φ.jeo.label,
           i1 ↦ 𝑒-label
-        ⟧,
-        i5 ↦ ⟦
-          φ ↦ Φ.jeo.frame,
-          type ↦ 3,
-          nlocal ↦ 2,
-          locals ↦ ⟦
-            φ ↦ Φ.jeo.seq.of2,
-            item ↦ 𝑒-input-type,
-            consumer ↦ "Ljava/util/function/Consumer;"
-          ⟧,
-          nstack ↦ 0,
-          stack ↦ ⟦
-            φ ↦ Φ.jeo.seq.of0
-          ⟧
-        ⟧,
-        i-pop-again ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 0
         ⟧
       ⟧
     ⟧,
@@ -80,6 +62,6 @@ where:
   - meta: 𝑒-signature
     function: concat
     args:
-      - '"("'
+      - '"(L"'
       - 𝑒-input-type
-      - '")Z"'
+      - '";)Z"'

@@ -37,6 +37,11 @@
           φ ↦ Φ.hone.reduceX,
           class ↦ "Foo",
           in ↦ "Ljava/lang/Integer;",
+          out ↦ "Ljava/lang/Integer;",
+          locals ↦ ⟦
+            item ↦ "java/lang/String",
+            consumer ↦ "java/util/function/Consumer"
+          ⟧,
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,
