@@ -31,4 +31,4 @@ where:
     # "(Ljava/lang/Integer;)Z"
     args:
       - 𝑒-signature
-      - '"s/\\((L.+;)\\)Z/$1/g"'
+      - '"s/\\(L(.+);\\)Z/$1/g"'

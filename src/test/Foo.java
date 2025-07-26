@@ -13,7 +13,8 @@ public class Foo {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
             .boxed()
-            .map(x -> x + 1)
+            .map(x -> String.valueOf(x))
+            .map(x -> Integer.valueOf(x) + 1)
             .filter(x -> x > 8)
             .map(x -> x + 1)
             .filter(x -> x > 8)

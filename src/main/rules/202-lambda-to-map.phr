@@ -32,10 +32,10 @@ where:
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒-signature
-      - '"s/\\((L.+;)\\).*/$1/g"'
+      - '"s/\\(L(.+);\\).*/$1/g"'
   - meta: 𝑒-output-type
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒-signature
-      - '"s/.*;\\)(L.+;)/$1/g"'
+      - '"s/.*;\\)L(.+);/$1/g"'

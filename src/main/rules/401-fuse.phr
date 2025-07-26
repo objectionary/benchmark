@@ -10,12 +10,19 @@ pattern: |
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-first-input-type,
+      out ↦ 𝑒-first-output-type,
+      locals ↦ ⟦
+        𝐵-locals,
+        ρ ↦ ∅
+      ⟧,
       body ↦ ⟦ 𝐵-first-body ⟧
     ⟧,
     𝜏-second ↦ ⟦
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-second-input-type,
+      out ↦ 𝑒-second-output-type,
+      locals ↦ 𝑒-second-locals,
       body ↦ ⟦ 𝐵-second-body ⟧
     ⟧,
     𝐵-body-tail
@@ -27,10 +34,44 @@ result: |
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
       in ↦ 𝑒-first-input-type,
+      out ↦ 𝑒-second-output-type,
+      locals ↦ ⟦
+        𝐵-locals,
+        local ↦ 𝑒-first-output-type,
+        ρ ↦ ∅
+      ⟧,
       body ↦ ⟦
         𝐵-first-body,
+        i-frame ↦ ⟦
+          φ ↦ Φ.jeo.frame,
+          type ↦ 0,
+          nlocal ↦ 𝑒-locals-size,
+          locals ↦ ⟦
+            φ ↦ Φ.jeo.seq.of,
+            𝐵-locals
+          ⟧,
+          nstack ↦ 2,
+          stack ↦ ⟦
+            φ ↦ Φ.jeo.seq.of2,
+            consumer ↦ "java/util/function/Consumer",
+            item ↦ 𝑒-first-output-type
+          ⟧
+        ⟧,
+        i-store ↦ ⟦
+          φ ↦ Φ.jeo.astore,
+          i1 ↦ 𝑒-locals-size
+        ⟧,
+        i-load ↦ ⟦
+          φ ↦ Φ.jeo.aload,
+          i1 ↦ 𝑒-locals-size
+        ⟧,
         𝐵-second-body
       ⟧
     ⟧,
     𝐵-body-tail
   ⟧
+where:
+  - meta: 𝑒-locals-size
+    function: size
+    args: [ 𝐵-locals ]
+

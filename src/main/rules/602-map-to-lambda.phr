@@ -37,7 +37,8 @@ where:
   - meta: 𝑒-signature
     function: concat
     args:
-      - '"("'
+      - '"(L"'
       - 𝑒-input-type
-      - '")"'
+      - '";)L"'
       - 𝑒-output-type
+      - '";"'

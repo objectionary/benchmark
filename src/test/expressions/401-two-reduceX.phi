@@ -33,12 +33,17 @@
           φ ↦ Φ.hone.reduceX,
           class ↦ "Foo",
           in ↦ "Ljava/lang/Integer;",
+          out ↦ "Ljava/lang/String;",
+          locals ↦ ⟦
+            item ↦ "java/lang/Integer",
+            consumer ↦ "java/util/function/Consumer"
+          ⟧,
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,
               v463 ↦ "java/lang/Integer",
               v464 ↦ "valueOf",
-              v465 ↦ "(I)Ljava/lang/Integer;",
+              v465 ↦ "(I)Ljava/lang/String;",
               v466 ↦ Φ̇.false
             ⟧
           ⟧
@@ -46,7 +51,12 @@
         instruction291 ↦ ⟦
           φ ↦ Φ.hone.reduceX,
           class ↦ "Foo",
-          in ↦ "Ljava/lang/Integer;",
+          in ↦ "Ljava/lang/String;",
+          out ↦ "Ljava/lang/Boolean;",
+          locals ↦ ⟦
+            item ↦ "java/lang/String",
+            consumer ↦ "java/util/function/Consumer"
+          ⟧,
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,

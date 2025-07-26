@@ -16,6 +16,11 @@ pattern: |
           φ ↦ Φ.hone.reduceX,
           class ↦ 𝑒-class-name,
           in ↦ 𝑒-input-type,
+          out ↦ 𝑒-output-type,
+          locals ↦ ⟦
+            𝐵-locals,
+            ρ ↦ ∅
+          ⟧,
           body ↦ ⟦ 𝐵-body ⟧
         ⟧,
         𝐵-body-tail
@@ -51,8 +56,8 @@ result: |
       signature ↦ "",
       maxs ↦ ⟦
         φ ↦ Φ.jeo.maxs,
-        max-stack ↦ 2,
-        max-locals ↦ 2
+        max-stack ↦ 3,
+        max-locals ↦ 𝑒-max-locals
       ⟧,
       params ↦ ⟦
         φ ↦ Φ.jeo.params,
@@ -60,7 +65,7 @@ result: |
           φ ↦ Φ.jeo.param,
           index ↦ 0,
           access ↦ 0,
-          type ↦ 𝑒-input-type
+          type ↦ 𝑒-input-param
         ⟧,
         i2 ↦ ⟦
           φ ↦ Φ.jeo.param,
@@ -70,23 +75,30 @@ result: |
         ⟧
       ⟧,
       body ↦ ⟦
-        φ ↦ Φ.jeo.seq.of5,
+        φ ↦ Φ.jeo.seq.of,
         i-pop-consumer ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 1
+        ⟧,
+        i-pop-item ↦ ⟦
           φ ↦ Φ.jeo.opcode.aload,
           i1 ↦ 0
         ⟧,
         𝐵-body,
-        i-save-it ↦ ⟦
-          φ ↦ Φ.jeo.opcode.astore,
-          i1 ↦ 0
-        ⟧,
-        i-pop-item ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 1
-        ⟧,
-        i-put-it ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 0
+        i-frame ↦ ⟦
+          φ ↦ Φ.jeo.frame,
+          type ↦ 0,
+          nlocal ↦ 𝑒-max-locals,
+          locals ↦ ⟦
+            φ ↦ Φ.jeo.seq.of,
+            𝐵-locals
+          ⟧,
+          nstack ↦ 2,
+          stack ↦ ⟦
+            φ ↦ Φ.jeo.seq.of2,
+            consumer ↦ "java/util/function/Consumer",
+            item ↦ 𝑒-output-type
+          ⟧
         ⟧,
         i-invoke ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokeinterface,
@@ -103,6 +115,12 @@ result: |
     ⟧
   ⟧
 where:
+  - meta: 𝑒-input-param
+    function: concat
+    args:
+      - '"L"'
+      - 𝑒-input-type
+      - '";"'
   - meta: 𝜏-reduce
     function: random-tau
     args: ['name', '𝐵-class-head', '𝐵-class-tail']
@@ -113,5 +131,8 @@ where:
     function: concat
     args:
       - '"("'
-      - 𝑒-input-type
+      - 𝑒-input-param
       - '"Ljava/util/function/Consumer;)V"'
+  - meta: 𝑒-max-locals
+    function: size
+    args: [ 𝐵-locals ]
