@@ -2,19 +2,20 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: lambda-to-invokeinterface
+name: lambda-to-invokedynamic
 pattern: |
   ⟦
     𝐵1,
     𝜏1 ↦ ⟦
       φ ↦ Φ.hone.lambda,
+      class ↦ 𝑒-class-name,
       method ↦ 𝑒-method-name,
       interface ↦ 𝑒-interface-name,
-      signature ↦ 𝑒-signature,
-      target-class ↦ 𝑒-class-name,
+      lambda-signature ↦ 𝑒-lambda-signature,
+      target-class ↦ 𝑒-target-class-name,
       target-method ↦ 𝑒-target-method-name,
       target-signature ↦ 𝑒-target-signature,
-      intermediate-signature ↦ 𝑒-intermediate-signature,
+      bridge-signature ↦ 𝑒-bridge-signature,
       stream-class ↦ 𝑒-stream-class-name,
       stream-method ↦ 𝑒-stream-method-name,
       stream-signature ↦ 𝑒-stream-signature
@@ -38,19 +39,19 @@ result: |
       ⟧,
       i5 ↦ ⟦
         φ ↦ Φ.jeo.type,
-        i1 ↦ 𝑒-signature
+        i1 ↦ 𝑒-lambda-signature
       ⟧,
       i6 ↦ ⟦
         φ ↦ Φ.jeo.handle,
         i1 ↦ 6,
-        i2 ↦ 𝑒-class-name,
+        i2 ↦ 𝑒-target-class-name,
         i3 ↦ 𝑒-target-method-name,
         i4 ↦ 𝑒-target-signature,
         i5 ↦ Φ̇.false
       ⟧,
       i7 ↦ ⟦
         φ ↦ Φ.jeo.type,
-        i1 ↦ 𝑒-intermediate-signature
+        i1 ↦ 𝑒-bridge-signature
       ⟧
     ⟧,
     𝜏-invokeinterface ↦ ⟦

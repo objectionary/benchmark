@@ -32,8 +32,10 @@
         instruction181 ↦ ⟦
           φ ↦ Φ.hone.filter,
           class ↦ "Foo",
-          method ↦ "lambda$main$0",
-          in ↦ "Ljava/lang/Integer;"
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$0",
+          target-input ↦ "Ljava/lang/Object;",
+          bridge-input ↦ "Ljava/lang/Integer;"
         ⟧
       ⟧,
       name ↦ "lambda$main$0"

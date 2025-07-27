@@ -31,13 +31,14 @@
         φ ↦ Φ.jeo.seq.of50,
         instruction282 ↦ ⟦
           φ ↦ Φ.hone.lambda,
+          class ↦ "Foo",
           method ↦ "accept",
           interface ↦ "()Ljava/util/function/BiConsumer;",
-          signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
+          lambda-signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$2",
           target-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
-          intermediate-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
+          bridge-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",
           stream-class ↦ "java/util/stream/Stream",
           stream-method ↦ "mapMulti",
           stream-signature ↦ "(Ljava/util/function/BiConsumer;)Ljava/util/stream/Stream;"
