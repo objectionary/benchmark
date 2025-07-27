@@ -14,11 +14,8 @@ pattern: |
       target-output ↦ 𝑒-first-target-output-type,
       bridge-input ↦ 𝑒-first-bridge-input-type,
       bridge-output ↦ 𝑒-first-bridge-output-type,
-      locals ↦ ⟦
-        𝐵-locals,
-        ρ ↦ ∅
-      ⟧,
-      body ↦ ⟦ 𝐵-first-body ⟧
+      locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
+      body ↦ ⟦ 𝐵-first-body, ρ ↦ ∅ ⟧
     ⟧,
     𝜏-second ↦ ⟦
       φ ↦ Φ.hone.reduceX,
@@ -29,7 +26,7 @@ pattern: |
       bridge-input ↦ 𝑒-second-bridge-input-type,
       bridge-output ↦ 𝑒-second-bridge-output-type,
       locals ↦ 𝑒-second-locals,
-      body ↦ ⟦ 𝐵-second-body ⟧
+      body ↦ ⟦ 𝐵-second-body, ρ ↦ ∅ ⟧
     ⟧,
     𝐵-body-tail
   ⟧
@@ -74,7 +71,8 @@ result: |
           φ ↦ Φ.jeo.aload,
           i1 ↦ 𝑒-locals-size
         ⟧,
-        𝐵-second-body
+        𝐵-second-body,
+        ρ ↦ ∅
       ⟧
     ⟧,
     𝐵-body-tail

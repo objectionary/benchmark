@@ -20,11 +20,8 @@ pattern: |
           target-output ↦ 𝑒-target-output-type,
           bridge-input ↦ 𝑒-bridge-input-type,
           bridge-output ↦ 𝑒-bridge-output-type,
-          locals ↦ ⟦
-            𝐵-locals,
-            ρ ↦ ∅
-          ⟧,
-          body ↦ ⟦ 𝐵-body ⟧
+          locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
+          body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧
         ⟧,
         𝐵-body-tail
       ⟧,
@@ -114,7 +111,8 @@ result: |
         ⟧,
         i-return ↦ ⟦
           φ ↦ Φ.jeo.opcode.return
-        ⟧
+        ⟧,
+        ρ ↦ ∅
       ⟧,
       name ↦ 𝑒-target-method-name
     ⟧
