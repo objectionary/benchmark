@@ -29,7 +29,7 @@ import org.openjdk.jmh.annotations.Warmup;
  * <p>We expect that the usage of Stream API in this class will be replaced
  * by imperative alternatives, thus making it faster.</p>
  *
- * @see <a href="https://github.com/biboudis/clashofthelambdas">biboudis/clashofthelambdas</a>
+ * @see <a href="https://dl.acm.org/doi/abs/10.1145/3428236">Paper by Moller et al.</a>
  * @since 0.2
  */
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
