@@ -31,13 +31,14 @@
         φ ↦ Φ.jeo.seq.of50,
         instruction334 ↦ ⟦
           φ ↦ Φ.hone.lambda,
+          class ↦ "Foo",
           method ↦ "apply",
           interface ↦ "()Ljava/util/function/Function;",
-          signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+          lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$3",
           target-signature ↦ "(Ljava/lang/String;)Ljava/lang/Integer;",
-          intermediate-signature ↦ "(Ljava/lang/String;)Ljava/lang/Integer;",
+          bridge-signature ↦ "(Ljava/lang/String;)Ljava/lang/Integer;",
           stream-class ↦ "java/util/stream/Stream",
           stream-method ↦ "map",
           stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"

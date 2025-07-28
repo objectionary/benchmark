@@ -32,8 +32,11 @@
         instruction239 ↦ ⟦
           φ ↦ Φ.hone.reduceX,
           class ↦ "Foo",
-          in ↦ "Ljava/lang/Integer;",
-          out ↦ "Ljava/lang/String;",
+          target-class ↦ "java/lang/Integer",
+          target-input ↦ "Ljava/lang/Integer;",
+          target-output ↦ "Ljava/lang/Integer;",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/Integer;",
           locals ↦ ⟦
             item ↦ "java/lang/Integer",
             consumer ↦ "java/util/function/Consumer"
@@ -51,8 +54,11 @@
         instruction291 ↦ ⟦
           φ ↦ Φ.hone.reduceX,
           class ↦ "Foo",
-          in ↦ "Ljava/lang/String;",
-          out ↦ "Ljava/lang/Boolean;",
+          target-class ↦ "Foo",
+          target-input ↦ "Ljava/lang/Object;",
+          target-output ↦ "Ljava/lang/Object;",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/String;",
           locals ↦ ⟦
             item ↦ "java/lang/String",
             consumer ↦ "java/util/function/Consumer"

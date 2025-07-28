@@ -36,9 +36,12 @@
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
           class ↦ "Foo",
-          method ↦ "lambda$main$0",
-          in ↦ "Ljava/lang/Integer;",
-          out ↦ "Ljava/lang/String;"
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$0",
+          target-input ↦ "Ljava/lang/Object;",
+          target-output ↦ "Ljava/lang/Object;",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/String;"
         ⟧
       ⟧
     ⟧

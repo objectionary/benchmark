@@ -9,8 +9,10 @@ pattern: |
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.filter,
       class ↦ 𝑒-class-name,
-      method ↦ 𝑒-method-name,
-      in ↦ 𝑒-input-type
+      target-class ↦ 𝑒-target-class-name,
+      target-method ↦ 𝑒-target-method-name,
+      target-input ↦ 𝑒-target-input-type,
+      bridge-input ↦ 𝑒-bridge-input-type
     ⟧,
     𝐵-body-tail
   ⟧
@@ -20,10 +22,13 @@ result: |
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.reduceX,
       class ↦ 𝑒-class-name,
-      in ↦ 𝑒-input-type,
-      out ↦ 𝑒-input-type,
+      target-class ↦ 𝑒-target-class-name,
+      target-input ↦ 𝑒-target-input-type,
+      target-output ↦ 𝑒-target-input-type,
+      bridge-input ↦ 𝑒-bridge-input-type,
+      bridge-output ↦ 𝑒-bridge-input-type,
       locals ↦ ⟦
-        item ↦ 𝑒-input-type,
+        item ↦ 𝑒-bridge-input-type,
         consumer ↦ "java/util/function/Consumer"
       ⟧,
       body ↦ ⟦
@@ -32,8 +37,8 @@ result: |
         ⟧,
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
-          i2 ↦ 𝑒-class-name,
-          i3 ↦ 𝑒-method-name,
+          i2 ↦ 𝑒-target-class-name,
+          i3 ↦ 𝑒-target-method-name,
           i4 ↦ 𝑒-signature,
           i5 ↦ Φ̇.false
         ⟧,
@@ -63,5 +68,5 @@ where:
     function: concat
     args:
       - '"(L"'
-      - 𝑒-input-type
+      - 𝑒-target-input-type
       - '";)Z"'

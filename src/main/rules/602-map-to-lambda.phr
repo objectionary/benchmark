@@ -9,9 +9,12 @@ pattern: |
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.map,
       class ↦ 𝑒-class-name,
-      method ↦ 𝑒-method-name,
-      in ↦ 𝑒-input-type,
-      out ↦ 𝑒-output-type
+      target-class ↦ 𝑒-target-class-name,
+      target-method ↦ 𝑒-target-method-name,
+      target-input ↦ 𝑒-target-input-type,
+      target-output ↦ 𝑒-target-output-type,
+      bridge-input ↦ 𝑒-bridge-input-type,
+      bridge-output ↦ 𝑒-bridge-output-type
     ⟧,
     𝐵-body-tail
   ⟧
@@ -20,13 +23,14 @@ result: |
     𝐵-body-head,
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.lambda,
+      class ↦ 𝑒-class-name,
       method ↦ "apply",
       interface ↦ "()Ljava/util/function/Function;",
-      signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-      target-class ↦ 𝑒-class-name,
-      target-method ↦ 𝑒-method-name,
-      target-signature ↦ 𝑒-signature,
-      intermediate-signature ↦ 𝑒-signature,
+      lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+      target-class ↦ 𝑒-target-class-name,
+      target-method ↦ 𝑒-target-method-name,
+      target-signature ↦ 𝑒-target-signature,
+      bridge-signature ↦ 𝑒-bridge-signature,
       stream-class ↦ "java/util/stream/Stream",
       stream-method ↦ "map",
       stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
@@ -34,11 +38,19 @@ result: |
     𝐵-body-tail
   ⟧
 where:
-  - meta: 𝑒-signature
+  - meta: 𝑒-target-signature
     function: concat
     args:
       - '"(L"'
-      - 𝑒-input-type
+      - 𝑒-target-input-type
       - '";)L"'
-      - 𝑒-output-type
+      - 𝑒-target-output-type
+      - '";"'
+  - meta: 𝑒-bridge-signature
+    function: concat
+    args:
+      - '"(L"'
+      - 𝑒-bridge-input-type
+      - '";)L"'
+      - 𝑒-bridge-output-type
       - '";"'

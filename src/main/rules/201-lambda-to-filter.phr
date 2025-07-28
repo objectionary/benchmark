@@ -6,13 +6,14 @@ name: lambda-to-filter
 pattern: |
   ⟦
     φ ↦ Φ.hone.lambda,
+    class ↦ 𝑒-class-name,
     method ↦ "test",
     interface ↦ "()Ljava/util/function/Predicate;",
-    signature ↦ "(Ljava/lang/Object;)Z",
-    target-class ↦ 𝑒-class-name,
-    target-method ↦ 𝑒-method-name,
-    target-signature ↦ 𝑒-signature,
-    intermediate-signature ↦ 𝑒-signature,
+    lambda-signature ↦ "(Ljava/lang/Object;)Z",
+    target-class ↦ 𝑒-target-class-name,
+    target-method ↦ 𝑒-target-method-name,
+    target-signature ↦ 𝑒-target-signature,
+    bridge-signature ↦ 𝑒-bridge-signature,
     stream-class ↦ "java/util/stream/Stream",
     stream-method ↦ "filter",
     stream-signature ↦ "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;",
@@ -22,13 +23,21 @@ result: |
   ⟦
     φ ↦ Φ.hone.filter,
     class ↦ 𝑒-class-name,
-    method ↦ 𝑒-method-name,
-    in ↦ 𝑒-input-type
+    target-class ↦ 𝑒-target-class-name,
+    target-method ↦ 𝑒-target-method-name,
+    target-input ↦ 𝑒-target-input-type,
+    bridge-input ↦ 𝑒-bridge-input-type
   ⟧
 where:
-  - meta: 𝑒-input-type
+  - meta: 𝑒-target-input-type
     function: sed
     # "(Ljava/lang/Integer;)Z"
     args:
-      - 𝑒-signature
+      - 𝑒-target-signature
+      - '"s/\\(L(.+);\\)Z/$1/g"'
+  - meta: 𝑒-bridge-input-type
+    function: sed
+    # "(Ljava/lang/Integer;)Z"
+    args:
+      - 𝑒-bridge-signature
       - '"s/\\(L(.+);\\)Z/$1/g"'

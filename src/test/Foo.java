@@ -13,7 +13,8 @@ public class Foo {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
             .boxed()
-            .map(x -> String.valueOf(x))
+            .map(String::valueOf)
+            .filter(Foo::isNotEmpty)
             .map(x -> Integer.valueOf(x) + 1)
             .filter(x -> x > 8)
             .map(x -> x + 1)
@@ -42,4 +43,7 @@ public class Foo {
         return i > 10;
     }
 
+    private static boolean isNotEmpty(Object str) {
+        return !((String) str).isEmpty();
+    }
 }

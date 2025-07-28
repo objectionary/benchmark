@@ -31,13 +31,14 @@
         φ ↦ Φ.jeo.seq.of46,
         instruction181 ↦ ⟦
           φ ↦ Φ.hone.lambda,
+          class ↦ "Foo",
           method ↦ "test",
           interface ↦ "()Ljava/util/function/Predicate;",
-          signature ↦ "(Ljava/lang/Object;)Z",
+          lambda-signature ↦ "(Ljava/lang/Object;)Z",
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Integer;)Z",
-          intermediate-signature ↦ "(Ljava/lang/Integer;)Z",
+          target-signature ↦ "(Ljava/lang/Object;)Z",
+          bridge-signature ↦ "(Ljava/lang/Integer;)Z",
           stream-class ↦ "java/util/stream/Stream",
           stream-method ↦ "filter",
           stream-signature ↦ "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"
