@@ -41,13 +41,6 @@ import org.openjdk.jmh.annotations.Warmup;
 @State(Scope.Benchmark)
 public class Cart {
 
-    public static class Ref {
-        public int num;
-        public Ref(int num) {
-            this.num = num;
-        }
-    }
-
     public static final int N = 10_000_000;
 
     static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();

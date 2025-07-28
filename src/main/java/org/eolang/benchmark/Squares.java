@@ -41,13 +41,6 @@ import org.openjdk.jmh.annotations.Warmup;
 @State(Scope.Benchmark)
 public class Squares {
 
-    public static class Ref {
-        public int num;
-        public Ref(int num) {
-            this.num = num;
-        }
-    }
-
     public static final int N = 100_000_000;
 
     static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
