@@ -68,7 +68,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresBaseline() {
+    public long squaresBaseline() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
             acc += v[i] * v[i];
@@ -88,7 +88,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresEvenBaseline() {
+    public long soseBaseline() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
             if (v[i] % 2 == 0) {
@@ -111,7 +111,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresSeq() {
+    public long squaresSeq() {
         long sum = LongStream.of(v)
             .map(d -> d * d)
             .sum();
@@ -119,7 +119,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresPar() {
+    public long squaresPar() {
         long sum = LongStream.of(v)
             .parallel()
             .map(d -> d * d)
@@ -145,7 +145,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresEvenSeq() {
+    public long evenSeq() {
         long sum = LongStream.of(v)
             .filter(x -> x % 2 == 0)
             .map(x -> x * x)
@@ -154,7 +154,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumOfSquaresEvenPar() {
+    public long evenPar() {
         long sum = LongStream.of(v)
             .parallel()
             .filter(x -> x % 2 == 0)
