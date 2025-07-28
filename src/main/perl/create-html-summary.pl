@@ -44,7 +44,7 @@ sub join_classes {
   my $total = 0;
   foreach my $f (glob("$dir/org/eolang/benchmark/$target.class")) {
     my $base = substr($f, length($dir) + 1);
-    my $code = `cd '$dir' && javap -c '$base'`;
+    my $code = `cd '$dir' && javap -p -c '$base'`;
     chomp $code;
     $code = trimmed($code);
     push @codes, $code;

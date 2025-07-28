@@ -98,7 +98,7 @@ $(TARGET)/after/%.class: $(TARGET)/after/%.xmir Makefile
 	cp "$(TARGET)/tmp/assemble/Foo.class" $@
 
 $(TARGET)/after/%.bc: $(TARGET)/after/%.class Makefile
-	javap -c -s -l -constants $< > $@
+	javap -p -c -s -l -constants $< > $@
 
 .SILENT:
 $(TARGET)/after/%.out: $(TARGET)/after/%.class Makefile
