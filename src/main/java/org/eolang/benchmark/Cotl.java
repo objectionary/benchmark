@@ -36,7 +36,7 @@ import org.openjdk.jmh.annotations.Warmup;
  */
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @BenchmarkMode(Mode.AverageTime)
-@Warmup(iterations = 5, time = 10, timeUnit = TimeUnit.MILLISECONDS)
+@Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
 public class Cotl {
