@@ -43,10 +43,10 @@ while IFS= read -r ln; do
     printf ' | '
     printf "\`%0.2f\`" "${ms2}"
     printf ' | '
-    printf "\`%+0.2f\`" "$(echo "${ms2} - ${ms1}" | bc)"
+    printf "\`%+0.2f\`" "$(echo "${ms2} - ${ms1}" | bc -l)"
     printf ' | '
-    printf "\`%+d%%\`" "$(echo "100 * ( ${ms1} - ${ms2} ) / ${ms1}" | bc)"
+    printf "\`%+d%%\`" "$(echo "100 * ( ${ms1} - ${ms2} ) / ${ms1}" | bc -l)"
     printf ' | '
-    printf "\`%0.2fx\`" "$(echo "${ms1} / ${ms2}" | bc)"
+    printf "\`%0.2fx\`" "$(echo "${ms1} / ${ms2}" | bc -l)"
     printf " |\n"
 done <<< "${before}"
