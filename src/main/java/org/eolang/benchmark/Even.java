@@ -39,7 +39,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Squares {
+public class Even {
 
     public static class Ref {
         public int num;
@@ -48,7 +48,7 @@ public class Squares {
         }
     }
 
-    public static final int N = 100_000_000;
+    public static final int N = 10_000_000;
 
     static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
@@ -56,7 +56,9 @@ public class Squares {
     public long loop() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
-            acc += v[i] * v[i];
+            if (v[i] % 2 == 0) {
+                acc += v[i] * v[i];
+            }
         }
         return acc;
     }
@@ -64,7 +66,8 @@ public class Squares {
     @Benchmark
     public long stream() {
         long sum = LongStream.of(v)
-            .map(d -> d * d)
+            .filter(x -> x % 2 == 0)
+            .map(x -> x * x)
             .sum();
         return sum;
     }

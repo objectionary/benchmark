@@ -39,7 +39,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Squares {
+public class Sum {
 
     public static class Ref {
         public int num;
@@ -56,16 +56,14 @@ public class Squares {
     public long loop() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
-            acc += v[i] * v[i];
+            acc += v[i];
         }
         return acc;
     }
 
     @Benchmark
     public long stream() {
-        long sum = LongStream.of(v)
-            .map(d -> d * d)
-            .sum();
+        long sum = LongStream.of(v).sum();
         return sum;
     }
 }

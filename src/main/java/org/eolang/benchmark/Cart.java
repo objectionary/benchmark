@@ -39,7 +39,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Squares {
+public class Cart {
 
     public static class Ref {
         public int num;
@@ -48,24 +48,28 @@ public class Squares {
         }
     }
 
-    public static final int N = 100_000_000;
+    public static final int N = 10_000_000;
 
-    static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
+    static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
+
+    static long[] valuesHi = IntStream.range(0, N).mapToLong(i -> i).toArray();
 
     @Benchmark
     public long loop() {
-        long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            acc += v[i] * v[i];
+        long cart = 0;
+        for (int d = 0; d < valuesHi.length; d++) {
+            for (int dp = 0; dp < valuesLo.length; dp++) {
+                cart += valuesHi[d] * valuesLo[dp];
+            }
         }
-        return acc;
+        return cart;
     }
 
     @Benchmark
     public long stream() {
-        long sum = LongStream.of(v)
-            .map(d -> d * d)
+        long cart = LongStream.of(valuesHi)
+            .flatMap(d -> LongStream.of(valuesLo).map(dP -> dP * d))
             .sum();
-        return sum;
+        return cart;
     }
 }

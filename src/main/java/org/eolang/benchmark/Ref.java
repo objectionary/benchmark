@@ -9,7 +9,6 @@ package org.eolang.benchmark;
 
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -39,84 +38,24 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Cotl {
+public class Ref {
 
-    public static class Ref {
+    public static class Rec {
         public int num;
-        public Ref(int num) {
+        public Rec(int num) {
             this.num = num;
         }
     }
 
     public static final int N = 10_000_000;
 
-    static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
-
-    static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
-
-    static long[] valuesHi = IntStream.range(0, N).mapToLong(i -> i).toArray();
-
-    static Cotl.Ref[] refs = IntStream.range(0, N).mapToObj(n -> new Cotl.Ref(n)).toArray(size -> new Cotl.Ref[size]);
+    static Rec[] recs = IntStream.range(0, N).mapToObj(n -> new Rec(n)).toArray(size -> new Rec[size]);
 
     @Benchmark
-    public long sumBaseline() {
-        long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            acc += v[i];
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long cartBaseline() {
-        long cart = 0;
-        for (int d = 0; d < valuesHi.length; d++) {
-            for (int dp = 0; dp < valuesLo.length; dp++) {
-                cart += valuesHi[d] * valuesLo[dp];
-            }
-        }
-        return cart;
-    }
-
-    @Benchmark
-    public long evenBaseline() {
-        long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            if (v[i] % 2 == 0) {
-                acc += v[i] * v[i];
-            }
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumSeq() {
-        long sum = LongStream.of(v).sum();
-        return sum;
-    }
-
-    @Benchmark
-    public long cartSeq() {
-        long cart = LongStream.of(valuesHi)
-            .flatMap(d -> LongStream.of(valuesLo).map(dP -> dP * d))
-            .sum();
-        return cart;
-    }
-
-    @Benchmark
-    public long evenSeq() {
-        long sum = LongStream.of(v)
-            .filter(x -> x % 2 == 0)
-            .map(x -> x * x)
-            .sum();
-        return sum;
-    }
-
-    @Benchmark
-    public long refBaseline() {
+    public long loop() {
         long count = 0;
-        for (int i = 0; i < refs.length; i++) {
-            if (refs[i].num % 5 == 0 && refs[i].num % 7 == 0) {
+        for (int i = 0; i < recs.length; i++) {
+            if (recs[i].num % 5 == 0 && recs[i].num % 7 == 0) {
                 count++;
             }
         }
@@ -124,8 +63,8 @@ public class Cotl {
     }
 
     @Benchmark
-    public long refSeq() {
-        long length = Stream.of(refs)
+    public long stream() {
+        long length = Stream.of(recs)
             .filter(box -> box.num % 5 == 0)
             .filter(box -> box.num % 7 == 0)
             .count();
