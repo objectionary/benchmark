@@ -88,7 +88,7 @@ public class Cotl {
     }
 
     @Benchmark
-    public long soseBaseline() {
+    public long evenBaseline() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
             if (v[i] % 2 == 0) {
