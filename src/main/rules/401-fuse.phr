@@ -81,4 +81,3 @@ where:
   - meta: 𝑒-locals-size
     function: size
     args: [ 𝐵-locals ]
-
