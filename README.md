@@ -55,7 +55,7 @@ in [this GHA run][benchmark-gha]
 The entire test took 452 seconds.
 <!-- benchmark_end -->
 
-Important numbers are in the "Gain" column.
+Important numbers are in the "Gain" and "Ratio" columns.
 
 ## How to Contribute
 
