@@ -21,11 +21,17 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
 /**
- * Clash of the Lambdas.
+ * Clash of the Lambdas (COTL).
+ *
+ * <p>The code was taken from the
+ * <a href="https://github.com/biboudis/clashofthelambdas">biboudis/clashofthelambdas</a>
+ * repository, which is a benchmark suite. The original code is licensed
+ * under the Apache License, Version 2.0.</p>
  *
  * <p>We expect that the usage of Stream API in this class will be replaced
  * by imperative alternatives, thus making it faster.</p>
  *
+ * @see <a href="https://github.com/biboudis/clashofthelambdas">biboudis/clashofthelambdas</a>
  * @since 0.2
  */
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
