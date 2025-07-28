@@ -35,7 +35,8 @@ jobs:
           restore-keys: ubuntu-jdk-maven-
       - run: make
         if: github.ref != 'refs/heads/master'
-      - run: |
+      - name: Run make and update README.md
+        run: |
           set -x
           SECONDS=0
           make
