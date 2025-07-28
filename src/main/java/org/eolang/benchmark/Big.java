@@ -41,7 +41,7 @@ public class Big {
         .toArray(Integer[]::new);
 
     @Benchmark
-    public long plain() {
+    public long loop() {
         long count = 0L;
         for (int idx = 0; idx < Big.VALUES.length; idx++) {
             int num = Big.VALUES[idx] + 1;
@@ -58,7 +58,7 @@ public class Big {
     }
 
     @Benchmark
-    public long streams() {
+    public long stream() {
        final long count = Stream.of(Big.VALUES)
            .map(num -> num + 1)
            .filter(num -> num % 13 != 0)
