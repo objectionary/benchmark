@@ -105,23 +105,8 @@ public class Cotl {
     }
 
     @Benchmark
-    public long sumPar() {
-        long sum = LongStream.of(v).parallel().sum();
-        return sum;
-    }
-
-    @Benchmark
     public long squaresSeq() {
         long sum = LongStream.of(v)
-            .map(d -> d * d)
-            .sum();
-        return sum;
-    }
-
-    @Benchmark
-    public long squaresPar() {
-        long sum = LongStream.of(v)
-            .parallel()
             .map(d -> d * d)
             .sum();
         return sum;
@@ -136,27 +121,8 @@ public class Cotl {
     }
 
     @Benchmark
-    public long cartPar() {
-        long cart = LongStream.of(valuesHi)
-            .parallel()
-            .flatMap(d -> LongStream.of(valuesLo).map(dP -> dP * d))
-            .sum();
-        return cart;
-    }
-
-    @Benchmark
     public long evenSeq() {
         long sum = LongStream.of(v)
-            .filter(x -> x % 2 == 0)
-            .map(x -> x * x)
-            .sum();
-        return sum;
-    }
-
-    @Benchmark
-    public long evenPar() {
-        long sum = LongStream.of(v)
-            .parallel()
             .filter(x -> x % 2 == 0)
             .map(x -> x * x)
             .sum();
@@ -177,16 +143,6 @@ public class Cotl {
     @Benchmark
     public long refSeq() {
         long length = Stream.of(refs)
-            .filter(box -> box.num % 5 == 0)
-            .filter(box -> box.num % 7 == 0)
-            .count();
-        return length;
-    }
-
-    @Benchmark
-    public long refPar() {
-        long length = Stream.of(refs)
-            .parallel()
             .filter(box -> box.num % 5 == 0)
             .filter(box -> box.num % 7 == 0)
             .count();
