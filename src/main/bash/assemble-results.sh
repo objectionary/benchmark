@@ -24,8 +24,8 @@ echo "on $(uname) with $(nproc) CPUs,"
 echo "in [this GHA run][benchmark-gha]"
 echo "(the numbers are in milliseconds):"
 echo ""
-echo "| Test method | Before | After | Diff | Gain |"
-echo "| --- | --: | --: | --: | --: |"
+echo "| Test method | Before | After | Diff | Gain | Ratio |"
+echo "| --- | --: | --: | --: | --: | --: |"
 
 before=$(tail -n +2 before.csv | cut -d ',' -f 1,5 | tr -d '"' | cut -c22-)
 after=$(tail -n +2 after.csv | cut -d ',' -f 1,5 | tr -d '"' | cut -c22-)
@@ -46,5 +46,7 @@ while IFS= read -r ln; do
     printf "\`%+0.2f\`" "$(echo "${ms2} - ${ms1}" | bc)"
     printf ' | '
     printf "\`%+d%%\`" "$(echo "100 * ( ${ms1} - ${ms2} ) / ${ms1}" | bc)"
+    printf ' | '
+    printf "\`%0.2fx\`" "$(echo "${ms1} / ${ms2}" | bc)"
     printf " |\n"
 done <<< "${before}"
