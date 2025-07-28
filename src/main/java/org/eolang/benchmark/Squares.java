@@ -39,7 +39,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Cotl {
+public class Squares {
 
     public static class Ref {
         public int num;
@@ -52,83 +52,20 @@ public class Cotl {
 
     static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
-    static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
-
-    static long[] valuesHi = IntStream.range(0, N).mapToLong(i -> i).toArray();
-
-    static Cotl.Ref[] refs = IntStream.range(0, N).mapToObj(n -> new Cotl.Ref(n)).toArray(size -> new Cotl.Ref[size]);
-
     @Benchmark
-    public long sumBaseline() {
+    public long loop() {
         long acc = 0;
         for (int i = 0; i < v.length; i++) {
-            acc += v[i];
+            acc += v[i] * v[i];
         }
         return acc;
     }
 
     @Benchmark
-    public long cartBaseline() {
-        long cart = 0;
-        for (int d = 0; d < valuesHi.length; d++) {
-            for (int dp = 0; dp < valuesLo.length; dp++) {
-                cart += valuesHi[d] * valuesLo[dp];
-            }
-        }
-        return cart;
-    }
-
-    @Benchmark
-    public long evenBaseline() {
-        long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            if (v[i] % 2 == 0) {
-                acc += v[i] * v[i];
-            }
-        }
-        return acc;
-    }
-
-    @Benchmark
-    public long sumSeq() {
-        long sum = LongStream.of(v).sum();
-        return sum;
-    }
-
-    @Benchmark
-    public long cartSeq() {
-        long cart = LongStream.of(valuesHi)
-            .flatMap(d -> LongStream.of(valuesLo).map(dP -> dP * d))
-            .sum();
-        return cart;
-    }
-
-    @Benchmark
-    public long evenSeq() {
+    public long stream() {
         long sum = LongStream.of(v)
-            .filter(x -> x % 2 == 0)
-            .map(x -> x * x)
+            .map(d -> d * d)
             .sum();
         return sum;
-    }
-
-    @Benchmark
-    public long refBaseline() {
-        long count = 0;
-        for (int i = 0; i < refs.length; i++) {
-            if (refs[i].num % 5 == 0 && refs[i].num % 7 == 0) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    @Benchmark
-    public long refSeq() {
-        long length = Stream.of(refs)
-            .filter(box -> box.num % 5 == 0)
-            .filter(box -> box.num % 7 == 0)
-            .count();
-        return length;
     }
 }
