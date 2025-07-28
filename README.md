@@ -56,6 +56,10 @@ The entire test took 445 seconds.
 <!-- benchmark_end -->
 
 Important numbers are in the "Gain" and "Ratio" columns.
+Empty cells in the "Gain" column mean that the performance
+did not change significantly, while the "Ratio" column
+shows how many times the performance improved
+after the optimization.
 
 ## How to Contribute
 
