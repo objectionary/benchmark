@@ -10,7 +10,6 @@ package org.eolang.benchmark;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Measurement;
@@ -43,14 +42,14 @@ public class Even {
 
     public static final int N = 100_000_000;
 
-    static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
+    private static final long[] VALS = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
     @Benchmark
     public long loop() {
         long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            if (v[i] % 2 == 0) {
-                acc += v[i] * v[i];
+        for (int i = 0; i < VALS.length; i++) {
+            if (VALS[i] % 2 == 0) {
+                acc += VALS[i] * VALS[i];
             }
         }
         return acc;
@@ -58,7 +57,7 @@ public class Even {
 
     @Benchmark
     public long stream() {
-        long sum = LongStream.of(v)
+        long sum = LongStream.of(VALS)
             .filter(x -> x % 2 == 0)
             .map(x -> x * x)
             .sum();

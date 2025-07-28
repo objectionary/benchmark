@@ -10,7 +10,6 @@ package org.eolang.benchmark;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Measurement;
@@ -43,20 +42,20 @@ public class Sum {
 
     public static final int N = 100_000_000;
 
-    static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
+    private static final long[] VALS = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
     @Benchmark
     public long loop() {
         long acc = 0;
-        for (int i = 0; i < v.length; i++) {
-            acc += v[i];
+        for (int i = 0; i < VALS.length; i++) {
+            acc += VALS[i];
         }
         return acc;
     }
 
     @Benchmark
     public long stream() {
-        long sum = LongStream.of(v).sum();
+        long sum = LongStream.of(VALS).sum();
         return sum;
     }
 }

@@ -10,7 +10,6 @@ package org.eolang.benchmark;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Measurement;
@@ -43,16 +42,16 @@ public class Cart {
 
     public static final int N = 10_000_000;
 
-    static long[] valuesLo = IntStream.range(0, 10).mapToLong(i -> i).toArray();
+    private static final long[] LOW = IntStream.range(0, 10).mapToLong(i -> i).toArray();
 
-    static long[] valuesHi = IntStream.range(0, N).mapToLong(i -> i).toArray();
+    private static final long[] HIGH = IntStream.range(0, N).mapToLong(i -> i).toArray();
 
     @Benchmark
     public long loop() {
         long cart = 0;
-        for (int d = 0; d < valuesHi.length; d++) {
-            for (int dp = 0; dp < valuesLo.length; dp++) {
-                cart += valuesHi[d] * valuesLo[dp];
+        for (int d = 0; d < HIGH.length; d++) {
+            for (int dp = 0; dp < LOW.length; dp++) {
+                cart += HIGH[d] * LOW[dp];
             }
         }
         return cart;
@@ -60,8 +59,8 @@ public class Cart {
 
     @Benchmark
     public long stream() {
-        long cart = LongStream.of(valuesHi)
-            .flatMap(d -> LongStream.of(valuesLo).map(dP -> dP * d))
+        long cart = LongStream.of(HIGH)
+            .flatMap(d -> LongStream.of(LOW).map(dP -> dP * d))
             .sum();
         return cart;
     }

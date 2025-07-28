@@ -8,9 +8,7 @@
 package org.eolang.benchmark;
 
 import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Measurement;
@@ -37,23 +35,25 @@ import org.openjdk.jmh.annotations.Warmup;
 @Warmup(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
-public class Megamophic {
+public class Megamorphic {
 
-    public static final int N = 10_000_000;
+    private static final int N = 10_000_000;
 
-    static long[] v = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
+    private static final long[] VALS = LongStream.range(0, N)
+        .map(i -> i % 1000)
+        .toArray();
 
     @Benchmark
     public long loop() {
         long acc = 0;
-        for (int i = 0; i < v.length; i++)
-            acc += v[i] * 1 * 2 * 3 * 4 * 5 * 6 * 7;
+        for (int i = 0; i < VALS.length; i++)
+            acc += VALS[i] * 1 * 2 * 3 * 4 * 5 * 6 * 7;
         return acc;
     }
 
     @Benchmark
     public long stream() {
-        return LongStream.of(v)
+        return LongStream.of(VALS)
             .map(d -> d * 1)
             .map(d -> d * 2)
             .map(d -> d * 3)

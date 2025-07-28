@@ -49,13 +49,13 @@ public class Ref {
 
     public static final int N = 10_000_000;
 
-    static Rec[] recs = IntStream.range(0, N).mapToObj(n -> new Rec(n)).toArray(size -> new Rec[size]);
+    private static final Rec[] RECS = IntStream.range(0, N).mapToObj(n -> new Rec(n)).toArray(size -> new Rec[size]);
 
     @Benchmark
     public long loop() {
         long count = 0;
-        for (int i = 0; i < recs.length; i++) {
-            if (recs[i].num % 5 == 0 && recs[i].num % 7 == 0) {
+        for (int i = 0; i < RECS.length; i++) {
+            if (RECS[i].num % 5 == 0 && RECS[i].num % 7 == 0) {
                 count++;
             }
         }
@@ -64,7 +64,7 @@ public class Ref {
 
     @Benchmark
     public long stream() {
-        long length = Stream.of(recs)
+        long length = Stream.of(RECS)
             .filter(box -> box.num % 5 == 0)
             .filter(box -> box.num % 7 == 0)
             .count();
