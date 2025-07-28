@@ -46,7 +46,7 @@ while IFS= read -r ln; do
     printf "\`%+0.2f\`" "$(perl -E "say ${ms2} - ${ms1}")"
     printf ' | '
     per=$(perl -E "say 100 * ( ${ms1} - ${ms2} ) / ${ms1}")
-    if [ "$(perl -E "say abs(int(${per}))")" -gt 5 ]; then
+    if [ "$(perl -E "say abs(int(${per}))")" -gt 20 ]; then
       printf "\`%+0.1f%%\`" "${per}"
       printf ' | '
       printf "\`%0.2fx\`" "$(perl -E "say ${ms1} / ${ms2}")"
