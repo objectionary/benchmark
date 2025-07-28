@@ -29,32 +29,14 @@
       ⟧,
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of50,
-        instruction239 ↦ ⟦
-          φ ↦ Φ.hone.reduceX,
+        instruction30 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.iconst_5,
+          val31 ↦ 8
+        ⟧,
+        instruction178 ↦ ⟦
+          φ ↦ Φ.hone.distill,
           class ↦ "Foo",
           target-class ↦ "java/lang/Integer",
-          target-input ↦ "Ljava/lang/Integer;",
-          target-output ↦ "Ljava/lang/Integer;",
-          bridge-input ↦ "Ljava/lang/Integer;",
-          bridge-output ↦ "Ljava/lang/Integer;",
-          locals ↦ ⟦
-            item ↦ "java/lang/Integer",
-            consumer ↦ "java/util/function/Consumer"
-          ⟧,
-          body ↦ ⟦
-            i462 ↦ ⟦
-              φ ↦ Φ.jeo.opcode.invokestatic,
-              v463 ↦ "java/lang/Integer",
-              v464 ↦ "valueOf",
-              v465 ↦ "(I)Ljava/lang/String;",
-              v466 ↦ Φ̇.false
-            ⟧
-          ⟧
-        ⟧,
-        instruction291 ↦ ⟦
-          φ ↦ Φ.hone.reduceX,
-          class ↦ "Foo",
-          target-class ↦ "Foo",
           target-input ↦ "Ljava/lang/Object;",
           target-output ↦ "Ljava/lang/Object;",
           bridge-input ↦ "Ljava/lang/Integer;",

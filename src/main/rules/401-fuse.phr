@@ -7,7 +7,7 @@ pattern: |
   ⟦
     𝐵-body-head,
     𝜏-first ↦ ⟦
-      φ ↦ Φ.hone.reduceX,
+      φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class-name,
       target-class ↦ 𝑒-first-target-class-name,
       target-input ↦ 𝑒-first-target-input-type,
@@ -18,7 +18,7 @@ pattern: |
       body ↦ ⟦ 𝐵-first-body, ρ ↦ ∅ ⟧
     ⟧,
     𝜏-second ↦ ⟦
-      φ ↦ Φ.hone.reduceX,
+      φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class-name,
       target-class ↦ 𝑒-second-target-class-name,
       target-input ↦ 𝑒-second-target-input-type,
@@ -34,7 +34,7 @@ result: |
   ⟦
     𝐵-body-head,
     𝜏-first ↦ ⟦
-      φ ↦ Φ.hone.reduceX,
+      φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class-name,
       target-class ↦ 𝑒-class-name,
       target-input ↦ 𝑒-first-target-input-type,
