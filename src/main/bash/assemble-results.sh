@@ -14,7 +14,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-set -e
+set -e -o pipefail
 
 echo "This is the summary of the tests performed"
 echo "by $(java --version | head -1 | cut -d ' ' -f1,2),"
@@ -46,7 +46,7 @@ while IFS= read -r ln; do
     printf "\`%+0.2f\`" "$(perl -E "say ${ms2} - ${ms1}")"
     printf ' | '
     per=$(perl -E "say 100 * ( ${ms1} - ${ms2} ) / ${ms1}")
-    if [[ "$(perl -E "say abs(${per})")" -gt 5 ]]; then
+    if [ "$(perl -E "say abs(floor(${per}))")" -gt 5 ]; then
       printf "\`%+0.1f%%\`" "${per}"
       printf ' | '
       printf "\`%0.2fx\`" "$(perl -E "say ${ms1} / ${ms2}")"
