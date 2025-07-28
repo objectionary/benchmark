@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: reduceX-to-mapMulti
+name: distill-to-mapMulti
 pattern: |
   ⟦
     φ ↦ Φ.jeo.class,
@@ -12,8 +12,8 @@ pattern: |
       𝐵-method-head,
       body ↦ ⟦
         𝐵-body-head,
-        𝜏-reduceX ↦ ⟦
-          φ ↦ Φ.hone.reduceX,
+        𝜏-distill ↦ ⟦
+          φ ↦ Φ.hone.distill,
           class ↦ 𝑒-class-name,
           target-class ↦ 𝑒-target-class-name,
           target-input ↦ 𝑒-target-input-type,
@@ -38,7 +38,7 @@ result: |
       𝐵-method-head,
       body ↦ ⟦
         𝐵-body-head,
-        𝜏-reduceX ↦ ⟦
+        𝜏-distill ↦ ⟦
           φ ↦ Φ.hone.mapMulti,
           class ↦ 𝑒-class-name,
           target-class ↦ 𝑒-target-class-name,

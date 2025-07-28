@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: filter-to-reduceX
+name: filter-to-distill
 pattern: |
   ⟦
     𝐵-body-head,
@@ -20,7 +20,7 @@ result: |
   ⟦
     𝐵-body-head,
     𝜏-opcode ↦ ⟦
-      φ ↦ Φ.hone.reduceX,
+      φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class-name,
       target-class ↦ 𝑒-target-class-name,
       target-input ↦ 𝑒-target-input-type,
