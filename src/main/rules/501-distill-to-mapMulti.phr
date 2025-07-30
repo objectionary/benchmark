@@ -14,12 +14,12 @@ pattern: |
         𝐵-body-head,
         𝜏-distill ↦ ⟦
           φ ↦ Φ.hone.distill,
-          class ↦ 𝑒-class-name,
-          target-class ↦ 𝑒-target-class-name,
-          target-input ↦ 𝑒-target-input-type,
-          target-output ↦ 𝑒-target-output-type,
-          bridge-input ↦ 𝑒-bridge-input-type,
-          bridge-output ↦ 𝑒-bridge-output-type,
+          class ↦ 𝑒-class,
+          target-class ↦ 𝑒-target-class,
+          target-input ↦ 𝑒-target-input,
+          target-output ↦ 𝑒-target-output,
+          bridge-input ↦ 𝑒-bridge-input,
+          bridge-output ↦ 𝑒-bridge-output,
           locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
           body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧
         ⟧,
@@ -40,11 +40,11 @@ result: |
         𝐵-body-head,
         𝜏-distill ↦ ⟦
           φ ↦ Φ.hone.mapMulti,
-          class ↦ 𝑒-class-name,
-          target-class ↦ 𝑒-target-class-name,
-          target-method ↦ 𝑒-target-method-name,
-          target-input ↦ 𝑒-target-input-type,
-          bridge-input ↦ 𝑒-bridge-input-type
+          class ↦ 𝑒-class,
+          target-class ↦ 𝑒-target-class,
+          target-method ↦ 𝑒-target-method,
+          target-input ↦ 𝑒-target-input,
+          bridge-input ↦ 𝑒-bridge-input
         ⟧,
         𝐵-body-tail
       ⟧,
@@ -99,7 +99,7 @@ result: |
           stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of2,
             consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-bridge-output-type
+            item ↦ 𝑒-bridge-output
           ⟧
         ⟧,
         i-invoke ↦ ⟦
@@ -114,7 +114,7 @@ result: |
         ⟧,
         ρ ↦ ∅
       ⟧,
-      name ↦ 𝑒-target-method-name
+      name ↦ 𝑒-target-method
     ⟧
   ⟧
 where:
@@ -122,12 +122,12 @@ where:
     function: concat
     args:
       - '"L"'
-      - 𝑒-bridge-input-type
+      - 𝑒-bridge-input
       - '";"'
   - meta: 𝜏-reduce
     function: random-tau
     args: ['name', '𝐵-class-head', '𝐵-class-tail']
-  - meta: 𝑒-target-method-name
+  - meta: 𝑒-target-method
     function: random-string
     args: [ '"reduce_%d"' ]
   - meta: 𝑒-signature
