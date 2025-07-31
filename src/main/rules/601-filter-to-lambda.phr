@@ -7,7 +7,8 @@ pattern: |
   ⟦
     𝐵-body-head,
     𝜏-map ↦ ⟦
-      φ ↦ Φ.hone.filter.𝜏-filter-type,
+      φ ↦ Φ.hone.filter,
+      method-type -> 𝑒-method-type,
       class ↦ 𝑒-class,
       target-handle ↦ 𝑒-target-handle,
       target-class ↦ 𝑒-target-class,
