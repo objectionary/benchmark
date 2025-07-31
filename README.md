@@ -21,7 +21,8 @@ We partially reuse the benchmark suggested by
 [Biboudis et al.](https://arxiv.org/abs/1406.6631)
 ([sources](https://github.com/biboudis/clashofthelambdas))
 and used by
-[Møller et al.](https://dl.acm.org/doi/abs/10.1145/3428236).
+[Møller et al.](https://dl.acm.org/doi/abs/10.1145/3428236)
+([sources](https://github.com/cs-au-dk/streamliner)).
 
 <!-- benchmark_begin -->
 This is the summary of the tests performed
