@@ -5,42 +5,35 @@
 name: map-to-distill
 pattern: |
   ⟦
-    𝐵-body-head,
-    𝜏-opcode ↦ ⟦
-      φ ↦ Φ.hone.map,
-      class ↦ 𝑒-class,
-      target-handle ↦ 𝑒-target-handle,
-      target-class ↦ 𝑒-target-class,
-      target-method ↦ 𝑒-target-method,
-      target-signature ↦ 𝑒-target-signature,
-      bridge-input ↦ 𝑒-bridge-input,
-      bridge-output ↦ 𝑒-bridge-output
-    ⟧,
-    𝐵-body-tail
+    φ ↦ Φ.hone.map,
+    opcode -> 𝑒-opcode,
+    class ↦ 𝑒-class,
+    target-handle ↦ 𝑒-target-handle,
+    target-class ↦ 𝑒-target-class,
+    target-method ↦ 𝑒-target-method,
+    target-signature ↦ 𝑒-target-signature,
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output
   ⟧
 result: |
   ⟦
-    𝐵-body-head,
-    𝜏-opcode ↦ ⟦
-      φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class,
-      bridge-input ↦ 𝑒-bridge-input,
-      bridge-output ↦ 𝑒-bridge-output,
-      locals ↦ ⟦
-        item ↦ 𝑒-item-type,
-        consumer ↦ "java/util/function/Consumer"
-      ⟧,
-      body ↦ ⟦
-        i1 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.invokestatic,
-          i2 ↦ 𝑒-target-class,
-          i3 ↦ 𝑒-target-method,
-          i4 ↦ 𝑒-target-signature,
-          i5 ↦ Φ̇.false
-        ⟧
-      ⟧
+    φ ↦ Φ.hone.distill,
+    class ↦ 𝑒-class,
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output,
+    locals ↦ ⟦
+      item ↦ 𝑒-item-type,
+      consumer ↦ "java/util/function/Consumer"
     ⟧,
-    𝐵-body-tail
+    body ↦ ⟦
+      i1 ↦ ⟦
+        φ ↦ Φ.jeo.opcode.𝜏-opcode,
+        i2 ↦ 𝑒-target-class,
+        i3 ↦ 𝑒-target-method,
+        i4 ↦ 𝑒-target-signature,
+        i5 ↦ Φ̇.false
+      ⟧
+    ⟧
   ⟧
 where:
   - meta: 𝑒-item-type
@@ -48,3 +41,6 @@ where:
     args:
       - 𝑒-bridge-input
       - '"s/L(.+);/$1/g"'
+  - meta: 𝜏-opcode
+    function: tau
+    args: [𝑒-opcode]

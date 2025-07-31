@@ -22,7 +22,7 @@ pattern: |
 result: |
   ⟦
     φ ↦ Φ.hone.filter,
-    method-type -> "static",
+    opcode -> "invokestatic",
     class ↦ 𝑒-class,
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
