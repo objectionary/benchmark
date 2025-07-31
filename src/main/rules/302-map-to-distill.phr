@@ -8,13 +8,13 @@ pattern: |
     𝐵-body-head,
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.map,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-target-class-name,
-      target-method ↦ 𝑒-target-method-name,
-      target-input ↦ 𝑒-target-input-type,
-      target-output ↦ 𝑒-target-output-type,
-      bridge-input ↦ 𝑒-bridge-input-type,
-      bridge-output ↦ 𝑒-bridge-output-type
+      class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-target-handle,
+      target-class ↦ 𝑒-target-class,
+      target-method ↦ 𝑒-target-method,
+      target-signature ↦ 𝑒-target-signature,
+      bridge-input ↦ 𝑒-bridge-input,
+      bridge-output ↦ 𝑒-bridge-output
     ⟧,
     𝐵-body-tail
   ⟧
@@ -23,22 +23,19 @@ result: |
     𝐵-body-head,
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-target-class-name,
-      target-input ↦ 𝑒-target-input-type,
-      target-output ↦ 𝑒-target-output-type,
-      bridge-input ↦ 𝑒-bridge-input-type,
-      bridge-output ↦ 𝑒-bridge-output-type,
+      class ↦ 𝑒-class,
+      bridge-input ↦ 𝑒-bridge-input,
+      bridge-output ↦ 𝑒-bridge-output,
       locals ↦ ⟦
-        item ↦ 𝑒-bridge-input-type,
+        item ↦ 𝑒-item-type,
         consumer ↦ "java/util/function/Consumer"
       ⟧,
       body ↦ ⟦
         i1 ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokestatic,
-          i2 ↦ 𝑒-target-class-name,
-          i3 ↦ 𝑒-target-method-name,
-          i4 ↦ 𝑒-signature,
+          i2 ↦ 𝑒-target-class,
+          i3 ↦ 𝑒-target-method,
+          i4 ↦ 𝑒-target-signature,
           i5 ↦ Φ̇.false
         ⟧
       ⟧
@@ -46,11 +43,8 @@ result: |
     𝐵-body-tail
   ⟧
 where:
-  - meta: 𝑒-signature
-    function: concat
+  - meta: 𝑒-item-type
+    function: sed
     args:
-      - '"(L"'
-      - 𝑒-target-input-type
-      - '";)L"'
-      - 𝑒-target-output-type
-      - '";"'
+      - 𝑒-bridge-input
+      - '"s/L(.+);/$1/g"'

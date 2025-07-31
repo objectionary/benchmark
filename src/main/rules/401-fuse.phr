@@ -8,23 +8,17 @@ pattern: |
     𝐵-body-head,
     𝜏-first ↦ ⟦
       φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-first-target-class-name,
-      target-input ↦ 𝑒-first-target-input-type,
-      target-output ↦ 𝑒-first-target-output-type,
-      bridge-input ↦ 𝑒-first-bridge-input-type,
-      bridge-output ↦ 𝑒-first-bridge-output-type,
+      class ↦ 𝑒-class,
+      bridge-input ↦ 𝑒-first-bridge-input,
+      bridge-output ↦ 𝑒-first-bridge-output,
       locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
       body ↦ ⟦ 𝐵-first-body, ρ ↦ ∅ ⟧
     ⟧,
     𝜏-second ↦ ⟦
       φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-second-target-class-name,
-      target-input ↦ 𝑒-second-target-input-type,
-      target-output ↦ 𝑒-second-target-output-type,
-      bridge-input ↦ 𝑒-second-bridge-input-type,
-      bridge-output ↦ 𝑒-second-bridge-output-type,
+      class ↦ 𝑒-class,
+      bridge-input ↦ 𝑒-second-bridge-input,
+      bridge-output ↦ 𝑒-second-bridge-output,
       locals ↦ 𝑒-second-locals,
       body ↦ ⟦ 𝐵-second-body, ρ ↦ ∅ ⟧
     ⟧,
@@ -35,15 +29,12 @@ result: |
     𝐵-body-head,
     𝜏-first ↦ ⟦
       φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-class-name,
-      target-input ↦ 𝑒-first-target-input-type,
-      target-output ↦ 𝑒-second-target-output-type,
-      bridge-input ↦ 𝑒-first-bridge-input-type,
-      bridge-output ↦ 𝑒-second-bridge-output-type,
+      class ↦ 𝑒-class,
+      bridge-input ↦ 𝑒-first-bridge-input,
+      bridge-output ↦ 𝑒-second-bridge-output,
       locals ↦ ⟦
         𝐵-locals,
-        local ↦ 𝑒-first-bridge-output-type,
+        𝜏-local ↦ 𝑒-item-type,
         ρ ↦ ∅
       ⟧,
       body ↦ ⟦
@@ -60,7 +51,7 @@ result: |
           stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of2,
             consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-first-bridge-output-type
+            item ↦ 𝑒-item-type
           ⟧
         ⟧,
         i-store ↦ ⟦
@@ -81,3 +72,11 @@ where:
   - meta: 𝑒-locals-size
     function: size
     args: [ 𝐵-locals ]
+  - meta: 𝜏-local
+    function: random-tau
+    args: [ 𝐵-locals ]
+  - meta: 𝑒-item-type
+    function: sed
+    args:
+      - 𝑒-first-bridge-output
+      - '"s/L(.+);/$1/g"'

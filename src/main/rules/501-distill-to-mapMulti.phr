@@ -14,12 +14,9 @@ pattern: |
         𝐵-body-head,
         𝜏-distill ↦ ⟦
           φ ↦ Φ.hone.distill,
-          class ↦ 𝑒-class-name,
-          target-class ↦ 𝑒-target-class-name,
-          target-input ↦ 𝑒-target-input-type,
-          target-output ↦ 𝑒-target-output-type,
-          bridge-input ↦ 𝑒-bridge-input-type,
-          bridge-output ↦ 𝑒-bridge-output-type,
+          class ↦ 𝑒-class,
+          bridge-input ↦ 𝑒-bridge-input,
+          bridge-output ↦ 𝑒-bridge-output,
           locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
           body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧
         ⟧,
@@ -40,18 +37,16 @@ result: |
         𝐵-body-head,
         𝜏-distill ↦ ⟦
           φ ↦ Φ.hone.mapMulti,
-          class ↦ 𝑒-class-name,
-          target-class ↦ 𝑒-target-class-name,
-          target-method ↦ 𝑒-target-method-name,
-          target-input ↦ 𝑒-target-input-type,
-          bridge-input ↦ 𝑒-bridge-input-type
+          class ↦ 𝑒-class,
+          target-method ↦ 𝑒-target-method,
+          bridge-input ↦ 𝑒-bridge-input
         ⟧,
         𝐵-body-tail
       ⟧,
       𝐵-method-tail
     ⟧,
     𝐵-class-tail,
-    𝜏-reduce ↦ ⟦
+    𝜏-distill-lambda ↦ ⟦
       φ ↦ Φ.jeo.method,
       access ↦ 4106,
       descriptor ↦ 𝑒-signature,
@@ -67,7 +62,7 @@ result: |
           φ ↦ Φ.jeo.param,
           index ↦ 0,
           access ↦ 0,
-          type ↦ 𝑒-input-param
+          type ↦ 𝑒-bridge-input
         ⟧,
         i2 ↦ ⟦
           φ ↦ Φ.jeo.param,
@@ -99,7 +94,7 @@ result: |
           stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of2,
             consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-bridge-output-type
+            item ↦ 𝑒-stack-item-type
           ⟧
         ⟧,
         i-invoke ↦ ⟦
@@ -114,28 +109,27 @@ result: |
         ⟧,
         ρ ↦ ∅
       ⟧,
-      name ↦ 𝑒-target-method-name
+      name ↦ 𝑒-target-method
     ⟧
   ⟧
 where:
-  - meta: 𝑒-input-param
-    function: concat
-    args:
-      - '"L"'
-      - 𝑒-bridge-input-type
-      - '";"'
-  - meta: 𝜏-reduce
+  - meta: 𝜏-distill-lambda
     function: random-tau
     args: ['name', '𝐵-class-head', '𝐵-class-tail']
-  - meta: 𝑒-target-method-name
+  - meta: 𝑒-target-method
     function: random-string
-    args: [ '"reduce_%d"' ]
+    args: [ '"distill_%d"' ]
   - meta: 𝑒-signature
     function: concat
     args:
       - '"("'
-      - 𝑒-input-param
+      - 𝑒-bridge-input
       - '"Ljava/util/function/Consumer;)V"'
   - meta: 𝑒-max-locals
     function: size
     args: [ 𝐵-locals ]
+  - meta: 𝑒-stack-item-type
+    function: sed
+    args:
+      - 𝑒-bridge-output
+      - '"s/L(.+);/$1/g"'

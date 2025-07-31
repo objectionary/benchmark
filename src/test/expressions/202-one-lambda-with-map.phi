@@ -35,6 +35,7 @@
           method ↦ "apply",
           interface ↦ "()Ljava/util/function/Function;",
           lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+          target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$3",
           target-signature ↦ "(Ljava/lang/String;)Ljava/lang/Integer;",

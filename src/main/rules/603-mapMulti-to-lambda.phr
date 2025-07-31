@@ -8,11 +8,9 @@ pattern: |
     𝐵-body-head,
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.mapMulti,
-      class ↦ 𝑒-class-name,
-      target-class ↦ 𝑒-target-class-name,
-      target-method ↦ 𝑒-target-method-name,
-      target-input ↦ 𝑒-target-input-type,
-      bridge-input ↦ 𝑒-bridge-input-type
+      class ↦ 𝑒-class,
+      target-method ↦ 𝑒-target-method,
+      bridge-input ↦ 𝑒-bridge-input
     ⟧,
     𝐵-body-tail
   ⟧
@@ -21,12 +19,13 @@ result: |
     𝐵-body-head,
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.lambda,
-      class ↦ 𝑒-class-name,
+      class ↦ 𝑒-class,
       method ↦ "accept",
       interface ↦ "()Ljava/util/function/BiConsumer;",
       lambda-signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
-      target-class ↦ 𝑒-class-name,
-      target-method ↦ 𝑒-target-method-name,
+      target-handle ↦ 6,
+      target-class ↦ 𝑒-class,
+      target-method ↦ 𝑒-target-method,
       target-signature ↦ 𝑒-bridge-signature,
       bridge-signature ↦ 𝑒-bridge-signature,
       stream-class ↦ "java/util/stream/Stream",
@@ -39,6 +38,6 @@ where:
   - meta: 𝑒-bridge-signature
     function: concat
     args:
-      - '"(L"'
-      - 𝑒-bridge-input-type
-      - '";Ljava/util/function/Consumer;)V"'
+      - '"("'
+      - 𝑒-bridge-input
+      - '"Ljava/util/function/Consumer;)V"'

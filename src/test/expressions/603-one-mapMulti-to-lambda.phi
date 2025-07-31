@@ -36,9 +36,7 @@
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.mapMulti,
           class ↦ "Foo",
-          target-class ↦ "Foo",
           target-method ↦ "lambda$main$0_bifunc",
-          target-input ↦ "Ljava/lang/Object;",
           bridge-input ↦ "Ljava/lang/Integer;"
         ⟧
       ⟧

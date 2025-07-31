@@ -35,6 +35,7 @@
           method ↦ "accept",
           interface ↦ "()Ljava/util/function/BiConsumer;",
           lambda-signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
+          target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$2",
           target-signature ↦ "(Ljava/lang/Integer;Ljava/util/function/Consumer;)V",

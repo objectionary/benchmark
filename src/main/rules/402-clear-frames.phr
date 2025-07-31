@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: clear-frames
+pattern: |
+  ⟦
+    φ ↦ Φ.hone.distill,
+    class ↦ 𝑒-class,
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output,
+    locals ↦ ⟦ 𝐵-locals ⟧,
+    body ↦ ⟦
+      𝐵-body-before,
+      𝜏-map ↦ ⟦
+        φ ↦ Φ.jeo.opcode.invokestatic,
+        𝐵-map-rest
+      ⟧,
+      𝜏-frame ↦ ⟦
+        φ ↦ Φ.jeo.frame,
+        𝐵-frame-rest
+      ⟧,
+      𝐵-body-after
+    ⟧
+  ⟧
+result: |
+  ⟦
+    φ ↦ Φ.hone.distill,
+    class ↦ 𝑒-class,
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output,
+    locals ↦ ⟦ 𝐵-locals ⟧,
+    body ↦ ⟦
+      𝐵-body-before,
+      𝜏-map ↦ ⟦
+        φ ↦ Φ.jeo.opcode.invokestatic,
+        𝐵-map-rest
+      ⟧,
+      𝐵-body-after
+    ⟧
+  ⟧

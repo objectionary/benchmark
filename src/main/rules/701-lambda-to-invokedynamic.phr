@@ -5,30 +5,31 @@
 name: lambda-to-invokedynamic
 pattern: |
   ⟦
-    𝐵1,
-    𝜏1 ↦ ⟦
+    𝐵-before,
+    𝜏-lambda ↦ ⟦
       φ ↦ Φ.hone.lambda,
-      class ↦ 𝑒-class-name,
-      method ↦ 𝑒-method-name,
-      interface ↦ 𝑒-interface-name,
+      class ↦ 𝑒-class,
+      method ↦ 𝑒-method,
+      interface ↦ 𝑒-interface,
       lambda-signature ↦ 𝑒-lambda-signature,
-      target-class ↦ 𝑒-target-class-name,
-      target-method ↦ 𝑒-target-method-name,
+      target-handle ↦ 𝑒-target-handle,
+      target-class ↦ 𝑒-target-class,
+      target-method ↦ 𝑒-target-method,
       target-signature ↦ 𝑒-target-signature,
       bridge-signature ↦ 𝑒-bridge-signature,
-      stream-class ↦ 𝑒-stream-class-name,
-      stream-method ↦ 𝑒-stream-method-name,
+      stream-class ↦ 𝑒-stream-class,
+      stream-method ↦ 𝑒-stream-method,
       stream-signature ↦ 𝑒-stream-signature
     ⟧,
-    𝐵2
+    𝐵-after
   ⟧
 result: |
   ⟦
-    𝐵1,
+    𝐵-before,
     𝜏-invokedynamic ↦ ⟦
       φ ↦ Φ.jeo.opcode.invokedynamic,
-      i2 ↦ 𝑒-method-name,
-      i3 ↦ 𝑒-interface-name,
+      i2 ↦ 𝑒-method,
+      i3 ↦ 𝑒-interface,
       i4 ↦ ⟦
         φ ↦ Φ.jeo.handle,
         i1 ↦ 6,
@@ -43,9 +44,9 @@ result: |
       ⟧,
       i6 ↦ ⟦
         φ ↦ Φ.jeo.handle,
-        i1 ↦ 6,
-        i2 ↦ 𝑒-target-class-name,
-        i3 ↦ 𝑒-target-method-name,
+        i1 ↦ 𝑒-target-handle,
+        i2 ↦ 𝑒-target-class,
+        i3 ↦ 𝑒-target-method,
         i4 ↦ 𝑒-target-signature,
         i5 ↦ Φ̇.false
       ⟧,
@@ -56,17 +57,17 @@ result: |
     ⟧,
     𝜏-invokeinterface ↦ ⟦
       φ ↦ Φ.jeo.opcode.invokeinterface,
-      i2 ↦ 𝑒-stream-class-name,
-      i3 ↦ 𝑒-stream-method-name,
+      i2 ↦ 𝑒-stream-class,
+      i3 ↦ 𝑒-stream-method,
       i4 ↦ 𝑒-stream-signature,
       i5 ↦ Φ̇.true
     ⟧,
-    𝐵2
+    𝐵-after
   ⟧
 where:
   - meta: 𝜏-invokedynamic
     function: random-tau
-    args: ['𝐵1', '𝐵2']
+    args: ['𝐵-before', '𝐵-after']
   - meta: 𝜏-invokeinterface
     function: random-tau
-    args: ['𝐵1', '𝜏-invokedynamic', '𝐵2']
+    args: ['𝐵-before', '𝜏-invokedynamic', '𝐵-after']

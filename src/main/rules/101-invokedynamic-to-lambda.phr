@@ -10,7 +10,7 @@ pattern: |
     access ↦ 𝑒-class-access,
     supername ↦ 𝑒-class-supername,
     interfaces ↦ 𝑒-class-interfaces,
-    name ↦ 𝑒-class-name,
+    name ↦ 𝑒-class,
     𝐵-class-body-head,
     𝜏-function ↦ ⟦
       φ ↦ Φ.jeo.method,
@@ -19,8 +19,8 @@ pattern: |
         𝐵-body-head,
         𝜏-invokedynamic ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokedynamic,
-          𝜏3 ↦ 𝑒-method-name,
-          𝜏4 ↦ 𝑒-interface-name,
+          𝜏3 ↦ 𝑒-method,
+          𝜏4 ↦ 𝑒-interface,
           𝜏5 ↦ ⟦
             φ ↦ Φ.jeo.handle,
             𝜏6 ↦ 6,
@@ -37,9 +37,9 @@ pattern: |
           ⟧,
           𝜏13 ↦ ⟦
             φ ↦ Φ.jeo.handle,
-            𝜏14 ↦ 6,
-            𝜏15 ↦ 𝑒-target-class-name,
-            𝜏16 ↦ 𝑒-target-method-name,
+            𝜏14 ↦ 𝑒-target-handle,
+            𝜏15 ↦ 𝑒-target-class,
+            𝜏16 ↦ 𝑒-target-method,
             𝜏17 ↦ 𝑒-target-signature,
             𝜏18 ↦ Φ̇.false,
             𝐵12
@@ -53,15 +53,15 @@ pattern: |
         ⟧,
         𝜏-invokeinterface ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokeinterface,
-          𝜏24 ↦ 𝑒-stream-class-name,
-          𝜏25 ↦ 𝑒-stream-method-name,
+          𝜏24 ↦ 𝑒-stream-class,
+          𝜏25 ↦ 𝑒-stream-method,
           𝜏26 ↦ 𝑒-stream-signature,
           𝜏27 ↦ Φ̇.true,
           𝐵15
         ⟧,
         𝐵-body-tail
       ⟧,
-      name ↦ 𝑒-function-name,
+      name ↦ 𝑒-function,
       ρ ↦ ∅
     ⟧,
     𝐵-class-body-tail
@@ -73,7 +73,7 @@ result: |
     access ↦ 𝑒-class-access,
     supername ↦ 𝑒-class-supername,
     interfaces ↦ 𝑒-class-interfaces,
-    name ↦ 𝑒-class-name,
+    name ↦ 𝑒-class,
     𝐵-class-body-head,
     𝜏-function ↦ ⟦
       φ ↦ Φ.jeo.method,
@@ -82,21 +82,22 @@ result: |
         𝐵-body-head,
         𝜏-lambda ↦ ⟦
           φ ↦ Φ.hone.lambda,
-          class ↦ 𝑒-class-name,
-          method ↦ 𝑒-method-name,
-          interface ↦ 𝑒-interface-name,
+          class ↦ 𝑒-class,
+          method ↦ 𝑒-method,
+          interface ↦ 𝑒-interface,
           lambda-signature ↦ 𝑒-lambda-signature,
-          target-class ↦ 𝑒-target-class-name,
-          target-method ↦ 𝑒-target-method-name,
+          target-handle ↦ 𝑒-target-handle,
+          target-class ↦ 𝑒-target-class,
+          target-method ↦ 𝑒-target-method,
           target-signature ↦ 𝑒-target-signature,
           bridge-signature ↦ 𝑒-bridge-signature,
-          stream-class ↦ 𝑒-stream-class-name,
-          stream-method ↦ 𝑒-stream-method-name,
+          stream-class ↦ 𝑒-stream-class,
+          stream-method ↦ 𝑒-stream-method,
           stream-signature ↦ 𝑒-stream-signature
         ⟧,
         𝐵-body-tail
       ⟧,
-      name ↦ 𝑒-function-name,
+      name ↦ 𝑒-function,
       ρ ↦ ∅
     ⟧,
     𝐵-class-body-tail
