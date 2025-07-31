@@ -10,48 +10,36 @@ pattern: |
     method ↦ "apply",
     interface ↦ "()Ljava/util/function/Function;",
     lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+    target-handle ↦ 𝑒-target-handle, 
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
     bridge-signature ↦ 𝑒-bridge-signature,
     stream-class ↦ "java/util/stream/Stream",
     stream-method ↦ "map",
-    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;",
-    𝐵1
+    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
   ⟧
 result: |
   ⟦
     φ ↦ Φ.hone.map,
     class ↦ 𝑒-class,
+    target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
-    target-input ↦ 𝑒-target-input,
-    target-output ↦ 𝑒-target-output,
+    target-signature ↦ 𝑒-target-signature,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output
   ⟧
 where:
-  - meta: 𝑒-target-input
-    function: sed
-    # "(Ljava/lang/String;)Ljava/lang/Integer;"
-    args:
-      - 𝑒-target-signature
-      - '"s/\\(L(.+);\\).*/$1/g"'
-  - meta: 𝑒-target-output
-    function: sed
-    # "(Ljava/lang/String;)Ljava/lang/Integer;"
-    args:
-      - 𝑒-target-signature
-      - '"s/.*;\\)L(.+);/$1/g"'
   - meta: 𝑒-bridge-input
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒-bridge-signature
-      - '"s/\\(L(.+);\\).*/$1/g"'
+      - '"s/\\((.*)\\).*/$1/g"'
   - meta: 𝑒-bridge-output
     function: sed
     # "(Ljava/lang/String;)Ljava/lang/Integer;"
     args:
       - 𝑒-bridge-signature
-      - '"s/.*;\\)L(.+);/$1/g"'
+      - '"s/\\(.*\\)(.+)/$1/g"'

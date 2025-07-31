@@ -39,31 +39,32 @@
             consumer ↦ "java/util/function/Consumer"
           ⟧,
           body ↦ ⟦
-            i462 ↦ ⟦
+            i-load ↦ ⟦
+              φ ↦ Φ.jeo.aload,
+              i1 ↦ 0
+            ⟧,
+            i1 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,
-              v463 ↦ "java/lang/Integer",
-              v464 ↦ "valueOf",
-              v465 ↦ "(I)Ljava/lang/String;",
-              v466 ↦ Φ̇.false
-            ⟧
-          ⟧
-        ⟧,
-        instruction291 ↦ ⟦
-          φ ↦ Φ.hone.distill,
-          class ↦ "Foo",
-          bridge-input ↦ "Ljava/lang/Integer;",
-          bridge-output ↦ "Ljava/lang/String;",
-          locals ↦ ⟦
-            item ↦ "java/lang/String",
-            consumer ↦ "java/util/function/Consumer"
-          ⟧,
-          body ↦ ⟦
-            i462 ↦ ⟦
-              φ ↦ Φ.jeo.opcode.invokestatic,
-              v463 ↦ "java/lang/Integer",
-              v464 ↦ "valueOf",
-              v465 ↦ "(I)Ljava/lang/Integer;",
-              v466 ↦ Φ̇.false
+              i2 ↦ "Foo",
+              i3 ↦ "lambda$main$2",
+              i4 ↦ "(Ljava/lang/Integer;)Ljava/lang/Integer;",
+              i5 ↦ Φ̇.false
+            ⟧,
+            i-frame ↦ ⟦
+              φ ↦ Φ.jeo.frame,
+              type ↦ 0,
+              nlocal ↦ 6,
+              locals ↦ ⟦
+                φ ↦ Φ.jeo.seq.of,
+                item ↦ "java/lang/Integer",
+                consumer ↦ "java/util/function/Consumer"
+              ⟧,
+              nstack ↦ 2,
+              stack ↦ ⟦
+                φ ↦ Φ.jeo.seq.of2,
+                consumer ↦ "java/util/function/Consumer",
+                item ↦ "java/lang/Integer"
+              ⟧
             ⟧
           ⟧
         ⟧

@@ -36,9 +36,6 @@
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.distill,
           class ↦ "Foo",
-          target-class ↦ "java/lang/Integer",
-          target-input ↦ "Ljava/lang/Object;",
-          target-output ↦ "Ljava/lang/Object;",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/String;",
           locals ↦ ⟦

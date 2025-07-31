@@ -35,6 +35,7 @@
           method ↦ "test",
           interface ↦ "()Ljava/util/function/Predicate;",
           lambda-signature ↦ "(Ljava/lang/Object;)Z",
+          target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
           target-signature ↦ "(Ljava/lang/Object;)Z",

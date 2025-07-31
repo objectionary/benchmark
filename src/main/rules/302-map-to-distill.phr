@@ -9,10 +9,10 @@ pattern: |
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.map,
       class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-target-handle,
       target-class ↦ 𝑒-target-class,
       target-method ↦ 𝑒-target-method,
-      target-input ↦ 𝑒-target-input,
-      target-output ↦ 𝑒-target-output,
+      target-signature ↦ 𝑒-target-signature,
       bridge-input ↦ 𝑒-bridge-input,
       bridge-output ↦ 𝑒-bridge-output
     ⟧,
@@ -24,13 +24,10 @@ result: |
     𝜏-opcode ↦ ⟦
       φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class,
-      target-class ↦ 𝑒-target-class,
-      target-input ↦ 𝑒-target-input,
-      target-output ↦ 𝑒-target-output,
       bridge-input ↦ 𝑒-bridge-input,
       bridge-output ↦ 𝑒-bridge-output,
       locals ↦ ⟦
-        item ↦ 𝑒-bridge-input,
+        item ↦ 𝑒-item-type,
         consumer ↦ "java/util/function/Consumer"
       ⟧,
       body ↦ ⟦
@@ -38,7 +35,7 @@ result: |
           φ ↦ Φ.jeo.opcode.invokestatic,
           i2 ↦ 𝑒-target-class,
           i3 ↦ 𝑒-target-method,
-          i4 ↦ 𝑒-signature,
+          i4 ↦ 𝑒-target-signature,
           i5 ↦ Φ̇.false
         ⟧
       ⟧
@@ -46,11 +43,8 @@ result: |
     𝐵-body-tail
   ⟧
 where:
-  - meta: 𝑒-signature
-    function: concat
+  - meta: 𝑒-item-type
+    function: sed
     args:
-      - '"(L"'
-      - 𝑒-target-input
-      - '";)L"'
-      - 𝑒-target-output
-      - '";"'
+      - 𝑒-bridge-input
+      - '"s/L(.+);/$1/g"'

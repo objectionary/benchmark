@@ -41,10 +41,10 @@
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
           class ↦ "Foo",
+          target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-input ↦ "Ljava/lang/Object;",
-          target-output ↦ "Ljava/lang/Object;",
+          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
           bridge-input ↦ "Ljava/lang/String;",
           bridge-output ↦ "Ljava/lang/Integer;"
         ⟧

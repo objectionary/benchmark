@@ -37,7 +37,7 @@ pattern: |
           ⟧,
           𝜏13 ↦ ⟦
             φ ↦ Φ.jeo.handle,
-            𝜏14 ↦ 6,
+            𝜏14 ↦ 𝑒-target-handle,
             𝜏15 ↦ 𝑒-target-class,
             𝜏16 ↦ 𝑒-target-method,
             𝜏17 ↦ 𝑒-target-signature,
@@ -86,6 +86,7 @@ result: |
           method ↦ 𝑒-method,
           interface ↦ 𝑒-interface,
           lambda-signature ↦ 𝑒-lambda-signature,
+          target-handle ↦ 𝑒-target-handle,
           target-class ↦ 𝑒-target-class,
           target-method ↦ 𝑒-target-method,
           target-signature ↦ 𝑒-target-signature,

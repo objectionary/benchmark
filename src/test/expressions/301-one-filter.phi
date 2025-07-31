@@ -32,9 +32,10 @@
         instruction181 ↦ ⟦
           φ ↦ Φ.hone.filter,
           class ↦ "Foo",
+          target-handle ↦ 6,
           target-class ↦ "java/lang/Integer",
           target-method ↦ "valueOf",
-          target-input ↦ "Ljava/lang/Object;",
+          target-signature ↦ "(Ljava/lang/Object;)Z",
           bridge-input ↦ "Ljava/lang/Integer;"
         ⟧
       ⟧,

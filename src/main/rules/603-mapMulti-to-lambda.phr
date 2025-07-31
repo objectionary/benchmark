@@ -9,9 +9,7 @@ pattern: |
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.mapMulti,
       class ↦ 𝑒-class,
-      target-class ↦ 𝑒-target-class,
       target-method ↦ 𝑒-target-method,
-      target-input ↦ 𝑒-target-input,
       bridge-input ↦ 𝑒-bridge-input
     ⟧,
     𝐵-body-tail
@@ -25,6 +23,7 @@ result: |
       method ↦ "accept",
       interface ↦ "()Ljava/util/function/BiConsumer;",
       lambda-signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
+      target-handle ↦ 6,
       target-class ↦ 𝑒-class,
       target-method ↦ 𝑒-target-method,
       target-signature ↦ 𝑒-bridge-signature,
@@ -39,6 +38,6 @@ where:
   - meta: 𝑒-bridge-signature
     function: concat
     args:
-      - '"(L"'
+      - '"("'
       - 𝑒-bridge-input
-      - '";Ljava/util/function/Consumer;)V"'
+      - '"Ljava/util/function/Consumer;)V"'

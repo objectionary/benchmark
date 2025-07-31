@@ -9,10 +9,10 @@ pattern: |
     𝜏-map ↦ ⟦
       φ ↦ Φ.hone.map,
       class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-target-handle,
       target-class ↦ 𝑒-target-class,
       target-method ↦ 𝑒-target-method,
-      target-input ↦ 𝑒-target-input,
-      target-output ↦ 𝑒-target-output,
+      target-signature ↦ 𝑒-target-signature,
       bridge-input ↦ 𝑒-bridge-input,
       bridge-output ↦ 𝑒-bridge-output
     ⟧,
@@ -27,6 +27,7 @@ result: |
       method ↦ "apply",
       interface ↦ "()Ljava/util/function/Function;",
       lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+      target-handle ↦ 𝑒-target-handle,
       target-class ↦ 𝑒-target-class,
       target-method ↦ 𝑒-target-method,
       target-signature ↦ 𝑒-target-signature,
@@ -38,19 +39,10 @@ result: |
     𝐵-body-tail
   ⟧
 where:
-  - meta: 𝑒-target-signature
-    function: concat
-    args:
-      - '"(L"'
-      - 𝑒-target-input
-      - '";)L"'
-      - 𝑒-target-output
-      - '";"'
   - meta: 𝑒-bridge-signature
     function: concat
     args:
-      - '"(L"'
+      - '"("'
       - 𝑒-bridge-input
-      - '";)L"'
+      - '")"'
       - 𝑒-bridge-output
-      - '";"'

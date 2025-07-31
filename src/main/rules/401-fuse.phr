@@ -9,9 +9,6 @@ pattern: |
     𝜏-first ↦ ⟦
       φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class,
-      target-class ↦ 𝑒-first-target-class,
-      target-input ↦ 𝑒-first-target-input,
-      target-output ↦ 𝑒-first-target-output,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-first-bridge-output,
       locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
@@ -20,9 +17,6 @@ pattern: |
     𝜏-second ↦ ⟦
       φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class,
-      target-class ↦ 𝑒-second-target-class,
-      target-input ↦ 𝑒-second-target-input,
-      target-output ↦ 𝑒-second-target-output,
       bridge-input ↦ 𝑒-second-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
       locals ↦ 𝑒-second-locals,
@@ -36,14 +30,11 @@ result: |
     𝜏-first ↦ ⟦
       φ ↦ Φ.hone.distill,
       class ↦ 𝑒-class,
-      target-class ↦ 𝑒-class,
-      target-input ↦ 𝑒-first-target-input,
-      target-output ↦ 𝑒-second-target-output,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
       locals ↦ ⟦
         𝐵-locals,
-        local ↦ 𝑒-first-bridge-output,
+        𝜏-local ↦ 𝑒-item-type,
         ρ ↦ ∅
       ⟧,
       body ↦ ⟦
@@ -60,7 +51,7 @@ result: |
           stack ↦ ⟦
             φ ↦ Φ.jeo.seq.of2,
             consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-first-bridge-output
+            item ↦ 𝑒-item-type
           ⟧
         ⟧,
         i-store ↦ ⟦
@@ -81,3 +72,11 @@ where:
   - meta: 𝑒-locals-size
     function: size
     args: [ 𝐵-locals ]
+  - meta: 𝜏-local
+    function: random-tau
+    args: [ 𝐵-locals ]
+  - meta: 𝑒-item-type
+    function: sed
+    args:
+      - 𝑒-first-bridge-output
+      - '"s/L(.+);/$1/g"'
