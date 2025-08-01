@@ -32,7 +32,7 @@ result: |
   ⟧
 when:
   matches:
-    - '\(\)Z'
+    - '\(\)(Z|Ljava\/lang\/Boolean)'
     - 𝑒-target-signature
 where:
   - meta: 𝑒-bridge-input

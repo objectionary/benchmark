@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: filter-to-distill
+name: object-filter-to-distill
 pattern: |
   ⟦
     φ ↦ Φ.hone.filter,
@@ -36,21 +36,32 @@ result: |
         i5 ↦ Φ̇.false
       ⟧,
       i2 ↦ ⟦
+        φ ↦ Φ.jeo.opcode.invokevirtual,
+        v604 ↦ "java/lang/Boolean",
+        v605 ↦ "booleanValue",
+        v606 ↦ "()Z",
+        v607 ↦ Φ̇.false
+      ⟧,
+      i3 ↦ ⟦
         φ ↦ Φ.jeo.opcode.ifne,
         i2 ↦ ⟦
           φ ↦ Φ.jeo.label,
           i1 ↦ 𝑒-label
         ⟧
       ⟧,
-      i3 ↦ ⟦
+      i4 ↦ ⟦
         φ ↦ Φ.jeo.opcode.return
       ⟧,
-      i4 ↦ ⟦
+      i5 ↦ ⟦
         φ ↦ Φ.jeo.label,
         i1 ↦ 𝑒-label
       ⟧
     ⟧
   ⟧
+when:
+  matches:
+    - '.*\)Ljava\/lang\/Boolean'
+    - 𝑒-target-signature  
 where:
   - meta: 𝑒-label
     function: random-string
