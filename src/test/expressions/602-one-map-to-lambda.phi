@@ -40,6 +40,7 @@
         ⟧,
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
+          opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "Foo",

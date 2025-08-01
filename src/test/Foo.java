@@ -14,6 +14,7 @@ public class Foo {
         final long r = IntStream.of(input)
             .boxed()
             .map(String::valueOf)
+            .map(String::toLowerCase)
             .filter(Foo::isNotEmpty)
             .map(x -> Integer.valueOf(x) + 1)
             .filter(x -> x > 8)

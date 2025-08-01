@@ -13,7 +13,7 @@ pattern: |
     body ↦ ⟦
       𝐵-body-before,
       𝜏-map ↦ ⟦
-        φ ↦ Φ.jeo.opcode.invokestatic,
+        φ ↦ Φ.jeo.opcode.𝜏-opcode,
         𝐵-map-rest
       ⟧,
       𝜏-frame ↦ ⟦
@@ -33,7 +33,7 @@ result: |
     body ↦ ⟦
       𝐵-body-before,
       𝜏-map ↦ ⟦
-        φ ↦ Φ.jeo.opcode.invokestatic,
+        φ ↦ Φ.jeo.opcode.𝜏-opcode,
         𝐵-map-rest
       ⟧,
       𝐵-body-after

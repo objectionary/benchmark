@@ -5,58 +5,51 @@
 name: filter-to-distill
 pattern: |
   ⟦
-    𝐵-body-head,
-    𝜏-opcode ↦ ⟦
-      φ ↦ Φ.hone.filter,
-      class ↦ 𝑒-class,
-      target-handle ↦ 𝑒-target-handle,
-      target-class ↦ 𝑒-target-class,
-      target-method ↦ 𝑒-target-method,
-      target-signature ↦ 𝑒-target-signature,
-      bridge-input ↦ 𝑒-bridge-input
-    ⟧,
-    𝐵-body-tail
+    φ ↦ Φ.hone.filter,
+    opcode ↦ 𝑒-opcode,
+    class ↦ 𝑒-class,
+    target-handle ↦ 𝑒-target-handle,
+    target-class ↦ 𝑒-target-class,
+    target-method ↦ 𝑒-target-method,
+    target-signature ↦ 𝑒-target-signature,
+    bridge-input ↦ 𝑒-bridge-input
   ⟧
 result: |
   ⟦
-    𝐵-body-head,
-    𝜏-opcode ↦ ⟦
-      φ ↦ Φ.hone.distill,
-      class ↦ 𝑒-class,
-      bridge-input ↦ 𝑒-bridge-input,
-      bridge-output ↦ 𝑒-bridge-input,
-      locals ↦ ⟦
-        item ↦ 𝑒-item-type,
-        consumer ↦ "java/util/function/Consumer"
+    φ ↦ Φ.hone.distill,
+    class ↦ 𝑒-class,
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-input,
+    locals ↦ ⟦
+      item ↦ 𝑒-item-type,
+      consumer ↦ "java/util/function/Consumer"
+    ⟧,
+    body ↦ ⟦
+      i-dup ↦ ⟦
+        φ ↦ Φ.jeo.opcode.dup
       ⟧,
-      body ↦ ⟦
-        i-dup ↦ ⟦
-          φ ↦ Φ.jeo.opcode.dup
-        ⟧,
-        i1 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.invokestatic,
-          i2 ↦ 𝑒-target-class,
-          i3 ↦ 𝑒-target-method,
-          i4 ↦ 𝑒-target-signature,
-          i5 ↦ Φ̇.false
-        ⟧,
+      i1 ↦ ⟦
+        φ ↦ Φ.jeo.opcode.𝜏-opcode,
+        i2 ↦ 𝑒-target-class,
+        i3 ↦ 𝑒-target-method,
+        i4 ↦ 𝑒-target-signature,
+        i5 ↦ Φ̇.false
+      ⟧,
+      i2 ↦ ⟦
+        φ ↦ Φ.jeo.opcode.ifne,
         i2 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.ifne,
-          i2 ↦ ⟦
-            φ ↦ Φ.jeo.label,
-            i1 ↦ 𝑒-label
-          ⟧
-        ⟧,
-        i3 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.return
-        ⟧,
-        i4 ↦ ⟦
           φ ↦ Φ.jeo.label,
           i1 ↦ 𝑒-label
         ⟧
+      ⟧,
+      i3 ↦ ⟦
+        φ ↦ Φ.jeo.opcode.return
+      ⟧,
+      i4 ↦ ⟦
+        φ ↦ Φ.jeo.label,
+        i1 ↦ 𝑒-label
       ⟧
-    ⟧,
-    𝐵-body-tail
+    ⟧
   ⟧
 where:
   - meta: 𝑒-label
@@ -67,3 +60,6 @@ where:
     args:
       - 𝑒-bridge-input
       - '"s/L(.+);/$1/g"'
+  - meta: 𝜏-opcode
+    function: tau
+    args: [𝑒-opcode]

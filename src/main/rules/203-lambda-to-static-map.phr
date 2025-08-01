@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: lambda-to-map
+name: lambda-to-static-map
 pattern: |
   ⟦
     φ ↦ Φ.hone.lambda,
@@ -10,7 +10,7 @@ pattern: |
     method ↦ "apply",
     interface ↦ "()Ljava/util/function/Function;",
     lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-    target-handle ↦ 𝑒-target-handle, 
+    target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
@@ -22,6 +22,7 @@ pattern: |
 result: |
   ⟦
     φ ↦ Φ.hone.map,
+    opcode ↦ "invokestatic",
     class ↦ 𝑒-class,
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
@@ -30,6 +31,10 @@ result: |
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output
   ⟧
+when:
+  matches:
+    - '\(.+\).+'
+    - 𝑒-target-signature
 where:
   - meta: 𝑒-bridge-input
     function: sed

@@ -35,6 +35,7 @@
         ⟧,
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
+          opcode ↦ "invokevirtual",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "Foo",
