@@ -10,7 +10,7 @@ pattern: |
     method ↦ "apply",
     interface ↦ "()Ljava/util/function/Function;",
     lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-    target-handle ↦ 𝑒-target-handle, 
+    target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
