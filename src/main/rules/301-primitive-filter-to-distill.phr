@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: filter-to-distill
+name: primitive-filter-to-distill
 pattern: |
   ⟦
     φ ↦ Φ.hone.filter,
@@ -51,6 +51,10 @@ result: |
       ⟧
     ⟧
   ⟧
+when:
+  matches:
+    - '.*\)Z'
+    - 𝑒-target-signature  
 where:
   - meta: 𝑒-label
     function: random-string

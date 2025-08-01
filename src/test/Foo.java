@@ -16,6 +16,7 @@ public class Foo {
             .map(String::valueOf)
             .map(String::toLowerCase)
             .filter(Foo::isNotEmpty)
+            .filter(Foo::justTrue)
             .map(x -> Integer.valueOf(x) + 1)
             .filter(x -> x > 8)
             .map(x -> x + 1)
@@ -42,6 +43,10 @@ public class Foo {
 
     private static boolean bobobo(Integer i) {
         return i > 10;
+    }
+
+    private static Boolean justTrue(Object str) {
+        return true;
     }
 
     private static boolean isNotEmpty(Object str) {
