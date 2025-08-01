@@ -6,7 +6,7 @@ name: static-map-to-lambda
 pattern: |
   ⟦
     φ ↦ Φ.hone.map,
-    opcode -> 𝑒-opcode,
+    opcode ↦ 𝑒-opcode,
     class ↦ 𝑒-class,
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
