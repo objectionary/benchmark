@@ -37,10 +37,10 @@ result: |
       ⟧,
       i2 ↦ ⟦
         φ ↦ Φ.jeo.opcode.invokevirtual,
-        v604 ↦ "java/lang/Boolean",
-        v605 ↦ "booleanValue",
-        v606 ↦ "()Z",
-        v607 ↦ Φ̇.false
+        i1 ↦ "java/lang/Boolean",
+        i2 ↦ "booleanValue",
+        i3 ↦ "()Z",
+        i4 ↦ Φ̇.false
       ⟧,
       i3 ↦ ⟦
         φ ↦ Φ.jeo.opcode.ifne,
