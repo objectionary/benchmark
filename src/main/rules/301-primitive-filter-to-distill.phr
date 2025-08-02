@@ -53,7 +53,7 @@ result: |
   ⟧
 when:
   matches:
-    - '.*\)Z'
+    - '.+\)Z'
     - 𝑒-target-signature  
 where:
   - meta: 𝑒-label

@@ -60,7 +60,7 @@ result: |
   ⟧
 when:
   matches:
-    - '.*\)Ljava\/lang\/Boolean'
+    - '.+\)Ljava\/lang\/Boolean'
     - 𝑒-target-signature  
 where:
   - meta: 𝑒-label
