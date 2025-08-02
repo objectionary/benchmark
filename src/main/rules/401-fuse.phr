@@ -11,7 +11,6 @@ pattern: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-first-bridge-output,
-      locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
       body ↦ ⟦ 𝐵-first-body, ρ ↦ ∅ ⟧
     ⟧,
     𝜏-second ↦ ⟦
@@ -19,7 +18,6 @@ pattern: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-second-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
-      locals ↦ 𝑒-second-locals,
       body ↦ ⟦ 𝐵-second-body, ρ ↦ ∅ ⟧
     ⟧,
     𝐵-body-tail
@@ -32,51 +30,11 @@ result: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
-      locals ↦ ⟦
-        𝐵-locals,
-        𝜏-local ↦ 𝑒-item-type,
-        ρ ↦ ∅
-      ⟧,
       body ↦ ⟦
         𝐵-first-body,
-        i-frame ↦ ⟦
-          φ ↦ Φ.jeo.frame,
-          type ↦ 0,
-          nlocal ↦ 𝑒-locals-size,
-          locals ↦ ⟦
-            φ ↦ Φ.jeo.seq.of,
-            𝐵-locals
-          ⟧,
-          nstack ↦ 2,
-          stack ↦ ⟦
-            φ ↦ Φ.jeo.seq.of2,
-            consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-item-type
-          ⟧
-        ⟧,
-        i-store ↦ ⟦
-          φ ↦ Φ.jeo.astore,
-          i1 ↦ 𝑒-locals-size
-        ⟧,
-        i-load ↦ ⟦
-          φ ↦ Φ.jeo.aload,
-          i1 ↦ 𝑒-locals-size
-        ⟧,
         𝐵-second-body,
         ρ ↦ ∅
       ⟧
     ⟧,
     𝐵-body-tail
   ⟧
-where:
-  - meta: 𝑒-locals-size
-    function: size
-    args: [ 𝐵-locals ]
-  - meta: 𝜏-local
-    function: random-tau
-    args: [ 𝐵-locals ]
-  - meta: 𝑒-item-type
-    function: sed
-    args:
-      - 𝑒-first-bridge-output
-      - '"s/L(.+);/$1/g"'

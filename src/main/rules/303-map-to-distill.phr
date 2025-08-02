@@ -21,10 +21,6 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
-    locals ↦ ⟦
-      item ↦ 𝑒-item-type,
-      consumer ↦ "java/util/function/Consumer"
-    ⟧,
     body ↦ ⟦
       i1 ↦ ⟦
         φ ↦ Φ.jeo.opcode.𝜏-opcode,
@@ -36,11 +32,6 @@ result: |
     ⟧
   ⟧
 where:
-  - meta: 𝑒-item-type
-    function: sed
-    args:
-      - 𝑒-bridge-input
-      - '"s/L(.+);/$1/g"'
   - meta: 𝜏-opcode
     function: tau
     args: [𝑒-opcode]

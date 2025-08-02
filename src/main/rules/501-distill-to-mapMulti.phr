@@ -17,7 +17,6 @@ pattern: |
           class ↦ 𝑒-class,
           bridge-input ↦ 𝑒-bridge-input,
           bridge-output ↦ 𝑒-bridge-output,
-          locals ↦ ⟦ 𝐵-locals, ρ ↦ ∅ ⟧,
           body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧
         ⟧,
         𝐵-body-tail
@@ -53,8 +52,8 @@ result: |
       signature ↦ "",
       maxs ↦ ⟦
         φ ↦ Φ.jeo.maxs,
-        max-stack ↦ 3,
-        max-locals ↦ 𝑒-max-locals
+        max-stack ↦ 2,
+        max-locals ↦ 2
       ⟧,
       params ↦ ⟦
         φ ↦ Φ.jeo.params,
@@ -73,30 +72,16 @@ result: |
       ⟧,
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of,
-        i-pop-consumer ↦ ⟦
-          φ ↦ Φ.jeo.opcode.aload,
-          i1 ↦ 1
-        ⟧,
         i-pop-item ↦ ⟦
           φ ↦ Φ.jeo.opcode.aload,
           i1 ↦ 0
         ⟧,
         𝐵-body,
-        i-frame ↦ ⟦
-          φ ↦ Φ.jeo.frame,
-          type ↦ 0,
-          nlocal ↦ 𝑒-max-locals,
-          locals ↦ ⟦
-            φ ↦ Φ.jeo.seq.of,
-            𝐵-locals
-          ⟧,
-          nstack ↦ 2,
-          stack ↦ ⟦
-            φ ↦ Φ.jeo.seq.of2,
-            consumer ↦ "java/util/function/Consumer",
-            item ↦ 𝑒-stack-item-type
-          ⟧
+        i-pop-consumer ↦ ⟦
+          φ ↦ Φ.jeo.opcode.aload,
+          i1 ↦ 1
         ⟧,
+        i-swap ↦ ⟦ φ ↦ Φ.jeo.opcode.swap ⟧,
         i-invoke ↦ ⟦
           φ ↦ Φ.jeo.opcode.invokeinterface,
           i2 ↦ "java/util/function/Consumer",
@@ -125,11 +110,3 @@ where:
       - '"("'
       - 𝑒-bridge-input
       - '"Ljava/util/function/Consumer;)V"'
-  - meta: 𝑒-max-locals
-    function: size
-    args: [ 𝐵-locals ]
-  - meta: 𝑒-stack-item-type
-    function: sed
-    args:
-      - 𝑒-bridge-output
-      - '"s/L(.+);/$1/g"'
