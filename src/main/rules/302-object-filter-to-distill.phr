@@ -20,10 +20,6 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-input,
-    locals ↦ ⟦
-      item ↦ 𝑒-item-type,
-      consumer ↦ "java/util/function/Consumer"
-    ⟧,
     body ↦ ⟦
       i-dup ↦ ⟦
         φ ↦ Φ.jeo.opcode.dup
@@ -37,10 +33,10 @@ result: |
       ⟧,
       i2 ↦ ⟦
         φ ↦ Φ.jeo.opcode.invokevirtual,
-        v604 ↦ "java/lang/Boolean",
-        v605 ↦ "booleanValue",
-        v606 ↦ "()Z",
-        v607 ↦ Φ̇.false
+        i1 ↦ "java/lang/Boolean",
+        i2 ↦ "booleanValue",
+        i3 ↦ "()Z",
+        i4 ↦ Φ̇.false
       ⟧,
       i3 ↦ ⟦
         φ ↦ Φ.jeo.opcode.ifne,
@@ -55,22 +51,33 @@ result: |
       i5 ↦ ⟦
         φ ↦ Φ.jeo.label,
         i1 ↦ 𝑒-label
+      ⟧,
+      i6 ↦ ⟦
+        φ ↦ Φ.jeo.frame,
+        type ↦ 4,
+        nlocal ↦ 0,
+        locals ↦ ⟦ φ ↦ Φ.jeo.seq.of0 ⟧,
+        nstack ↦ 1,
+        stack ↦ ⟦
+          φ ↦ Φ.jeo.seq.of1,
+          item ↦ 𝑒-item-type
+        ⟧
       ⟧
     ⟧
   ⟧
 when:
   matches:
-    - '.*\)Ljava\/lang\/Boolean'
+    - '.+\)Ljava\/lang\/Boolean'
     - 𝑒-target-signature  
 where:
   - meta: 𝑒-label
     function: random-string
     args: ['"L%d"']
+  - meta: 𝜏-opcode
+    function: tau
+    args: [𝑒-opcode]
   - meta: 𝑒-item-type
     function: sed
     args:
       - 𝑒-bridge-input
       - '"s/L(.+);/$1/g"'
-  - meta: 𝜏-opcode
-    function: tau
-    args: [𝑒-opcode]

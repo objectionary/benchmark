@@ -2,42 +2,50 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: lambda-to-static-filter
+name: lambda-to-map
 pattern: |
   ⟦
     φ ↦ Φ.hone.lambda,
     class ↦ 𝑒-class,
-    method ↦ "test",
-    interface ↦ "()Ljava/util/function/Predicate;",
-    lambda-signature ↦ "(Ljava/lang/Object;)Z",
+    method ↦ "apply",
+    interface ↦ "()Ljava/util/function/Function;",
+    lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
     bridge-signature ↦ 𝑒-bridge-signature,
     stream-class ↦ "java/util/stream/Stream",
-    stream-method ↦ "filter",
-    stream-signature ↦ "(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"
+    stream-method ↦ "map",
+    stream-signature ↦ "(Ljava/util/function/Function;)Ljava/util/stream/Stream;"
   ⟧
 result: |
   ⟦
-    φ ↦ Φ.hone.filter,
-    opcode ↦ "invokestatic",
+    φ ↦ Φ.hone.map,
+    opcode ↦ 𝑒-opcode,
     class ↦ 𝑒-class,
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
-    bridge-input ↦ 𝑒-bridge-input
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output
   ⟧
-when:
-  matches:
-    - '\(.+\)(Z|Ljava\/lang\/Boolean)'
-    - 𝑒-target-signature
 where:
   - meta: 𝑒-bridge-input
     function: sed
-    # "(Ljava/lang/Integer;)Z"
     args:
       - 𝑒-bridge-signature
-      - '"s/\\((.*)\\)Z/$1/g"'
+      - '"s/\\((.*)\\).*/$1/g"'
+  - meta: 𝑒-bridge-output
+    function: sed
+    # "(Ljava/lang/String;)Ljava/lang/Integer;"
+    args:
+      - 𝑒-bridge-signature
+      - '"s/\\(.*\\)(.+)/$1/g"'
+  - meta: 𝑒-opcode
+    function: sed
+    args:
+      - 𝑒-target-signature
+      - '"s/\\(\\).+/invokevirtual/g"'
+      - '"s/\\(.+\\).+/invokestatic/g"'

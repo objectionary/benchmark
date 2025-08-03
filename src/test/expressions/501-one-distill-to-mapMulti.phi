@@ -38,10 +38,6 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/String;",
-          locals ↦ ⟦
-            item ↦ "java/lang/String",
-            consumer ↦ "java/util/function/Consumer"
-          ⟧,
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,

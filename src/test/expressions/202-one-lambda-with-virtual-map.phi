@@ -29,13 +29,13 @@
       ⟧,
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of50,
-        instruction334 ↦ ⟦
+        a🌵7606 ↦ ⟦
           φ ↦ Φ.hone.lambda,
           class ↦ "Foo",
           method ↦ "apply",
           interface ↦ "()Ljava/util/function/Function;",
           lambda-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-          target-handle ↦ 6,
+          target-handle ↦ 5,
           target-class ↦ "java/lang/String",
           target-method ↦ "toLowerCase",
           target-signature ↦ "()Ljava/lang/String;",
