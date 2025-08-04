@@ -19,7 +19,7 @@ public class Foo {
             .filter(Foo::justTrue)
             .map(x -> Integer.valueOf(x) + 1)
             .map(Foo::foo)
-            .map(Foo::bar)
+            .map(Foo::retLong)
             .map(Long::intValue)
             .filter(x -> x > 8)
             .map(Foo::retLong)
@@ -46,23 +46,11 @@ public class Foo {
         System.out.printf("%d\n", r);
     }
 
-    private static boolean body(Integer x) {
-        return x > 1;
-    }
-
-    private static boolean some(double x) {
-        return x > 1.0;
-    }
-
     private static Integer acceptsDouble(double x) {
-        return Integer.valueOf(Double.valueOf(x).intValue());
+        return Double.valueOf(x).intValue();
     }
 
     private static long retLong(Integer x) {
-        return x.longValue();
-    }
-
-    private static long bar(Integer x) {
         return x.longValue();
     }
 
