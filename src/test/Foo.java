@@ -18,6 +18,9 @@ public class Foo {
             .filter(Foo::isNotEmpty)
             .filter(Foo::justTrue)
             .map(x -> Integer.valueOf(x) + 1)
+            .map(Foo::foo)
+            .map(Foo::bar)
+            .map(Long::intValue)
             .filter(x -> x > 8)
             .map(x -> x + 1)
             .filter(x -> x > 8)
@@ -39,6 +42,14 @@ public class Foo {
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("%d\n", r);
+    }
+
+    private static long bar(Integer x) {
+        return x.longValue();
+    }
+
+    private static Integer foo(int x) {
+        return x + 1;
     }
 
     private static boolean bobobo(Integer i) {
