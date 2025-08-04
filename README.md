@@ -27,30 +27,30 @@ and used by
 <!-- benchmark_begin -->
 This is the summary of the tests performed
 by openjdk 23.0.2,
-on 2025-08-01
-at 08:46,
+on 2025-08-04
+at 18:59,
 on Linux with 4 CPUs,
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
 
 | Test method | Before | After | Diff | Gain | Ratio |
 | --- | --: | --: | --: | --: | --: |
-| [`Big.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `45.70` | `45.61` | `-0.09` |  |  |
-| [`Big.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `170.42` | `47.85` | `-122.57` | `+71.9%` | `3.56x` |
-| [`Cart.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cart.java) | `31.67` | `31.69` | `+0.03` |  |  |
-| [`Cart.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cart.java) | `338.93` | `335.67` | `-3.26` |  |  |
-| [`Even.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `68.99` | `67.02` | `-1.97` |  |  |
-| [`Even.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `67.91` | `68.59` | `+0.67` |  |  |
-| [`Megamorphic.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Megamorphic.java) | `3.94` | `4.17` | `+0.24` |  |  |
-| [`Megamorphic.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Megamorphic.java) | `485.92` | `505.42` | `+19.50` |  |  |
-| [`Ref.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Ref.java) | `12.18` | `12.20` | `+0.02` |  |  |
-| [`Ref.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Ref.java) | `24.54` | `15.24` | `-9.30` | `+37.9%` | `1.61x` |
-| [`Squares.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `38.95` | `40.34` | `+1.39` |  |  |
-| [`Squares.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `39.95` | `43.46` | `+3.52` |  |  |
-| [`Sum.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `37.69` | `39.14` | `+1.45` |  |  |
-| [`Sum.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `37.03` | `38.10` | `+1.07` |  |  |
+| [`Big.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `46.18` | `46.79` | `+0.61` |  |  |
+| [`Big.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Big.java) | `171.82` | `48.25` | `-123.56` | `+71.9%` | `3.56x` |
+| [`Cart.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cart.java) | `31.83` | `31.77` | `-0.06` |  |  |
+| [`Cart.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Cart.java) | `335.16` | `339.75` | `+4.59` |  |  |
+| [`Even.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `66.61` | `69.22` | `+2.60` |  |  |
+| [`Even.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Even.java) | `69.35` | `69.29` | `-0.07` |  |  |
+| [`Megamorphic.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Megamorphic.java) | `4.14` | `4.36` | `+0.22` |  |  |
+| [`Megamorphic.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Megamorphic.java) | `497.48` | `493.25` | `-4.22` |  |  |
+| [`Ref.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Ref.java) | `12.19` | `13.09` | `+0.90` |  |  |
+| [`Ref.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Ref.java) | `24.92` | `15.68` | `-9.25` | `+37.1%` | `1.59x` |
+| [`Squares.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `41.71` | `42.46` | `+0.75` |  |  |
+| [`Squares.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Squares.java) | `43.23` | `45.24` | `+2.01` |  |  |
+| [`Sum.loop`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `41.16` | `41.99` | `+0.83` |  |  |
+| [`Sum.stream`](https://github.com/objectionary/benchmark/blob/master/src/main/java/org/eolang/benchmark/Sum.java) | `41.71` | `42.37` | `+0.66` |  |  |
 
-The entire test took 514 seconds.
+The entire test took 534 seconds.
 <!-- benchmark_end -->
 
 Important numbers are in the "Gain" and "Ratio" columns.
@@ -73,4 +73,4 @@ make
 
 You will need [Maven 3.3+](https://maven.apache.org) and Java 11+ installed.
 
-[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/16670477047
+[benchmark-gha]: https://github.com/objectionary/benchmark/actions/runs/16731588307
