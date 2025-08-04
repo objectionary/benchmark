@@ -22,6 +22,8 @@ public class Foo {
             .map(Foo::bar)
             .map(Long::intValue)
             .filter(x -> x > 8)
+            .map(Foo::retLong)
+            .map(Foo::acceptsDouble)
             .map(x -> x + 1)
             .filter(x -> x > 8)
             .mapMulti(
@@ -42,6 +44,14 @@ public class Foo {
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("%d\n", r);
+    }
+
+    private static Integer acceptsDouble(double x) {
+        return Integer.valueOf(Double.valueOf(x).intValue());
+    }
+
+    private static long retLong(Integer x) {
+        return x.longValue();
     }
 
     private static long bar(Integer x) {
