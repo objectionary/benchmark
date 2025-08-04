@@ -46,6 +46,14 @@ public class Foo {
         System.out.printf("%d\n", r);
     }
 
+    private static boolean body(Integer x) {
+        return x > 1;
+    }
+
+    private static boolean some(double x) {
+        return x > 1.0;
+    }
+
     private static Integer acceptsDouble(double x) {
         return Integer.valueOf(Double.valueOf(x).intValue());
     }
