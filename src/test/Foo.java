@@ -18,7 +18,12 @@ public class Foo {
             .filter(Foo::isNotEmpty)
             .filter(Foo::justTrue)
             .map(x -> Integer.valueOf(x) + 1)
+            .map(Foo::foo)
+            .map(Foo::retLong)
+            .map(Long::intValue)
             .filter(x -> x > 8)
+            .map(Foo::retLong)
+            .map(Foo::acceptsDouble)
             .map(x -> x + 1)
             .filter(x -> x > 8)
             .mapMulti(
@@ -39,6 +44,18 @@ public class Foo {
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("%d\n", r);
+    }
+
+    private static Integer acceptsDouble(double x) {
+        return Double.valueOf(x).intValue();
+    }
+
+    private static long retLong(Integer x) {
+        return x.longValue();
+    }
+
+    private static Integer foo(int x) {
+        return x + 1;
     }
 
     private static boolean bobobo(Integer i) {

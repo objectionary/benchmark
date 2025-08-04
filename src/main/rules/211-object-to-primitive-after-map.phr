@@ -1,0 +1,123 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2025 Objectionary.com
+# SPDX-License-Identifier: MIT
+---
+# yamllint disable rule:line-length
+name: object-to-primitive-after-map
+pattern: |
+  ⟦
+    𝐵-before,
+    𝜏-map ↦ ⟦
+      φ ↦ Φ.hone.map,
+      opcode ↦ 𝑒-map-opcode,
+      class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-map-target-handle,
+      target-class ↦ 𝑒-map-target-class,
+      target-method ↦ 𝑒-map-target-method,
+      target-signature ↦ 𝑒-map-target-signature,
+      bridge-input ↦ 𝑒-map-bridge-input,
+      bridge-output ↦ 𝑒-map-bridge-output
+    ⟧,
+    𝜏-any ↦ ⟦
+      φ ↦ Φ.hone.𝜏-func,
+      opcode ↦ 𝑒-func-opcode,
+      class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-func-target-handle,
+      target-class ↦ 𝑒-func-target-class,
+      target-method ↦ 𝑒-func-target-method,
+      target-signature ↦ 𝑒-func-target-signature,
+      𝐵-func-rest
+    ⟧,
+    𝐵-after
+  ⟧
+result: |
+  ⟦
+    𝐵-before,
+    𝜏-map ↦ ⟦
+      φ ↦ Φ.hone.map,
+      opcode ↦ 𝑒-map-opcode,
+      class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-map-target-handle,
+      target-class ↦ 𝑒-map-target-class,
+      target-method ↦ 𝑒-map-target-method,
+      target-signature ↦ 𝑒-map-target-signature,
+      bridge-input ↦ 𝑒-map-bridge-input,
+      bridge-output ↦ 𝑒-map-bridge-output
+    ⟧,
+    𝜏-cast ↦ ⟦
+      φ ↦ Φ.hone.map,
+      opcode ↦ "invokevirtual",
+      class ↦ 𝑒-class,
+      target-handle ↦ 5,
+      target-class ↦ 𝑒-cast-target-class,
+      target-method ↦ 𝑒-cast-target-method,
+      target-signature ↦ 𝑒-cast-target-signature,
+      bridge-input ↦ 𝑒-cast-bridge-input,
+      bridge-output ↦ 𝑒-cast-bridge-output
+    ⟧,
+    𝜏-any ↦ ⟦
+      φ ↦ Φ.hone.𝜏-func,
+      opcode ↦ 𝑒-func-opcode,
+      class ↦ 𝑒-class,
+      target-handle ↦ 𝑒-func-target-handle,
+      target-class ↦ 𝑒-func-target-class,
+      target-method ↦ 𝑒-func-target-method,
+      target-signature ↦ 𝑒-func-target-signature,
+      𝐵-func-rest
+    ⟧,
+    𝐵-after
+  ⟧
+when:
+  and:
+    - matches:
+        - '\(.*\)L.+;'
+        - 𝑒-map-target-signature
+    - matches:
+        - '\([BCDFIJSZ]\).+'
+        - 𝑒-func-target-signature
+where:
+  - meta: 𝜏-cast
+    function: random-tau
+    args: [𝐵-before, 𝜏-map, 𝜏-any, 𝐵-after]
+  - meta: 𝑒-cast-target-class
+    function: sed
+    args:
+      - 𝑒-map-bridge-output
+      - '"s/L(.+);/$1/g"'
+  - meta: 𝑒-func-argument-type
+    function: sed
+    args:
+      - 𝑒-func-target-signature
+      - '"s/\\((.+)\\).+/$1/g"'
+  - meta: 𝑒-cast-target-method-prefix
+    function: sed
+    args:
+      - 𝑒-func-argument-type
+      - '"s/B/byte/g"'
+      - '"s/C/char/g"'
+      - '"s/D/double/g"'
+      - '"s/F/float/g"'
+      - '"s/I/int/g"'
+      - '"s/J/long/g"'
+      - '"s/S/short/g"'
+      - '"s/Z/boolean/g"'
+  - meta: 𝑒-cast-target-method
+    function: concat
+    args: [𝑒-cast-target-method-prefix, '"Value"']
+  - meta: 𝑒-cast-target-signature
+    function: concat
+    args: ['"()"', 𝑒-func-argument-type]
+  - meta: 𝑒-cast-bridge-input
+    function: concat
+    args: ['"L"', 𝑒-cast-target-class, '";"']
+  - meta: 𝑒-cast-bridge-output
+    function: sed
+    args:
+      - 𝑒-func-argument-type
+      - '"s/B/Ljava\\/lang\\/Byte;/g"'
+      - '"s/C/Ljava\\/lang\\/Character;/g"'
+      - '"s/D/Ljava\\/lang\\/Double;/g"'
+      - '"s/F/Ljava\\/lang\\/Float;/g"'
+      - '"s/I/Ljava\\/lang\\/Integer;/g"'
+      - '"s/J/Ljava\\/lang\\/Long;/g"'
+      - '"s/S/Ljava\\/lang\\/Short;/g"'
+      - '"s/Z/Ljava\\/lang\\/Boolean;/g"'
