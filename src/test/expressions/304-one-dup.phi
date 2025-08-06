@@ -34,9 +34,9 @@
           val31 ↦ 8
         ⟧,
         instruction178 ↦ ⟦
-          φ ↦ Φ.hone.cast,
-          class ↦ "Foo",
-          opcode ↦ "i2l"
+          φ ↦ Φ.hone.dup,
+          opcode ↦ "dup",
+          class ↦ "Foo"
         ⟧
       ⟧
     ⟧

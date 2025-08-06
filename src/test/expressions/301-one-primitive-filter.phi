@@ -30,14 +30,17 @@
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of46,
         instruction181 ↦ ⟦
-          φ ↦ Φ.hone.filter,
+          φ ↦ Φ.hone.p-filter,
           opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "java/lang/Integer",
           target-method ↦ "valueOf",
           target-signature ↦ "(Ljava/lang/Object;)Z",
-          bridge-input ↦ "Ljava/lang/Integer;"
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/Long;",
+          accepted ↦ "Ljava/lang/Integer",
+          returned ↦ "Ljava/lang/Long;"
         ⟧
       ⟧,
       name ↦ "lambda$main$0"

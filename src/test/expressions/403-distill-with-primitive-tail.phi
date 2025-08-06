@@ -29,17 +29,13 @@
       ⟧,
       body ↦ ⟦
         φ ↦ Φ.jeo.seq.of50,
-        instruction30 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.iconst_5,
-          val31 ↦ 8
-        ⟧,
-        instruction178 ↦ ⟦
+        instruction239 ↦ ⟦
           φ ↦ Φ.hone.distill,
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/Integer;",
           accepted ↦ "Ljava/lang/Integer;",
-          returned ↦ "Ljava/lang/Integer;",
+          returned ↦ "I",
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,

@@ -34,6 +34,8 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/Integer;",
+          accepted ↦ "I",
+          returned ↦ "Ljava/lang/String;",
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,
@@ -49,6 +51,8 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/String;",
+          accepted ↦ "I",
+          returned ↦ "Ljava/lang/Integer;",
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,

@@ -15,8 +15,8 @@
       signature ↦ "",
       maxs ↦ ⟦
         φ ↦ Φ.jeo.maxs,
-        val29 ↦ 7,
-        val30 ↦ 4
+        val26 ↦ 7,
+        val27 ↦ 4
       ⟧,
       params ↦ ⟦
         φ ↦ Φ.jeo.params,
@@ -28,19 +28,22 @@
         ⟧
       ⟧,
       body ↦ ⟦
-        φ ↦ Φ.jeo.seq.of46,
-        instruction181 ↦ ⟦
-          φ ↦ Φ.hone.filter,
-          opcode ↦ "invokestatic",
+        φ ↦ Φ.jeo.seq.of50,
+        instruction30 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.iconst_5,
+          val31 ↦ 8
+        ⟧,
+        instruction178 ↦ ⟦
+          φ ↦ Φ.hone.transform,
+          opcode ↦ "invokevirtual",
           class ↦ "Foo",
-          target-handle ↦ 6,
-          target-class ↦ "Foo",
-          target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Object;)Z",
-          bridge-input ↦ "Ljava/lang/Integer;"
+          target-class ↦ "java/lang/Long",
+          target-method ↦ "doubleValue",
+          target-signature ↦ "()D",
+          bridge-input ↦ "Ljava/lang/Long;",
+          bridge-output ↦ "Ljava/lang/Double;"
         ⟧
-      ⟧,
-      name ↦ "lambda$main$0"
+      ⟧
     ⟧
   ⟧
 ⟧}
