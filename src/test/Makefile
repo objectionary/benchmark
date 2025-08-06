@@ -42,7 +42,7 @@ jeo-test: $(TARGET)/before/Foo.xmir
 		"-Djeo.assemble.outputDir=$(TARGET)/tmp/assemble" \
 		"-Djeo.assemble.skip.verification"
 
-.SILENT:	
+.SILENT:
 test: $(TEST_FILES)
 	mkdir -p "$(TARGET)/tests-output"
 	for t in $(TESTS); do
