@@ -2,17 +2,20 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: object-filter-to-distill
+name: primitive-filter-to-distill
 pattern: |
   ⟦
-    φ ↦ Φ.hone.filter,
+    φ ↦ Φ.hone.o-filter,
     opcode ↦ 𝑒-opcode,
     class ↦ 𝑒-class,
     target-handle ↦ 𝑒-target-handle,
     target-class ↦ 𝑒-target-class,
     target-method ↦ 𝑒-target-method,
     target-signature ↦ 𝑒-target-signature,
-    bridge-input ↦ 𝑒-bridge-input
+    bridge-input ↦ 𝑒-bridge-input,
+    bridge-output ↦ 𝑒-bridge-output,
+    accepted ↦ 𝑒-accepted,
+    returned ↦ 𝑒-returned
   ⟧
 result: |
   ⟦
@@ -20,10 +23,9 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-input,
+    accepted ↦ 𝑒-accepted,
+    returned ↦ 𝑒-returned,
     body ↦ ⟦
-      i-dup ↦ ⟦
-        φ ↦ Φ.jeo.opcode.dup
-      ⟧,
       i1 ↦ ⟦
         φ ↦ Φ.jeo.opcode.𝜏-opcode,
         i2 ↦ 𝑒-target-class,
@@ -60,15 +62,11 @@ result: |
         nstack ↦ 1,
         stack ↦ ⟦
           φ ↦ Φ.jeo.seq.of1,
-          item ↦ 𝑒-item-type
+          item ↦ 𝑒-stack-item
         ⟧
       ⟧
     ⟧
   ⟧
-when:
-  matches:
-    - '.+\)Ljava\/lang\/Boolean'
-    - 𝑒-target-signature  
 where:
   - meta: 𝑒-label
     function: random-string
@@ -76,8 +74,16 @@ where:
   - meta: 𝜏-opcode
     function: tau
     args: [𝑒-opcode]
-  - meta: 𝑒-item-type
+  - meta: 𝑒-stack-item
     function: sed
     args:
-      - 𝑒-bridge-input
-      - '"s/L(.+);/$1/g"'
+      - 𝑒-returned
+      - '"s/^B$/byte/g"'
+      - '"s/^C$/char/g"'
+      - '"s/^D$/double/g"'
+      - '"s/^F$/float/g"'
+      - '"s/^I$/integer/g"'
+      - '"s/^J$/long/g"'
+      - '"s/^S$/short/g"'
+      - '"s/^Z$/boolean/g"'
+      - '"s/^L(.+);$/$1/g"'
