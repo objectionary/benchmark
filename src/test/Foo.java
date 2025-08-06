@@ -22,15 +22,15 @@ public class Foo {
             .map(Foo::bothPrimitives)
             .map(Double::longValue)
             .filter(x -> x > 5)
-            .map(Long::intValue)
+            .filter(Foo::filterPrim)
             .map(Foo::returnsLong)
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("%d\n", r);
     }
 
-    private static long returnsLong(Integer x) {
-        return x.longValue();
+    private static long returnsLong(long x) {
+        return x;
     }
 
     private static Integer acceptsDouble(double x) {
@@ -49,7 +49,11 @@ public class Foo {
         return (double) x;
     }
 
+    private static boolean filterPrim(double x) {
+        return true;
+    }
+
     private static boolean filterObject(Object x) {
-        return !((String) x).isEmpty();
+        return true;
     }
 }

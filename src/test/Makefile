@@ -42,14 +42,15 @@ jeo-test: $(TARGET)/before/Foo.xmir
 		"-Djeo.assemble.outputDir=$(TARGET)/tmp/assemble" \
 		"-Djeo.assemble.skip.verification"
 
-.SILENT:
+.SILENT:	
 test: $(TEST_FILES)
 	mkdir -p "$(TARGET)/tests-output"
 	for t in $(TESTS); do
 		n=$$(echo "$${t}" | sed 's/-.*$$//g')
 		rule=$$(find "$(RULES_DIR)/" -name "$${n}-*.phr")
+		printf "\nParsing \e[1m%s\e[0m...\n" "$${t}"
 		phino rewrite --sweet --nothing "$(TESTS_DIR)/$${t}.phi" > /dev/null
-		printf "\nTesting \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
+		printf "Testing \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
 		phino rewrite --sweet --must=1 --rule "$${rule}" "$(TESTS_DIR)/$${t}.phi" > "$(TARGET)/tests-output/$${t}.phi"
 	done
 
