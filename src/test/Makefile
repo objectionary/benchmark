@@ -19,7 +19,7 @@ TESTS=$(subst .phi,,$(subst $(TESTS_DIR)/,,$(TEST_FILES)))
 
 JEO_VERSION=0.13.1
 
-all: jeo-test run
+all: test jeo-test run
 
 run: $(TARGET)/after/Foo.bc diff
 
