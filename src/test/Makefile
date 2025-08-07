@@ -75,7 +75,7 @@ $(TARGET)/after/%.phi: $(TARGET)/before/%.phi Makefile $(RULE_FILES) | $(TARGET)
 	for r in $(RULE_NAMES); do
 		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
 	    printf 'Applying %s rule...\n' "$${r}"
-		phino rewrite --sweet --max-depth=40 --rule "$(RULES_DIR)/$${r}.phr" < $@ > "$${n}"
+		phino rewrite --sweet --max-depth=100 --rule "$(RULES_DIR)/$${r}.phr" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
 		if diff --color=auto -u $@ "$${n}"; then
 			echo "No changes made by $${r}"

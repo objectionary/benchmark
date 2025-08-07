@@ -11,6 +11,12 @@ public class Foo {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
             .map(x -> x + 1)
+            .map(Foo::acceptsDouble)
+            .boxed()
+            .filter(Foo::filterBool)
+            .filter(Foo::filterBoolean)
+            .mapToDouble(x -> x)
+            .filter(x -> x > 1)
             .boxed()
             .filter(Foo::filterPrim)
             .map(Foo::acceptsDouble)
@@ -26,9 +32,13 @@ public class Foo {
             .filter(x -> x > 5)
             .filter(Foo::filterPrim)
             .map(Foo::returnsLong)
-            .mapToLong(x -> (long) x)
+            .mapToLong(Foo::mapToLong)
             .sum();
         System.out.printf("%d\n", r);
+    }
+
+    private static Integer mapToLong(double x) {
+        return Double.valueOf(x).intValue();
     }
 
     private static long returnsLong(long x) {

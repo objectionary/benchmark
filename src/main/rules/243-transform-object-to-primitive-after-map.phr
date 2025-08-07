@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: transform-object-to-primitive
+name: transform-object-to-primitive-after-map
 pattern: |
   ⟦
     𝐵-before,

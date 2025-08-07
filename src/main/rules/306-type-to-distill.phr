@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: dup-and-type-to-distill
+name: type-to-distill
 pattern: |
   ⟦
-    φ ↦ Φ.hone.𝜏-instruction,
-    opcode ↦ 𝑒-opcode,
+    φ ↦ Φ.hone.type,
+    from ↦ 𝑒-from,
+    to ↦ 𝑒-to,
     class ↦ 𝑒-class
   ⟧
 result: |
@@ -15,21 +16,17 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ "Ljava/lang/Object;",
     bridge-output ↦ "Ljava/lang/Object;",
-    start ↦ 𝑒-start,
+    start ↦ "type",
     accepted ↦ "Ljava/lang/Object;",
     returned ↦ "Ljava/lang/Object;",
     body ↦ ⟦
       i ↦ ⟦ φ ↦ Φ.jeo.opcode.𝜏-opcode ⟧
     ⟧
   ⟧
-when:
-  or:
-    - eq: [𝜏-instruction, 'type']
-    - eq: [𝜏-instruction, 'dup']
 where:
+  - meta: 𝑒-opcode
+    function: concat
+    args: [𝑒-from, '"2"', 𝑒-to]
   - meta: 𝜏-opcode
     function: tau
     args: [𝑒-opcode]
-  - meta: 𝑒-start
-    function: string
-    args: [𝜏-instruction]
