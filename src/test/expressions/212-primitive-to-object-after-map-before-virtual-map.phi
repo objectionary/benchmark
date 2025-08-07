@@ -33,11 +33,6 @@
           φ ↦ Φ.jeo.opcode.iconst_5,
           val31 ↦ 8
         ⟧,
-        instruction35 ↦ ⟦
-          φ ↦ Φ.jeo.opcode.newarray,
-          val36 ↦ 188,
-          val37 ↦ 10
-        ⟧,
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
           opcode ↦ "invokestatic",
@@ -45,9 +40,24 @@
           target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
-          bridge-input ↦ "Ljava/lang/String;",
-          bridge-output ↦ "Ljava/lang/Integer;"
+          target-signature ↦ "(Ljava/lang/Object;)J",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/Long;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "J"
+        ⟧,
+        instruction179 ↦ ⟦
+          φ ↦ Φ.hone.map,
+          opcode ↦ "invokevirtual",
+          class ↦ "Foo",
+          target-handle ↦ 6,
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$1",
+          target-signature ↦ "()Ljava/lang/String;",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/String;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "Ljava/lang/String;"
         ⟧
       ⟧
     ⟧

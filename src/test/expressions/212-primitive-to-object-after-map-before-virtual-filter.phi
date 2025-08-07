@@ -35,15 +35,28 @@
         ⟧,
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
-          opcode ↦ "invokevirtual",
+          opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+          target-signature ↦ "(Ljava/lang/Object;)J",
           bridge-input ↦ "Ljava/lang/Integer;",
-          bridge-output ↦ "Ljava/lang/String;",
-          accepted ↦ "Ljava/lang/Integer",
+          bridge-output ↦ "Ljava/lang/Long;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "J"
+        ⟧,
+        instruction179 ↦ ⟦
+          φ ↦ Φ.hone.p-filter,
+          opcode ↦ "invokevirtual",
+          class ↦ "Foo",
+          target-handle ↦ 6,
+          target-class ↦ "Ljava/lang/Integer;",
+          target-method ↦ "func",
+          target-signature ↦ "()Z",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/Integer;",
+          accepted ↦ "Ljava/lang/Integer;",
           returned ↦ "Ljava/lang/String;"
         ⟧
       ⟧

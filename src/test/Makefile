@@ -17,7 +17,7 @@ RULE_NAMES=$(subst .phr,,$(RULES))
 TEST_FILES=$(wildcard $(TESTS_DIR)/*.phi)
 TESTS=$(subst .phi,,$(subst $(TESTS_DIR)/,,$(TEST_FILES)))
 
-JEO_VERSION=0.12.0
+JEO_VERSION=0.13.1
 
 all: test jeo-test run
 
@@ -48,8 +48,9 @@ test: $(TEST_FILES)
 	for t in $(TESTS); do
 		n=$$(echo "$${t}" | sed 's/-.*$$//g')
 		rule=$$(find "$(RULES_DIR)/" -name "$${n}-*.phr")
+		printf "\nParsing \e[1m%s\e[0m...\n" "$${t}"
 		phino rewrite --sweet --nothing "$(TESTS_DIR)/$${t}.phi" > /dev/null
-		printf "\nTesting \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
+		printf "Testing \e[1m%s\e[0m against \e[1m%s\e[0m...\n" "$${t}" "$${rule}"
 		phino rewrite --sweet --must=1 --rule "$${rule}" "$(TESTS_DIR)/$${t}.phi" > "$(TARGET)/tests-output/$${t}.phi"
 	done
 
@@ -74,7 +75,7 @@ $(TARGET)/after/%.phi: $(TARGET)/before/%.phi Makefile $(RULE_FILES) | $(TARGET)
 	for r in $(RULE_NAMES); do
 		n="$$(dirname $@)/$$(echo "$${r}" | sed 's/-.*$$//g').phi"
 	    printf 'Applying %s rule...\n' "$${r}"
-		phino rewrite --sweet --max-depth=25 --rule "$(RULES_DIR)/$${r}.phr" < $@ > "$${n}"
+		phino rewrite --sweet --max-depth=40 --rule "$(RULES_DIR)/$${r}.phr" < $@ > "$${n}"
 	    printf 'Applied \e[1m%s\e[0m rule:\n' "$${r}"
 		if diff --color=auto -u $@ "$${n}"; then
 			echo "No changes made by $${r}"

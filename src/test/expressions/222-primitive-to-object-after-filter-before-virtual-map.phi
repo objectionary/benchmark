@@ -15,8 +15,8 @@
       signature ↦ "",
       maxs ↦ ⟦
         φ ↦ Φ.jeo.maxs,
-        val29 ↦ 7,
-        val30 ↦ 4
+        val26 ↦ 7,
+        val27 ↦ 4
       ⟧,
       params ↦ ⟦
         φ ↦ Φ.jeo.params,
@@ -28,22 +28,38 @@
         ⟧
       ⟧,
       body ↦ ⟦
-        φ ↦ Φ.jeo.seq.of46,
-        instruction181 ↦ ⟦
-          φ ↦ Φ.hone.p-filter,
+        φ ↦ Φ.jeo.seq.of50,
+        instruction30 ↦ ⟦
+          φ ↦ Φ.jeo.opcode.iconst_5,
+          val31 ↦ 8
+        ⟧,
+        instruction178 ↦ ⟦
+          φ ↦ Φ.hone.o-filter,
           opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
-          target-class ↦ "java/lang/Integer",
-          target-method ↦ "valueOf",
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$0",
           target-signature ↦ "(Ljava/lang/Object;)Z",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/Long;",
-          accepted ↦ "Ljava/lang/Integer",
-          returned ↦ "Ljava/lang/Long;"
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "J"
+        ⟧,
+        instruction179 ↦ ⟦
+          φ ↦ Φ.hone.map,
+          opcode ↦ "invokevirtual",
+          class ↦ "Foo",
+          target-handle ↦ 6,
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$1",
+          target-signature ↦ "()Ljava/lang/String;",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/String;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "Ljava/lang/String;"
         ⟧
-      ⟧,
-      name ↦ "lambda$main$0"
+      ⟧
     ⟧
   ⟧
 ⟧}

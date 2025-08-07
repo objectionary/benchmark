@@ -35,16 +35,39 @@
         ⟧,
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.map,
-          opcode ↦ "invokevirtual",
+          opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Long;",
           bridge-input ↦ "Ljava/lang/Integer;",
-          bridge-output ↦ "Ljava/lang/String;",
-          accepted ↦ "Ljava/lang/Integer",
-          returned ↦ "Ljava/lang/String;"
+          bridge-output ↦ "Ljava/lang/Long;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "Ljava/lang/Long;"
+        ⟧,
+        instruction178 ↦ ⟦
+          φ ↦ Φ.hone.transform,
+          opcode ↦ "invokevirtual",
+          class ↦ "Foo",
+          target-class ↦ "java/lang/Long",
+          target-method ↦ "doubleValue",
+          target-signature ↦ "()D",
+          bridge-input ↦ "Ljava/lang/Long;",
+          bridge-output ↦ "Ljava/lang/Double;"
+        ⟧,
+        instruction179 ↦ ⟦
+          φ ↦ Φ.hone.o-filter,
+          opcode ↦ "invokestatic",
+          class ↦ "Foo",
+          target-handle ↦ 6,
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$1",
+          target-signature ↦ "(D)Z",
+          bridge-input ↦ "Ljava/lang/Double;",
+          bridge-output ↦ "Ljava/lang/Double;",
+          accepted ↦ "D",
+          returned ↦ "Ljava/lang/Long;"
         ⟧
       ⟧
     ⟧

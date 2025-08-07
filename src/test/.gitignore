@@ -1,5 +1,6 @@
 *.xmir
 *.class
+*.bc
 before/
 after/
 tmp/

@@ -34,17 +34,30 @@
           val31 ↦ 8
         ⟧,
         instruction178 ↦ ⟦
-          φ ↦ Φ.hone.map,
-          opcode ↦ "invokevirtual",
+          φ ↦ Φ.hone.o-filter,
+          opcode ↦ "invokestatic",
           class ↦ "Foo",
           target-handle ↦ 6,
           target-class ↦ "Foo",
           target-method ↦ "lambda$main$0",
-          target-signature ↦ "(Ljava/lang/Object;)Ljava/lang/Object;",
+          target-signature ↦ "(Ljava/lang/Object;)Z",
           bridge-input ↦ "Ljava/lang/Integer;",
-          bridge-output ↦ "Ljava/lang/String;",
-          accepted ↦ "Ljava/lang/Integer",
-          returned ↦ "Ljava/lang/String;"
+          bridge-output ↦ "Ljava/lang/Integer;",
+          accepted ↦ "Ljava/lang/Integer;",
+          returned ↦ "Ljava/lang/Integer;"
+        ⟧,
+        instruction179 ↦ ⟦
+          φ ↦ Φ.hone.o-filter,
+          opcode ↦ "invokestatic",
+          class ↦ "Foo",
+          target-handle ↦ 6,
+          target-class ↦ "Foo",
+          target-method ↦ "lambda$main$1",
+          target-signature ↦ "(I)Z",
+          bridge-input ↦ "Ljava/lang/Integer;",
+          bridge-output ↦ "Ljava/lang/Integer;",
+          accepted ↦ "I",
+          returned ↦ "I"
         ⟧
       ⟧
     ⟧

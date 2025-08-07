@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 public class Foo {
@@ -12,61 +10,52 @@ public class Foo {
     public static void main(String[] args) {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
-            .boxed()
-            .map(String::valueOf)
-            .map(String::toLowerCase)
-            .filter(Foo::isNotEmpty)
-            .filter(Foo::justTrue)
-            .map(x -> Integer.valueOf(x) + 1)
-            .map(Foo::foo)
-            .map(Foo::retLong)
-            .map(Long::intValue)
-            .filter(x -> x > 8)
-            .map(Foo::retLong)
-            .map(Foo::acceptsDouble)
             .map(x -> x + 1)
-            .filter(x -> x > 8)
-            .mapMulti(
-                (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
-                    if (!bobobo(x)) {
-                        return;
-                    }
-                    consumer.accept(x);
-                }
-            )
-            .mapMulti(
-                (BiConsumer<Integer, Consumer<Integer>>) (x, consumer) -> {
-                    if (bobobo(x)) {
-                        consumer.accept(x);
-                    }
-                }
-            )
+            .boxed()
+            .filter(Foo::filterPrim)
+            .map(Foo::acceptsDouble)
+            .map(String::valueOf)
+            .filter(Foo::filterObject)
+            .map(Integer::valueOf)
+            .map(Foo::acceptsDouble)
+            .filter(Foo::filterBoolean)
+            .filter(Foo::filterBool)
+            .map(x -> x.shortValue())
+            .map(Foo::bothPrimitives)
+            .map(Double::longValue)
+            .filter(x -> x > 5)
+            .filter(Foo::filterPrim)
+            .map(Foo::returnsLong)
             .mapToLong(x -> (long) x)
             .sum();
         System.out.printf("%d\n", r);
+    }
+
+    private static long returnsLong(long x) {
+        return x;
     }
 
     private static Integer acceptsDouble(double x) {
         return Double.valueOf(x).intValue();
     }
 
-    private static long retLong(Integer x) {
-        return x.longValue();
+    private static boolean filterBool(Integer x) {
+        return x > 1;
     }
 
-    private static Integer foo(int x) {
-        return x + 1;
+    private static Boolean filterBoolean(long x) {
+        return x > 1;
     }
 
-    private static boolean bobobo(Integer i) {
-        return i > 10;
+    private static double bothPrimitives(short x) {
+        return (double) x;
     }
 
-    private static Boolean justTrue(Object str) {
+    private static boolean filterPrim(double x) {
         return true;
     }
 
-    private static boolean isNotEmpty(Object str) {
-        return !((String) str).isEmpty();
+    private static boolean filterObject(Object x) {
+        return true;
     }
 }
