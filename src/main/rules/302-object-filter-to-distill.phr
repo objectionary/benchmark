@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: primitive-filter-to-distill
+name: object-filter-to-distill
 pattern: |
   ⟦
     φ ↦ Φ.hone.o-filter,

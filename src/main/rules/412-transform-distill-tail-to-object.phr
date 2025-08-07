@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MIT
 ---
 # yamllint disable rule:line-length
-name: fuse
+name: transform-distill-tail-to-object
 pattern: |
   ⟦
     φ ↦ Φ.hone.distill,
@@ -21,45 +21,30 @@ result: |
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
     start ↦ 𝑒-start,
-    accepted ↦ 𝑒-bridge-input,
-    returned ↦ 𝑒-returned,
+    accepted ↦ 𝑒-accepted,
+    returned ↦ 𝑒-bridge-output,
     body ↦ ⟦
+      𝐵-body,
       i-transform ↦ ⟦
-        φ ↦ Φ.jeo.opcode.invokevirtual,
+        φ ↦ Φ.jeo.opcode.invokestatic,
         i2 ↦ 𝑒-transform-class,
-        i3 ↦ 𝑒-transform-method,
+        i3 ↦ "valueOf",
         i4 ↦ 𝑒-transform-signature,
         i5 ↦ Φ̇.false
       ⟧,
-      𝐵-body,
       ρ ↦ ∅
     ⟧
   ⟧
 when:
   matches:
     - '^[BCDFIJSZ]$'
-    - 𝑒-accepted
+    - 𝑒-returned
 where:
   - meta: 𝑒-transform-class
     function: sed
     args:
-      - 𝑒-bridge-input
+      - 𝑒-bridge-output
       - '"s/L(.+);/$1/g"'
   - meta: 𝑒-transform-signature
     function: concat
-    args: ['"()"', 𝑒-accepted]
-  - meta: 𝑒-transform-method-prefix
-    function: sed
-    args:
-      - 𝑒-accepted
-      - '"s/B/byte/g"'
-      - '"s/C/char/g"'
-      - '"s/D/double/g"'
-      - '"s/F/float/g"'
-      - '"s/I/int/g"'
-      - '"s/J/long/g"'
-      - '"s/S/short/g"'
-      - '"s/Z/boolean/g"'
-  - meta: 𝑒-transform-method
-    function: concat
-    args: [𝑒-transform-method-prefix, '"Value"']
+    args: ['"("', 𝑒-returned, '")"', 𝑒-bridge-output]
