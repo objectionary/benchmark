@@ -36,6 +36,7 @@
         instruction178 ↦ ⟦
           φ ↦ Φ.hone.type,
           opcode ↦ "l2d",
+          class ↦ "Foo"
         ⟧
       ⟧
     ⟧
