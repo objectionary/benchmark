@@ -11,6 +11,7 @@ pattern: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-first-bridge-output,
+      start ↦ 𝑒-first-start,
       accepted ↦ 𝑒-first-accepted,
       returned ↦ 𝑒-first-returned,
       body ↦ ⟦ 𝐵-first-body, ρ ↦ ∅ ⟧
@@ -20,6 +21,7 @@ pattern: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-second-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
+      start ↦ 𝑒-second-start,
       accepted ↦ 𝑒-second-accepted,
       returned ↦ 𝑒-second-returned,
       body ↦ ⟦ 𝐵-second-body, ρ ↦ ∅ ⟧
@@ -34,6 +36,7 @@ result: |
       class ↦ 𝑒-class,
       bridge-input ↦ 𝑒-first-bridge-input,
       bridge-output ↦ 𝑒-second-bridge-output,
+      start ↦ 𝑒-first-start,
       accepted ↦ 𝑒-first-accepted,
       returned ↦ 𝑒-second-returned,
       body ↦ ⟦

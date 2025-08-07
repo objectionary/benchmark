@@ -15,6 +15,7 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ "Ljava/lang/Object;",
     bridge-output ↦ "Ljava/lang/Object;",
+    start ↦ 𝑒-start,
     accepted ↦ "Ljava/lang/Object;",
     returned ↦ "Ljava/lang/Object;",
     body ↦ ⟦
@@ -29,3 +30,6 @@ where:
   - meta: 𝜏-opcode
     function: tau
     args: [𝑒-opcode]
+  - meta: 𝑒-start
+    function: string
+    args: [𝜏-instruction]

@@ -20,6 +20,7 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
+    start ↦ "transform",
     accepted ↦ 𝑒-bridge-input,
     returned ↦ 𝑒-bridge-output,
     body ↦ ⟦

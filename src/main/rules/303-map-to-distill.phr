@@ -23,6 +23,7 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
+    start ↦ "map",
     accepted ↦ 𝑒-accepted,
     returned ↦ 𝑒-returned,
     body ↦ ⟦

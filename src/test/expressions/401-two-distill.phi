@@ -34,6 +34,7 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/Integer;",
+          start ↦ "map",
           accepted ↦ "I",
           returned ↦ "Ljava/lang/String;",
           body ↦ ⟦
@@ -51,6 +52,7 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/String;",
+          start ↦ "map",
           accepted ↦ "I",
           returned ↦ "Ljava/lang/Integer;",
           body ↦ ⟦

@@ -31,7 +31,7 @@ result: |
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-input,
     accepted ↦ 𝑒-accepted,
-    returned ↦ 𝑒-accepted
+    returned ↦ 𝑒-bridge-input
   ⟧
 where:
   - meta: 𝑒-bridge-input

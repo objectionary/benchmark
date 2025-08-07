@@ -17,6 +17,7 @@ pattern: |
           class ↦ 𝑒-class,
           bridge-input ↦ 𝑒-bridge-input,
           bridge-output ↦ 𝑒-bridge-output,
+          start ↦ 𝑒-start,
           accepted ↦ 𝑒-accepted,
           returned ↦ 𝑒-returned,
           body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧

@@ -34,15 +34,15 @@
           class ↦ "Foo",
           bridge-input ↦ "Ljava/lang/Integer;",
           bridge-output ↦ "Ljava/lang/Integer;",
-          start ↦ "map",
-          accepted ↦ "Ljava/lang/Integer;",
+          start ↦ "filter",
+          accepted ↦ "I",
           returned ↦ "I",
           body ↦ ⟦
             i462 ↦ ⟦
               φ ↦ Φ.jeo.opcode.invokestatic,
-              v463 ↦ "java/lang/Integer",
-              v464 ↦ "valueOf",
-              v465 ↦ "(I)Ljava/lang/String;",
+              v463 ↦ "java/lang/Object",
+              v464 ↦ "function",
+              v465 ↦ "(I)Z",
               v466 ↦ Φ̇.false
             ⟧
           ⟧

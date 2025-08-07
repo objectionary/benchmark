@@ -9,7 +9,7 @@ pattern: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
-    start ↦ 𝑒-start,
+    start ↦ "filter",
     accepted ↦ 𝑒-accepted,
     returned ↦ 𝑒-returned,
     body ↦ ⟦ 𝐵-body, ρ ↦ ∅ ⟧
@@ -20,31 +20,12 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
-    start ↦ 𝑒-start,
+    start ↦ "none",
     accepted ↦ 𝑒-accepted,
-    returned ↦ 𝑒-bridge-output,
+    returned ↦ 𝑒-returned,
     body ↦ ⟦
+      i-first-dup ↦ ⟦ φ ↦ Φ.jeo.opcode.dup ⟧,
       𝐵-body,
-      i-transform ↦ ⟦
-        φ ↦ Φ.jeo.opcode.invokestatic,
-        i2 ↦ 𝑒-transform-class,
-        i3 ↦ "valueOf",
-        i4 ↦ 𝑒-transform-signature,
-        i5 ↦ Φ̇.false
-      ⟧,
       ρ ↦ ∅
     ⟧
   ⟧
-when:
-  matches:
-    - '^[BCDFIJSZ]$'
-    - 𝑒-returned
-where:
-  - meta: 𝑒-transform-class
-    function: sed
-    args:
-      - 𝑒-bridge-output
-      - '"s/L(.+);/$1/g"'
-  - meta: 𝑒-transform-signature
-    function: concat
-    args: ['"("', 𝑒-returned, '")"', 𝑒-bridge-output]

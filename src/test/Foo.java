@@ -10,7 +10,9 @@ public class Foo {
     public static void main(String[] args) {
         final int[] input = { 1, 2, 4, 8, 16 };
         final long r = IntStream.of(input)
+            .map(x -> x + 1)
             .boxed()
+            .filter(Foo::filterPrim)
             .map(Foo::acceptsDouble)
             .map(String::valueOf)
             .filter(Foo::filterObject)
