@@ -28,7 +28,7 @@ and used by
 This is the summary of the tests performed
 by openjdk 23.0.2,
 on 2025-08-08
-at 16:27,
+at 03:33,
 on Linux with 4 CPUs,
 in [this GHA run][benchmark-gha]
 (the numbers are in milliseconds):
