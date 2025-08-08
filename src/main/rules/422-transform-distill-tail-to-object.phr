@@ -36,9 +36,14 @@ result: |
     ⟧
   ⟧
 when:
-  matches:
-    - '^[BCDFIJSZ]$'
-    - 𝑒-returned
+  and:
+    - matches:
+        - '^[BCDFIJSZ]$'
+        - 𝑒-returned
+    - not:
+        matches:
+          - '^[BCDFIJSZ]$'
+          - 𝑒-bridge-output
 where:
   - meta: 𝑒-transform-class
     function: sed

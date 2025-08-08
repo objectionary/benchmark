@@ -4,8 +4,13 @@
  */
 
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Foo {
+
+    public static final int N = 100_000_000;
+
+    private static final long[] VALS = IntStream.range(0, N).mapToLong(i -> i % 1000).toArray();
 
     public static void main(String[] args) {
         final int[] input = { 1, 2, 4, 8, 16 };
@@ -34,7 +39,8 @@ public class Foo {
             .map(Foo::returnsLong)
             .mapToLong(Foo::mapToLong)
             .sum();
-        System.out.printf("%d\n", r);
+        long x = LongStream.of(VALS).map(d -> d + d).sum();
+        System.out.printf("%d\n", r + x);
     }
 
     private static Integer mapToLong(double x) {
