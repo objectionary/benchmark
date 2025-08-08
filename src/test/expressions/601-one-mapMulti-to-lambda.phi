@@ -37,7 +37,11 @@
           φ ↦ Φ.hone.mapMulti,
           class ↦ "Foo",
           target-method ↦ "lambda$main$0_bifunc",
-          bridge-input ↦ "Ljava/lang/Integer;"
+          bridge-input ↦ "Ljava/lang/Integer;",
+          map-multi-consumer ↦ "Ljava/util/function/BiConsumer;",
+          lambda-signature ↦ "(Ljava/lang/Object;Ljava/lang/Object;)V",
+          consumer ↦ "Ljava/util/function/Consumer;",
+          stream-class ↦ "java/util/stream/Stream"
         ⟧
       ⟧
     ⟧

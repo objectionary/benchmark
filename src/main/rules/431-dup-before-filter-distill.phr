@@ -20,12 +20,22 @@ result: |
     class ↦ 𝑒-class,
     bridge-input ↦ 𝑒-bridge-input,
     bridge-output ↦ 𝑒-bridge-output,
-    start ↦ "none",
+    start ↦ "dup",
     accepted ↦ 𝑒-accepted,
     returned ↦ 𝑒-returned,
     body ↦ ⟦
-      i-first-dup ↦ ⟦ φ ↦ Φ.jeo.opcode.dup ⟧,
+      i-dup ↦ ⟦ φ ↦ Φ.jeo.opcode.𝜏-dup ⟧,
       𝐵-body,
       ρ ↦ ∅
     ⟧
   ⟧
+where:
+  - meta: 𝑒-dup
+    function: sed
+    args:
+      - 𝑒-accepted
+      - '"s/^[DJ]$/dup2/g"'
+      - '"s/^(B|C|F|I|S|Z|L.+;)$/dup/g"'
+  - meta: 𝜏-dup
+    function: tau
+    args: [𝑒-dup]
