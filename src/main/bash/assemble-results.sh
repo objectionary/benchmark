@@ -17,7 +17,7 @@
 set -e -o pipefail
 
 echo "This is the summary of the tests performed"
-echo "by $(java --version | head -1 | cut -d ' ' -f1,2),"
+echo "by **${JDK_DISTRIBUTION}** $(java --version | head -1 | cut -d ' ' -f1,2),"
 echo "on $(date +'%Y-%m-%d')"
 echo "at $(date +'%H:%M'),"
 echo "on $(uname) with $(nproc) CPUs,"

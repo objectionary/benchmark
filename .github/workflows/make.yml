@@ -19,11 +19,13 @@ jobs:
   make:
     timeout-minutes: 45
     runs-on: ubuntu-24.04
+    env:
+      JDK_DISTRIBUTION: 'zulu'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: ${{ env.JDK_DISTRIBUTION }}
           java-version: 23
       - run: |
           sudo wget -q -O /usr/bin/phino http://phino.objectionary.com/releases/ubuntu-24.04/phino-latest
@@ -39,7 +41,7 @@ jobs:
         run: |
           set -x
           SECONDS=0
-          make
+          JDK=${{ env.JDK_DISTRIBUTION }} make
           results=$(
             cat results.md
             printf "\nThe entire test took %d seconds.\n" "${SECONDS}"
