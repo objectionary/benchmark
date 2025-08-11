@@ -17,11 +17,8 @@ TARGET=$$(realpath ./tmp)
 
 export
 
-all: env test results.md html/summary.html
+all: env results.md html/summary.html
 	set -e
-
-test:
-	make -C src/test "TARGET=$(TARGET)"
 
 html/summary.html: ./src/main/perl/create-html-summary.pl before.csv after.csv
 	mkdir -p html
