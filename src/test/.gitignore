@@ -1,7 +1,0 @@
-*.xmir
-*.class
-*.bc
-before/
-after/
-tmp/
-tests-output/
