@@ -23,7 +23,7 @@ jobs:
       JDK_DISTRIBUTION: 'zulu'
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: ${{ env.JDK_DISTRIBUTION }}
           java-version: 23
