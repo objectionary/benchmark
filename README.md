@@ -7,6 +7,10 @@
 [![mvn](https://github.com/objectionary/benchmark/actions/workflows/mvn.yml/badge.svg)](https://github.com/objectionary/benchmark/actions/workflows/mvn.yml)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 
+> [!WARNING]
+> This repository is deprecated in favor of
+> [hone-maven-plugin](https://github.com/objectionary/hone-maven-plugin).
+
 This benchmark combines:
 
 * [eo-maven-plugin](https://github.com/objectionary/eo)
